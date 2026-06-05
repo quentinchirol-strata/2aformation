@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node build.js)",
+      "Bash(node verify.js)",
+      "Bash(node shot.js)",
+      "Bash(grep -oE 'elementorFrontendConfig[^<]{0,400}' index.html)",
+      "Bash(grep -oE '\\\\{[0-9]{2,3}:\"[a-f0-9]{16,}\"[^}]*\\\\}' dist/assets/js/frontend.min.js)",
+      "Bash(curl -s -o /dev/null -w \"907 chunk: %{http_code}\\\\n\" --max-time 10 \"https://2aformation.com/wp-content/plugins/elementor/assets/js/907.1ddadcf80aca9cb11200.js\")",
+      "Bash(curl -s --max-time 20 \"https://2aformation.com/wp-content/plugins/elementor/assets/js/frontend.min.js\" -o /tmp/fe_live.js)",
+      "Read(//tmp/**)",
+      "Read(//c/tmp/**)",
+      "Bash(grep -oE '\\\\.u=[^;]{0,400}' fe_live.js)",
+      "Bash(grep -oE '\\\\.p=[^;,]{0,120}' fe_live.js)",
+      "Bash(grep -oaE '.{0,5}\\\\.u=.{0,300}' /tmp/fe_live.js)",
+      "Bash(grep -oaE '\\\\{[0-9]+:\"[0-9a-f]+\"[,0-9a-f:\"\\\\}]*' fe_live.js)",
+      "Bash(grep -oaE '\\(\\\\.u=|,u=|u:\\)[^}]{0,250}\\\\}' fe_live.js)",
+      "Bash(grep -oaE '.{0,40}\\\\+\"\\\\.js\"' fe_live.js)",
+      "Bash(grep -oaE '\\(__webpack_require__\\\\.p=|\\\\.p=|sticky\\)[^;]{0,120}' dist/assets/js/main.js)",
+      "Bash(grep -oaE 'sticky[^\"&]{0,30}' dist/assets/js/main.js)",
+      "Bash(grep -oaE '.{0,30}sticky.{0,40}' dist/assets/js/main.js)",
+      "Bash(grep -hoE '\\\\\\\\?/?wp-content/plugins/blocksy-companion/static/bundle/[^\"]*' dist/index.html)",
+      "Bash(grep -oaE '.{0,40}back-to-top[^\"]{0,20}' dist/assets/js/main.js)",
+      "Bash(grep -oaE 'miniCssF=[^;]{0,160}' ../dist/assets/js/main.js)",
+      "Bash(grep -oaE '.{0,25}\\(miniCssF|\\\\.css\"|href=\\)[^;]{0,60}' dist/assets/js/main.js)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(bc)",
+      "Read(//c/Users/Quentin/Documents/2aformation/dist/assets/css/**)",
+      "Bash(node menushot.js)",
+      "Bash(powershell.exe -NoProfile -Command 'Get-Process chrome -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like '\\\\''*headless*'\\\\'' -or $_.MainWindowTitle -eq '\\\\'''\\\\'' } | Select-Object Id,@{n='\\\\''headless'\\\\'';e={$_.CommandLine -like '\\\\''*headless*'\\\\''}} | Format-Table -Auto; \\(Get-Process chrome -ErrorAction SilentlyContinue | Measure-Object\\).Count')",
+      "Bash(powershell.exe -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -match '\\\\''headless|--user-data-dir=.*\\(Temp|puppeteer\\)'\\\\'' } | Select-Object ProcessId, @{n='\\\\''cl'\\\\'';e={$_.CommandLine.Substring\\(0,[Math]::Min\\(90,$_.CommandLine.Length\\)\\)}} | Format-Table -Auto -Wrap')",
+      "Bash(powershell.exe -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''node.exe'\\\\''\" | Select-Object ProcessId, @{n='\\\\''cl'\\\\'';e={$_.CommandLine.Substring\\(0,[Math]::Min\\(100,$_.CommandLine.Length\\)\\)}} | Format-Table -Auto -Wrap; '\\\\''--- chrome count ---'\\\\''; \\(Get-Process chrome -ErrorAction SilentlyContinue | Measure-Object\\).Count')",
+      "Bash(powershell.exe -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*allow-file-access-from-files*'\\\\'' -or $_.CommandLine -like '\\\\''*--headless*'\\\\'' } | ForEach-Object { $_.ProcessId }')",
+      "Bash(node ptest.js)"
+    ]
+  }
+}

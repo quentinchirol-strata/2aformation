@@ -1,0 +1,17 @@
+{
+  "name": "2aformation-static-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Build pipeline: WordPress mirror -> clean static site",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "clean-css": "^5.3.3",
+    "puppeteer-core": "^25.0.4",
+    "purgecss": "^6.0.0",
+    "terser": "^5.31.0"
+  }
+}
