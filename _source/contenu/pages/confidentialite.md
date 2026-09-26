@@ -15,7 +15,7 @@ description: Comment 2aFormation collecte et protège vos données personnelles.
 
 Nous collectons uniquement les données que vous nous transmettez volontairement via le formulaire de contact, par e-mail ou par téléphone : nom, structure, adresse e-mail, numéro de téléphone et contenu de votre demande.
 
-Le site ne dépose aucun cookie publicitaire ni de mesure d'audience.
+Le site ne dépose aucun cookie. Nous mesurons sa fréquentation de façon anonyme avec GoatCounter (voir plus bas), sans cookie ni collecte de données personnelles.
 
 ## Finalités
 
@@ -29,6 +29,7 @@ Le traitement repose sur votre demande (mesures précontractuelles) et, en cas d
 
 - **Hébergement :** GitHub Pages (GitHub, Inc.) peut enregistrer l'adresse IP des visiteurs à des fins de sécurité.
 - **Formulaire de contact :** les demandes envoyées via le formulaire transitent par le service Formspree (Formspree, Inc., États-Unis), qui nous les transmet par e-mail.
+- **Mesure d'audience :** GoatCounter compte les pages consultées de façon anonyme et agrégée, sans cookie ni identification des visiteurs.
 - **Polices de caractères :** le site utilise Google Fonts, ce qui transmet votre adresse IP à Google lors du chargement des pages.
 
 ## Vos droits
