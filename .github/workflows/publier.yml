@@ -27,14 +27,6 @@ jobs:
             tar -xJf _source.tar.xz -C _source
             rm _source.tar.xz
             cp _source/.pages.yml .pages.yml
-            # Reprise du logo, du favicon, du certificat Qualiopi et du domaine de l'ancien site
-            A=wp-content/uploads
-            mkdir -p _source/static/assets/img _source/static/documents
-            cp "$A/2024/08/Logo-gris@300x-8-1-300x261.png" _source/static/assets/img/logo.png
-            cp "$A/2024/08/Logo-Blanc@300x-8-1-300x261.png" _source/static/assets/img/logo-blanc.png
-            cp "$A/2024/07/cropped-favicone@300x-8-2-1-192x192.png" _source/static/assets/img/favicon.png
-            cp "$A/2026/03/Certificat-Qualiopi-Mise-a-jour-le-14.10.2024-2.pdf" _source/static/documents/certificat-qualiopi.pdf
-            cp CNAME _source/static/CNAME
           fi
 
       - uses: actions/setup-python@v5
@@ -45,6 +37,17 @@ jobs:
         run: |
           pip install jinja2 pyyaml markdown
           python _source/build.py
+
+      - name: Fabriquer le catalogue PDF
+        run: |
+          if [ -f _source/_site/catalogue/index.html ]; then
+            mkdir -p _source/_site/documents
+            google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
+              --window-size=1200,1700 --virtual-time-budget=20000 \
+              --print-to-pdf="$PWD/_source/_site/documents/catalogue-2aformation.pdf" \
+              "file://$PWD/_source/_site/catalogue/index.html"
+            ls -la _source/_site/documents
+          fi
 
       - name: Remplacer les pages publiées
         run: |
