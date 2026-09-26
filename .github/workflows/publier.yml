@@ -4,7 +4,7 @@ name: Publier le site
 on:
   push:
     branches: [main]
-    paths: ["_source/**", "_source.tar.xz", ".github/workflows/publier.yml"]
+    paths: ["_source/**", "_source*.tar.xz", ".github/workflows/publier.yml"]
   workflow_dispatch:
 
 permissions:
@@ -22,10 +22,11 @@ jobs:
 
       - name: Installer les sources livrées en archive (le cas échéant)
         run: |
-          if [ -f _source.tar.xz ]; then
+          ARCHIVE=$(ls _source*.tar.xz 2>/dev/null | head -1 || true)
+          if [ -n "$ARCHIVE" ]; then
             rm -rf _source && mkdir _source
-            tar -xJf _source.tar.xz -C _source
-            rm _source.tar.xz
+            tar -xJf "$ARCHIVE" -C _source
+            rm -f _source*.tar.xz
             cp _source/.pages.yml .pages.yml
           fi
 
