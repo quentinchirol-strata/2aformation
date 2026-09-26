@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalogue 2aFormation {{ annee_catalogue }}</title>
+<meta name="description" content="Catalogue {{ annee_catalogue }} des formations 2aFormation : {{ nb_formations }} formations en intra pour les équipes du social et de la protection de l'enfance, analyse des pratiques et accompagnement VAE.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="{{ R }}assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+:root{
+  --paper:#F6F7F4; --surface:#FFFFFF; --ink:#1D282B; --muted:#56655F;
+  --green:#2E5B4E; --green-dark:#23473C; --green-soft:#DCE8E2; --ochre:#B8572A; --line:#D3DCD7;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#C9D1CC;font-family:var(--body);color:var(--ink);font-size:9.6pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* Feuilles A4 */
+.sheets{padding:24px 0;display:grid;gap:24px;justify-content:center}
+.page{width:210mm;height:296.8mm;background:var(--surface);position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:16mm 16mm 20mm;display:flex;flex-direction:column}
+.foot{position:absolute;left:16mm;right:16mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted);border-top:1px solid var(--line);padding-top:3mm}
+.foot b{color:var(--green)}
+.eyebrow{font-size:7.5pt;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--green)}
+.muted{color:var(--muted)}
+@media print{
+  body{background:none}
+  .sheets{padding:0;gap:0;display:block}
+  .page{box-shadow:none;page-break-after:always;break-after:page}
+  .toolbar{display:none}
+  .sheets{zoom:1 !important}
+}
+
+/* Couverture */
+.cover{padding:0;background:var(--paper)}
+.cover .top{padding:18mm 18mm 0;display:flex;justify-content:space-between;align-items:flex-start}
+.cover .top img{height:26mm;width:auto}
+.cover .year{font-family:var(--display);font-weight:700;font-size:13pt;color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:2mm 5mm}
+.cover .title{padding:34mm 18mm 0}
+.cover h1{font-size:44pt;letter-spacing:-.02em}
+.cover h1 span{color:var(--green)}
+.cover .sub{font-size:13pt;color:var(--muted);margin-top:8mm;max-width:140mm;line-height:1.4}
+.cover .band{position:absolute;left:0;right:0;bottom:0;height:88mm;background:var(--green);color:var(--paper);padding:14mm 18mm;display:grid;grid-template-columns:1fr 1fr;gap:10mm}
+.cover .band h3{font-size:10pt;text-transform:uppercase;letter-spacing:.12em;color:var(--green-soft);margin-bottom:3mm}
+.cover .band ul li{padding:1.6mm 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:10.5pt}
+.cover .band .qualiopi{grid-column:1/-1;font-size:8.5pt;opacity:.9;align-self:end}
+
+/* Édito */
+.edito h2{font-size:24pt;margin:3mm 0 6mm}
+.edito .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:10mm}
+.edito p+p{margin-top:3mm}
+.edito .lead{font-size:11pt;line-height:1.5}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:8mm}
+.pillars div{border-top:2px solid var(--green);padding-top:2.5mm}
+.pillars h4{font-size:10pt;margin-bottom:1mm}
+.pillars p{font-size:8.8pt;color:var(--muted)}
+.stats{background:var(--green);color:var(--paper);border-radius:4mm;padding:7mm}
+.stats .eyebrow{color:var(--green-soft)}
+.stats dl{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin:4mm 0 0}
+.stats dt{font-family:var(--display);font-weight:700;font-size:22pt;line-height:1}
+.stats dd{margin:1mm 0 0;font-size:8.3pt;opacity:.9}
+.stats .q{margin-top:5mm;padding-top:4mm;border-top:1px solid rgba(255,255,255,.25);font-size:8pt}
+.team{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8mm;padding-top:8mm}
+.person{display:grid;grid-template-columns:20mm 1fr;gap:4mm;align-items:start}
+.person img{width:20mm;height:20mm;border-radius:50%;object-fit:cover}
+.person h4{font-size:10.5pt}
+.person .role{color:var(--green);font-weight:700;font-size:8pt}
+.person p{font-size:8.3pt;color:var(--muted);margin-top:1mm}
+
+/* Sommaire */
+.toc h2{font-size:22pt;margin:2mm 0 5mm}
+.toc .themes{columns:2;column-gap:9mm}
+.toc .theme{margin-bottom:4.5mm;break-inside:avoid}
+.toc .theme h3{font-size:9pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:2mm}
+.toc li{display:grid;grid-template-columns:1fr auto auto;gap:3mm;align-items:baseline;padding:1.2mm 0;border-bottom:1px dotted var(--line);font-size:9pt}
+.toc li .d{color:var(--muted);font-size:8.3pt}
+.toc li .n{font-family:var(--display);font-weight:700;color:var(--green);min-width:6mm;text-align:right}
+.toc .new{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ochre);margin-left:2mm}
+.box{background:var(--green-soft);border-radius:3mm;padding:5mm 6mm;margin-top:auto}
+.box h3{font-size:12pt;margin-bottom:3mm}
+.box .grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm 8mm}
+.box .grid div{font-size:8.4pt;padding:1mm 0;border-bottom:1px solid rgba(46,91,78,.18)}
+.box .grid b{display:block;font-size:7pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+
+/* Fiche */
+.fiche .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4mm}
+.fiche .head img{height:10mm;width:auto}
+.fiche.dense .mod li{display:inline;padding-left:0;font-size:7.8pt}
+.fiche.dense .mod li::before{content:none}
+.fiche.dense .mod li+li::before{content:" · ";position:static;color:var(--green)}
+.fiche h2{font-size:19pt;letter-spacing:-.01em;margin-bottom:3mm}
+.fiche .intro{font-size:9.8pt;color:var(--muted);margin-bottom:5mm;max-width:170mm}
+.fiche .body{display:grid;grid-template-columns:1fr 54mm;gap:7mm;flex:1;min-height:0}
+.fiche h3{font-size:10.5pt;margin:0 0 2mm}
+.ticks li{position:relative;padding-left:4.5mm;margin-bottom:1.2mm}
+.ticks li::before{content:"";position:absolute;left:.6mm;top:1.5mm;width:2.2mm;height:1.3mm;border-left:1.5px solid var(--green);border-bottom:1.5px solid var(--green);transform:rotate(-45deg)}
+.mods{display:grid;gap:2.5mm;counter-reset:m;margin-top:4mm}
+.mods.two{display:block;columns:2;column-gap:2.5mm}
+.mods.two .mod{margin-bottom:2.5mm;display:inline-block;width:100%}
+.mod{counter-increment:m;border:1px solid var(--line);border-radius:2mm;padding:2.6mm 3.2mm;break-inside:avoid}
+.mod h4{font-size:9pt;margin-bottom:1mm}
+.mod h4::before{content:"Module " counter(m) " · ";color:var(--green)}
+.mod li{font-size:8.4pt;color:var(--muted);padding-left:3mm;position:relative;line-height:1.35;margin-bottom:.6mm}
+.mod li::before{content:"–";position:absolute;left:0;color:var(--green)}
+.facts{background:var(--paper);border-radius:3mm;padding:4.5mm;align-self:start}
+.facts div{padding:1.6mm 0;border-bottom:1px solid var(--line);font-size:8.4pt}
+.facts div:last-child{border-bottom:0}
+.facts b{display:block;font-size:6.8pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+.facts .big{font-family:var(--display);font-weight:700;font-size:13pt;color:var(--ink)}
+.fiche.dense{font-size:8.6pt}
+.fiche.dense .intro{font-size:8.8pt;margin-bottom:3.5mm}
+.fiche.dense h2{font-size:16pt}
+.fiche.dense .mod li{font-size:7.8pt}
+.fiche.dense .ticks li{margin-bottom:.6mm}
+.fiche.dense .mods{gap:2mm;margin-top:3mm}
+.fiche.dense .ticks{columns:2;column-gap:5mm}
+.fiche.dense .ticks li{break-inside:avoid}
+.fiche.dense .facts div{padding:1.1mm 0;font-size:7.9pt}
+.fiche.dense .body{grid-template-columns:1fr;gap:4mm}
+.fiche.dense .facts{order:-1;display:grid;grid-template-columns:repeat(4,1fr);gap:0 5mm;padding:3mm 4.5mm}
+.fiche.dense .facts div{border-bottom:0}
+.fiche.dense .facts .big{font-size:11pt}
+.fiche.dense .mod ul{line-height:1.3}
+.fiche.dense .mods.two{columns:3}
+.method{margin-top:4mm;display:grid;grid-template-columns:1fr 1fr;gap:6mm;font-size:8pt;color:var(--muted);border-top:1px solid var(--line);padding-top:3mm}
+.method b{color:var(--ink);font-size:8.3pt}
+
+/* VAE */
+.vae h2{font-size:22pt;margin:3mm 0 4mm}
+.dips{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm;margin:4mm 0}
+.dip{border:1px solid var(--line);border-radius:2mm;padding:3mm}
+.dip span{font-size:7.2pt;color:var(--muted)}
+.dip h4{font-size:9.5pt;margin-top:1mm}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;counter-reset:s;margin-bottom:4mm}
+.steps li{counter-increment:s;font-size:8pt;padding-top:8mm;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:6mm;height:6mm;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font:700 8pt var(--display)}
+.steps b{display:block;font-family:var(--display);font-size:9pt}
+table{border-collapse:collapse;width:100%;font-size:8.6pt}
+th,td{text-align:left;padding:1.6mm 2.2mm;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:7pt;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+td.p{font-family:var(--display);font-weight:700;color:var(--green);white-space:nowrap;text-align:right;font-size:10pt}
+td.d{white-space:nowrap;color:var(--muted)}
+.note{font-size:8pt;color:var(--muted);margin-top:3mm}
+
+/* Dos */
+.back{background:var(--green);color:var(--paper);padding:20mm 18mm}
+.back img{height:24mm;width:auto;align-self:flex-start}
+.back h2{font-size:26pt;margin:18mm 0 5mm}
+.back .lead{font-size:12pt;opacity:.92;max-width:140mm}
+.back .steps2{margin-top:10mm;display:grid;gap:4mm;counter-reset:b}
+.back .steps2 li{counter-increment:b;display:grid;grid-template-columns:9mm 1fr;gap:3mm;font-size:10.5pt;align-items:start}
+.back .steps2 li::before{content:counter(b);width:8mm;height:8mm;border-radius:50%;border:1.5px solid var(--green-soft);display:grid;place-items:center;font:700 10pt var(--display)}
+.back .contact{margin-top:14mm;display:grid;grid-template-columns:1fr 1fr;gap:8mm;font-size:10pt}
+.back .contact b{display:block;font-size:7.5pt;text-transform:uppercase;letter-spacing:.12em;color:var(--green-soft);margin-bottom:1.5mm}
+.back .legal{position:absolute;left:18mm;right:18mm;bottom:12mm;font-size:7.5pt;opacity:.8;border-top:1px solid rgba(255,255,255,.25);padding-top:3mm}
+
+@media screen{.toolbar{display:flex}}
+.toolbar{display:none;position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;font-size:13px;padding:10px 16px;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.toolbar a{color:#fff}
+</style>
+</head>
+<body>
+{% set page_debut = 4 %}
+<div class="toolbar">Catalogue {{ annee_catalogue }} · <a href="{{ R }}documents/catalogue-2aformation.pdf">Télécharger le PDF</a> · <a href="{{ R }}index.html">Retour au site</a></div>
+<div class="sheets" id="sheets">
+
+<!-- 1. Couverture -->
+<section class="page cover">
+  <div class="top">
+    <img src="{{ R }}assets/img/logo.png" alt="2A Formation">
+    <span class="year">{{ annee_catalogue }}</span>
+  </div>
+  <div class="title">
+    <div class="eyebrow">Catalogue des formations</div>
+    <h1 style="margin-top:5mm">Former les équipes.<br><span>Accompagner</span> les parcours.</h1>
+    <p class="sub">{{ nb_formations }} formations en intra pour les professionnels du social, du médico-social et de la protection de l'enfance. Analyse des pratiques. Accompagnement VAE.</p>
+  </div>
+  <div class="band">
+    <div>
+      <h3>Nos engagements</h3>
+      <ul>
+        <li>Deux formateurs par session</li>
+        <li>Des praticiens en poste sur le terrain</li>
+        <li>Des contenus adaptés à votre équipe</li>
+      </ul>
+    </div>
+    <div>
+      <h3>En pratique</h3>
+      <ul>
+        <li>Dans vos locaux, partout en France</li>
+        <li>{{ site.formations_intra.effectif }}</li>
+        <li>Démarrage sous {{ site.formations_intra.delai_acces }}</li>
+      </ul>
+    </div>
+    <p class="qualiopi">Certifié Qualiopi au titre des catégories : {{ site.legal.qualiopi.categories|join(' ; ')|lower }} · {{ site.url|replace('https://','') }}</p>
+  </div>
+</section>
+
+<!-- 2. Édito, chiffres, équipe -->
+<section class="page edito">
+  <div class="eyebrow">Notre façon de former</div>
+  <h2>Partir de ce que vivent vos équipes</h2>
+  <div class="cols">
+    <div>
+      <p class="lead">Depuis plus de dix ans, nous exerçons auprès de personnes confrontées à des situations humaines, sociales et éducatives complexes. Nous savons à quel point les missions, les publics et les conditions de travail évoluent vite.</p>
+      <p style="margin-top:3mm">Les professionnels possèdent déjà une grande richesse de savoirs et d'expériences. Nos formations ne transmettent pas des réponses toutes faites : elles créent la rencontre entre les connaissances théoriques, les réalités du terrain et l'intelligence collective du groupe.</p>
+      <p>Nous privilégions des méthodes interactives, ancrées dans des situations concrètes, pour des apprentissages durables : questionner ses pratiques, partager ses expériences, expérimenter de nouvelles pistes. Chaque formation se déroule en intra et se construit à partir des besoins de votre établissement.</p>
+      <div class="pillars">
+        <div><h4>Deux formateurs par session</h4><p>Deux regards croisés, plus d'échanges, un accompagnement plus fin du groupe.</p></div>
+        <div><h4>Des praticiens en poste</h4><p>Éducateurs spécialisés, assistants de service social et cadres du secteur.</p></div>
+        <div><h4>Pédagogie participative</h4><p>Études de cas apportés par le groupe, mises en situation, analyse collective.</p></div>
+        <div><h4>Adapté à votre service</h4><p>Contenus ajustés à votre public, votre projet d'établissement et votre planning.</p></div>
+      </div>
+    </div>
+    <aside class="stats">
+      <div class="eyebrow">Nos résultats {{ site.chiffres.annee }}</div>
+      <dl>
+        <div><dt>{{ site.chiffres.stagiaires }}</dt><dd>professionnels formés, sur {{ site.chiffres.sessions }} sessions</dd></div>
+        <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>de stagiaires satisfaits</dd></div>
+        <div><dt>{{ vae_tot.diplomes }} / {{ vae_tot.presentes }}</dt><dd>candidats VAE diplômés{% if vae_tot.partielles %}, {{ vae_tot.partielles }} en validation partielle{% endif %}</dd></div>
+        <div><dt>{{ site.chiffres.vae_satisfaction }} %</dt><dd>de candidats VAE satisfaits</dd></div>
+      </dl>
+      <p class="q"><b>Certifié Qualiopi</b> au titre des catégories : {{ site.legal.qualiopi.categories|join(' ; ')|lower }}. Certificat n° {{ site.legal.qualiopi.numero }} ({{ site.legal.qualiopi.certificateur }}), valable jusqu'au {{ site.legal.qualiopi.validite }}.</p>
+    </aside>
+  </div>
+  <div class="team">
+    {% for p in site.equipe %}
+    <div class="person">
+      <img src="{{ R }}{{ p.photo }}" alt="Portrait de {{ p.nom }}">
+      <div><h4>{{ p.nom }}</h4><div class="role">{{ p.role }}</div><p>{{ p.bio }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · Catalogue {{ annee_catalogue }}</span><span>2</span></div>
+</section>
+
+<!-- 3. Sommaire et modalités -->
+<section class="page toc">
+  <div class="eyebrow">Sommaire</div>
+  <h2>{{ nb_formations }} formations, trois thèmes</h2>
+  {% set ns = namespace(n=page_debut) %}
+  <div class="themes">
+  {% for theme, liste in themes %}
+  <div class="theme">
+    <h3>{{ theme }}</h3>
+    <ul>
+      {% for f in liste %}<li><span>{{ f.titre_court }}{% if f.nouveau %}<span class="new">Nouveau</span>{% endif %}</span><span class="d">{{ f.jours }} j · {{ f.heures }} h</span><span class="n">{{ ns.n }}</span></li>{% set ns.n = ns.n + (2 if (f.objectifs|length + f.programme|map(attribute="points")|map("length")|sum + f.programme|length) > 36 else 1) %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  <div class="theme">
+    <h3>Et aussi</h3>
+    <ul>
+      <li><span>Analyse des pratiques professionnelles (GAPP)</span><span class="d">mensuel</span><span class="n">{{ ns.n }}</span></li>
+      <li><span>Accompagnement VAE</span><span class="d">6 diplômes</span><span class="n">{{ ns.n + 1 }}</span></li>
+    </ul>
+  </div>
+  </div>
+  <div class="box">
+    <h3>Modalités communes à toutes les formations</h3>
+    <div class="grid">
+      <div><b>Format</b>Intra, dans vos locaux, partout en France, ou à distance</div>
+      <div><b>Animation</b>Deux formateurs de terrain par session</div>
+      <div><b>Effectif</b>{{ site.formations_intra.effectif }}</div>
+      <div><b>Journées</b>6 heures : 9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Tarif</b>À partir de {{ site.formations_intra.prix_jour }} par jour pour le groupe. Exonéré de TVA</div>
+      <div><b>Frais</b>{{ site.formations_intra.deplacement }}</div>
+      <div><b>Délai d'accès</b>{{ site.formations_intra.delai_acces }} entre la demande et le démarrage</div>
+      <div><b>Financement</b>OPCO ou plan de développement des compétences</div>
+      <div><b>Validation</b>Attestation de suivi et de validation des compétences</div>
+      <div><b>Handicap</b>Référent : {{ site.legal.referent_handicap }}, {{ site.legal.referent_handicap_tel }}</div>
+    </div>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · Catalogue {{ annee_catalogue }}</span><span>3</span></div>
+</section>
+
+<!-- Fiches -->
+{% set ns2 = namespace(n=page_debut) %}
+{% for theme, liste in themes %}{% for f in liste %}
+{% set volume = f.objectifs|length + f.programme|map(attribute="points")|map("length")|sum + f.programme|length %}
+{% set longue = volume > 36 %}
+<section class="page fiche{% if volume > 30 and not longue %} dense{% endif %}">
+  <div class="head"><span class="eyebrow">{{ theme }}{% if f.nouveau %} · Nouveau{% endif %}</span><img src="{{ R }}assets/img/logo.png" alt=""></div>
+  <h2>{{ f.titre }}</h2>
+  <p class="intro">{{ f.intro }}</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks">{% for o in f.objectifs %}<li>{{ o }}</li>{% endfor %}</ul>
+      {% if not longue %}
+      <div class="mods{% if f.programme|length > 3 %} two{% endif %}">
+        {% for m in f.programme %}<div class="mod"><h4>{{ m.titre }}</h4><ul>{% for p in m.points %}<li>{{ p }}</li>{% endfor %}</ul></div>{% endfor %}
+      </div>
+      {% else %}
+      <p class="note" style="margin-top:5mm">Programme détaillé en page suivante.</p>
+      {% endif %}
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">{{ f.jours }} jours · {{ f.heures }} h</span></div>
+      <div><b>Horaires</b>{{ f.horaires|join(' et ') }}</div>
+      <div><b>Effectif</b>{{ f.effectif }}</div>
+      <div><b>Public</b>{{ f.public }}</div>
+      <div><b>Prérequis</b>{{ f.prerequis }}</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de {{ site.formations_intra.prix_jour }} / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous {{ site.formations_intra.delai_acces }}</div>
+    </aside>
+  </div>
+  {% if not longue %}{% include "catalogue_methode.html" %}{% endif %}
+  <div class="foot"><span><b>2aFormation</b> · {{ site.contact.email }} · {{ site.contact.telephones[0].numero }}</span><span>{{ ns2.n }}</span></div>
+</section>{% set ns2.n = ns2.n + 1 %}
+{% if longue %}
+<section class="page fiche">
+  <div class="head"><span class="eyebrow">{{ theme }} · Programme</span><img src="{{ R }}assets/img/logo.png" alt=""></div>
+  <h2 style="font-size:15pt">{{ f.titre }} <span class="muted" style="font-weight:500">(suite)</span></h2>
+  <div class="mods two" style="margin-top:4mm">
+    {% for m in f.programme %}<div class="mod"><h4>{{ m.titre }}</h4><ul>{% for p in m.points %}<li>{{ p }}</li>{% endfor %}</ul></div>{% endfor %}
+  </div>
+  <div style="margin-top:auto">{% include "catalogue_methode.html" %}</div>
+  <div class="foot"><span><b>2aFormation</b> · {{ site.contact.email }} · {{ site.contact.telephones[0].numero }}</span><span>{{ ns2.n }}</span></div>
+</section>{% set ns2.n = ns2.n + 1 %}
+{% endif %}
+{% endfor %}{% endfor %}
+
+<!-- GAPP -->
+<section class="page fiche">
+  <div class="head"><span class="eyebrow">Soutien des équipes</span><img src="{{ R }}assets/img/logo.png" alt=""></div>
+  <h2>Analyse des pratiques professionnelles (GAPP)</h2>
+  <p class="intro">Reprendre son souffle : accompagner ceux qui accompagnent. Exigences institutionnelles, charge émotionnelle, confrontation à la souffrance : l'analyse des pratiques offre aux équipes un espace pour suspendre l'urgence du quotidien, penser ensemble les situations difficiles et retrouver du pouvoir d'agir. C'est aussi un levier de prévention des risques psychosociaux et de l'isolement professionnel.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks">
+        <li>Favoriser la réflexion collective et la prise de recul sur les pratiques</li>
+        <li>Soutenir l'analyse des situations complexes rencontrées</li>
+        <li>Renforcer la qualité des pratiques grâce à la pluralité des regards</li>
+        <li>Préserver l'engagement des professionnels et prévenir l'épuisement</li>
+      </ul>
+      <div class="mods two">
+        <div class="mod"><h4>Exposé des situations</h4><ul><li>Chaque participant présente brièvement la situation qu'il souhaite soumettre au groupe.</li></ul></div>
+        <div class="mod"><h4>Choix des situations</h4><ul><li>Le groupe et l'intervenante retiennent une à trois situations.</li></ul></div>
+        <div class="mod"><h4>Récit détaillé</h4><ul><li>Le participant décrit précisément la situation, guidé par l'intervenante.</li></ul></div>
+        <div class="mod"><h4>Questionnement collectif</h4><ul><li>Le groupe interroge pour obtenir une vision complète.</li></ul></div>
+        <div class="mod"><h4>Élaboration collective</h4><ul><li>Hypothèses d'analyse et pistes concrètes d'intervention.</li></ul></div>
+        <div class="mod"><h4>Reformulation et éclairage</h4><ul><li>Le participant partage ses nouvelles perspectives ; l'intervenante apporte des repères théoriques.</li></ul></div>
+      </div>
+      <p class="note">Intervenante diplômée du travail social depuis 13 ans, formée à l'animation de groupes d'analyse de pratique (formation certifiante). Confidentialité, non-jugement et place de chacun garantis.</p>
+    </div>
+    <aside class="facts">
+      <div><b>Rythme</b><span class="big">1 séance / mois</span></div>
+      <div><b>Durée</b>{{ site.gapp.duree }}</div>
+      <div><b>Groupe</b>{{ site.gapp.effectif }}</div>
+      <div><b>Public</b>Professionnels du social, du médico-social, du sanitaire et du paramédical, cadres compris.</div>
+      <div><b>Prérequis</b>Aucun. Implication active et posture réflexive.</div>
+      <div><b>Évaluation</b>Retour en fin de séance, bilan écrit possible en fin de cycle.</div>
+      <div><b>Validation</b>Attestation de participation</div>
+      <div><b>Tarif</b>{{ site.gapp.tarif }}. Exonéré de TVA.</div>
+    </aside>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · {{ site.contact.email }} · {{ site.contact.telephones[0].numero }}</span><span>{{ ns2.n }}</span></div>
+</section>
+
+<!-- VAE -->
+<section class="page vae">
+  <div class="eyebrow">Validation des acquis de l'expérience · Filière sociale</div>
+  <h2>Faire reconnaître ce que l'expérience vous a appris</h2>
+  <p class="muted" style="font-size:10pt;max-width:170mm">Architectes accompagnateurs de parcours, nous vous suivons de l'étude de faisabilité jusqu'au jury. Nous ne rédigeons pas à votre place : nous vous aidons à passer du « je fais » au « je comprends ce que je fais et je peux l'expliquer ».</p>
+  <div class="dips">
+    {% for d in vae.diplomes %}<div class="dip"><span>Niveau {{ d.niveau }} · {{ d.rncp }}</span><h4>{{ d.nom }} ({{ d.sigle }})</h4></div>{% endfor %}
+  </div>
+  <ol class="steps" style="list-style:none;padding:0">
+    {% for e in vae.etapes %}<li><b>{{ e.titre }}</b>{{ e.texte }}</li>{% endfor %}
+  </ol>
+  <table>
+    <thead><tr><th>Formule</th><th>Contenu et modalités</th><th>Durée</th><th style="text-align:right">Tarif</th></tr></thead>
+    <tbody>
+      {% for f in vae.formules %}<tr><td style="width:44mm"><b>{{ f.titre }}</b><br><span class="muted" style="font-size:7.8pt">{{ f.sous_titre }}</span></td><td class="muted" style="font-size:8pt">{{ f.modalites }}</td><td class="d">{{ f.duree }}</td><td class="p">{{ f.prix }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="note"><b>Prérequis :</b> {{ vae.prerequis }} <b>Financement :</b> {{ vae.financement }} Tarifs exonérés de TVA. {{ vae.avertissement }} Certificateurs : {{ vae.certificateurs }}</p>
+  <div class="foot"><span><b>2aFormation</b> · {{ site.contact.email }} · {{ site.contact.telephones[0].numero }}</span><span>{{ ns2.n + 1 }}</span></div>
+</section>
+
+<!-- Dos -->
+<section class="page back">
+  <img src="{{ R }}assets/img/logo-blanc.png" alt="2A Formation">
+  <h2>Parlons de votre projet</h2>
+  <p class="lead">Une formation pour votre équipe, une analyse des pratiques ou un projet de VAE : nous vous répondons sous 48 h ouvrées.</p>
+  <ol class="steps2" style="list-style:none;padding:0">
+    <li>Vous nous décrivez votre besoin, votre public et vos contraintes.</li>
+    <li>Nous échangeons pour ajuster le contenu à votre équipe.</li>
+    <li>Vous recevez un programme et un devis détaillés.</li>
+    <li>La formation démarre sous {{ site.formations_intra.delai_acces }}, avec évaluations à chaud et à froid.</li>
+  </ol>
+  <div class="contact">
+    <div><b>Téléphone</b>{% for t in site.contact.telephones %}{{ t.nom }} : {{ t.numero }}<br>{% endfor %}</div>
+    <div><b>E-mail et site</b>{{ site.contact.email }}<br>{{ site.url|replace('https://','') }}</div>
+    <div><b>Adresse</b>{{ site.contact.adresse_ligne1 }}<br>{{ site.contact.adresse_ligne2 }}</div>
+    <div><b>Référent handicap</b>{{ site.legal.referent_handicap }}, {{ site.legal.referent_handicap_tel }}</div>
+  </div>
+  <p class="legal">2aFormation, entreprise individuelle d'Alexandre Bigot · SIRET {{ site.legal.siret }} · Déclaration d'activité enregistrée sous le n° {{ site.legal.nda }} auprès du préfet de région Occitanie. Cet enregistrement ne vaut pas agrément de l'État. · Certifié Qualiopi n° {{ site.legal.qualiopi.numero }} ({{ site.legal.qualiopi.certificateur }}) au titre des catégories : {{ site.legal.qualiopi.categories|join(' ; ')|lower }}. · TVA non applicable, article 261-4-4° a du CGI.</p>
+</section>
+
+</div>
+<script>
+// Adapte l'aperçu à la largeur de l'écran (sans effet à l'impression)
+(function(){
+  var s=document.getElementById('sheets');
+  function fit(){
+    var w=Math.min(1,(window.innerWidth-24)/794);
+    s.style.zoom = w<1 ? w : '';
+  }
+  fit(); window.addEventListener('resize',fit);
+  window.addEventListener('beforeprint',function(){s.style.zoom='';});
+})();
+</script>
+</body>
+</html>

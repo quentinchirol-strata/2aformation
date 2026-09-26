@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalogue 2aFormation 2027</title>
+<meta name="description" content="Catalogue 2027 des formations 2aFormation : 18 formations en intra pour les équipes du social et de la protection de l'enfance, analyse des pratiques et accompagnement VAE.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+:root{
+  --paper:#F6F7F4; --surface:#FFFFFF; --ink:#1D282B; --muted:#56655F;
+  --green:#2E5B4E; --green-dark:#23473C; --green-soft:#DCE8E2; --ochre:#B8572A; --line:#D3DCD7;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#C9D1CC;font-family:var(--body);color:var(--ink);font-size:9.6pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* Feuilles A4 */
+.sheets{padding:24px 0;display:grid;gap:24px;justify-content:center}
+.page{width:210mm;height:296.8mm;background:var(--surface);position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:16mm 16mm 20mm;display:flex;flex-direction:column}
+.foot{position:absolute;left:16mm;right:16mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted);border-top:1px solid var(--line);padding-top:3mm}
+.foot b{color:var(--green)}
+.eyebrow{font-size:7.5pt;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--green)}
+.muted{color:var(--muted)}
+@media print{
+  body{background:none}
+  .sheets{padding:0;gap:0;display:block}
+  .page{box-shadow:none;page-break-after:always;break-after:page}
+  .toolbar{display:none}
+  .sheets{zoom:1 !important}
+}
+
+/* Couverture */
+.cover{padding:0;background:var(--paper)}
+.cover .top{padding:18mm 18mm 0;display:flex;justify-content:space-between;align-items:flex-start}
+.cover .top img{height:26mm;width:auto}
+.cover .year{font-family:var(--display);font-weight:700;font-size:13pt;color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:2mm 5mm}
+.cover .title{padding:34mm 18mm 0}
+.cover h1{font-size:44pt;letter-spacing:-.02em}
+.cover h1 span{color:var(--green)}
+.cover .sub{font-size:13pt;color:var(--muted);margin-top:8mm;max-width:140mm;line-height:1.4}
+.cover .band{position:absolute;left:0;right:0;bottom:0;height:88mm;background:var(--green);color:var(--paper);padding:14mm 18mm;display:grid;grid-template-columns:1fr 1fr;gap:10mm}
+.cover .band h3{font-size:10pt;text-transform:uppercase;letter-spacing:.12em;color:var(--green-soft);margin-bottom:3mm}
+.cover .band ul li{padding:1.6mm 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:10.5pt}
+.cover .band .qualiopi{grid-column:1/-1;font-size:8.5pt;opacity:.9;align-self:end}
+
+/* Édito */
+.edito h2{font-size:24pt;margin:3mm 0 6mm}
+.edito .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:10mm}
+.edito p+p{margin-top:3mm}
+.edito .lead{font-size:11pt;line-height:1.5}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:8mm}
+.pillars div{border-top:2px solid var(--green);padding-top:2.5mm}
+.pillars h4{font-size:10pt;margin-bottom:1mm}
+.pillars p{font-size:8.8pt;color:var(--muted)}
+.stats{background:var(--green);color:var(--paper);border-radius:4mm;padding:7mm}
+.stats .eyebrow{color:var(--green-soft)}
+.stats dl{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin:4mm 0 0}
+.stats dt{font-family:var(--display);font-weight:700;font-size:22pt;line-height:1}
+.stats dd{margin:1mm 0 0;font-size:8.3pt;opacity:.9}
+.stats .q{margin-top:5mm;padding-top:4mm;border-top:1px solid rgba(255,255,255,.25);font-size:8pt}
+.team{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8mm;padding-top:8mm}
+.person{display:grid;grid-template-columns:20mm 1fr;gap:4mm;align-items:start}
+.person img{width:20mm;height:20mm;border-radius:50%;object-fit:cover}
+.person h4{font-size:10.5pt}
+.person .role{color:var(--green);font-weight:700;font-size:8pt}
+.person p{font-size:8.3pt;color:var(--muted);margin-top:1mm}
+
+/* Sommaire */
+.toc h2{font-size:22pt;margin:2mm 0 5mm}
+.toc .themes{columns:2;column-gap:9mm}
+.toc .theme{margin-bottom:4.5mm;break-inside:avoid}
+.toc .theme h3{font-size:9pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:2mm}
+.toc li{display:grid;grid-template-columns:1fr auto auto;gap:3mm;align-items:baseline;padding:1.2mm 0;border-bottom:1px dotted var(--line);font-size:9pt}
+.toc li .d{color:var(--muted);font-size:8.3pt}
+.toc li .n{font-family:var(--display);font-weight:700;color:var(--green);min-width:6mm;text-align:right}
+.toc .new{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ochre);margin-left:2mm}
+.box{background:var(--green-soft);border-radius:3mm;padding:5mm 6mm;margin-top:auto}
+.box h3{font-size:12pt;margin-bottom:3mm}
+.box .grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm 8mm}
+.box .grid div{font-size:8.4pt;padding:1mm 0;border-bottom:1px solid rgba(46,91,78,.18)}
+.box .grid b{display:block;font-size:7pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+
+/* Fiche */
+.fiche .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4mm}
+.fiche .head img{height:10mm;width:auto}
+.fiche.dense .mod li{display:inline;padding-left:0;font-size:7.8pt}
+.fiche.dense .mod li::before{content:none}
+.fiche.dense .mod li+li::before{content:" · ";position:static;color:var(--green)}
+.fiche h2{font-size:19pt;letter-spacing:-.01em;margin-bottom:3mm}
+.fiche .intro{font-size:9.8pt;color:var(--muted);margin-bottom:5mm;max-width:170mm}
+.fiche .body{display:grid;grid-template-columns:1fr 54mm;gap:7mm;flex:1;min-height:0}
+.fiche h3{font-size:10.5pt;margin:0 0 2mm}
+.ticks li{position:relative;padding-left:4.5mm;margin-bottom:1.2mm}
+.ticks li::before{content:"";position:absolute;left:.6mm;top:1.5mm;width:2.2mm;height:1.3mm;border-left:1.5px solid var(--green);border-bottom:1.5px solid var(--green);transform:rotate(-45deg)}
+.mods{display:grid;gap:2.5mm;counter-reset:m;margin-top:4mm}
+.mods.two{display:block;columns:2;column-gap:2.5mm}
+.mods.two .mod{margin-bottom:2.5mm;display:inline-block;width:100%}
+.mod{counter-increment:m;border:1px solid var(--line);border-radius:2mm;padding:2.6mm 3.2mm;break-inside:avoid}
+.mod h4{font-size:9pt;margin-bottom:1mm}
+.mod h4::before{content:"Module " counter(m) " · ";color:var(--green)}
+.mod li{font-size:8.4pt;color:var(--muted);padding-left:3mm;position:relative;line-height:1.35;margin-bottom:.6mm}
+.mod li::before{content:"–";position:absolute;left:0;color:var(--green)}
+.facts{background:var(--paper);border-radius:3mm;padding:4.5mm;align-self:start}
+.facts div{padding:1.6mm 0;border-bottom:1px solid var(--line);font-size:8.4pt}
+.facts div:last-child{border-bottom:0}
+.facts b{display:block;font-size:6.8pt;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+.facts .big{font-family:var(--display);font-weight:700;font-size:13pt;color:var(--ink)}
+.fiche.dense{font-size:8.6pt}
+.fiche.dense .intro{font-size:8.8pt;margin-bottom:3.5mm}
+.fiche.dense h2{font-size:16pt}
+.fiche.dense .mod li{font-size:7.8pt}
+.fiche.dense .ticks li{margin-bottom:.6mm}
+.fiche.dense .mods{gap:2mm;margin-top:3mm}
+.fiche.dense .ticks{columns:2;column-gap:5mm}
+.fiche.dense .ticks li{break-inside:avoid}
+.fiche.dense .facts div{padding:1.1mm 0;font-size:7.9pt}
+.fiche.dense .body{grid-template-columns:1fr;gap:4mm}
+.fiche.dense .facts{order:-1;display:grid;grid-template-columns:repeat(4,1fr);gap:0 5mm;padding:3mm 4.5mm}
+.fiche.dense .facts div{border-bottom:0}
+.fiche.dense .facts .big{font-size:11pt}
+.fiche.dense .mod ul{line-height:1.3}
+.fiche.dense .mods.two{columns:3}
+.method{margin-top:4mm;display:grid;grid-template-columns:1fr 1fr;gap:6mm;font-size:8pt;color:var(--muted);border-top:1px solid var(--line);padding-top:3mm}
+.method b{color:var(--ink);font-size:8.3pt}
+
+/* VAE */
+.vae h2{font-size:22pt;margin:3mm 0 4mm}
+.dips{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm;margin:4mm 0}
+.dip{border:1px solid var(--line);border-radius:2mm;padding:3mm}
+.dip span{font-size:7.2pt;color:var(--muted)}
+.dip h4{font-size:9.5pt;margin-top:1mm}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;counter-reset:s;margin-bottom:4mm}
+.steps li{counter-increment:s;font-size:8pt;padding-top:8mm;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:6mm;height:6mm;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font:700 8pt var(--display)}
+.steps b{display:block;font-family:var(--display);font-size:9pt}
+table{border-collapse:collapse;width:100%;font-size:8.6pt}
+th,td{text-align:left;padding:1.6mm 2.2mm;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:7pt;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+td.p{font-family:var(--display);font-weight:700;color:var(--green);white-space:nowrap;text-align:right;font-size:10pt}
+td.d{white-space:nowrap;color:var(--muted)}
+.note{font-size:8pt;color:var(--muted);margin-top:3mm}
+
+/* Dos */
+.back{background:var(--green);color:var(--paper);padding:20mm 18mm}
+.back img{height:24mm;width:auto;align-self:flex-start}
+.back h2{font-size:26pt;margin:18mm 0 5mm}
+.back .lead{font-size:12pt;opacity:.92;max-width:140mm}
+.back .steps2{margin-top:10mm;display:grid;gap:4mm;counter-reset:b}
+.back .steps2 li{counter-increment:b;display:grid;grid-template-columns:9mm 1fr;gap:3mm;font-size:10.5pt;align-items:start}
+.back .steps2 li::before{content:counter(b);width:8mm;height:8mm;border-radius:50%;border:1.5px solid var(--green-soft);display:grid;place-items:center;font:700 10pt var(--display)}
+.back .contact{margin-top:14mm;display:grid;grid-template-columns:1fr 1fr;gap:8mm;font-size:10pt}
+.back .contact b{display:block;font-size:7.5pt;text-transform:uppercase;letter-spacing:.12em;color:var(--green-soft);margin-bottom:1.5mm}
+.back .legal{position:absolute;left:18mm;right:18mm;bottom:12mm;font-size:7.5pt;opacity:.8;border-top:1px solid rgba(255,255,255,.25);padding-top:3mm}
+
+@media screen{.toolbar{display:flex}}
+.toolbar{display:none;position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;font-size:13px;padding:10px 16px;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.toolbar a{color:#fff}
+</style>
+</head>
+<body>
+<div class="toolbar">Catalogue 2027 · <a href="../documents/catalogue-2aformation.pdf">Télécharger le PDF</a> · <a href="../index.html">Retour au site</a></div>
+<div class="sheets" id="sheets">
+
+<!-- 1. Couverture -->
+<section class="page cover">
+  <div class="top">
+    <img src="../assets/img/logo.png" alt="2A Formation">
+    <span class="year">2027</span>
+  </div>
+  <div class="title">
+    <div class="eyebrow">Catalogue des formations</div>
+    <h1 style="margin-top:5mm">Former les équipes.<br><span>Accompagner</span> les parcours.</h1>
+    <p class="sub">18 formations en intra pour les professionnels du social, du médico-social et de la protection de l'enfance. Analyse des pratiques. Accompagnement VAE.</p>
+  </div>
+  <div class="band">
+    <div>
+      <h3>Nos engagements</h3>
+      <ul>
+        <li>Deux formateurs par session</li>
+        <li>Des praticiens en poste sur le terrain</li>
+        <li>Des contenus adaptés à votre équipe</li>
+      </ul>
+    </div>
+    <div>
+      <h3>En pratique</h3>
+      <ul>
+        <li>Dans vos locaux, partout en France</li>
+        <li>10 à 15 participants</li>
+        <li>Démarrage sous 8 semaines</li>
+      </ul>
+    </div>
+    <p class="qualiopi">Certifié Qualiopi au titre des catégories : actions de formation ; actions permettant de valider les acquis de l&#39;expérience · 2aformation.com</p>
+  </div>
+</section>
+
+<!-- 2. Édito, chiffres, équipe -->
+<section class="page edito">
+  <div class="eyebrow">Notre façon de former</div>
+  <h2>Partir de ce que vivent vos équipes</h2>
+  <div class="cols">
+    <div>
+      <p class="lead">Depuis plus de dix ans, nous exerçons auprès de personnes confrontées à des situations humaines, sociales et éducatives complexes. Nous savons à quel point les missions, les publics et les conditions de travail évoluent vite.</p>
+      <p style="margin-top:3mm">Les professionnels possèdent déjà une grande richesse de savoirs et d'expériences. Nos formations ne transmettent pas des réponses toutes faites : elles créent la rencontre entre les connaissances théoriques, les réalités du terrain et l'intelligence collective du groupe.</p>
+      <p>Nous privilégions des méthodes interactives, ancrées dans des situations concrètes, pour des apprentissages durables : questionner ses pratiques, partager ses expériences, expérimenter de nouvelles pistes. Chaque formation se déroule en intra et se construit à partir des besoins de votre établissement.</p>
+      <div class="pillars">
+        <div><h4>Deux formateurs par session</h4><p>Deux regards croisés, plus d'échanges, un accompagnement plus fin du groupe.</p></div>
+        <div><h4>Des praticiens en poste</h4><p>Éducateurs spécialisés, assistants de service social et cadres du secteur.</p></div>
+        <div><h4>Pédagogie participative</h4><p>Études de cas apportés par le groupe, mises en situation, analyse collective.</p></div>
+        <div><h4>Adapté à votre service</h4><p>Contenus ajustés à votre public, votre projet d'établissement et votre planning.</p></div>
+      </div>
+    </div>
+    <aside class="stats">
+      <div class="eyebrow">Nos résultats 2025</div>
+      <dl>
+        <div><dt>51</dt><dd>professionnels formés, sur 4 sessions</dd></div>
+        <div><dt>85 %</dt><dd>de stagiaires satisfaits</dd></div>
+        <div><dt>2 / 3</dt><dd>candidats VAE diplômés, 1 en validation partielle</dd></div>
+        <div><dt>100 %</dt><dd>de candidats VAE satisfaits</dd></div>
+      </dl>
+      <p class="q"><b>Certifié Qualiopi</b> au titre des catégories : actions de formation ; actions permettant de valider les acquis de l&#39;expérience. Certificat n° 284411-4 (CERTIFOPAC), valable jusqu'au 13 mai 2027.</p>
+    </aside>
+  </div>
+  <div class="team">
+    <div class="person">
+      <img src="../assets/img/antoine-gadiou.jpg" alt="Portrait de Antoine Gadiou">
+      <div><h4>Antoine Gadiou</h4><div class="role">Éducateur spécialisé · Assistant de service social</div><p>Travaille en protection de l&#39;enfance et forme les étudiants en travail social en centre de formation. Master en sciences de l&#39;éducation.</p></div>
+    </div>
+    <div class="person">
+      <img src="../assets/img/alexandre-bigot.jpg" alt="Portrait de Alexandre Bigot">
+      <div><h4>Alexandre Bigot</h4><div class="role">Éducateur spécialisé · Formateur</div><p>Plus de 10 ans en protection de l&#39;enfance. Formateur en centre de formation aux métiers du social, il a contribué à un guide de recommandations de bonnes pratiques de la HAS. Master en sciences de l&#39;éducation.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · Catalogue 2027</span><span>2</span></div>
+</section>
+
+<!-- 3. Sommaire et modalités -->
+<section class="page toc">
+  <div class="eyebrow">Sommaire</div>
+  <h2>18 formations, trois thèmes</h2>
+  <div class="themes">
+  <div class="theme">
+    <h3>Protection de l’enfance</h3>
+    <ul>
+<li><span>Formation des assistants familiaux</span><span class="d">4 j · 24 h</span><span class="n">4</span></li><li><span>Accompagner l’enfant de moins de 6 ans : besoins et prévention spécialisée</span><span class="d">3 j · 18 h</span><span class="n">5</span></li><li><span>La protection de l’enfance sous toutes ses coutures</span><span class="d">3 j · 18 h</span><span class="n">6</span></li><li><span>Troubles de l’attachement et carences affectives</span><span class="d">2 j · 12 h</span><span class="n">7</span></li><li><span>Secrétaires en protection de l’enfance : quelle place, quelle fonction ?</span><span class="d">3 j · 18 h</span><span class="n">8</span></li><li><span>Gestes et postures professionnels en protection de l’enfance<span class="new">Nouveau</span></span><span class="d">3 j · 18 h</span><span class="n">9</span></li>    </ul>
+  </div>
+  <div class="theme">
+    <h3>Violences et situations de danger</h3>
+    <ul>
+<li><span>Aborder la sexualité avec les mineurs en institution</span><span class="d">2 j · 12 h</span><span class="n">10</span></li><li><span>Violences sexuelles : accueillir la parole des enfants<span class="new">Nouveau</span></span><span class="d">3 j · 18 h</span><span class="n">11</span></li><li><span>De la crise à la contention psychique<span class="new">Nouveau</span></span><span class="d">3 j · 18 h</span><span class="n">12</span></li><li><span>Violences conjugales et intrafamiliales<span class="new">Nouveau</span></span><span class="d">2 j · 12 h</span><span class="n">13</span></li><li><span>Accompagner les mineurs en risque prostitutionnel<span class="new">Nouveau</span></span><span class="d">3 j · 18 h</span><span class="n">14</span></li>    </ul>
+  </div>
+  <div class="theme">
+    <h3>Posture et pratiques</h3>
+    <ul>
+<li><span>Le secret professionnel et son partage</span><span class="d">2 j · 12 h</span><span class="n">16</span></li><li><span>La relation éducative et la confiance</span><span class="d">2 j · 12 h</span><span class="n">17</span></li><li><span>Représentations sociales et pratiques professionnelles</span><span class="d">2 j · 12 h</span><span class="n">18</span></li><li><span>Les écrits professionnels dans le secteur social et médico-social</span><span class="d">3 j · 18 h</span><span class="n">19</span></li><li><span>Médiation et entretiens familiaux</span><span class="d">3 j · 18 h</span><span class="n">20</span></li><li><span>La posture professionnelle en travail social et médico-social<span class="new">Nouveau</span></span><span class="d">3 j · 18 h</span><span class="n">21</span></li><li><span>Le burn-out professionnel<span class="new">Nouveau</span></span><span class="d">2 j · 12 h</span><span class="n">22</span></li>    </ul>
+  </div>
+  <div class="theme">
+    <h3>Et aussi</h3>
+    <ul>
+      <li><span>Analyse des pratiques professionnelles (GAPP)</span><span class="d">mensuel</span><span class="n">23</span></li>
+      <li><span>Accompagnement VAE</span><span class="d">6 diplômes</span><span class="n">24</span></li>
+    </ul>
+  </div>
+  </div>
+  <div class="box">
+    <h3>Modalités communes à toutes les formations</h3>
+    <div class="grid">
+      <div><b>Format</b>Intra, dans vos locaux, partout en France, ou à distance</div>
+      <div><b>Animation</b>Deux formateurs de terrain par session</div>
+      <div><b>Effectif</b>10 à 15 participants</div>
+      <div><b>Journées</b>6 heures : 9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Tarif</b>À partir de 1 500 € par jour pour le groupe. Exonéré de TVA</div>
+      <div><b>Frais</b>Frais de déplacement selon le lieu de formation.</div>
+      <div><b>Délai d'accès</b>8 semaines entre la demande et le démarrage</div>
+      <div><b>Financement</b>OPCO ou plan de développement des compétences</div>
+      <div><b>Validation</b>Attestation de suivi et de validation des compétences</div>
+      <div><b>Handicap</b>Référent : Antoine Gadiou, 06 51 84 44 01</div>
+    </div>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · Catalogue 2027</span><span>3</span></div>
+</section>
+
+<!-- Fiches -->
+<section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Formation des assistants familiaux</h2>
+  <p class="intro">Cette formation répond aux obligations prévues par le législateur concernant la formation des assistants familiaux.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les étapes du développement de l’enfant, comprendre ses besoins selon son évolution et adapter sa pratique professionnelle</li><li>Repérer son implication personnelle, notamment face aux problématiques de séparation et de maltraitance</li><li>Prévenir les risques liés aux accidents domestiques et aux situations d’urgence</li><li>Connaître la législation liée à l’autorité parentale, à l’accueil familial et au secret professionnel</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Les étapes du développement de l’enfant</h4><ul><li>Comprendre les besoins de l’enfant en fonction de son évolution</li><li>Adapter sa pratique professionnelle</li></ul></div><div class="mod"><h4>Séparation et maltraitance : repérer son implication personnelle</h4><ul><li>Définir et comprendre le processus d’attachement et des premiers liens</li><li>Comprendre le processus de séparation et ses enjeux</li><li>Repérer son implication personnelle</li><li>Connaître le processus de maltraitance et ses différentes formes</li><li>Repérer ses implications personnelles et ses propres limites face à la maltraitance</li></ul></div><div class="mod"><h4>Accidents domestiques et situations d’urgence</h4><ul><li>Repérer les dangers et éviter les accidents domestiques</li><li>Agir de manière appropriée en cas d’accident</li></ul></div><div class="mod"><h4>Autorité parentale, accueil familial et secret professionnel</h4><ul><li>Respecter le secret professionnel et le partager à bon escient dans les limites juridiques</li><li>Identifier ses responsabilités en tant qu’assistant familial</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">4 jours · 24 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Assistants familiaux.</div>
+      <div><b>Prérequis</b>Être engagé dans l’obtention du diplôme d’État d’assistant familial.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>4</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Accompagner l’enfant de moins de 6 ans : besoins et prévention spécialisée</h2>
+  <p class="intro">Cette formation permet d’acquérir des connaissances sur les différentes étapes du développement de l’enfant de 0 à 6 ans. Elle est animée par une professionnelle de santé et un travailleur social, pour des regards différents et complémentaires sur le travail de prévention auprès de l’enfant et de sa famille.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Approfondir ses connaissances sur le développement et les besoins spécifiques de l’enfant de 0 à 6 ans</li><li>Adopter une posture professionnelle adaptée pour accompagner l’enfant et sa famille</li><li>Identifier les signes de vulnérabilité et mettre en œuvre des actions de prévention</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Développement global de l’enfant</h4><ul><li>Connaître les étapes du développement de 0 à 6 ans (moteur, cognitif, affectif et social)</li><li>Adapter les activités et l’environnement à l’âge et aux capacités de chaque enfant</li></ul></div><div class="mod"><h4>Sécurité affective et physique</h4><ul><li>Créer un environnement sécurisant et stable pour l’enfant</li><li>Établir une relation de confiance avec l’enfant et sa famille</li></ul></div><div class="mod"><h4>Socialisation et citoyenneté</h4><ul><li>Encourager la socialisation et les interactions positives entre enfants</li><li>Accompagner l’enfant dans l’apprentissage des règles de vie en collectivité</li><li>Favoriser l’ouverture sur le monde extérieur et la découverte de l’environnement</li></ul></div><div class="mod"><h4>Prévention et inclusion</h4><ul><li>Repérer les signes de troubles ou de difficultés chez l’enfant</li><li>Travailler en équipe pluridisciplinaire pour assurer un suivi cohérent</li></ul></div><div class="mod"><h4>Collaboration avec les familles</h4><ul><li>Établir une communication bienveillante et régulière avec les parents</li><li>Respecter la diversité des cultures et des pratiques éducatives familiales</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel exerçant dans le domaine de la petite enfance.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>5</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>La protection de l’enfance sous toutes ses coutures</h2>
+  <p class="intro">Cette formation permet aux professionnels de connaître les fondements et le fonctionnement du système de protection de l’enfance en France. Au-delà des règles de fonctionnement, nous proposons un questionnement sur notre rôle de professionnel face à nos représentations.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les fondements de la protection de l’enfance</li><li>Connaître le cadre législatif et questionner son application</li><li>Se questionner en qualité de professionnel en tenant compte de ses représentations</li></ul>
+      <div class="mods">
+<div class="mod"><h4>Fondements de la protection de l’enfance</h4><ul><li>Connaître l’origine et les fondements de la protection de l’enfance</li></ul></div><div class="mod"><h4>Le cadre législatif</h4><ul><li>Connaître et comprendre le cadre législatif</li><li>Mettre en balance les règles et la réalité du terrain</li></ul></div><div class="mod"><h4>Exercer sa mission face aux représentations sociales</h4><ul><li>Comprendre les enjeux de nos représentations dans le cadre de nos missions</li><li>Se positionner en qualité de professionnel</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel exerçant dans le secteur de la protection de l’enfance.</div>
+      <div><b>Prérequis</b>Exercer auprès d’un public mineur.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>6</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Troubles de l’attachement et carences affectives</h2>
+  <p class="intro">Cette formation permet aux professionnels d’aborder les concepts de troubles de l’attachement et de carences affectives, et d’en tirer des repères pour l’accompagnement.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les situations pouvant conduire à une carence affective chez l’enfant</li><li>Décrire et repérer les processus psychiques, intellectuels, affectifs et relationnels affectés par les carences affectives</li><li>Identifier les besoins et les difficultés de l’enfant</li><li>Comprendre les conséquences des troubles de l’attachement selon les âges</li><li>Se questionner sur l’accompagnement des enfants, adolescents et adultes ayant connu des troubles de la relation</li></ul>
+      <div class="mods">
+<div class="mod"><h4>L’attachement, lien essentiel à la construction</h4><ul><li>Connaître les notions d’attachement et de carences affectives (Spitz, Lemay, Cyrulnik, Bowlby…)</li><li>Repérer les besoins psychoaffectifs de l’enfant et les conditions d’un développement harmonieux</li><li>Comprendre les principales situations à l’origine d’une carence affective chez le nourrisson</li></ul></div><div class="mod"><h4>Prévenir les carences affectives en cas de placement</h4><ul><li>Quel accompagnement pour l’enfant et l’adolescent en situation de carence</li><li>La notion de résilience</li><li>Prévenir les carences affectives et socio-éducatives</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel exerçant auprès d’enfants.</div>
+      <div><b>Prérequis</b>Être concerné par l’accompagnement de mineurs accueillis en institution.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>7</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Secrétaires en protection de l’enfance : quelle place, quelle fonction ?</h2>
+  <p class="intro">Cette formation présente aux professionnels administratifs les fondements et le fonctionnement du système de protection de l’enfance en France. Au-delà des règles de fonctionnement, elle propose un questionnement sur leur rôle face aux personnes accueillies et à leurs représentations.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les fondements et les dispositifs de la protection de l’enfance</li><li>Connaître le cadre législatif et questionner son application</li><li>Connaître le cadre professionnel du champ d’intervention</li><li>Identifier la place du secrétaire dans le cadre institutionnel</li><li>Se questionner en qualité de professionnel en tenant compte de ses représentations</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Fondements et dispositifs de la protection de l’enfance</h4><ul><li>Connaître l’origine de la protection de l’enfance</li><li>Connaître le fonctionnement de ses dispositifs</li></ul></div><div class="mod"><h4>Le cadre législatif</h4><ul><li>Définir les règles en matière de droit de la famille et de secret professionnel</li><li>Mettre en balance les règles et la réalité du terrain</li></ul></div><div class="mod"><h4>Le cadre professionnel</h4><ul><li>Se positionner en qualité de professionnel</li><li>Définir la notion de violence institutionnelle</li></ul></div><div class="mod"><h4>La place du secrétaire dans l’institution</h4><ul><li>Définir les rôles et missions du secrétaire</li></ul></div><div class="mod"><h4>Représentations et posture</h4><ul><li>Définir le concept de représentations sociales</li><li>Se questionner en qualité de professionnel en tenant compte de ses représentations</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel administratif exerçant dans le secteur de la protection de l’enfance.</div>
+      <div><b>Prérequis</b>Exercer en protection de l’enfance.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>8</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Protection de l’enfance · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Gestes et postures professionnels en protection de l’enfance</h2>
+  <p class="intro">Cette formation aborde les gestes et postures professionnels dans le domaine de la protection de l’enfance.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Identifier les enjeux de la relation éducative</li><li>Questionner ses représentations de la violence et l’appréhender dans un contexte professionnel</li><li>Accompagner avec une posture professionnelle éthique et déontologique</li><li>Comprendre la dynamique des groupes restreints et son impact sur la pratique</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Les enjeux de la relation éducative</h4><ul><li>Définir la relation éducative</li><li>Comprendre les besoins de l’enfant selon son évolution</li><li>Élaborer une posture en adéquation avec les besoins de l’enfant et le cadre institutionnel</li><li>Évaluer l’implication du professionnel dans la relation éducative</li></ul></div><div class="mod"><h4>Représentations et violence</h4><ul><li>Définir la violence : dans la relation et violence institutionnelle</li><li>Comprendre le cadre législatif</li><li>Faire face à la violence : adapter sa posture et définir un cadre éducatif sécurisant</li></ul></div><div class="mod"><h4>Une posture éthique et déontologique</h4><ul><li>Savoir adapter sa posture professionnelle</li><li>Définir l’éthique et la déontologie</li></ul></div><div class="mod"><h4>La dynamique des groupes restreints</h4><ul><li>Comprendre les enjeux au sein de l’équipe et du groupe de jeunes</li><li>Appréhender le groupe autrement</li><li>Questionner son propre rôle dans la dynamique observée</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>L’ensemble des professionnels exerçant en protection de l’enfance.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>9</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Violences et situations de danger</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Aborder la sexualité avec les mineurs en institution</h2>
+  <p class="intro">Cette formation permet aux professionnels d’aborder la sexualité avec les jeunes accueillis en institution, afin de prévenir les risques et d’accompagner au mieux cette dimension dans le cadre du développement psycho-sexuel. Elle invite aussi chaque professionnel à interroger son propre rapport à la sexualité et à connaître les lois en vigueur.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Pouvoir aborder la question de la sexualité en lien avec le développement psycho-sexuel de l’enfant</li><li>Connaître le cadre légal en matière de sexualité</li><li>Pouvoir se décaler de ses propres représentations de la sexualité</li></ul>
+      <div class="mods">
+<div class="mod"><h4>Le développement psycho-sexuel de l’enfant</h4><ul><li>Connaître le développement de l’enfant d’un point de vue théorique</li><li>Déterminer les besoins selon l’âge de l’enfant</li><li>Adopter une posture adaptée</li></ul></div><div class="mod"><h4>Cadre législatif et éthique</h4><ul><li>Se positionner en qualité de professionnel</li><li>Connaître la législation</li><li>Aborder la notion de consentement</li><li>Prévenir les risques en matière de sexualité</li></ul></div><div class="mod"><h4>Faire face à ses propres représentations de la sexualité</h4><ul><li>Se questionner par le prisme des représentations sociales</li><li>Connaître et utiliser des outils liés aux questionnements sur la sexualité</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel amené à accompagner des mineurs de 3 à 18 ans accueillis en institution en protection de l’enfance.</div>
+      <div><b>Prérequis</b>Être concerné par l’accompagnement de mineurs accueillis en institution.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>10</span></div>
+</section><section class="page fiche dense">
+  <div class="head"><span class="eyebrow">Violences et situations de danger · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Violences sexuelles : penser sa pratique pour accueillir et accompagner la parole des enfants en institution</h2>
+  <p class="intro">Cette formation permet aux professionnels du secteur socio-éducatif d’acquérir ou de consolider leurs connaissances sur les violences sexuelles, pour mieux appréhender les situations concernées sur le terrain. Elle s’inscrit dans la politique nationale de prévention et de protection des victimes : mieux comprendre le contexte, mieux repérer les signes d’appel, mieux accompagner la libération de la parole, mieux appréhender les symptômes psycho-traumatiques, mieux gérer les risques de passage à l’acte et mieux identifier l’impact de ces situations sur les professionnels.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les aspects sociétaux, légaux et le cadre juridique des violences sexuelles</li><li>Identifier les besoins de l’enfant victime de violences sexuelles et mieux repérer ses symptômes</li><li>Comprendre les transactions violentes : approche systémique des liens violents</li><li>Comprendre l’organisation complexe des familles incestueuses</li><li>Identifier la place du professionnel en maison d’enfants et les effets sur ceux qui reçoivent la parole de l’enfant</li><li>Se questionner en tenant compte de ses représentations et de sa pratique</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Le contexte, les aspects légaux et le cadre juridique</h4><ul><li>Connaître le contexte des violences sexuelles : prévalence et définition</li><li>Connaître le cadre juridique et les obligations des professionnels</li><li>Connaître le parcours du signalement et rédiger un écrit à destination du procureur de la République ou de la CRIP</li><li>Connaître le cadre légal : ce que dit la loi, procédure pénale et sanctions</li></ul></div><div class="mod"><h4>Les besoins de l’enfant victime et ses symptômes</h4><ul><li>Repérer un enfant qui va mal : symptômes post-traumatiques et signes d’appel</li><li>Connaître les conduites à tenir face à la libération de la parole d’un enfant victime</li></ul></div><div class="mod"><h4>Les transactions violentes</h4><ul><li>Le passage à l’acte</li><li>La mise au secret : la crypte</li><li>Le déni et l’inversion de la responsabilité</li><li>Les effets sur la victime</li><li>La circulation du traumatisme à travers les générations</li></ul></div><div class="mod"><h4>L’organisation des familles incestueuses</h4><ul><li>Décrypter les liens violents transgénérationnels : répétition, reproduction, transmissions, loyautés inconscientes</li><li>L’homéostasie familiale</li><li>La confusion des places dans la famille</li><li>La place emblématique de la mère</li></ul></div><div class="mod"><h4>Les effets sur les professionnels en maison d’enfants</h4><ul><li>Favoriser l’expression des professionnels qui reçoivent la parole de l’enfant</li><li>Décrypter l’impact des révélations sur nos représentations et nos croyances</li><li>Repérer la souffrance et l’épuisement face aux situations répétées : le traumatisme vicariant</li></ul></div><div class="mod"><h4>Représentations et pratique</h4><ul><li>Définir le concept de représentations sociales</li><li>Analyser une situation vécue à l’aide du génogramme, puis temps de débriefing</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel du secteur de la protection de l’enfance.</div>
+      <div><b>Prérequis</b>Exercer en protection de l’enfance.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports imprimés et numériques (diaporama) · Brainstorming · Apports théoriques, extraits vidéo et MOOC · Mises en pratique sur cas concrets, avec réalisation d’un génogramme · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>11</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Violences et situations de danger · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>De la crise à la contention psychique : repères éthiques et pratiques professionnelles</h2>
+  <p class="intro">Cette formation permet de réfléchir à l’adaptation de sa posture professionnelle face à la violence dans le social et le médico-social.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Identifier les enjeux de la relation éducative face à la violence</li><li>Questionner ses représentations et définir la contention psychique comme réponse à la violence</li><li>Accompagner avec une posture professionnelle éthique et déontologique</li><li>Comprendre la dynamique des groupes restreints et son impact sur la pratique</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>La relation éducative face à la violence</h4><ul><li>Définir la relation éducative</li><li>Élaborer une posture en adéquation avec les besoins de la personne et le cadre institutionnel</li><li>Évaluer l’implication du professionnel et identifier des outils pour favoriser le lien</li></ul></div><div class="mod"><h4>Représentations et contention psychique</h4><ul><li>Définir et comprendre la violence</li><li>Définir et comprendre la contention physique et psychique</li><li>Comprendre sa grille de lecture au regard des représentations sociales et professionnelles</li><li>Comprendre le cadre législatif</li><li>Adapter sa posture et définir un cadre éducatif sécurisant : la cohérence comme contenant psychique</li></ul></div><div class="mod"><h4>Une posture éthique et déontologique</h4><ul><li>Identifier la crise et utiliser la contention de façon adaptée</li><li>Définir l’éthique et la déontologie</li></ul></div><div class="mod"><h4>La dynamique des groupes restreints</h4><ul><li>Comprendre les enjeux au sein de l’équipe et du groupe de résidents</li><li>Construire des outils face à la violence : lien entre fonctionnement institutionnel et violence des jeunes</li><li>Questionner son propre rôle dans la dynamique observée : introduction à la communication non violente</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>L’ensemble des professionnels exerçant dans le social et le médico-social.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>12</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Violences et situations de danger · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Repérer, comprendre et agir face aux violences conjugales et intrafamiliales</h2>
+  <p class="intro">Les violences conjugales et intrafamiliales sont un enjeu majeur de santé publique et de protection des personnes. Cette formation permet de repérer les situations de violence, d’en comprendre les mécanismes, d’accompagner les victimes et d’agir de manière adaptée, notamment pour le signalement et l’orientation. Elle associe apports théoriques et mises en situation.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Identifier les différentes formes de violences et leurs mécanismes</li><li>Analyser les effets de l’emprise et du psycho-traumatisme sur les victimes et les enfants</li><li>Adopter une posture professionnelle bienveillante, éthique et sécurisante</li><li>Évaluer le danger, informer et orienter vers les dispositifs adaptés</li><li>Maîtriser le cadre légal du signalement et coopérer en réseau</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Les formes de violences et leurs mécanismes</h4><ul><li>Identifier les violences physiques, psychologiques, verbales, sexuelles, économiques et administratives</li><li>Comprendre l’emprise : isolement, culpabilisation, peur, dépendance affective et économique</li></ul></div><div class="mod"><h4>Emprise et psycho-traumatisme</h4><ul><li>Mesurer les impacts : effets psycho-traumatiques, santé mentale, développement, exposition des enfants</li></ul></div><div class="mod"><h4>La posture professionnelle</h4><ul><li>Écoute active, non-jugement, neutralité bienveillante</li></ul></div><div class="mod"><h4>Évaluer le danger et orienter</h4><ul><li>Évaluer le risque : danger immédiat ou différé pour la victime et son entourage</li></ul></div><div class="mod"><h4>Cadre légal et travail en réseau</h4><ul><li>Orienter vers les structures spécialisées et travailler en réseau, dans le respect du secret professionnel et du consentement</li><li>Connaître le cadre légal : signalement, responsabilités professionnelles, rédaction</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Toute personne en contact, dans un cadre professionnel ou bénévole, avec des victimes de violences conjugales ou intrafamiliales.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>13</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Violences et situations de danger · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Accompagner les mineurs en risque prostitutionnel</h2>
+  <p class="intro">Cette formation permet de mieux comprendre les situations de prostitution et d’exploitation des mineurs, d’en repérer les signaux d’alerte et d’adapter l’accompagnement éducatif. Elle renforce la cohérence des réponses institutionnelles et la capacité des équipes à protéger durablement les jeunes, sans jugement, sans étiquetage et sans rupture de la relation éducative.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Comprendre les mécanismes et les formes d’exploitation prostitutionnelle des mineurs</li><li>Identifier les facteurs de vulnérabilité et les signaux d’alerte</li><li>Appréhender l’emprise, la banalisation du danger et la non-reconnaissance du statut de victime</li><li>Accueillir la parole du mineur et maintenir une relation éducative protectrice</li><li>Évaluer une situation de risque ou de danger</li><li>Mobiliser les dispositifs de protection, les procédures et les partenaires</li><li>Élaborer une réponse éducative, sanitaire, sociale et institutionnelle coordonnée</li></ul>
+      <p class="note" style="margin-top:5mm">Programme détaillé en page suivante.</p>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>L’ensemble des professionnels exerçant auprès de mineurs ou de jeunes majeurs : protection de l’enfance, travail social, équipes éducatives, psychologues, professionnels de santé, cadres socio-éducatifs, équipes scolaires, prévention spécialisée, justice des mineurs, médico-social.</div>
+      <div><b>Prérequis</b>Aucun prérequis spécifique. Une expérience auprès d’enfants, d’adolescents ou de jeunes majeurs aide à mettre en perspective les situations étudiées.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>14</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Violences et situations de danger · Programme</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2 style="font-size:15pt">Accompagner les mineurs en risque prostitutionnel <span class="muted" style="font-weight:500">(suite)</span></h2>
+  <div class="mods two" style="margin-top:4mm">
+<div class="mod"><h4>Comprendre les situations prostitutionnelles</h4><ul><li>Définir la prostitution des mineurs et l’exploitation sexuelle sous l’angle de la protection de l’enfance</li><li>Distinguer situation prostitutionnelle, exploitation, emprise, proxénétisme et traite</li><li>Comprendre la diversité des situations sans construire de « profil type »</li><li>Identifier le rôle des réseaux sociaux, du numérique, des pairs et des fugues</li><li>Comprendre ce que la situation peut représenter pour le jeune</li></ul></div><div class="mod"><h4>Vulnérabilités et signes d’alerte</h4><ul><li>Repérer les changements inhabituels de comportement, de scolarité, de relations ou d’habitudes</li><li>Identifier fugues répétées, ruptures, isolement, déplacements fréquents</li><li>Être attentif à la possession inexpliquée d’argent, de cadeaux ou d’objets</li><li>Repérer un usage soudain, intensif ou secret du numérique</li><li>Mettre les indicateurs en perspective sans conclure sur un signe isolé</li></ul></div><div class="mod"><h4>L’emprise et la non-reconnaissance du danger</h4><ul><li>Comprendre pourquoi un mineur peut ne pas se reconnaître comme victime</li><li>Identifier emprise, loyauté, dépendance, contrainte et banalisation</li><li>Appréhender les retours dans la situation sans les lire comme un refus d’aide</li><li>Identifier l’épuisement ou le découragement des professionnels</li></ul></div><div class="mod"><h4>Adapter sa posture</h4><ul><li>Accueillir le jeune sans jugement moral ni étiquetage</li><li>Distinguer l’écoute éducative du recueil d’informations relevant d’une enquête</li><li>Utiliser des questions ouvertes, non suggestives, adaptées à l’âge</li><li>Préserver le lien lorsque le jeune refuse l’aide</li></ul></div><div class="mod"><h4>Évaluer le danger et protéger</h4><ul><li>Différencier préoccupation, risque, danger et danger grave ou imminent</li><li>Recueillir et transmettre des éléments factuels, datés et contextualisés</li><li>Travailler la mise à l’abri sans la réduire à un éloignement géographique</li><li>Connaître la place de l’information préoccupante, du signalement et des services d’urgence</li></ul></div><div class="mod"><h4>Un accompagnement dans la durée</h4><ul><li>Identifier les besoins auxquels la situation semble répondre</li><li>Restaurer progressivement la sécurité, la confiance et l’estime de soi</li><li>Construire avec le jeune des alternatives concrètes et valorisantes</li><li>Anticiper les ruptures, les fugues et les périodes de découragement</li></ul></div>  </div>
+  <div style="margin-top:auto"><div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div></div>
+  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>15</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Le secret professionnel et son partage : entre éthique et déontologie</h2>
+  <p class="intro">Cette formation permet aux professionnels de mieux comprendre la notion de secret professionnel et de se questionner plus largement sur le partage d’information dans le travail social et médico-social. Même si les règles sont clairement définies, ce qui se passe sur le terrain est soumis aux nuances de la relation humaine. Nous proposons de parcourir ces règles tout en nous interrogeant sur leur impact dans la vie des personnes accompagnées.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître et comprendre la notion de secret professionnel</li><li>Mesurer l’impact de la transmission d’information</li><li>Se questionner sur l’application du cadre législatif d’un point de vue éthique</li></ul>
+      <div class="mods">
+<div class="mod"><h4>La notion de secret professionnel</h4><ul><li>Connaître et comprendre le cadre législatif</li><li>Chercher des sources fiables en matière de législation</li></ul></div><div class="mod"><h4>Mesurer l’impact de la transmission d’information</h4><ul><li>Se positionner en qualité de professionnel</li><li>Mettre en balance les règles et la réalité du terrain</li></ul></div><div class="mod"><h4>Entre éthique et déontologie</h4><ul><li>Définir et comprendre l’éthique et la déontologie</li><li>Se questionner sur l’application du cadre en lien avec l’éthique et la déontologie</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel exerçant dans le social ou le médico-social.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>16</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>La relation éducative : quelle place pour la confiance dans l’accompagnement spécialisé ?</h2>
+  <p class="intro">Distance, tiers, confiance : ces mots sont inhérents à la relation éducative. Mais qu’en est-il au contact de publics en difficulté ? Sommes-nous parvenus à instaurer une relation de confiance ? L’accompagnement implique-t-il nécessairement la confiance ? En nous appuyant sur des auteurs comme Guy Hardy, nous réfléchissons à ces notions afin d’améliorer nos pratiques.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Sensibiliser le professionnel à l’intervention systémique et à l’intervention systémique familiale</li><li>Expérimenter les techniques de base de l’approche systémique</li><li>Identifier les gestes professionnels, les outils et les dispositifs permettant la mise en œuvre d’une relation éducative</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Développement des compétences relationnelles</h4><ul><li>Apprendre à établir une relation éducative éthique et respectueuse avec les personnes accompagnées</li><li>Acquérir des techniques d’observation, d’entretien et de médiation éducative</li><li>Développer des capacités d’écoute, d’empathie et de communication adaptées</li></ul></div><div class="mod"><h4>Compréhension globale des situations</h4><ul><li>Analyser les besoins, ressources et interactions des personnes dans leur environnement</li><li>Adopter une vision systémique prenant en compte la personne, sa famille et son contexte social</li></ul></div><div class="mod"><h4>Positionnement professionnel</h4><ul><li>Développer une posture réflexive sur sa pratique</li><li>Travailler en équipe pluridisciplinaire et en partenariat</li><li>La confiance dans la relation à l’autre</li></ul></div><div class="mod"><h4>Approche systémique</h4><ul><li>Comprendre les interactions entre l’individu, le groupe et l’institution</li><li>Articuler l’accompagnement individuel et l’intervention sur le collectif</li><li>Mobiliser les ressources de l’environnement dans l’action éducative</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel travaillant auprès de personnes (enfants et adultes) dans le domaine de la santé, du social et du médico-social.</div>
+      <div><b>Prérequis</b>Être concerné par l’accompagnement de mineurs accueillis en institution (internat, accueil de jour, milieu ouvert…).</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>17</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>L’impact des représentations sociales dans nos pratiques professionnelles</h2>
+  <p class="intro">Pour proposer un accompagnement de qualité, nous cherchons à partager des pratiques communes. Cette formation invite à questionner la manière dont ces pratiques varient selon qui nous sommes, en abordant l’ensemble de nos pratiques, protocolaires ou non, à travers la notion de représentations sociales.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître et comprendre la notion de représentations sociales</li><li>Mesurer l’impact de ces représentations dans sa pratique professionnelle</li><li>Se questionner sur ses pratiques professionnelles</li></ul>
+      <div class="mods">
+<div class="mod"><h4>La notion de représentation sociale</h4><ul><li>Connaître et comprendre les représentations professionnelles</li></ul></div><div class="mod"><h4>L’impact des représentations dans nos pratiques</h4><ul><li>Se positionner en qualité de professionnel</li><li>Analyser des outils permettant d’harmoniser les pratiques professionnelles</li></ul></div><div class="mod"><h4>Se questionner sur nos pratiques</h4><ul><li>Analyser et comprendre nos pratiques collectives</li><li>Se questionner sur nos pratiques individuelles</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel exerçant dans le social ou le médico-social.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>18</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Les écrits professionnels dans le secteur social et médico-social</h2>
+  <p class="intro">Cette formation aide à mieux répondre aux exigences des différents écrits professionnels du secteur social. Écrire engage : cela demande de s’interroger sur son propre rapport à l’écrit et sur les normes et lois en vigueur. Les enjeux concernent tous les acteurs : personne accompagnée, auteur, équipe, hiérarchie, institutions.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Rédiger avec clarté, précision et correction, de façon structurée, synthétique et concise</li><li>Intégrer les contraintes propres aux différents types de documents professionnels</li><li>Maîtriser les spécificités de l’écrit professionnel : cadre légal, éthique, place de la subjectivité</li></ul>
+      <div class="mods">
+<div class="mod"><h4>Cadre législatif et éthique</h4><ul><li>Situer la place des écrits dans les circuits d’information et les pratiques de l’institution</li><li>Réfléchir au positionnement de chacun (personnes accompagnées, familles, intervenants, partenaires) grâce à une meilleure connaissance des obligations respectives</li><li>Identifier le cadre législatif actuel : lois du 2 janvier 2002 et du 4 mars 2002, décret du 17 novembre 2016 sur le rapport de situation, décret du 28 septembre 2016 sur le contenu du PPE</li><li>Décrire le secret partagé et la confidentialité dans le travail social, et les dérogations possibles</li></ul></div><div class="mod"><h4>Les différents types d’écrits</h4><ul><li>Prendre en compte les besoins des destinataires : quelle demande, pour qui, pour quoi, quel type d’écrit ?</li><li>Prendre en compte les différentes finalités : informative, descriptive, analytique</li><li>Citer les différents écrits du quotidien professionnel : compte rendu, note de service, lettre, rapport, courrier électronique</li><li>Connaître les attentes spécifiques du juge des enfants et l’importance de l’anamnèse dans les rapports transmis à l’ASE et au juge</li></ul></div><div class="mod"><h4>Enjeux de l’écrit : prise de position et subjectivité</h4><ul><li>Dépasser les difficultés propres au fait d’écrire au sujet d’autrui</li><li>Adopter une posture objective à partir de la subjectivité de chacun</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Tout professionnel amené à rédiger des écrits professionnels dans le secteur social et médico-social.</div>
+      <div><b>Prérequis</b>Savoir parler, lire et écrire le français. Être concerné par la transmission d’informations écrites dans le secteur social ou médico-social.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>19</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Médiation et entretiens familiaux</h2>
+  <p class="intro">Cette formation aborde la mise en œuvre d’une médiation familiale et d’entretiens familiaux dans le cadre de l’accompagnement des familles.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Connaître les enjeux des relations intrafamiliales pour mettre en place une médiation familiale</li><li>Mettre en œuvre un protocole de visites encadrées, médiatisées et en présence d’un tiers</li><li>Accompagner les familles dans un cadre éthique et déontologique</li><li>Connaître la législation liée à l’autorité parentale, à la médiation familiale et au secret professionnel</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Les enjeux des relations intrafamiliales et la médiation familiale</h4><ul><li>Définir la médiation familiale</li><li>Comprendre les besoins de l’enfant selon son évolution au sein de sa famille</li><li>Élaborer un protocole de médiation familiale</li><li>Repérer et évaluer l’implication du professionnel dans le processus de médiation</li></ul></div><div class="mod"><h4>Visites encadrées, médiatisées et en présence d’un tiers</h4><ul><li>Définir les différents types de visites</li><li>Définir et comprendre le processus d’attachement</li><li>Comprendre le processus de séparation et ses enjeux</li><li>Élaborer un protocole de visite</li><li>Évaluer et restituer le contenu de la visite à l’enfant, aux parents et aux autres professionnels</li></ul></div><div class="mod"><h4>Un accompagnement éthique et déontologique</h4><ul><li>Savoir adapter sa posture professionnelle</li></ul></div><div class="mod"><h4>Le cadre légal</h4><ul><li>Respecter le secret professionnel et le partager à bon escient dans les limites juridiques</li><li>Connaître et respecter les droits des parents</li><li>Connaître la législation sur les droits de visite médiatisés</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Professionnels du social et du médico-social amenés à accompagner des familles.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>20</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>La posture professionnelle en travail social et médico-social</h2>
+  <p class="intro">Cette formation aborde la notion de posture professionnelle dans le social et le médico-social.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Identifier les enjeux de la relation éducative</li><li>Questionner ses représentations liées au travail social et à l’accompagnement</li><li>Accompagner avec une posture professionnelle éthique et déontologique</li><li>Comprendre la dynamique des groupes restreints et son impact sur la pratique</li><li>Repérer les outils de gestion de la violence et savoir mobiliser les partenaires</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Les enjeux de la relation éducative</h4><ul><li>Définir la relation éducative</li><li>Élaborer une posture en adéquation avec les besoins de la personne et le cadre institutionnel</li><li>Évaluer l’implication du professionnel dans la relation éducative</li></ul></div><div class="mod"><h4>Représentations et accompagnement</h4><ul><li>Comprendre sa grille de lecture au regard des représentations sociales et professionnelles</li><li>Comprendre le cadre législatif</li><li>Faire face à la violence : adapter sa posture et définir un cadre éducatif sécurisant</li></ul></div><div class="mod"><h4>Une posture éthique et déontologique</h4><ul><li>Savoir adapter sa posture professionnelle</li><li>Définir l’éthique et la déontologie</li></ul></div><div class="mod"><h4>La dynamique des groupes restreints</h4><ul><li>Comprendre les enjeux au sein de l’équipe et du groupe de résidents</li><li>Appréhender le groupe autrement</li><li>Questionner son propre rôle dans la dynamique observée</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">3 jours · 18 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>L’ensemble des professionnels exerçant dans le social et le médico-social.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>21</span></div>
+</section><section class="page fiche">
+  <div class="head"><span class="eyebrow">Posture et pratiques · Nouveau</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Le burn-out professionnel : prévenir, repérer, comprendre et accompagner</h2>
+  <p class="intro">Cette formation permet de comprendre les mécanismes du burn-out professionnel pour mieux le repérer, le prévenir et l’accompagner.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks"><li>Identifier les signes, les causes et les mécanismes du burn-out</li><li>Comprendre ses impacts sur la santé physique, psychique, cognitive et sociale</li><li>Repérer les signaux d’alerte chez soi et chez les autres</li><li>Mettre en place des stratégies concrètes de prévention et de rétablissement</li><li>Élaborer un plan d’action personnel pour préserver son équilibre au travail</li></ul>
+      <div class="mods two">
+<div class="mod"><h4>Comprendre le burn-out</h4><ul><li>Définitions et distinctions : stress, dépression, bore-out, brown-out</li><li>Origine et évolution du concept</li><li>Mécanismes psychologiques et organisationnels</li><li>Facteurs de risque individuels et collectifs</li></ul></div><div class="mod"><h4>Repérer les signes avant-coureurs</h4><ul><li>Symptômes physiques, cognitifs, émotionnels et comportementaux</li><li>Études de cas : repérer les signaux faibles</li><li>Auto-évaluation à l’aide d’un questionnaire</li><li>Identifier ses propres facteurs de vulnérabilité</li></ul></div><div class="mod"><h4>Les effets du burn-out</h4><ul><li>Conséquences sur la santé physique et mentale</li><li>Impacts cognitifs : mémoire, attention, concentration</li><li>Répercussions sociales et professionnelles</li><li>Témoignages et parcours de rétablissement</li></ul></div><div class="mod"><h4>Prévenir et se reconstruire</h4><ul><li>Démarches de prise en charge et accompagnements possibles</li><li>Stratégies de prévention : équilibre de vie, ressources, gestion du stress</li><li>Exercices pratiques : respiration, relaxation, pleine conscience</li><li>Élaboration d’un plan d’action personnel</li></ul></div>      </div>
+    </div>
+    <aside class="facts">
+      <div><b>Durée</b><span class="big">2 jours · 12 h</span></div>
+      <div><b>Horaires</b>9h00 – 12h00 et 13h00 – 16h00</div>
+      <div><b>Effectif</b>10 à 15 personnes</div>
+      <div><b>Public</b>Toute personne souhaitant comprendre et prévenir le burn-out, pour elle-même ou pour accompagner des collègues ou des personnes accompagnées : salariés, managers, responsables RH, professionnels de la santé ou du social.</div>
+      <div><b>Prérequis</b>Aucun.</div>
+      <div><b>Format</b>Intra, partout en France. Deux formateurs.</div>
+      <div><b>Tarif</b>À partir de 1 500 € / jour pour le groupe. Exonéré de TVA.</div>
+      <div><b>Dates</b>À convenir, sous 8 semaines</div>
+    </aside>
+  </div>
+<div class="method">
+    <div><b>Méthodes.</b> Supports pédagogiques imprimés et/ou numériques · Apports conceptuels · Mises en pratique autour de cas concrets · Partage d’expériences.</div>
+    <div><b>Évaluation et validation.</b> Évaluations individuelles à chaud et à froid · Tour de table en fin de formation · Retour du formateur · Analyse des questionnaires · Vérification de l’atteinte des objectifs par des exercices de mise en pratique. Formation non certifiante : attestation de suivi et de validation des compétences. <b>Handicap :</b> Antoine Gadiou, 06 51 84 44 01.</div>
+  </div>  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>22</span></div>
+</section>
+<!-- GAPP -->
+<section class="page fiche">
+  <div class="head"><span class="eyebrow">Soutien des équipes</span><img src="../assets/img/logo.png" alt=""></div>
+  <h2>Analyse des pratiques professionnelles (GAPP)</h2>
+  <p class="intro">Reprendre son souffle : accompagner ceux qui accompagnent. Exigences institutionnelles, charge émotionnelle, confrontation à la souffrance : l'analyse des pratiques offre aux équipes un espace pour suspendre l'urgence du quotidien, penser ensemble les situations difficiles et retrouver du pouvoir d'agir. C'est aussi un levier de prévention des risques psychosociaux et de l'isolement professionnel.</p>
+  <div class="body">
+    <div>
+      <h3>Objectifs</h3>
+      <ul class="ticks">
+        <li>Favoriser la réflexion collective et la prise de recul sur les pratiques</li>
+        <li>Soutenir l'analyse des situations complexes rencontrées</li>
+        <li>Renforcer la qualité des pratiques grâce à la pluralité des regards</li>
+        <li>Préserver l'engagement des professionnels et prévenir l'épuisement</li>
+      </ul>
+      <div class="mods two">
+        <div class="mod"><h4>Exposé des situations</h4><ul><li>Chaque participant présente brièvement la situation qu'il souhaite soumettre au groupe.</li></ul></div>
+        <div class="mod"><h4>Choix des situations</h4><ul><li>Le groupe et l'intervenante retiennent une à trois situations.</li></ul></div>
+        <div class="mod"><h4>Récit détaillé</h4><ul><li>Le participant décrit précisément la situation, guidé par l'intervenante.</li></ul></div>
+        <div class="mod"><h4>Questionnement collectif</h4><ul><li>Le groupe interroge pour obtenir une vision complète.</li></ul></div>
+        <div class="mod"><h4>Élaboration collective</h4><ul><li>Hypothèses d'analyse et pistes concrètes d'intervention.</li></ul></div>
+        <div class="mod"><h4>Reformulation et éclairage</h4><ul><li>Le participant partage ses nouvelles perspectives ; l'intervenante apporte des repères théoriques.</li></ul></div>
+      </div>
+      <p class="note">Intervenante diplômée du travail social depuis 13 ans, formée à l'animation de groupes d'analyse de pratique (formation certifiante). Confidentialité, non-jugement et place de chacun garantis.</p>
+    </div>
+    <aside class="facts">
+      <div><b>Rythme</b><span class="big">1 séance / mois</span></div>
+      <div><b>Durée</b>Séances de 2 à 3 heures</div>
+      <div><b>Groupe</b>12 participants maximum</div>
+      <div><b>Public</b>Professionnels du social, du médico-social, du sanitaire et du paramédical, cadres compris.</div>
+      <div><b>Prérequis</b>Aucun. Implication active et posture réflexive.</div>
+      <div><b>Évaluation</b>Retour en fin de séance, bilan écrit possible en fin de cycle.</div>
+      <div><b>Validation</b>Attestation de participation</div>
+      <div><b>Tarif</b>Sur devis. Exonéré de TVA.</div>
+    </aside>
+  </div>
+  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>23</span></div>
+</section>
+
+<!-- VAE -->
+<section class="page vae">
+  <div class="eyebrow">Validation des acquis de l'expérience · Filière sociale</div>
+  <h2>Faire reconnaître ce que l'expérience vous a appris</h2>
+  <p class="muted" style="font-size:10pt;max-width:170mm">Architectes accompagnateurs de parcours, nous vous suivons de l'étude de faisabilité jusqu'au jury. Nous ne rédigeons pas à votre place : nous vous aidons à passer du « je fais » au « je comprends ce que je fais et je peux l'expliquer ».</p>
+  <div class="dips">
+<div class="dip"><span>Niveau 6 · RNCP41747</span><h4>Éducateur spécialisé (DEES)</h4></div><div class="dip"><span>Niveau 6 · RNCP41748</span><h4>Assistant de service social (DEASS)</h4></div><div class="dip"><span>Niveau 6 · RNCP41744</span><h4>Conseiller en économie sociale et familiale (DECESF)</h4></div><div class="dip"><span>Niveau 6 · RNCP41745</span><h4>Éducateur de jeunes enfants (DEEJE)</h4></div><div class="dip"><span>Niveau 4 · RNCP39643</span><h4>Moniteur éducateur (DEME)</h4></div><div class="dip"><span>Niveau 3 · RNCP42423</span><h4>Accompagnant éducatif et social (DEAES)</h4></div>  </div>
+  <ol class="steps" style="list-style:none;padding:0">
+<li><b>Premier échange</b>Rendez-vous téléphonique gratuit</li><li><b>Faisabilité</b>Parcours, devis, financement</li><li><b>Recevabilité</b>Livret 1 validé par le certificateur</li><li><b>Accompagnement</b>Livret 2, méthode, oral blanc</li><li><b>Jury</b>Entretien de certification</li><li><b>Diplôme</b>Validation totale ou par blocs</li>  </ol>
+  <table>
+    <thead><tr><th>Formule</th><th>Contenu et modalités</th><th>Durée</th><th style="text-align:right">Tarif</th></tr></thead>
+    <tbody>
+<tr><td style="width:44mm"><b>Parcours complet</b><br><span class="muted" style="font-size:7.8pt">De la prise en main du livret 2 jusqu&#39;à l&#39;entretien après le jury</span></td><td class="muted" style="font-size:8pt">24 heures réparties sur 3 à 10 mois selon le calendrier de dépôt et vos besoins. Rencontres de 1 à 2 heures en présentiel ou à distance, plus échanges par e-mail. Le temps de lecture de vos écrits par l&#39;accompagnateur est compris.</td><td class="d">24 h</td><td class="p">2 800 €</td></tr>
+<tr><td style="width:44mm"><b>Lecture du livret 2 + préparation à l&#39;oral</b><br><span class="muted" style="font-size:7.8pt">Relecture de votre livret puis simulation du jury</span></td><td class="muted" style="font-size:8pt">8 h 30 à distance, selon le calendrier de dépôt des dossiers et vos besoins.</td><td class="d">8 h 30</td><td class="p">900 €</td></tr>
+<tr><td style="width:44mm"><b>Analyse du livret 2</b><br><span class="muted" style="font-size:7.8pt">Un regard extérieur sur l&#39;ensemble de votre livret</span></td><td class="muted" style="font-size:8pt">4 h 30 à distance, sur 2 mois maximum.</td><td class="d">4 h 30</td><td class="p">500 €</td></tr>
+<tr><td style="width:44mm"><b>Préparation à l&#39;oral</b><br><span class="muted" style="font-size:7.8pt">Jury blanc animé par deux formateurs</span></td><td class="muted" style="font-size:8pt">2 h 30, selon la date de votre jury. Deux formateurs jouent le rôle du jury.</td><td class="d">2 h 30</td><td class="p">550 €</td></tr>
+<tr><td style="width:44mm"><b>Analyse d&#39;un bloc de compétences</b><br><span class="muted" style="font-size:7.8pt">Pour retravailler une partie précise de votre livret</span></td><td class="muted" style="font-size:8pt">2 h 30 à distance, selon le calendrier de dépôt des dossiers.</td><td class="d">2 h 30</td><td class="p">250 €</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Prérequis :</b> Justifier d&#39;au moins un an d&#39;expérience (1 607 heures, continues ou non) en lien direct avec le diplôme visé, comme salarié, indépendant ou bénévole. Pour les formules d&#39;accompagnement, avoir obtenu la recevabilité de son livret 1. <b>Financement :</b> CPF, employeur, OPCO, France Travail ou financement personnel. Tarifs exonérés de TVA. La VAE n&#39;est pas une transformation automatique de l&#39;expérience en diplôme. Seul le jury de certification décide d&#39;attribuer ou non le diplôme. Certificateurs : Ministère de l&#39;Enseignement supérieur et de la Recherche, et ministère chargé des Solidarités.</p>
+  <div class="foot"><span><b>2aFormation</b> · 2aa.formation@gmail.com · 06 14 11 47 88</span><span>24</span></div>
+</section>
+
+<!-- Dos -->
+<section class="page back">
+  <img src="../assets/img/logo-blanc.png" alt="2A Formation">
+  <h2>Parlons de votre projet</h2>
+  <p class="lead">Une formation pour votre équipe, une analyse des pratiques ou un projet de VAE : nous vous répondons sous 48 h ouvrées.</p>
+  <ol class="steps2" style="list-style:none;padding:0">
+    <li>Vous nous décrivez votre besoin, votre public et vos contraintes.</li>
+    <li>Nous échangeons pour ajuster le contenu à votre équipe.</li>
+    <li>Vous recevez un programme et un devis détaillés.</li>
+    <li>La formation démarre sous 8 semaines, avec évaluations à chaud et à froid.</li>
+  </ol>
+  <div class="contact">
+    <div><b>Téléphone</b>Alexandre Bigot : 06 14 11 47 88<br>Antoine Gadiou : 06 51 84 44 01<br></div>
+    <div><b>E-mail et site</b>2aa.formation@gmail.com<br>2aformation.com</div>
+    <div><b>Adresse</b>2885 route de Saint-Papoul<br>11400 Castelnaudary</div>
+    <div><b>Référent handicap</b>Antoine Gadiou, 06 51 84 44 01</div>
+  </div>
+  <p class="legal">2aFormation, entreprise individuelle d'Alexandre Bigot · SIRET 897 695 235 00019 · Déclaration d'activité enregistrée sous le n° 76110202311 auprès du préfet de région Occitanie. Cet enregistrement ne vaut pas agrément de l'État. · Certifié Qualiopi n° 284411-4 (CERTIFOPAC) au titre des catégories : actions de formation ; actions permettant de valider les acquis de l&#39;expérience. · TVA non applicable, article 261-4-4° a du CGI.</p>
+</section>
+
+</div>
+<script>
+// Adapte l'aperçu à la largeur de l'écran (sans effet à l'impression)
+(function(){
+  var s=document.getElementById('sheets');
+  function fit(){
+    var w=Math.min(1,(window.innerWidth-24)/794);
+    s.style.zoom = w<1 ? w : '';
+  }
+  fit(); window.addEventListener('resize',fit);
+  window.addEventListener('beforeprint',function(){s.style.zoom='';});
+})();
+</script>
+</body>
+</html>

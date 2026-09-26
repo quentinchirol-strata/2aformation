@@ -105,6 +105,7 @@ def main():
     ecrire("analyse-des-pratiques/index.html", "gapp.html", rubrique="gapp",
            titre_page="Analyse des pratiques professionnelles (GAPP) · 2aFormation",
            description="Groupes d'analyse des pratiques professionnelles pour les équipes du social et du médico-social : une séance mensuelle pour prendre du recul et prévenir l'épuisement.")
+    ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
            titre_page="Contact et devis · 2aFormation",
            description="Contactez 2aFormation pour une formation en intra, une analyse des pratiques ou un accompagnement VAE. Réponse sous 48 h ouvrées.")
@@ -141,7 +142,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c != "404.html":
+            if c not in ("404.html", "catalogue/index.html"):
                 fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
