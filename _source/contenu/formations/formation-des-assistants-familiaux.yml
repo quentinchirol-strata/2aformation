@@ -1,0 +1,51 @@
+slug: formation-des-assistants-familiaux
+ordre: 4
+theme: Protection de l’enfance
+titre: Formation des assistants familiaux
+jours: 4
+heures: 24
+intro: Cette formation répond aux obligations prévues par le législateur concernant la formation des assistants familiaux.
+public: Assistants familiaux.
+prerequis: Être engagé dans l’obtention du diplôme d’État d’assistant familial.
+objectifs:
+- Connaître les étapes du développement de l’enfant, comprendre ses besoins selon son évolution et adapter sa pratique professionnelle
+- Repérer son implication personnelle, notamment face aux problématiques de séparation et de maltraitance
+- Prévenir les risques liés aux accidents domestiques et aux situations d’urgence
+- Connaître la législation liée à l’autorité parentale, à l’accueil familial et au secret professionnel
+programme:
+- titre: Les étapes du développement de l’enfant
+  points:
+  - Comprendre les besoins de l’enfant en fonction de son évolution
+  - Adapter sa pratique professionnelle
+- titre: 'Séparation et maltraitance : repérer son implication personnelle'
+  points:
+  - Définir et comprendre le processus d’attachement et des premiers liens
+  - Comprendre le processus de séparation et ses enjeux
+  - Repérer son implication personnelle
+  - Connaître le processus de maltraitance et ses différentes formes
+  - Repérer ses implications personnelles et ses propres limites face à la maltraitance
+- titre: Accidents domestiques et situations d’urgence
+  points:
+  - Repérer les dangers et éviter les accidents domestiques
+  - Agir de manière appropriée en cas d’accident
+- titre: Autorité parentale, accueil familial et secret professionnel
+  points:
+  - Respecter le secret professionnel et le partager à bon escient dans les limites juridiques
+  - Identifier ses responsabilités en tant qu’assistant familial
+titre_court: Formation des assistants familiaux
+nouveau: false
+horaires:
+- 9h00 – 12h00
+- 13h00 – 16h00
+pedagogie:
+- Supports pédagogiques imprimés et/ou numériques
+- Apports conceptuels
+- Mises en pratique autour de cas concrets
+- Partage d’expériences
+evaluation:
+- Évaluations individuelles à chaud et à froid
+- Tour de table en fin de formation
+- Retour du formateur
+- Analyse des questionnaires
+- Vérification de l’atteinte des objectifs par des exercices de mise en pratique
+effectif: 10 à 15 personnes

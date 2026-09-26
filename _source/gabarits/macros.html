@@ -1,0 +1,37 @@
+{% macro duree(f) %}{{ f.jours }} jour{{ 's' if f.jours > 1 }} · {{ f.heures }} h{% endmacro %}
+{% macro proof(site, R, vae_tot) %}
+<aside class="proof" aria-label="Chiffres clés">
+  <div class="eyebrow">Nos résultats {{ site.chiffres.annee }}</div>
+  <dl>
+    <div><dt>{{ site.chiffres.stagiaires }}</dt><dd>professionnels formés, sur {{ site.chiffres.sessions }} sessions</dd></div>
+    <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>de stagiaires satisfaits</dd></div>
+    <div><dt>{{ vae_tot.diplomes }} / {{ vae_tot.presentes }}</dt><dd>candidats VAE diplômés{% if vae_tot.partielles %}, {{ vae_tot.partielles }} en validation partielle{% endif %}</dd></div>
+    <div><dt>{{ site.chiffres.vae_satisfaction }} %</dt><dd>de candidats VAE satisfaits{% if vae_tot.abandons == 0 %}, aucun abandon{% endif %}</dd></div>
+  </dl>
+  <div class="qualiopi">
+    <strong>Certifié Qualiopi</strong>
+    au titre des catégories : {{ site.legal.qualiopi.categories|join(' ; ')|lower }}.<br>
+    Certificat n° {{ site.legal.qualiopi.numero }} délivré par {{ site.legal.qualiopi.certificateur }}, valable jusqu'au {{ site.legal.qualiopi.validite }}.<br>
+    <a href="{{ R }}{{ site.legal.qualiopi.pdf }}">Consulter le certificat (PDF)</a>
+  </div>
+</aside>
+{% endmacro %}
+{% macro catalogue(themes, R) %}
+<div class="cat">
+  {% for theme, liste in themes %}
+  <div>
+    <h3>{{ theme }}</h3>
+    <ul>
+      {% for f in liste %}<li><a href="{{ R }}{{ f.slug }}/index.html">{{ f.titre_court }}</a><span class="dur">{{ f.jours }} j</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+{% macro cta(R, titre="Un projet de formation pour votre équipe ?", texte="Dites-nous votre besoin : nous vous répondons sous 48 h ouvrées avec une proposition adaptée.") %}
+<div class="cta">
+  <div><h2>{{ titre }}</h2><p>{{ texte }}</p></div>
+  <a class="btn" href="{{ R }}contact/index.html">Nous contacter</a>
+</div>
+{% endmacro %}

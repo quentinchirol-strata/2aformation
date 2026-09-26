@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% from "macros.html" import cta %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Analyse des pratiques professionnelles</div>
+  <h1>Reprendre son souffle : accompagner ceux qui accompagnent</h1>
+  <p class="lead">Exigences institutionnelles, charge émotionnelle, confrontation à la souffrance : les équipes du social et du médico-social sont mises à rude épreuve. L'analyse des pratiques leur offre un espace pour suspendre l'urgence du quotidien, penser ensemble les situations difficiles et retrouver du pouvoir d'agir.</p>
+  <div class="chips">
+    <span class="chip">{{ site.gapp.effectif }}</span><span class="chip">{{ site.gapp.duree }}</span><span class="chip">{{ site.gapp.rythme }}</span><span class="chip">Tarif : {{ site.gapp.tarif|lower }}</span>
+  </div>
+</div>
+<section>
+  <div class="wrap fiche-grid">
+    <div>
+      <div class="block">
+        <h2>Objectifs</h2>
+        <ul class="ticks">
+          <li>Favoriser la réflexion collective et la prise de recul sur les pratiques</li>
+          <li>Soutenir l'analyse des situations complexes rencontrées</li>
+          <li>Renforcer la qualité des pratiques grâce à la dynamique du groupe et à la pluralité des regards</li>
+          <li>Préserver l'engagement des professionnels et prévenir l'épuisement professionnel</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Le déroulement d'une séance</h2>
+        <ol class="prog">
+          <li><h3>Exposé des situations</h3><ul><li>Chaque participant présente brièvement la situation qu'il souhaite soumettre au groupe.</li></ul></li>
+          <li><h3>Choix des situations</h3><ul><li>Le groupe et l'intervenante retiennent une à trois situations selon le temps disponible.</li></ul></li>
+          <li><h3>Récit détaillé</h3><ul><li>Le participant décrit précisément la situation, guidé par l'intervenante.</li></ul></li>
+          <li><h3>Questionnement collectif</h3><ul><li>Le groupe interroge pour obtenir une vision complète de la situation.</li></ul></li>
+          <li><h3>Élaboration collective</h3><ul><li>Hypothèses d'analyse et pistes concrètes d'intervention.</li></ul></li>
+          <li><h3>Reformulation</h3><ul><li>Le participant partage ce qu'il retire des échanges et ses nouvelles perspectives.</li></ul></li>
+          <li><h3>Éclairage théorique</h3><ul><li>L'intervenante relie les pratiques évoquées à des repères théoriques.</li></ul></li>
+        </ol>
+      </div>
+      <div class="block">
+        <h2>L'intervenante</h2>
+        <p>Diplômée du travail social depuis 13 ans, notre intervenante est formée à l'animation de groupes d'analyse de pratique dans le cadre d'une formation certifiante. Elle garantit la confidentialité, le non-jugement et la place de chacun dans le groupe.</p>
+      </div>
+    </div>
+    <aside class="facts" aria-label="L'essentiel">
+      <dl>
+        <div><dt>Public</dt><dd>Professionnels du social, du médico-social, du sanitaire et du paramédical : éducateurs, assistants sociaux, moniteurs éducateurs, AES, infirmiers, cadres, orthophonistes, psychomotriciens…</dd></div>
+        <div><dt>Prérequis</dt><dd>Aucun prérequis technique. Implication active et posture réflexive.</dd></div>
+        <div><dt>Groupe</dt><dd>{{ site.gapp.effectif }}</dd></div>
+        <div><dt>Rythme</dt><dd>{{ site.gapp.duree }}, {{ site.gapp.rythme|lower }}</dd></div>
+        <div><dt>Évaluation</dt><dd>Retour qualitatif en fin de séance. Bilan écrit possible en fin de cycle.</dd></div>
+        <div><dt>Validation</dt><dd>Attestation de participation.</dd></div>
+        <div><dt>Tarif</dt><dd>{{ site.gapp.tarif }}. Exonéré de TVA.</dd></div>
+      </dl>
+      <a class="btn primary" href="{{ R }}contact/index.html?sujet={{ 'Demande de devis : analyse des pratiques (GAPP)'|urlencode }}">Demander un devis</a>
+    </aside>
+  </div>
+</section>
+<section><div class="wrap">{{ cta(R) }}</div></section>
+{% endblock %}

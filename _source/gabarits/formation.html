@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from "macros.html" import cta, duree %}
+{% block jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}formations/index.html">Formations</a> › {{ f.titre_court }}</nav>
+  <div class="fiche-head">
+    <div class="eyebrow">{{ f.theme }}{% if f.nouveau %} · Nouveau en {{ annee_catalogue }}{% endif %}</div>
+    <h1>{{ f.titre }}</h1>
+    <p class="lead">{{ f.intro }}</p>
+  </div>
+  <div class="fiche-grid" style="padding-bottom:56px">
+    <div>
+      <div class="block">
+        <h2>Objectifs</h2>
+        <p class="muted" style="margin-bottom:12px">À l'issue de la formation, les participants seront capables de :</p>
+        <ul class="ticks">{% for o in f.objectifs %}<li>{{ o }}</li>{% endfor %}</ul>
+      </div>
+      <div class="block">
+        <h2>Programme</h2>
+        <ol class="prog">
+          {% for m in f.programme %}<li><h3>{{ m.titre }}</h3><ul>{% for p in m.points %}<li>{{ p }}</li>{% endfor %}</ul></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="block two">
+        <div><h2>Méthodes pédagogiques</h2><ul class="ticks">{% for p in f.pedagogie %}<li>{{ p }}</li>{% endfor %}</ul></div>
+        <div><h2>Évaluation</h2><ul class="ticks">{% for p in f.evaluation %}<li>{{ p }}</li>{% endfor %}</ul></div>
+      </div>
+      <div class="block">
+        <h2>Validation</h2>
+        <p>Formation non certifiante. Une attestation de suivi de la formation et de validation des compétences est remise à chaque participant.</p>
+      </div>
+      <div class="info">
+        <strong>Accessibilité aux personnes en situation de handicap.</strong> Pour étudier ensemble les adaptations possibles, contactez notre référent handicap, {{ site.legal.referent_handicap }}, au {{ site.legal.referent_handicap_tel }} ou à {{ site.contact.email }}.
+      </div>
+    </div>
+    <aside class="facts" aria-label="L'essentiel">
+      <dl>
+        <div><dt>Durée</dt><dd>{{ duree(f) }}</dd></div>
+        <div><dt>Horaires</dt><dd>{{ f.horaires|join(' et ') }}</dd></div>
+        <div><dt>Effectif</dt><dd>{{ f.effectif }}</dd></div>
+        <div><dt>Public</dt><dd>{{ f.public }}</dd></div>
+        <div><dt>Prérequis</dt><dd>{{ f.prerequis }}</dd></div>
+        <div><dt>Format</dt><dd>Intra, dans vos locaux, partout en France, ou à distance. Deux formateurs.</dd></div>
+        <div><dt>Tarif</dt><dd>À partir de {{ site.formations_intra.prix_jour }} par jour pour le groupe. Exonéré de TVA. Frais de déplacement en sus.</dd></div>
+        <div><dt>Dates</dt><dd>À convenir ensemble. Démarrage sous {{ site.formations_intra.delai_acces }}.</dd></div>
+      </dl>
+      <a class="btn primary" href="{{ R }}contact/index.html?sujet={{ ('Demande de devis : ' ~ f.titre_court)|urlencode }}">Demander un devis</a>
+    </aside>
+  </div>
+</div>
+<section><div class="wrap">{{ cta(R, "D'autres formations pour votre équipe", "Découvrez l'ensemble de notre catalogue " ~ annee_catalogue ~ ", ou demandez une formation sur mesure.") }}</div></section>
+{% endblock %}

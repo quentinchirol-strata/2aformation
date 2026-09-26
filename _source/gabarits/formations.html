@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "macros.html" import cta, duree %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Catalogue {{ annee_catalogue }} · Formations en intra</div>
+  <h1>Nos formations</h1>
+  <p class="lead">Des formations conçues par des professionnels de terrain pour les équipes du social, du médico-social et de la protection de l'enfance. Nous intervenons dans vos locaux, partout en France, et adaptons chaque contenu à votre public et à votre projet d'établissement.</p>
+  <div class="chips">
+    <span class="chip">{{ site.formations_intra.effectif }}</span>
+    <span class="chip">Deux formateurs par session</span>
+    <span class="chip">Démarrage sous {{ site.formations_intra.delai_acces }}</span>
+    <span class="chip">À partir de {{ site.formations_intra.prix_jour }} par jour et par groupe</span>
+  </div>
+</div>
+<section>
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filtrer par thème">
+      <button type="button" data-theme="all" aria-pressed="true">Toutes ({{ nb_formations }})</button>
+      {% for theme, liste in themes %}<button type="button" data-theme="{{ theme }}" aria-pressed="false">{{ theme }} ({{ liste|length }})</button>
+      {% endfor %}
+    </div>
+    <div class="cards">
+      {% for f in formations %}
+      <a class="card" href="{{ R }}{{ f.slug }}/index.html" data-theme="{{ f.theme }}">
+        <span class="theme">{{ f.theme }}{% if f.nouveau %}<span class="new">Nouveau</span>{% endif %}</span>
+        <h3>{{ f.titre }}</h3>
+        <p>{{ f.intro|truncate(150, True, '…') }}</p>
+        <span class="meta"><span><b>{{ duree(f) }}</b></span><span>{{ f.effectif }}</span></span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="band">
+      <div>
+        <div class="eyebrow">Soutien des équipes</div>
+        <h3>{{ site.gapp.titre }}</h3>
+        <p class="muted">Un espace mensuel pour prendre du recul, penser ensemble les situations complexes et prévenir l'épuisement professionnel.</p>
+      </div>
+      <div><a class="btn primary" href="{{ R }}analyse-des-pratiques/index.html">Découvrir les GAPP</a></div>
+    </div>
+  </div>
+</section>
+<section class="alt">
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.4rem;margin-bottom:12px">Notre façon de former</h2>
+      <p class="muted">Les professionnels possèdent déjà une grande richesse de savoirs et d'expériences. Nos formations ne transmettent pas des réponses toutes faites : elles créent la rencontre entre les connaissances théoriques, les réalités du terrain et l'intelligence collective du groupe. Nous privilégions des méthodes interactives, ancrées dans des situations concrètes, pour des apprentissages durables.</p>
+    </div>
+    <div>
+      <h2 style="font-size:1.4rem;margin-bottom:12px">Modalités pratiques</h2>
+      <ul class="ticks">
+        <li>Formations en intra, dans vos locaux, partout en France, ou à distance</li>
+        <li>À partir de {{ site.formations_intra.prix_jour }} par jour pour le groupe. {{ site.formations_intra.tva }}</li>
+        <li>{{ site.formations_intra.deplacement }}</li>
+        <li>Financement possible par votre OPCO ou votre plan de développement des compétences</li>
+        <li>Délai d'accès : {{ site.formations_intra.delai_acces }} entre la demande et le démarrage</li>
+        <li>Accessibilité handicap : contactez notre référent, {{ site.legal.referent_handicap }} ({{ site.legal.referent_handicap_tel }})</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section><div class="wrap">{{ cta(R) }}</div></section>
+{% endblock %}

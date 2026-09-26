@@ -1,0 +1,9 @@
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Diplôme</th><th class="n">Présentés</th><th class="n">Diplôme complet</th><th class="n">Validation partielle</th><th class="n">Abandons</th></tr></thead>
+    <tbody>
+      {% for r in site.chiffres.vae_resultats %}<tr><td>{{ r.diplome }}</td><td class="n">{{ r.presentes }}</td><td class="n">{{ r.diplomes }}</td><td class="n">{{ r.partielles }}</td><td class="n">{{ r.abandons }}</td></tr>{% endfor %}
+      <tr><td>Autres diplômes</td><td colspan="4">Premiers candidats en cours d'accompagnement</td></tr>
+    </tbody>
+  </table>
+</div>

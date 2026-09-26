@@ -1,0 +1,125 @@
+intro: Architectes accompagnateurs de parcours pour la filière sociale, nous vous suivons de l'étude de faisabilité jusqu'au jury, en passant par la rédaction du livret 2 et un oral blanc.
+prerequis: Justifier d'au moins un an d'expérience (1 607 heures, continues ou non) en lien direct avec le diplôme visé, comme salarié, indépendant ou bénévole. Pour les formules d'accompagnement, avoir obtenu la recevabilité de son livret 1.
+certificateurs: Ministère de l'Enseignement supérieur et de la Recherche, et ministère chargé des Solidarités.
+avertissement: La VAE n'est pas une transformation automatique de l'expérience en diplôme. Seul le jury de certification décide d'attribuer ou non le diplôme.
+financement: CPF, employeur, OPCO, France Travail ou financement personnel.
+
+diplomes:
+  - sigle: DEES
+    nom: Éducateur spécialisé
+    niveau: 6
+    rncp: RNCP41747
+  - sigle: DEASS
+    nom: Assistant de service social
+    niveau: 6
+    rncp: RNCP41748
+  - sigle: DECESF
+    nom: Conseiller en économie sociale et familiale
+    niveau: 6
+    rncp: RNCP41744
+  - sigle: DEEJE
+    nom: Éducateur de jeunes enfants
+    niveau: 6
+    rncp: RNCP41745
+  - sigle: DEME
+    nom: Moniteur éducateur
+    niveau: 4
+    rncp: RNCP39643
+  - sigle: DEAES
+    nom: Accompagnant éducatif et social
+    niveau: 3
+    rncp: RNCP42423
+
+etapes:
+  - titre: Premier échange
+    texte: Rendez-vous téléphonique gratuit
+  - titre: Faisabilité
+    texte: Parcours, devis, financement
+  - titre: Recevabilité
+    texte: Livret 1 validé par le certificateur
+  - titre: Accompagnement
+    texte: Livret 2, méthode, oral blanc
+  - titre: Jury
+    texte: Entretien de certification
+  - titre: Diplôme
+    texte: Validation totale ou par blocs
+
+formules:
+  - id: parcours-complet
+    titre: Parcours complet
+    sous_titre: De la prise en main du livret 2 jusqu'à l'entretien après le jury
+    duree: 24 h
+    prix: 2 800 €
+    modalites: 24 heures réparties sur 3 à 10 mois selon le calendrier de dépôt et vos besoins. Rencontres de 1 à 2 heures en présentiel ou à distance, plus échanges par e-mail. Le temps de lecture de vos écrits par l'accompagnateur est compris.
+    etapes:
+      - titre: Les étapes et outils de la VAE
+        points:
+          - Présenter le référentiel professionnel et les liens entre fonctions, activités et compétences
+          - Faciliter la prise en main du livret 2 par l'analyse de sa structure et de son contenu
+          - Rappeler les règles de l'écrit et conseiller la mise en forme du livret 2
+      - titre: Suivis individuels
+        points:
+          - Planifier les rencontres avec vous, en présentiel ou à distance
+          - Vous aider à analyser votre expérience pour choisir les situations qui révèlent vos compétences
+          - Apporter outils et conseils méthodologiques
+          - Analyser et critiquer vos écrits de façon constructive
+      - titre: Préparation de l'oral
+        points:
+          - Présenter le rôle du jury et le cadre de l'épreuve
+          - Rappeler les règles et techniques de l'entretien oral
+          - Simulation de l'épreuve face à un jury blanc
+          - Travailler la gestion du stress, du temps et l'argumentation
+          - Entretien après le jury pour faire le point, et définir une stratégie en cas de validation partielle
+  - id: lecture-livret-oral
+    titre: Lecture du livret 2 + préparation à l'oral
+    sous_titre: Relecture de votre livret puis simulation du jury
+    duree: 8 h 30
+    prix: 900 €
+    modalites: 8 h 30 à distance, selon le calendrier de dépôt des dossiers et vos besoins.
+    etapes:
+      - titre: Suivis individuels
+        points:
+          - Vous aider à analyser votre expérience pour choisir les situations qui révèlent vos compétences
+          - Apporter outils et conseils méthodologiques
+          - Analyser et critiquer vos écrits de façon constructive
+      - titre: Préparation de l'oral
+        points:
+          - Simulation de l'épreuve face à un jury blanc
+          - Travailler la gestion du stress, du temps et l'argumentation
+          - Entretien après le jury
+  - id: analyse-livret
+    titre: Analyse du livret 2
+    sous_titre: Un regard extérieur sur l'ensemble de votre livret
+    duree: 4 h 30
+    prix: 500 €
+    modalites: 4 h 30 à distance, sur 2 mois maximum.
+    etapes:
+      - titre: Suivis individuels
+        points:
+          - Vous aider à analyser votre expérience pour choisir les situations qui révèlent vos compétences
+          - Apporter outils et conseils méthodologiques
+          - Analyser et critiquer vos écrits de façon constructive
+  - id: preparation-oral
+    titre: Préparation à l'oral
+    sous_titre: Jury blanc animé par deux formateurs
+    duree: 2 h 30
+    prix: 550 €
+    modalites: 2 h 30, selon la date de votre jury. Deux formateurs jouent le rôle du jury.
+    etapes:
+      - titre: Préparation de l'oral
+        points:
+          - Présenter le rôle du jury et le cadre de l'épreuve
+          - Simulation de l'épreuve face à un jury blanc de deux formateurs
+          - Analyse de votre prestation et choix des éléments les plus pertinents
+          - Entretien après le jury
+  - id: analyse-bloc
+    titre: Analyse d'un bloc de compétences
+    sous_titre: Pour retravailler une partie précise de votre livret
+    duree: 2 h 30
+    prix: 250 €
+    modalites: 2 h 30 à distance, selon le calendrier de dépôt des dossiers.
+    etapes:
+      - titre: Suivi individuel
+        points:
+          - Analyse et critique constructive de vos écrits sur le bloc de compétences concerné
+          - Conseils méthodologiques

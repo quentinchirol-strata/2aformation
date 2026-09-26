@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% from "macros.html" import proof, catalogue, cta %}
+{% block contenu %}
+<div class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Organisme de formation · {{ site.zone }}</div>
+      <h1 style="margin-top:14px">{{ site.accroche }}</h1>
+      <p class="lead">{{ site.sous_titre }}</p>
+      <div class="routes">
+        <a class="route" href="{{ R }}formations/index.html">
+          <span class="who">Vous êtes un établissement ou un service</span>
+          <strong>Former votre équipe</strong>
+          <span class="go">{{ nb_formations }} formations, dans vos locaux, partout en France →</span>
+        </a>
+        <a class="route" href="{{ R }}nos-vae/index.html">
+          <span class="who">Vous êtes un professionnel</span>
+          <strong>Obtenir votre diplôme par la VAE</strong>
+          <span class="go">{{ vae.diplomes|map(attribute='sigle')|join(', ') }} →</span>
+        </a>
+      </div>
+    </div>
+    {{ proof(site, R, vae_tot) }}
+  </div>
+</div>
+
+<section id="etablissements">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Pour les établissements et services</div>
+      <h2>Une formation qui part de ce que vivent vos équipes</h2>
+      <p class="muted">MECS, services ASE, IME, foyers de l'enfance, services de placement familial : nos formateurs travaillent dans les mêmes institutions que vos professionnels. Ils arrivent avec des situations réelles, pas seulement des concepts.</p>
+    </div>
+    <div class="pillars">
+      <div><h3>Deux formateurs par session</h3><p>Deux regards croisés, plus d'échanges, et un accompagnement plus fin du groupe.</p></div>
+      <div><h3>Des praticiens en poste</h3><p>Éducateurs spécialisés, assistants de service social et cadres du social, du sanitaire et du médico-social.</p></div>
+      <div><h3>Pédagogie participative</h3><p>Études de cas apportés par le groupe, mises en situation, analyse collective des pratiques.</p></div>
+      <div><h3>Adapté à votre service</h3><p>Contenu ajusté à votre public, votre projet d'établissement et vos contraintes de planning.</p></div>
+    </div>
+    <div class="chips" aria-label="Modalités">
+      <span class="chip">Dans vos locaux, partout en France, ou à distance</span>
+      <span class="chip">{{ site.formations_intra.effectif }}</span>
+      <span class="chip">Démarrage sous {{ site.formations_intra.delai_acces }}</span>
+      <span class="chip">Financement OPCO possible</span>
+      <span class="chip">Référent handicap : {{ site.legal.referent_handicap }}, {{ site.legal.referent_handicap_tel }}</span>
+    </div>
+    <p class="price"><strong>À partir de {{ site.formations_intra.prix_jour }} par jour pour votre groupe</strong>, soit {{ site.formations_intra.prix_participant }} par participant et par jour. {{ site.formations_intra.tva }} {{ site.formations_intra.deplacement }}</p>
+
+    <div class="head" style="margin-top:48px">
+      <div class="eyebrow">Catalogue {{ annee_catalogue }}</div>
+      <h2 style="font-size:1.5rem">{{ nb_formations }} formations, classées par thème</h2>
+    </div>
+    {{ catalogue(themes, R) }}
+    <p class="muted" style="font-size:.9rem;margin-top:18px">Chaque formation est construite avec vous à partir des besoins de votre équipe. Un thème qui n'est pas dans la liste ? <a href="{{ R }}contact/index.html">Nous créons des formations sur mesure.</a></p>
+
+    <div class="band">
+      <div>
+        <div class="eyebrow">Soutien des équipes</div>
+        <h3>{{ site.gapp.titre }}</h3>
+        <p class="muted">Un temps mensuel pour prendre du recul sur les situations difficiles, penser ensemble et prévenir l'épuisement professionnel. <a href="{{ R }}analyse-des-pratiques/index.html">Découvrir les GAPP</a></p>
+      </div>
+      <div class="chips">
+        <span class="chip">{{ site.gapp.effectif }}</span>
+        <span class="chip">{{ site.gapp.duree }}</span>
+        <span class="chip">{{ site.gapp.rythme }}</span>
+        <span class="chip">Tarif : {{ site.gapp.tarif|lower }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vae" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Pour les professionnels · Validation des acquis de l'expérience</div>
+      <h2>Votre expérience vaut un diplôme d'État. On vous aide à le prouver.</h2>
+      <p class="muted">{{ vae.intro }}</p>
+    </div>
+    <div class="diplomes">
+      {% for d in vae.diplomes %}<div class="dip"><span class="lvl">Niveau {{ d.niveau }} · {{ d.rncp }}</span><h3>{{ d.nom }}</h3><p>{{ d.sigle }}</p></div>
+      {% endfor %}
+    </div>
+    <ol class="steps" aria-label="Les étapes de la VAE">
+      {% for e in vae.etapes %}<li><strong>{{ e.titre }}</strong><span>{{ e.texte }}</span></li>{% endfor %}
+    </ol>
+    <div class="results">
+      <div>
+        <h3 style="margin-bottom:10px">Nos formules</h3>
+        <div class="offers">
+          {% for f in vae.formules %}<div class="offer"><span><a href="{{ R }}nos-vae/index.html#{{ f.id }}">{{ f.titre }}</a></span><span>{{ f.duree }} · {{ f.prix }}</span></div>
+          {% endfor %}
+        </div>
+        <p class="muted" style="font-size:.9rem;margin-top:12px">Tarifs exonérés de TVA. Financement : {{ vae.financement }}</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px">Résultats {{ site.chiffres.annee }}</h3>
+        {% include "tableau_vae.html" %}
+        <p style="margin-top:16px"><a class="btn ghost" href="{{ R }}nos-vae/index.html">Tout savoir sur la VAE</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Qui vous forme</div>
+      <h2>Deux fondateurs, toujours sur le terrain</h2>
+      <p class="muted">2aFormation s'appuie aussi sur un réseau de formateurs du social, du sanitaire et du médico-social.</p>
+    </div>
+    <div class="team">
+      {% for p in site.equipe %}
+      <div class="person">
+        <img class="avatar" src="{{ R }}{{ p.photo }}" alt="Portrait de {{ p.nom }}" width="96" height="96" loading="lazy">
+        <div><h3>{{ p.nom }}</h3><div class="role">{{ p.role }}</div><p>{{ p.bio }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">{{ cta(R) }}</div>
+</section>
+{% endblock %}

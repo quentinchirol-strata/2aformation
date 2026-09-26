@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Contact</div>
+  <h1>Parlons de votre projet</h1>
+  <p class="lead">Formation pour votre équipe, analyse des pratiques ou accompagnement VAE : décrivez votre besoin, nous vous répondons sous 48 h ouvrées.</p>
+</div>
+<section>
+  <div class="wrap contact-grid">
+    <form id="contact-form" novalidate data-email="{{ site.contact.email }}" data-endpoint="{{ site.contact.formulaire_endpoint }}" action="{{ site.contact.formulaire_endpoint or '#' }}" method="post">
+      <label for="profil">Vous êtes
+        <select id="profil" name="profil">
+          <option value="etablissement">Un établissement ou un service (formation)</option>
+          <option value="gapp">Un établissement (analyse des pratiques)</option>
+          <option value="vae">Un professionnel (VAE)</option>
+          <option value="autre">Autre demande</option>
+        </select>
+      </label>
+      <div class="row">
+        <label for="nom">Nom et prénom<input id="nom" name="nom" autocomplete="name" required></label>
+        <label for="structure">Structure (facultatif)<input id="structure" name="structure" autocomplete="organization"></label>
+      </div>
+      <div class="row">
+        <label for="email">E-mail<input id="email" name="email" type="email" autocomplete="email" required></label>
+        <label for="tel">Téléphone<input id="tel" name="tel" type="tel" autocomplete="tel"></label>
+      </div>
+      <label for="message">Votre besoin<textarea id="message" name="message" required placeholder="Ex. : formation sur le secret professionnel pour 12 éducateurs, au premier trimestre"></textarea></label>
+      <label class="hp" aria-hidden="true">Ne pas remplir<input name="site" tabindex="-1" autocomplete="off"></label>
+      <p class="muted" style="font-size:.8rem">Vos informations servent uniquement à répondre à votre demande. Voir notre <a href="{{ R }}politique-de-confidentialite/index.html">politique de confidentialité</a>.</p>
+      <div><button class="btn primary" type="submit">Envoyer ma demande</button></div>
+      <p id="form-status" class="form-status" role="status"></p>
+    </form>
+    <div class="coords">
+      <div><b>Téléphone</b>{% for t in site.contact.telephones %}{{ t.nom }} : <a href="tel:{{ t.numero|replace(' ','') }}">{{ t.numero }}</a><br>{% endfor %}</div>
+      <div><b>E-mail</b><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></div>
+      <div><b>Adresse</b>{{ site.contact.adresse_ligne1 }}<br>{{ site.contact.adresse_ligne2 }}</div>
+      <div><b>Zone d'intervention</b>Toute la France, dans vos locaux, ou à distance</div>
+      <div><b>Référent handicap</b>{{ site.legal.referent_handicap }}, {{ site.legal.referent_handicap_tel }}</div>
+      <div><a href="{{ site.contact.linkedin }}" rel="noopener">Suivre 2aFormation sur LinkedIn</a></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

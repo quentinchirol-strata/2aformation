@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from "macros.html" import cta %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Validation des acquis de l'expérience · Filière sociale</div>
+  <h1>Faire reconnaître ce que l'expérience vous a appris</h1>
+  <p class="lead">Après des années de terrain, vous avez développé une vraie expertise, sans toujours en avoir conscience. La VAE permet de la faire reconnaître par un diplôme d'État. Nous ne rédigeons pas à votre place : nous vous aidons à regarder votre expérience autrement, pour passer du « je fais » au « je comprends ce que je fais et je peux l'expliquer ».</p>
+  <div class="chips">
+    <span class="chip">Architectes accompagnateurs de parcours</span>
+    <span class="chip">Accompagnement individuel</span>
+    <span class="chip">Présentiel ou à distance</span>
+    <span class="chip">Financement CPF possible</span>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Les diplômes que nous accompagnons</h2><p class="muted">Diplômes d'État du travail social. Certificateurs : {{ vae.certificateurs }}</p></div>
+    <div class="diplomes">
+      {% for d in vae.diplomes %}<div class="dip"><span class="lvl">Niveau {{ d.niveau }} · {{ d.rncp }}</span><h3>{{ d.nom }}</h3><p>{{ d.sigle }}</p></div>
+      {% endfor %}
+    </div>
+    <ol class="steps" aria-label="Les étapes de la VAE">
+      {% for e in vae.etapes %}<li><strong>{{ e.titre }}</strong><span>{{ e.texte }}</span></li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>Nos formules d'accompagnement</h2><p class="muted">Tarifs exonérés de TVA. Financement : {{ vae.financement }}</p></div>
+    <div class="formules">
+      {% for f in vae.formules %}
+      <article class="formule" id="{{ f.id }}">
+        <header><div><h3>{{ f.titre }}</h3><p class="muted" style="font-size:.95rem">{{ f.sous_titre }}</p></div><div class="tarif">{{ f.prix }} <span class="muted" style="font-size:.9rem;font-family:var(--body);font-weight:400">· {{ f.duree }}</span></div></header>
+        <p style="font-size:.95rem">{{ f.modalites }}</p>
+        {% for e in f.etapes %}<div><h4>{{ e.titre }}</h4><ul>{% for p in e.points %}<li>{{ p }}</li>{% endfor %}</ul></div>{% endfor %}
+        <div><a class="btn ghost" href="{{ R }}contact/index.html?profil=vae&sujet={{ ('VAE : ' ~ f.titre)|urlencode }}">Je suis intéressé(e)</a></div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap results" style="margin-top:0">
+    <div>
+      <h2 style="font-size:1.4rem;margin-bottom:12px">Bon à savoir</h2>
+      <ul class="ticks">
+        <li><strong>Prérequis :</strong> {{ vae.prerequis }}</li>
+        <li>Une attestation d'accompagnement VAE vous est remise.</li>
+        <li>{{ vae.avertissement }}</li>
+        <li>Accessibilité handicap : contactez {{ site.legal.referent_handicap }} au {{ site.legal.referent_handicap_tel }}.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="font-size:1.4rem;margin-bottom:12px">Nos résultats {{ site.chiffres.annee }}</h2>
+      {% include "tableau_vae.html" %}
+      <p class="muted" style="font-size:.9rem;margin-top:10px">{{ site.chiffres.vae_satisfaction }} % des candidats accompagnés se déclarent satisfaits. Les taux par diplôme seront publiés dès qu'un nombre suffisant de candidats aura été présenté.</p>
+    </div>
+  </div>
+</section>
+<section><div class="wrap">{{ cta(R, "Parlons de votre projet de VAE", "Le premier échange téléphonique est gratuit : nous regardons ensemble la faisabilité et le financement.") }}</div></section>
+{% endblock %}

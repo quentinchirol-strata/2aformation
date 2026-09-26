@@ -1,0 +1,75 @@
+# Informations générales du site 2aFormation
+nom: 2aFormation
+url: https://2aformation.com
+accroche: Former les équipes de la protection de l'enfance. Accompagner les VAE du travail social.
+sous_titre: Des formations animées en binôme par des éducateurs et assistants de service social en poste, pour des professionnels qui repartent avec des réponses applicables dès le lendemain.
+zone: Castelnaudary (Aude) · Interventions dans toute la France
+
+contact:
+  email: 2aa.formation@gmail.com
+  adresse_ligne1: 2885 route de Saint-Papoul
+  adresse_ligne2: 11400 Castelnaudary
+  telephones:
+    - nom: Alexandre Bigot
+      numero: 06 14 11 47 88
+    - nom: Antoine Gadiou
+      numero: 06 51 84 44 01
+  linkedin: https://www.linkedin.com/company/2aformation/
+  # Adresse Formspree (formulaire de contact). Laisser vide pour ouvrir la messagerie du visiteur.
+  formulaire_endpoint: ""
+
+legal:
+  nda: "76110202311"
+  siret: "897 695 235 00019"
+  raison_sociale: Alexandre Bigot, entrepreneur individuel (2aFormation)
+  directeur_publication: Alexandre Bigot
+  referent_handicap: Antoine Gadiou
+  referent_handicap_tel: 06 51 84 44 01
+  qualiopi:
+    numero: 284411-4
+    certificateur: CERTIFOPAC
+    validite: 13 mai 2027
+    categories:
+      - Actions de formation
+      - Actions permettant de valider les acquis de l'expérience
+    pdf: documents/certificat-qualiopi.pdf
+
+chiffres:
+  annee: 2025
+  stagiaires: 51
+  sessions: 4
+  satisfaction_formation: 85
+  vae_satisfaction: 100
+  # Une ligne par diplôme présenté dans l'année
+  vae_resultats:
+    - diplome: DEASS
+      presentes: 3
+      diplomes: 2
+      partielles: 1
+      abandons: 0
+
+formations_intra:
+  prix_jour: 1 500 €
+  prix_participant: 100 à 150 €
+  effectif: 10 à 15 participants
+  delai_acces: 8 semaines
+  tva: Exonéré de TVA (article 261-4-4° a du CGI).
+  deplacement: Frais de déplacement selon le lieu de formation.
+
+gapp:
+  titre: Analyse des pratiques professionnelles (GAPP)
+  accroche: Reprendre son souffle, accompagner ceux qui accompagnent.
+  tarif: Sur devis
+  effectif: 12 participants maximum
+  duree: Séances de 2 à 3 heures
+  rythme: Une séance par mois
+
+equipe:
+  - nom: Antoine Gadiou
+    role: Éducateur spécialisé · Assistant de service social
+    photo: assets/img/antoine-gadiou.jpg
+    bio: Travaille en protection de l'enfance et forme les étudiants en travail social en centre de formation. Master en sciences de l'éducation.
+  - nom: Alexandre Bigot
+    role: Éducateur spécialisé · Formateur
+    photo: assets/img/alexandre-bigot.jpg
+    bio: Plus de 10 ans en protection de l'enfance. Formateur en centre de formation aux métiers du social, il a contribué à un guide de recommandations de bonnes pratiques de la HAS. Master en sciences de l'éducation.
