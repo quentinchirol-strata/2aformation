@@ -28,6 +28,7 @@ Le traitement repose sur votre demande (mesures précontractuelles) et, en cas d
 ## Services tiers
 
 - **Hébergement :** GitHub Pages (GitHub, Inc.) peut enregistrer l'adresse IP des visiteurs à des fins de sécurité.
+- **Formulaire de contact :** les demandes envoyées via le formulaire transitent par le service Formspree (Formspree, Inc., États-Unis), qui nous les transmet par e-mail.
 - **Polices de caractères :** le site utilise Google Fonts, ce qui transmet votre adresse IP à Google lors du chargement des pages.
 
 ## Vos droits
