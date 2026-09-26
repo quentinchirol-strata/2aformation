@@ -1,0 +1,71 @@
+# Reconstruit et publie le site à chaque modification des sources (dossier _source).
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+    paths: ["_source/**", "_source.tar.xz", ".github/workflows/publier.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publier
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les sources livrées en archive (le cas échéant)
+        run: |
+          if [ -f _source.tar.xz ]; then
+            rm -rf _source && mkdir _source
+            tar -xJf _source.tar.xz -C _source
+            rm _source.tar.xz
+            cp _source/.pages.yml .pages.yml
+            # Reprise du logo, du favicon, du certificat Qualiopi et du domaine de l'ancien site
+            A=wp-content/uploads
+            mkdir -p _source/static/assets/img _source/static/documents
+            cp "$A/2024/08/Logo-gris@300x-8-1-300x261.png" _source/static/assets/img/logo.png
+            cp "$A/2024/08/Logo-Blanc@300x-8-1-300x261.png" _source/static/assets/img/logo-blanc.png
+            cp "$A/2024/07/cropped-favicone@300x-8-2-1-192x192.png" _source/static/assets/img/favicon.png
+            cp "$A/2026/03/Certificat-Qualiopi-Mise-a-jour-le-14.10.2024-2.pdf" _source/static/documents/certificat-qualiopi.pdf
+            cp CNAME _source/static/CNAME
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Construire le site
+        run: |
+          pip install jinja2 pyyaml markdown
+          python _source/build.py
+
+      - name: Remplacer les pages publiées
+        run: |
+          shopt -s dotglob
+          for f in *; do
+            case "$f" in
+              .git|.github|_source|.pages.yml) ;;
+              *) rm -rf "$f" ;;
+            esac
+          done
+          cp -r _source/_site/. .
+          rm -rf _source/_site
+
+      - name: Enregistrer et mettre en ligne
+        run: |
+          git config user.name "Mise en ligne automatique"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement à publier."
+          else
+            git commit -m "Mise en ligne automatique du site"
+            git push
+          fi
