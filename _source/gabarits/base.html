@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ titre_page }}</title>
 <meta name="description" content="{{ description }}">
+{% if site.google_verification %}<meta name="google-site-verification" content="{{ site.google_verification }}">
+{% endif %}
 <link rel="canonical" href="{{ site.url }}/{{ chemin }}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
