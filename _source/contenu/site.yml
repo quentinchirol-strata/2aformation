@@ -1,6 +1,8 @@
 # Informations générales du site 2aFormation
 nom: 2aFormation
 url: https://2aformation.com
+# Code de validation Google Search Console (balise HTML)
+google_verification: "_dP1_5B0y6I8FPb43Rwjk5s7n8M9wzaGCozZSkbes3o"
 accroche: Former les équipes de la protection de l'enfance. Accompagner les VAE du travail social.
 sous_titre: Des formations animées en binôme par des éducateurs et assistants de service social en poste, pour des professionnels qui repartent avec des réponses applicables dès le lendemain.
 zone: Castelnaudary (Aude) · Interventions dans toute la France
@@ -16,7 +18,7 @@ contact:
       numero: 06 51 84 44 01
   linkedin: https://www.linkedin.com/company/2aformation/
   # Adresse Formspree (formulaire de contact). Laisser vide pour ouvrir la messagerie du visiteur.
-  formulaire_endpoint: ""
+  formulaire_endpoint: "https://formspree.io/f/xjykajbo"
 
 legal:
   nda: "76110202311"
