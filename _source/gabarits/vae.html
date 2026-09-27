@@ -62,5 +62,20 @@
     </div>
   </div>
 </section>
+{% set ref = site.equipe|selectattr('tel','defined')|first %}
+<section>
+  <div class="wrap">
+    <div class="person" style="max-width:640px;margin-inline:auto">
+      <img class="avatar" src="{{ R }}{{ ref.photo }}" alt="Portrait de {{ ref.nom }}" width="96" height="96" loading="lazy">
+      <div>
+        <div class="eyebrow">Votre contact VAE</div>
+        <h2 style="font-size:1.4rem;margin:4px 0">{{ ref.nom }}</h2>
+        <div class="role">{{ ref.role }}</div>
+        <p>{{ ref.bio }}</p>
+        <p><a class="btn primary" href="tel:{{ ref.tel|replace(' ','') }}">Appeler le {{ ref.tel }}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 <section><div class="wrap">{{ cta(R, "Parlons de votre projet de VAE", "Le premier échange téléphonique est gratuit : nous regardons ensemble la faisabilité et le financement.") }}</div></section>
 {% endblock %}

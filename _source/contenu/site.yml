@@ -77,6 +77,11 @@ equipe:
     role: Éducateur spécialisé · Formateur
     photo: assets/img/alexandre-bigot.jpg
     bio: Plus de 10 ans en protection de l'enfance. Formateur en centre de formation aux métiers du social, il a contribué à un guide de recommandations de bonnes pratiques de la HAS. Master en sciences de l'éducation.
+  - nom: Sybille Deterpigny
+    role: Assistante de service social · Référente VAE
+    photo: assets/img/sybille-deterpigny.jpg
+    tel: "06 60 05 25 99"
+    bio: Intervient en protection de l'enfance et en polyvalence de secteur. Animatrice de GAPP certifiée, elle est l'interlocutrice des candidats accompagnés en VAE.
 
 # Produits numériques (page guide-livret-2)
 produits:
