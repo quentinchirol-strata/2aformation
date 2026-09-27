@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% set rl = site.produits.relecture %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Étudiants en travail social et médico-social</div>
+  <h1>Faites relire votre mémoire ou votre dossier avant le dépôt</h1>
+  <p class="lead">Vous envoyez votre écrit, nous le relisons avec l'œil de formateurs qui connaissent les attendus de la certification. Vous recevez un retour écrit détaillé, puis nous en parlons ensemble au téléphone ou en visio.</p>
+  <div class="chips">
+    <span class="chip">Retour écrit sous {{ rl.delai }}</span>
+    <span class="chip">Entretien téléphone ou visio</span>
+    <span class="chip">Relecteurs de terrain et formateurs</span>
+    <span class="chip">Confidentialité</span>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Deux formules, un prix fixe</h2></div>
+    <div class="formules">
+      {% for o in rl.offres %}
+      {% set achat = o.lien_paiement if o.lien_paiement else R ~ 'contact/index.html?profil=etudiant&sujet=' ~ (('Commande : ' ~ o.titre)|urlencode) %}
+      <article class="formule">
+        <header><h3>{{ o.titre }}</h3><div class="prix" style="font-size:1.6rem;font-weight:700;margin-top:6px">{{ o.prix }}</div></header>
+        <p style="margin:10px 0">{{ o.pour }}</p>
+        <ul>
+          <li>Lecture intégrale de votre écrit</li>
+          <li>Retour écrit : commentaires dans le document et synthèse des points forts et des priorités</li>
+          <li>Entretien de {{ o.entretien }} par téléphone ou en visio</li>
+          <li>Retour sous {{ rl.delai }} après réception</li>
+        </ul>
+        <p style="margin-top:16px"><a class="btn primary" href="{{ achat }}">Commander · {{ o.prix }}</a></p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="muted" style="font-size:.9rem;margin-top:14px">TVA non applicable · paiement sécurisé par carte.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Ce que nous regardons</h2>
+      <ul class="ticks">
+        <li>La réponse aux consignes de votre école et aux attendus de l'épreuve.</li>
+        <li>Le fil conducteur : question de départ, problématique, cohérence du plan.</li>
+        <li>La place de votre posture professionnelle et de votre analyse, au-delà de la description.</li>
+        <li>L'appui sur les références théoriques et le cadre légal.</li>
+        <li>La clarté de l'écriture, l'anonymisation et le respect du secret professionnel.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Comment ça se passe</h2>
+      <ol class="ticks">
+        <li>Vous commandez la formule qui correspond à votre écrit.</li>
+        <li>Vous nous envoyez votre écrit (Word de préférence), les consignes de votre école et votre date de dépôt.</li>
+        <li>Nous relisons et vous renvoyons le document commenté avec une synthèse.</li>
+        <li>Nous échangeons au téléphone ou en visio pour que vous repartiez avec un plan d'action clair.</li>
+      </ol>
+      <p class="muted" style="margin-top:12px">Commandez au moins 3 semaines avant votre date de dépôt pour avoir le temps d'intégrer nos remarques.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Qui relit votre écrit ?</h2>
+      <p>Des professionnels de terrain qui interviennent aussi en formation : Alexandre Bigot et Antoine Gadiou, éducateurs spécialisés, pour les écrits des éducateurs, moniteurs-éducateurs et des autres filières ; Sybille Deterpigny, assistante de service social, pour les écrits des futurs assistants de service social. Tous trois exercent en protection de l'enfance.</p>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Questions fréquentes</h2>
+      <p><strong>Est-ce que vous réécrivez mon dossier ?</strong> Non. Nous commentons, questionnons et proposons des pistes ; vous restez l'auteur de votre écrit. C'est aussi ce qu'attend le jury.</p>
+      <p><strong>Mon dossier n'est pas terminé, puis-je l'envoyer ?</strong> Oui, à condition que l'essentiel soit rédigé : le retour est plus utile sur un texte avancé que sur un plan.</p>
+      <p><strong>Et la confidentialité ?</strong> Votre écrit n'est lu que par votre relecteur et il est supprimé 30 jours après l'entretien. Pensez à anonymiser les personnes accompagnées.</p>
+      <p><strong>Cette relecture garantit-elle la note ?</strong> Non : seul le jury évalue votre écrit. Notre rôle est de vous aider à le rendre plus solide.</p>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap">
+  <div class="cta">
+    <div><h2>Une question avant de commander ?</h2><p>Dites-nous votre diplôme, le type d'écrit et votre date de dépôt : nous vous répondons sous 48 h ouvrées.</p></div>
+    <a class="btn" href="{{ R }}contact/index.html?profil=etudiant&sujet={{ 'Relecture d\'écrit : question'|urlencode }}">Nous écrire</a>
+  </div>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Prestation de relecture à distance réservée aux particuliers. <a href="{{ R }}cgv-produits-numeriques/index.html">Conditions générales de vente</a>.</p>
+</div></section>
+{% endblock %}

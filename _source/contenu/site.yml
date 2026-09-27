@@ -93,3 +93,21 @@ produits:
     # Partie secrète des adresses de téléchargement (ne pas la publier)
     jeton: "b8803d8f96e9"
     livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+  relecture:
+    # Relecture d'écrits de certification (page relecture-ecrits)
+    jeton: "b53d1ab098f3"
+    delai: "10 jours ouvrés"
+    offres:
+      - cle: memoire
+        titre: Relecture de mémoire
+        prix: "190 €"
+        lien_paiement: "https://buy.stripe.com/fZudR25gKbKE7Fp9FM0gw01"
+        pour: "Mémoire de pratique professionnelle ou d'initiation à la recherche, toutes filières (DEES, DEASS, DEME, DEEJE, DECESF, DEETS, DEIS, CAFERUIS…)."
+        entretien: "1 h"
+      - cle: dossier
+        titre: Relecture d'un dossier de certification
+        prix: "95 €"
+        lien_paiement: "https://buy.stripe.com/28EbIUbF89Cw7Fp5pw0gw02"
+        pour: "Tout autre écrit de certification : dossier de pratiques professionnelles des ASS (ASI, ISIC), dossiers de domaines de compétences des éducateurs et moniteurs-éducateurs, note d'analyse partenariale, dossier projet…"
+        entretien: "45 min"
+

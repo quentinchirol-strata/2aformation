@@ -1,11 +1,11 @@
 ---
-titre: Conditions générales de vente des produits numériques
+titre: Conditions générales de vente aux particuliers
 chemin: cgv-produits-numeriques/index.html
-description: Conditions générales de vente des produits numériques de 2aFormation (pack Réussir son livret 2 de VAE).
+description: Conditions générales de vente aux particuliers de 2aFormation, pack Réussir son livret 2 de VAE et relecture d'écrits de certification.
 ---
-# Conditions générales de vente des produits numériques
+# Conditions générales de vente aux particuliers
 
-*En vigueur au 1er octobre 2026.*
+*En vigueur au 1er octobre 2026.* Les articles 2 à 8 concernent le pack numérique ; l'article 12 concerne les prestations de relecture d'écrits. Les autres articles s'appliquent aux deux.
 
 ## 1. Vendeur
 
@@ -50,3 +50,15 @@ Toute réclamation peut être adressée à 2aa.formation@gmail.com. En cas de li
 ## 11. Droit applicable
 
 Les présentes conditions sont soumises au droit français.
+
+## 12. Prestations de relecture d'écrits
+
+**12.1 Objet.** La relecture porte sur un écrit de certification rédigé par le client (mémoire ou autre dossier). Elle comprend la lecture intégrale de l'écrit, un retour écrit (commentaires dans le document et synthèse) et un entretien par téléphone ou en visio dont la durée est indiquée sur la page de la prestation. 2aFormation ne rédige ni ne réécrit l'écrit : le client en reste le seul auteur. La relecture ne garantit ni une note ni l'obtention du diplôme.
+
+**12.2 Prix et paiement.** Le prix est forfaitaire, indiqué sur la page de la prestation (TVA non applicable), et payé à la commande par carte bancaire via Stripe. Il couvre une relecture d'une version de l'écrit.
+
+**12.3 Exécution.** Après son paiement, le client envoie son écrit, les consignes de son école et sa date de dépôt à 2aa.formation@gmail.com. Le retour écrit est transmis sous 10 jours ouvrés à compter de la réception de l'écrit complet ; l'entretien a lieu à une date convenue ensemble. 2aFormation conseille de commander au moins trois semaines avant la date de dépôt et ne peut être tenue responsable d'un envoi tardif de l'écrit par le client.
+
+**12.4 Droit de rétractation.** Le client dispose d'un délai de 14 jours à compter de la commande pour se rétracter, par simple e-mail à 2aa.formation@gmail.com ; il est alors remboursé sous 14 jours. En envoyant son écrit avant la fin de ce délai, le client demande expressément que la relecture commence immédiatement. S'il se rétracte ensuite, il paie un montant proportionnel au travail déjà réalisé (article L221-25 du Code de la consommation). Une fois la prestation entièrement exécutée (retour écrit transmis et entretien réalisé), le droit de rétractation ne peut plus être exercé (article L221-28 1°).
+
+**12.5 Confidentialité.** L'écrit n'est lu que par le relecteur de 2aFormation. Il n'est ni diffusé ni réutilisé et il est supprimé 30 jours après l'entretien. Le client veille à anonymiser les personnes mentionnées dans son écrit.

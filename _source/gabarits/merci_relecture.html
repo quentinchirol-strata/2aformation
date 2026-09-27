@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head_extra %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Commande confirmée</div>
+  <h1>Merci, envoyez-nous votre écrit</h1>
+  <p class="lead">Votre paiement a bien été reçu. Pour lancer la relecture, envoyez-nous un e-mail à <a href="mailto:{{ site.contact.email }}?subject={{ 'Relecture : [votre nom] – [votre diplôme]'|urlencode }}"><strong>{{ site.contact.email }}</strong></a> avec :</p>
+  <ul class="ticks" style="margin-top:14px">
+    <li>votre écrit, au format Word de préférence ;</li>
+    <li>les consignes de votre école pour cet écrit ;</li>
+    <li>votre diplôme, votre centre de formation et votre date de dépôt ;</li>
+    <li>deux ou trois créneaux où vous êtes disponible pour l'entretien, et si vous préférez le téléphone ou la visio.</li>
+  </ul>
+  <p style="margin-top:22px"><a class="btn primary" href="mailto:{{ site.contact.email }}?subject={{ 'Relecture : [votre nom] – [votre diplôme]'|urlencode }}">Envoyer mon écrit</a></p>
+</div>
+<section class="alt"><div class="wrap two">
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Et ensuite ?</h2>
+    <ul class="ticks">
+      <li>Nous accusons réception sous 48 h ouvrées.</li>
+      <li>Vous recevez votre document commenté et la synthèse sous {{ site.produits.relecture.delai }}.</li>
+      <li>Nous échangeons au créneau convenu.</li>
+    </ul>
+  </div>
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Une difficulté ?</h2>
+    <p>Écrivez à {{ site.contact.email }} ou appelez le {{ site.contact.telephones[0].numero }}.</p>
+  </div>
+</div></section>
+{% endblock %}

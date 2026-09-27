@@ -111,6 +111,12 @@ def main():
     jeton = site["produits"]["guide_livret2"]["jeton"]
     ecrire(f"guide-livret-2/merci-{jeton}/index.html", "merci_livret2.html", rubrique="vae", jeton=jeton,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack livret 2.")
+    ecrire("relecture-ecrits/index.html", "relecture.html", rubrique="etudiants",
+           titre_page="Relecture de mémoire et d'écrits de certification · travail social · 2aFormation",
+           description="Relecture de votre mémoire ou de votre dossier de certification (DEES, DEASS, DEME, DEEJE…) par des professionnels formateurs : retour écrit détaillé et entretien en visio.")
+    jr = site["produits"]["relecture"]["jeton"]
+    ecrire(f"relecture-ecrits/merci-{jr}/index.html", "merci_relecture.html", rubrique="etudiants",
+           titre_page="Merci pour votre commande · 2aFormation", description="Envoi de votre écrit pour relecture.")
     ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
            titre_page="Contact et devis · 2aFormation",
