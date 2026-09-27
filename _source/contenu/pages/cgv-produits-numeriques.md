@@ -5,15 +5,15 @@ description: Conditions générales de vente aux particuliers de 2aFormation, pa
 ---
 # Conditions générales de vente aux particuliers
 
-*En vigueur au 1er octobre 2026.* Les articles 2 à 8 concernent le pack numérique ; l'article 12 concerne les prestations de relecture d'écrits. Les autres articles s'appliquent aux deux.
+*En vigueur au 1er octobre 2026.* Les articles 2 à 8 concernent les packs numériques ; l'article 12 concerne les prestations de relecture d'écrits. Les autres articles s'appliquent aux deux.
 
 ## 1. Vendeur
 
 2aFormation, entreprise individuelle d'Alexandre Bigot, 2885 route de Saint-Papoul, 11400 Castelnaudary. SIRET : 897 695 235 00019. Contact : 2aa.formation@gmail.com · 06 14 11 47 88.
 
-## 2. Produit
+## 2. Produits
 
-Le pack « Réussir son livret 2 de VAE » comprend un guide au format PDF, des trames au format Word et une checklist. Il s'agit d'un contenu numérique téléchargeable, sans support matériel. Il fournit une méthode ; il ne constitue pas un accompagnement individuel et ne garantit pas l'obtention du diplôme, qui relève de la seule décision du jury.
+Les packs numériques vendus par 2aFormation (« Réussir son livret 2 de VAE » et « Réussir son mémoire de pratique professionnelle ») comprennent un guide au format PDF, des trames au format Word et une checklist. Il s'agit de contenus numériques téléchargeables, sans support matériel. Ils fournissent une méthode ; ils ne constituent pas un accompagnement individuel et ne garantissent pas l'obtention du diplôme, qui relève de la seule décision du jury.
 
 ## 3. Prix
 
@@ -35,9 +35,11 @@ Conformément à l'article L221-28 13° du Code de la consommation, le droit de 
 
 Le pack est réservé à l'usage personnel de l'acheteur. Toute reproduction, diffusion, revente ou mise à disposition, même partielle ou gratuite, est interdite sans l'accord écrit de 2aFormation.
 
-## 8. Déduction en cas d'accompagnement
+## 8. Déduction en cas d'accompagnement ou de relecture
 
-Si l'acheteur commande un accompagnement VAE auprès de 2aFormation dans les 3 mois suivant l'achat du pack, le prix payé pour le pack est déduit du prix de cet accompagnement, sur présentation de la date d'achat.
+Si l'acheteur du pack « Réussir son livret 2 de VAE » commande un accompagnement VAE auprès de 2aFormation dans les 3 mois suivant son achat, le prix payé pour le pack est déduit du prix de cet accompagnement, sur présentation de la date d'achat.
+
+Si l'acheteur du pack « Réussir son mémoire de pratique professionnelle » commande une relecture de mémoire auprès de 2aFormation dans les 3 mois suivant son achat, le prix payé pour le pack lui est remboursé après sa commande de relecture, sur simple demande indiquant la date d'achat.
 
 ## 9. Données personnelles
 

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head_extra %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Commande confirmée</div>
+  <h1>Merci, votre pack mémoire est prêt</h1>
+  <p class="lead">Votre paiement a bien été reçu. Téléchargez vos fichiers ci-dessous et enregistrez-les sur votre ordinateur. Nous vous envoyons aussi ce lien par e-mail sous 24 h ouvrées.</p>
+  <p style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+    <a class="btn primary" href="{{ R }}dl/{{ jeton }}/Pack-memoire-2A-Formation.zip">Télécharger le pack complet (.zip)</a>
+  </p>
+  <ul class="ticks" style="margin-top:22px">
+    <li><a href="{{ R }}dl/{{ jeton }}/Guide-Reussir-son-memoire-2A-Formation.pdf">Le guide seul (PDF, 15 pages)</a></li>
+    <li><a href="{{ R }}dl/{{ jeton }}/Trames-memoire-2A-Formation.docx">Les 8 trames seules (Word)</a></li>
+  </ul>
+</div>
+<section class="alt"><div class="wrap two">
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Par où commencer ?</h2>
+    <ul class="ticks">
+      <li>Lisez le guide en entier une première fois (1 h 30 environ).</li>
+      <li>Remplissez la trame 1 : votre rétroplanning à partir de la date de dépôt.</li>
+      <li>Avancez trame par trame, et apportez-les à vos rendez-vous de direction de mémoire.</li>
+    </ul>
+  </div>
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Besoin d'aide ?</h2>
+    <p>Un problème de téléchargement : écrivez à {{ site.contact.email }}. Si vous commandez une relecture de mémoire dans les 3 mois, nous vous remboursons les {{ site.produits.guide_memoire.prix }} du pack : <a href="{{ R }}relecture-ecrits/index.html">voir la relecture</a>.</p>
+  </div>
+</div></section>
+{% endblock %}

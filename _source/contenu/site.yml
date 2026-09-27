@@ -93,6 +93,12 @@ produits:
     # Partie secrète des adresses de téléchargement (ne pas la publier)
     jeton: "b8803d8f96e9"
     livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+  guide_memoire:
+    prix: "39 €"
+    mention_prix: "TVA non applicable · paiement sécurisé par carte"
+    lien_paiement: "https://buy.stripe.com/00w6oAgZs4ic9Nx6tA0gw03"
+    jeton: "23c2ab94e25d"
+    livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
   relecture:
     # Relecture d'écrits de certification (page relecture-ecrits)
     jeton: "b53d1ab098f3"
