@@ -105,6 +105,12 @@ def main():
     ecrire("analyse-des-pratiques/index.html", "gapp.html", rubrique="gapp",
            titre_page="Analyse des pratiques professionnelles (GAPP) · 2aFormation",
            description="Groupes d'analyse des pratiques professionnelles pour les équipes du social et du médico-social : une séance mensuelle pour prendre du recul et prévenir l'épuisement.")
+    ecrire("guide-livret-2/index.html", "guide_livret2.html", rubrique="vae",
+           titre_page="Pack Réussir son livret 2 de VAE (travail social) · 2aFormation",
+           description="Guide PDF, trames Word et checklist pour rédiger son livret 2 de VAE : DEES, DEME, DEASS, DEEJE, DEETS, DECESF, DEAES. Mise à jour réforme 2026.")
+    jeton = site["produits"]["guide_livret2"]["jeton"]
+    ecrire(f"guide-livret-2/merci-{jeton}/index.html", "merci_livret2.html", rubrique="vae", jeton=jeton,
+           titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack livret 2.")
     ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
            titre_page="Contact et devis · 2aFormation",
@@ -142,7 +148,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c not in ("404.html", "catalogue/index.html"):
+            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c:
                 fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:

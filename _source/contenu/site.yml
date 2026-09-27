@@ -77,3 +77,14 @@ equipe:
     role: Éducateur spécialisé · Formateur
     photo: assets/img/alexandre-bigot.jpg
     bio: Plus de 10 ans en protection de l'enfance. Formateur en centre de formation aux métiers du social, il a contribué à un guide de recommandations de bonnes pratiques de la HAS. Master en sciences de l'éducation.
+
+# Produits numériques (page guide-livret-2)
+produits:
+  guide_livret2:
+    prix: "49 €"
+    mention_prix: "TVA non applicable · paiement sécurisé par carte"
+    # Coller ici le lien de paiement Stripe quand il sera créé ; vide = le bouton ouvre le formulaire de contact
+    lien_paiement: "https://buy.stripe.com/14AcMYcJc3e8cZJ8BI0gw00"
+    # Partie secrète des adresses de téléchargement (ne pas la publier)
+    jeton: "b8803d8f96e9"
+    livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."

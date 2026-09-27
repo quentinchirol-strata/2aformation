@@ -1,0 +1,75 @@
+# Reconstruit et publie le site à chaque modification des sources (dossier _source).
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+    paths: ["_source/**", "_source*.tar.xz", ".github/workflows/publier.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publier
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer les sources livrées en archive (le cas échéant)
+        run: |
+          ARCHIVE=$(ls _source*.tar.xz 2>/dev/null | head -1 || true)
+          if [ -n "$ARCHIVE" ]; then
+            rm -rf _source && mkdir _source
+            tar -xJf "$ARCHIVE" -C _source
+            rm -f _source*.tar.xz
+            cp _source/.pages.yml .pages.yml
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Construire le site
+        run: |
+          pip install jinja2 pyyaml markdown
+          python _source/build.py
+
+      - name: Fabriquer le catalogue PDF
+        run: |
+          if [ -f _source/_site/catalogue/index.html ]; then
+            mkdir -p _source/_site/documents
+            google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
+              --window-size=1200,1700 --virtual-time-budget=20000 \
+              --print-to-pdf="$PWD/_source/_site/documents/catalogue-2aformation.pdf" \
+              "file://$PWD/_source/_site/catalogue/index.html"
+            ls -la _source/_site/documents
+          fi
+
+      - name: Remplacer les pages publiées
+        run: |
+          shopt -s dotglob
+          for f in *; do
+            case "$f" in
+              .git|.github|_source|.pages.yml) ;;
+              *) rm -rf "$f" ;;
+            esac
+          done
+          cp -r _source/_site/. .
+          rm -rf _source/_site
+
+      - name: Enregistrer et mettre en ligne
+        run: |
+          git config user.name "Mise en ligne automatique"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement à publier."
+          else
+            git commit -m "Mise en ligne automatique du site"
+            git push
+          fi

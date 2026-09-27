@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% set g = site.produits.guide_livret2 %}
+{% set achat = g.lien_paiement if g.lien_paiement else R ~ 'contact/index.html?profil=vae&sujet=' ~ ('Commande : pack Réussir son livret 2 de VAE'|urlencode) %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Pack numérique · VAE travail social · Mise à jour réforme 2026</div>
+  <div class="two" style="align-items:center;margin-top:10px">
+    <div>
+      <h1>Réussir son livret 2 de VAE, pas à pas</h1>
+      <p class="lead">La méthode que nous utilisons en accompagnement, réunie dans un guide et des trames Word à remplir. Pour avancer seul(e), à votre rythme, sans vous perdre dans 100 pages.</p>
+      <div class="chips">
+        <span class="chip">Guide PDF de 15 pages</span>
+        <span class="chip">Trames Word à remplir</span>
+        <span class="chip">Checklist avant dépôt</span>
+        <span class="chip">Envoi par e-mail</span>
+        <span class="chip">49 € déduits si vous êtes accompagné(e) ensuite</span>
+      </div>
+      <p style="margin-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <a class="btn primary" href="{{ achat }}">Obtenir le pack · {{ g.prix }}</a>
+        <span class="muted" style="font-size:.9rem">{{ g.mention_prix }}</span>
+      </p>
+    </div>
+    <div><img src="{{ R }}assets/img/guide-livret2.png" alt="Couverture du guide Réussir son livret 2 de VAE" style="width:100%;max-width:380px;display:block;margin-inline:auto;border-radius:10px;box-shadow:0 18px 40px rgba(29,40,43,.18)"></div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Pour qui ?</h2>
+      <ul class="ticks">
+        <li>Vous avez obtenu la recevabilité de votre livret 1.</li>
+        <li>Vous visez un diplôme du travail social : DEES, DEME, DEASS, DEEJE, DEETS, DECESF ou DEAES.</li>
+        <li>Vous voulez une méthode claire, sans payer un accompagnement complet.</li>
+        <li>Vous êtes en validation partielle et devez retravailler un bloc.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Ce que vous saurez faire</h2>
+      <ul class="ticks">
+        <li>Comprendre ce que le jury attend vraiment.</li>
+        <li>Choisir les situations qui démontrent le plus de compétences.</li>
+        <li>Décrire une situation en 6 temps, au « je », avec de l'analyse.</li>
+        <li>Relier chaque situation aux blocs de compétences, sans oubli.</li>
+        <li>Préparer l'entretien avec le jury.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>Ce que contient le pack</h2></div>
+    <div class="formules">
+      <article class="formule"><header><h3>Le guide (PDF, 15 pages)</h3></header>
+        <ul><li>Ce que le jury attend et comment il lit votre livret</li><li>Réforme 2026 : ce qui change et ce qu'il faut vérifier</li><li>Un planning de rédaction sur 16 semaines</li><li>Choisir ses situations, les décrire en 6 temps, avec un exemple avant / après</li><li>Écrire au « je » dans le respect du secret professionnel</li><li>Les 10 erreurs qui coûtent une validation</li><li>Préparer l'oral et réagir à une validation partielle</li></ul></article>
+      <article class="formule"><header><h3>Les trames Word</h3></header>
+        <ul><li>Inventaire du parcours et du contexte de travail</li><li>Choix des situations, bloc par bloc</li><li>Rédaction d'une situation en 6 temps</li><li>Grille des compétences pour repérer les oublis</li><li>Planning de rédaction et checklist avant dépôt</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Écrit par deux professionnels de terrain</h2>
+      <p>Alexandre Bigot et Antoine Gadiou sont éducateurs spécialisés et exercent en protection de l'enfance. Ils accompagnent des candidats à la VAE au sein de 2A Formation, organisme certifié Qualiopi au titre des actions de formation et de la VAE.</p>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Questions fréquentes</h2>
+      <p><strong>Le pack remplace-t-il un accompagnement ?</strong> Non. Il vous donne la méthode et les outils. Si vous voulez un regard extérieur sur vos écrits, nos <a href="{{ R }}nos-vae/index.html">formules d'accompagnement</a> prennent le relais.</p>
+      <p><strong>Et si je veux ensuite être accompagné(e) ?</strong> Le prix du pack est déduit de votre accompagnement 2A Formation si vous le commencez dans les 3 mois suivant votre achat.</p>
+      <p><strong>Est-il à jour de la réforme ?</strong> Oui pour la méthode et les points à vérifier. Seuls les documents officiels de votre certificateur font foi.</p>
+      <p><strong>Comment le reçoit-on ?</strong> {{ g.livraison }}</p>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap">
+  <div class="cta">
+    <div><h2>Commencez votre livret 2 dès aujourd'hui</h2><p>Guide + trames + checklist · {{ g.prix }}. La VAE n'est pas automatique : seul le jury décide d'attribuer le diplôme.</p></div>
+    <a class="btn" href="{{ achat }}">Obtenir le pack</a>
+  </div>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Produit numérique à usage personnel. En téléchargeant le pack, vous demandez son accès immédiat et renoncez à votre droit de rétractation (article L221-28 du Code de la consommation). <a href="{{ R }}cgv-produits-numeriques/index.html">Conditions générales de vente</a>.</p>
+</div></section>
+{% endblock %}
