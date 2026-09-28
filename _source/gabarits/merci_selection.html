@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head_extra %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% set sujet = 'Préparation admission : [votre nom] – [métier visé]' %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Commande confirmée</div>
+  <h1>Merci, écrivez-nous pour démarrer</h1>
+  <p class="lead">Votre paiement a bien été reçu. Envoyez-nous un e-mail à <a href="mailto:{{ site.contact.email }}?subject={{ sujet|urlencode }}"><strong>{{ site.contact.email }}</strong></a> avec :</p>
+  <ul class="ticks" style="margin-top:14px">
+    <li>le métier visé et les écoles où vous candidatez ;</li>
+    <li>pour un commentaire : votre projet motivé ou votre lettre (Word de préférence) et la date limite de dépôt ;</li>
+    <li>pour une simulation : vos dates d'oral si vous les connaissez, et votre projet motivé si vous l'avez déjà rédigé ;</li>
+    <li>deux ou trois créneaux où vous êtes disponible, et si vous préférez le téléphone ou la visio.</li>
+  </ul>
+  <p style="margin-top:22px"><a class="btn primary" href="mailto:{{ site.contact.email }}?subject={{ sujet|urlencode }}">Nous écrire</a></p>
+</div>
+<section class="alt"><div class="wrap two">
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Et ensuite ?</h2>
+    <ul class="ticks">
+      <li>Nous accusons réception sous 48 h ouvrées.</li>
+      <li>Commentaire : votre document annoté et la synthèse sous {{ site.produits.selection.offres[0].delai }}, puis un échange de 15 minutes.</li>
+      <li>Simulation : un créneau proposé sous {{ site.produits.selection.offres[1].delai }}, puis la synthèse écrite sous 48 h.</li>
+    </ul>
+  </div>
+  <div>
+    <h2 style="font-size:1.4rem;margin-bottom:12px">Une difficulté ?</h2>
+    <p>Écrivez à {{ site.contact.email }} ou appelez le {{ site.contact.telephones[0].numero }}. Vos documents ne sont lus que par votre accompagnateur et sont supprimés 30 jours après la prestation.</p>
+  </div>
+</div></section>
+{% endblock %}
