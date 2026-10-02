@@ -59,10 +59,15 @@ def main():
     res = site["chiffres"].get("vae_resultats") or []
     vae_tot = {k: sum(r[k] for r in res) for k in ("presentes", "diplomes", "partielles", "abandons")}
 
+    # Bilan cumulé des formations réalisées (page d'accueil, catalogue)
+    inter = lire_yaml("contenu/interventions.yml")["sessions"]
+    bilan = {"sessions": len(inter), "stagiaires": sum(x.get("stagiaires") or 0 for x in inter),
+             "departements": len({str(x["departement"]) for x in inter}), "debut": min(int(str(x["date"])[:4]) for x in inter)}
+
     env = Environment(loader=FileSystemLoader(os.path.join(ICI, "gabarits")), autoescape=True,
                       undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
     commun = dict(site=site, vae=vae, formations=formations, themes=themes, nb_formations=len(formations),
-                  vae_tot=vae_tot, annee=datetime.date.today().year,
+                  vae_tot=vae_tot, bilan=bilan, annee=datetime.date.today().year,
                   annee_catalogue=site.get("annee_catalogue", datetime.date.today().year + 1),
                   version=datetime.datetime.now().strftime("%Y%m%d%H%M"))
 
