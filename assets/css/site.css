@@ -161,6 +161,12 @@ td.n,th.n{text-align:right}
 .formule h4{margin:8px 0 4px;font-size:.95rem}
 .formule ul{margin:0;padding-left:18px;color:var(--muted);font-size:.95rem}
 .formules{display:grid;gap:16px}
+.produits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.produits .route{display:flex;flex-direction:column}
+.produits .route .go{margin-top:auto;padding-top:8px}
+.produits .route p{margin:0;color:var(--muted);font-size:.92rem}
+.routes .route.large{grid-column:1/-1}
+@media (max-width:860px){.produits{grid-template-columns:1fr}}
 
 /* Équipe */
 .team{display:grid;grid-template-columns:1fr 1fr;gap:26px}
