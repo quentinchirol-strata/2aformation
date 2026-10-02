@@ -1,11 +1,11 @@
 {% macro duree(f) %}{{ f.jours }} jour{{ 's' if f.jours > 1 }} · {{ f.heures }} h{% endmacro %}
-{% macro proof(site, R, vae_tot) %}
+{% macro proof(site, R, vae_tot, bilan) %}
 <aside class="proof" aria-label="Chiffres clés">
-  <div class="eyebrow">Nos résultats {{ site.chiffres.annee }}</div>
+  <div class="eyebrow">Nos résultats depuis {{ bilan.debut }}</div>
   <dl>
-    <div><dt>{{ site.chiffres.stagiaires }}</dt><dd>professionnels formés, sur {{ site.chiffres.sessions }} sessions</dd></div>
-    <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>de stagiaires satisfaits</dd></div>
-    <div><dt>{{ vae_tot.diplomes }} / {{ vae_tot.presentes }}</dt><dd>candidats VAE diplômés{% if vae_tot.partielles %}, {{ vae_tot.partielles }} en validation partielle{% endif %}</dd></div>
+    <div><dt>{{ bilan.stagiaires }}</dt><dd>professionnels formés, sur {{ bilan.sessions }} sessions dans {{ bilan.departements }} départements. <a href="{{ R }}nos-interventions/index.html">Voir la carte</a></dd></div>
+    <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>de stagiaires satisfaits ({{ site.chiffres.satisfaction_source }}){% if site.chiffres.recommandation %}, {{ site.chiffres.recommandation }} % recommandent la formation{% endif %}</dd></div>
+    <div><dt>{{ vae_tot.diplomes }} / {{ vae_tot.presentes }}</dt><dd>candidats VAE diplômés en {{ site.chiffres.annee }}{% if vae_tot.partielles %}, {{ vae_tot.partielles }} en validation partielle{% endif %}</dd></div>
     <div><dt>{{ site.chiffres.vae_satisfaction }} %</dt><dd>de candidats VAE satisfaits{% if vae_tot.abandons == 0 %}, aucun abandon{% endif %}</dd></div>
   </dl>
   <div class="qualiopi">
