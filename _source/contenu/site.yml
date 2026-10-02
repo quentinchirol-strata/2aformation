@@ -42,7 +42,10 @@ chiffres:
   annee: 2025
   stagiaires: 48
   sessions: 5
-  satisfaction_formation: 85
+  # Satisfaction à chaud : part des réponses 4 ou 5 sur 5 (bilan des évaluations 2026, 86 questionnaires)
+  satisfaction_formation: 93
+  satisfaction_source: "questionnaires 2026"
+  recommandation: 98
   vae_satisfaction: 100
   # Une ligne par diplôme présenté dans l'année
   vae_resultats:
@@ -99,6 +102,42 @@ produits:
     lien_paiement: "https://buy.stripe.com/00w6oAgZs4ic9Nx6tA0gw03"
     jeton: "23c2ab94e25d"
     livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+  guide_entree:
+    # Pack « Réussir son entrée en formation sociale » (page preparer-son-entree)
+    prix: "35 €"
+    mention_prix: "TVA non applicable · paiement sécurisé par carte"
+    # Coller ici le lien de paiement Stripe quand il sera créé ; vide = le bouton ouvre le formulaire de contact
+    # Dans Stripe, page de confirmation : https://2aformation.com/preparer-son-entree/merci-7c8e99847a81/index.html
+    lien_paiement: "https://buy.stripe.com/eVqbIU10ug0UbVF9FM0gw04"
+    jeton: "7c8e99847a81"
+    livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+  selection:
+    # Accompagnements à la sélection (même page). Page de confirmation Stripe pour les deux liens :
+    # https://2aformation.com/preparer-son-entree/envoi-9908abea9823/index.html
+    jeton: "9908abea9823"
+    offres:
+      - cle: commentaire
+        titre: Commentaire du projet de formation motivé
+        prix: "49 €"
+        lien_paiement: "https://buy.stripe.com/bJeeV6fVo6qkf7R4ls0gw05"
+        delai: "5 jours ouvrés"
+        pour: "Votre projet de formation motivé Parcoursup ou votre lettre de motivation (formation continue), pour un métier et une école."
+        points:
+          - "Lecture de votre projet au regard des attendus de la sélection"
+          - "Commentaires dans votre document et synthèse écrite : points forts, priorités"
+          - "Échange de 15 min par téléphone ou en visio"
+          - "Retour sous 5 jours ouvrés après réception"
+      - cle: simulation
+        titre: Simulation d'entretien d'admission
+        prix: "90 €"
+        lien_paiement: "https://buy.stripe.com/00w5kw8sWeWQ7Fp2dk0gw06"
+        delai: "10 jours ouvrés"
+        pour: "Pour vous entraîner dans les conditions d'un oral d'admission, avant vos entretiens de mars à mai."
+        points:
+          - "1 h en visio avec un professionnel du métier visé"
+          - "Un texte ou un sujet d'actualité à préparer, puis l'entretien"
+          - "Débriefing à chaud, puis synthèse écrite sous 48 h"
+          - "Créneau proposé sous 10 jours ouvrés"
   relecture:
     # Relecture d'écrits de certification (page relecture-ecrits)
     jeton: "b53d1ab098f3"
