@@ -42,7 +42,7 @@
 {% set niveaux = ['Pas du tout', 'Un peu', 'En grande partie', 'Tout à fait'] %}
 {% macro objectifs(intro) %}
 <div class="bloc"><h2><span class="n">1</span>{{ intro.titre }}</h2><p class="aide">{{ intro.aide }}</p>
-{% for k in [1, 2, 3] %}<fieldset data-objectif="{{ k }}"><legend><span data-champ="o{{ k }}">Objectif {{ k }}</span></legend><div class="opts">{% for n in ['Pas du tout', 'Un peu', 'En grande partie', 'Tout à fait'] %}<label><input type="radio" name="Objectif {{ k }}" value="{{ n }}"> {{ n }}</label>{% endfor %}</div></fieldset>{% endfor %}
+{% for k in [1, 2, 3, 4, 5] %}<fieldset data-objectif="{{ k }}"><legend><span data-champ="o{{ k }}">Objectif {{ k }}</span></legend><div class="opts">{% for n in ['Pas du tout', 'Un peu', 'En grande partie', 'Tout à fait'] %}<label><input type="radio" name="Objectif {{ k }}" value="{{ n }}"> {{ n }}</label>{% endfor %}</div></fieldset>{% endfor %}
 </div>
 {% endmacro %}
 {% block contenu %}

@@ -30,6 +30,8 @@
     <label class="large">Objectif 1, tel qu'il figure au programme<input name="o1"></label>
     <label class="large">Objectif 2<input name="o2"></label>
     <label class="large">Objectif 3<input name="o3"></label>
+    <label class="large">Objectif 4<span>Facultatif</span><input name="o4"></label>
+    <label class="large">Objectif 5<span>Facultatif</span><input name="o5"></label>
   </form>
   <div class="lien"><h3>À chaud : fin de formation</h3><p class="aide">À afficher en fin de dernière journée : chacun répond sur son téléphone.</p><code id="l-chaud"></code>
     <div class="qr"><canvas id="qr" width="200" height="200" aria-label="QR code du questionnaire à chaud"></canvas>
@@ -49,9 +51,9 @@
     return base + page + '/index.html' + (p.toString() ? '?' + p.toString() : '');
   }
   function maj(){
-    var c = lien('a-chaud', ['f','d','fo','du','o1','o2','o3']);
+    var c = lien('a-chaud', ['f','d','fo','du','o1','o2','o3','o4','o5']);
     document.getElementById('l-chaud').textContent = c;
-    document.getElementById('l-froid').textContent = lien('a-froid', ['f','d','fo','r','o1','o2','o3']);
+    document.getElementById('l-froid').textContent = lien('a-froid', ['f','d','fo','r','o1','o2','o3','o4','o5']);
     document.getElementById('l-etab').textContent = lien('etablissement', ['f','d','n','r']);
     if (window.qrcode){
       var q = qrcode(0, 'M'); q.addData(unescape(encodeURIComponent(c))); q.make();
