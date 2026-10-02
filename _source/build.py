@@ -160,6 +160,20 @@ def main():
            noms_json=json.dumps({k: v["nom"] for k, v in carte["departements"].items()}, ensure_ascii=False),
            titre_page="Nos interventions en France · formations réalisées · 2aFormation",
            description="La carte des formations réalisées par 2aFormation auprès des établissements du social, du médico-social et de la protection de l'enfance, département par département.")
+    # Questionnaires d'évaluation Qualiopi (pages non référencées, liens envoyés aux stagiaires et aux établissements)
+    questionnaires = [
+        ("a-chaud", {"type": "chaud", "nom": "Évaluation à chaud", "surtitre": "Évaluation à chaud · fin de formation",
+                     "titre": "Votre avis sur la formation", "intro": "Environ 5 minutes. Vos réponses nous aident à faire évoluer nos formations."}),
+        ("a-froid", {"type": "froid", "nom": "Évaluation à froid stagiaire", "surtitre": "Évaluation à froid · environ 3 mois après",
+                     "titre": "Et trois mois après ?", "intro": "Environ 5 minutes. Vos réponses nous disent ce que la formation a changé dans votre pratique."}),
+        ("etablissement", {"type": "etablissement", "nom": "Évaluation à froid établissement", "surtitre": "Évaluation à froid · établissement",
+                           "titre": "Votre regard sur la formation", "intro": "Environ 5 minutes. Votre avis de responsable complète celui des participants."}),
+    ]
+    for chemin_q, q in questionnaires:
+        ecrire(f"evaluation/{chemin_q}/index.html", "evaluation.html", rubrique="", q=q,
+               titre_page=f"{q['titre']} · 2aFormation", description=q["intro"])
+    ecrire("evaluation/liens-675b945645/index.html", "evaluation_liens.html", rubrique="",
+           titre_page="Liens des questionnaires d'évaluation · 2aFormation", description="Outil interne.")
     ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
            titre_page="Contact et devis · 2aFormation",
@@ -197,7 +211,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c:
+            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c and not c.startswith("evaluation/"):
                 fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
