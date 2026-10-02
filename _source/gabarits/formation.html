@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import cta, duree %}
+{% from "macros.html" import cta, duree, avis %}
 {% block jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -50,5 +50,6 @@
     </aside>
   </div>
 </div>
+<section class="alt"><div class="wrap">{{ avis(R, true) }}</div></section>
 <section><div class="wrap">{{ cta(R, "D'autres formations pour votre équipe", "Découvrez l'ensemble de notre catalogue " ~ annee_catalogue ~ ", ou demandez une formation sur mesure.") }}</div></section>
 {% endblock %}

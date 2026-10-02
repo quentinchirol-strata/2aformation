@@ -35,3 +35,27 @@
   <a class="btn" href="{{ R }}contact/index.html">Nous contacter</a>
 </div>
 {% endmacro %}
+{% macro avis(R, court=false) %}
+{% set citations = [
+  "Formateurs toujours en poste, donc dans la réalité ; dynamisme de l’animation",
+  "Le lien entre théorie, mises en situation, réflexion, expériences et débats",
+  "Le contenu en lien avec notre service, qui permet de faire des liens directs et de se projeter",
+  "Explications claires et à la portée de chaque professionnel ; les formateurs mettent à l’aise",
+  "Dynamique, échanges, rythme, références, bonne humeur, prise en compte des besoins des participants",
+  "Beaucoup d’anecdotes pour appuyer et mieux comprendre la théorie"] %}
+<div class="avis{{ ' court' if court }}" id="avis">
+  <div class="eyebrow">Ce qu’en disent les stagiaires</div>
+  {% if court %}<h2>98 % des stagiaires recommandent nos formations</h2>
+  {% else %}<h2>« Formateurs toujours en poste, donc dans la réalité »</h2>
+  <div class="avis-stats">
+    <div><b>4,9 / 5</b><span>pour la maîtrise des sujets par les formateurs</span></div>
+    <div><b>100 %</b><span>des stagiaires satisfaits des échanges et des interactions dans le groupe</span></div>
+    <div><b>83 %</b><span>pensent appliquer directement les acquis, les autres en partie : aucun « non »</span></div>
+  </div>{% endif %}
+  <div class="avis-cit">
+    {% for c in (citations[:3] if court else citations) %}<blockquote><p>« {{ c }} »</p><cite>Stagiaire, évaluation de fin de formation 2026</cite></blockquote>
+    {% endfor %}
+  </div>
+  <p class="avis-note">Source : 86 questionnaires de fin de formation, 10 sessions de janvier à septembre 2026. Les citations sont reproduites sans nom, par respect de l’anonymat des participants.</p>
+</div>
+{% endmacro %}
