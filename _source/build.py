@@ -117,6 +117,15 @@ def main():
     jm = site["produits"]["guide_memoire"]["jeton"]
     ecrire(f"guide-memoire/merci-{jm}/index.html", "merci_memoire.html", rubrique="etudiants", jeton=jm,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack mémoire.")
+    ecrire("preparer-son-entree/index.html", "guide_entree.html", rubrique="etudiants",
+           titre_page="Réussir son entrée en formation sociale : projet motivé et entretien (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
+           description="Guide PDF et 8 trames Word pour préparer son projet de formation motivé Parcoursup et son entretien d'admission en école du travail social. À jour de la réforme 2026.")
+    je = site["produits"]["guide_entree"]["jeton"]
+    ecrire(f"preparer-son-entree/merci-{je}/index.html", "merci_entree.html", rubrique="etudiants", jeton=je,
+           titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack entrée en formation.")
+    js = site["produits"]["selection"]["jeton"]
+    ecrire(f"preparer-son-entree/envoi-{js}/index.html", "merci_selection.html", rubrique="etudiants",
+           titre_page="Merci pour votre commande · 2aFormation", description="Démarrer votre accompagnement.")
     ecrire("relecture-ecrits/index.html", "relecture.html", rubrique="etudiants",
            titre_page="Relecture de mémoire et d'écrits de certification · travail social · 2aFormation",
            description="Relecture de votre mémoire ou de votre dossier de certification (DEES, DEASS, DEME, DEEJE…) par des professionnels formateurs : retour écrit détaillé et entretien en visio.")
@@ -183,7 +192,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c:
+            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c:
                 fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
