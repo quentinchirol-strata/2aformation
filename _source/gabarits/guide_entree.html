@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% set g = site.produits.guide_entree %}
+{% set sel = site.produits.selection %}
+{% set achat = g.lien_paiement if g.lien_paiement else R ~ 'contact/index.html?profil=admission&sujet=' ~ ('Commande : pack Réussir son entrée en formation sociale'|urlencode) %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Futurs étudiants en travail social · Rentrée 2027</div>
+  <div class="two" style="align-items:center;margin-top:10px">
+    <div>
+      <h1>Réussir son entrée en formation sociale</h1>
+      <p class="lead">Projet de formation motivé, dossier et entretien d'admission : la méthode que nous transmettons, à jour de la réforme des diplômes, avec des trames Word à remplir. Pour arriver prêt devant la commission.</p>
+      <div class="chips">
+        <span class="chip">DEASS, DEEJE, DEES, DEETS, DECESF</span>
+        <span class="chip">Guide PDF de 14 pages</span>
+        <span class="chip">8 trames Word</span>
+        <span class="chip">30 questions d'entretien à préparer</span>
+        <span class="chip">Parcoursup et formation continue</span>
+      </div>
+      <p style="margin-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <a class="btn primary" href="{{ achat }}">Obtenir le pack · {{ g.prix }}</a>
+        <span class="muted" style="font-size:.9rem">{{ g.mention_prix }}</span>
+      </p>
+    </div>
+    <div><img src="{{ R }}assets/img/guide-entree.png" alt="Couverture du guide Réussir son entrée en formation sociale" style="width:100%;max-width:380px;display:block;margin-inline:auto;border-radius:10px;box-shadow:0 18px 40px rgba(29,40,43,.18)"></div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Pour qui ?</h2>
+      <ul class="ticks">
+        <li>Vous voulez devenir assistant de service social, éducateur de jeunes enfants, éducateur spécialisé, éducateur technique spécialisé ou conseiller en économie sociale familiale.</li>
+        <li>Vous candidatez sur Parcoursup, ou directement auprès d'une école en formation continue ou en reconversion.</li>
+        <li>Vous ne savez pas quoi mettre dans vos 1 500 caractères de projet motivé.</li>
+        <li>Vous voulez savoir comment se passe l'entretien et comment le préparer.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Ce que vous saurez faire</h2>
+      <ul class="ticks">
+        <li>Expliquer pourquoi ce métier, et pas le métier voisin.</li>
+        <li>Construire un projet motivé précis, adapté à chaque école.</li>
+        <li>Valoriser vos expériences, même modestes, avec une méthode simple.</li>
+        <li>Parler des enjeux sociaux avec des repères solides et un avis nuancé.</li>
+        <li>Commenter un texte en 15 minutes et aborder l'entretien sereinement.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>Ce que contient le pack</h2></div>
+    <div class="formules">
+      <article class="formule"><header><h3>Le guide (PDF, 14 pages)</h3></header>
+        <ul><li>L'admission après la réforme : conditions, Parcoursup, formation continue</li><li>Les cinq métiers en un coup d'œil</li><li>Le calendrier et un rétroplanning de novembre à mai</li><li>Le projet de formation motivé en quatre temps</li><li>Valoriser ses expériences : la méthode SACR</li><li>Reconversion : la lettre de motivation et le financement</li><li>Les enjeux sociaux à connaître</li><li>Commenter un texte ou un sujet d'actualité</li><li>L'entretien : déroulé, critères, 30 questions à préparer</li><li>Les 10 erreurs à éviter et la checklist</li></ul></article>
+      <article class="formule"><header><h3>Les 8 trames Word</h3></header>
+        <ul><li>Mon rétroplanning</li><li>Inventaire de mes expériences</li><li>Brouillon de mon projet motivé</li><li>Mes écoles et leurs critères</li><li>Fiche métier et enjeux sociaux</li><li>Préparer mes réponses</li><li>Commenter un texte</li><li>Checklist avant les vœux et avant l'entretien</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="accompagnements">
+  <div class="wrap">
+    <div class="head"><h2>Besoin d'un regard extérieur ?</h2></div>
+    <p style="max-width:760px;margin-bottom:18px">Deux accompagnements courts, à distance, par des professionnels du métier que vous visez. Nous commentons et nous posons des questions ; nous ne rédigeons jamais à votre place.</p>
+    <div class="formules">
+      {% for o in sel.offres %}
+      {% set lien = o.lien_paiement if o.lien_paiement else R ~ 'contact/index.html?profil=admission&sujet=' ~ (('Commande : ' ~ o.titre)|urlencode) %}
+      <article class="formule">
+        <header><h3>{{ o.titre }}</h3><div class="prix" style="font-size:1.6rem;font-weight:700;margin-top:6px">{{ o.prix }}</div></header>
+        <p style="margin:10px 0">{{ o.pour }}</p>
+        <ul>{% for p in o.points %}<li>{{ p }}</li>{% endfor %}</ul>
+        <p style="margin-top:16px"><a class="btn primary" href="{{ lien }}">Commander · {{ o.prix }}</a></p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="muted" style="font-size:.9rem;margin-top:14px">TVA non applicable · paiement sécurisé par carte. Le prix du pack vous est remboursé si vous commandez une simulation d'entretien dans les 3 mois suivant votre achat.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Écrit par des professionnels de terrain</h2>
+      <p>Alexandre Bigot et Antoine Gadiou sont éducateurs spécialisés et exercent en protection de l'enfance. Ils interviennent en formation. Sybille Deterpigny est assistante de service social. Tous trois accompagnent des étudiants et des candidats à la VAE dans leurs écrits, au sein de 2A Formation, organisme certifié Qualiopi.</p>
+      <p>Les accompagnements des futurs assistants de service social sont assurés par Sybille ; ceux des autres métiers par Alexandre et Antoine.</p>
+    </div>
+    <div>
+      <h2 style="font-size:1.5rem;margin-bottom:14px">Questions fréquentes</h2>
+      <p><strong>Le pack est-il à jour de la réforme ?</strong> Oui. Il tient compte des arrêtés du 6 octobre 2025 : sélection sur dossier et entretien, nouvelles conditions d'accès, calendrier de la rentrée 2027 (dates Parcoursup à confirmer lors de leur publication officielle).</p>
+      <p><strong>Est-ce que cela garantit mon admission ?</strong> Non. Seule la commission de chaque école décide. Le pack et nos accompagnements vous aident à présenter une candidature plus claire et plus solide.</p>
+      <p><strong>Allez-vous écrire mon projet motivé ?</strong> Non. Le guide ne contient aucun texte à recopier, et notre commentaire porte sur votre texte : vous en restez l'auteur. C'est aussi ce qu'attendent les écoles.</p>
+      <p><strong>Je suis en reconversion, est-ce pour moi ?</strong> Oui : un chapitre est consacré à la formation continue, à la lettre de motivation et au financement.</p>
+      <p><strong>Je suis mineur, puis-je commander ?</strong> Oui, avec l'accord d'un parent, qui peut aussi passer la commande.</p>
+      <p><strong>Comment reçoit-on le pack ?</strong> {{ g.livraison }}</p>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap">
+  <div class="cta">
+    <div><h2>Préparez votre candidature dès aujourd'hui</h2><p>Guide + 8 trames Word · {{ g.prix }}. Seule l'école décide de l'admission : ce pack vous aide à arriver prêt.</p></div>
+    <a class="btn" href="{{ achat }}">Obtenir le pack</a>
+  </div>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Produit numérique à usage personnel. En téléchargeant le pack, vous demandez son accès immédiat et renoncez à votre droit de rétractation (article L221-28 du Code de la consommation). <a href="{{ R }}cgv-produits-numeriques/index.html">Conditions générales de vente</a>.</p>
+</div></section>
+{% endblock %}
