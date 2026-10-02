@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liens des questionnaires d&#39;évaluation · 2aFormation</title>
+<meta name="description" content="Outil interne.">
+<meta name="google-site-verification" content="_dP1_5B0y6I8FPb43Rwjk5s7n8M9wzaGCozZSkbes3o">
+<link rel="canonical" href="https://2aformation.com/evaluation/liens-675b945645/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="2aFormation">
+<meta property="og:title" content="Liens des questionnaires d&#39;évaluation · 2aFormation">
+<meta property="og:description" content="Outil interne.">
+<meta property="og:url" content="https://2aformation.com/evaluation/liens-675b945645/">
+<link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610021500">
+<meta name="robots" content="noindex, nofollow">
+<style>
+.gen{max-width:900px}
+.gen form{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.gen label{display:flex;flex-direction:column;gap:5px;font-weight:700;font-size:.92rem}
+.gen label span{font-weight:400;color:var(--muted);font-size:.82rem}
+.gen input{font:inherit;font-weight:400;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.gen .large{grid-column:1/-1}
+.gen .lien{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
+.gen .lien h3{font-size:1.1rem}
+.gen .lien code{display:block;word-break:break-all;background:var(--paper);border-radius:8px;padding:10px;margin:8px 0;font-size:.82rem}
+.gen .qr{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.gen .qr canvas,.gen .qr img{width:200px;height:200px;image-rendering:pixelated;border:1px solid var(--line);border-radius:8px}
+@media (max-width:640px){.gen form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="../../index.html"><img src="../../assets/img/logo.png" alt="2A Formation, retour à l'accueil" width="55" height="48"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Navigation principale">
+      <a href="../../formations/index.html">Formations</a>
+      <a href="../../analyse-des-pratiques/index.html">Analyse des pratiques</a>
+      <a href="../../nos-vae/index.html">VAE</a>
+      <a href="../../nos-interventions/index.html">Interventions</a>
+      <a href="../../relecture-ecrits/index.html">Étudiants</a>
+      <a href="../../index.html#equipe">L'équipe</a>
+      <a class="btn primary" href="../../contact/index.html">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+<main id="contenu">
+<div class="wrap fiche-head gen">
+  <div class="eyebrow">Outil interne · ne pas diffuser cette page</div>
+  <h1>Liens des questionnaires d'évaluation</h1>
+  <p class="lead">Remplissez les informations de la session : les trois liens se créent tout seuls. Le questionnaire de chaque personne affichera ces informations en haut de page.</p>
+  <form id="gen" onsubmit="return false">
+    <label class="large">Intitulé de la formation<input name="f" placeholder="Ex. : Le secret professionnel et son partage"></label>
+    <label>Dates<input name="d" placeholder="Ex. : 20, 21 et 22 janvier 2027"></label>
+    <label>Formateurs<input name="fo" placeholder="Ex. : Alexandre Bigot, Antoine Gadiou"></label>
+    <label>Durée<span>Questionnaire à chaud</span><input name="du" placeholder="Ex. : 3 jours, 21 heures"></label>
+    <label>Nombre de participants<span>Questionnaire établissement</span><input name="n" placeholder="Ex. : 12"></label>
+    <label>Réponse avant le<span>Questionnaires à froid</span><input name="r" placeholder="Ex. : 30/04/2027"></label>
+    <label class="large">Objectif 1, tel qu'il figure au programme<input name="o1"></label>
+    <label class="large">Objectif 2<input name="o2"></label>
+    <label class="large">Objectif 3<input name="o3"></label>
+  </form>
+  <div class="lien"><h3>À chaud : fin de formation</h3><p class="aide">À afficher en fin de dernière journée : chacun répond sur son téléphone.</p><code id="l-chaud"></code>
+    <div class="qr"><canvas id="qr" width="200" height="200" aria-label="QR code du questionnaire à chaud"></canvas>
+      <div><button class="btn primary" type="button" data-copie="l-chaud">Copier le lien</button><p style="margin-top:10px"><a id="qr-png" download="QR-evaluation-a-chaud.png" href="#">Télécharger le QR code (image)</a></p></div></div></div>
+  <div class="lien"><h3>À froid : stagiaires, environ 3 mois après</h3><code id="l-froid"></code><button class="btn ghost" type="button" data-copie="l-froid">Copier le lien</button></div>
+  <div class="lien"><h3>À froid : responsable de l'établissement</h3><code id="l-etab"></code><button class="btn ghost" type="button" data-copie="l-etab">Copier le lien</button></div>
+  <p class="aide" style="margin-top:20px">Les réponses arrivent par e-mail sur 2aa.formation@gmail.com, avec l'intitulé de la formation et les dates dans l'objet.</p>
+</div>
+<script src="../../assets/js/qrcode.min.js"></script>
+<script>
+(function(){
+  var base = location.origin + location.pathname.replace(/evaluation\/.*$/, 'evaluation/');
+  var form = document.getElementById('gen');
+  function lien(page, cles){
+    var p = new URLSearchParams();
+    cles.forEach(function(k){ var v = form.elements[k].value.trim(); if (v) p.set(k, v); });
+    return base + page + '/index.html' + (p.toString() ? '?' + p.toString() : '');
+  }
+  function maj(){
+    var c = lien('a-chaud', ['f','d','fo','du','o1','o2','o3']);
+    document.getElementById('l-chaud').textContent = c;
+    document.getElementById('l-froid').textContent = lien('a-froid', ['f','d','fo','r','o1','o2','o3']);
+    document.getElementById('l-etab').textContent = lien('etablissement', ['f','d','n','r']);
+    if (window.qrcode){
+      var q = qrcode(0, 'M'); q.addData(unescape(encodeURIComponent(c))); q.make();
+      var n = q.getModuleCount(), cv = document.getElementById('qr'), s = 8, m = 4;
+      cv.width = cv.height = (n + 2 * m) * s; var x = cv.getContext('2d');
+      x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height); x.fillStyle = '#1D282B';
+      for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (q.isDark(r, k)) x.fillRect((k + m) * s, (r + m) * s, s, s);
+      document.getElementById('qr-png').href = cv.toDataURL('image/png');
+    }
+  }
+  form.addEventListener('input', maj); maj();
+  document.querySelectorAll('[data-copie]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = document.getElementById(b.getAttribute('data-copie')).textContent;
+      navigator.clipboard.writeText(t).then(function(){ var o = b.textContent; b.textContent = 'Copié'; setTimeout(function(){ b.textContent = o; }, 1500); });
+    });
+  });
+})();
+</script>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="../../assets/img/logo-blanc.png" alt="2A Formation" width="64" height="56">
+        <p style="margin-top:10px">Organisme de formation du travail social et architecte accompagnateur de parcours VAE. Castelnaudary (Aude) · Interventions dans toute la France.</p>
+        <p style="margin-top:10px">Certifié Qualiopi : actions de formation ; actions permettant de valider les acquis de l&#39;expérience.</p>
+      </div>
+      <div>
+        <h3>Nous contacter</h3>
+        <ul>
+<li>Alexandre Bigot : 06 14 11 47 88</li><li>Antoine Gadiou : 06 51 84 44 01</li>          <li><a href="mailto:2aa.formation@gmail.com">2aa.formation@gmail.com</a></li>
+          <li>2885 route de Saint-Papoul, 11400 Castelnaudary</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Le site</h3>
+        <ul>
+          <li><a href="../../formations/index.html">Nos formations</a></li>
+          <li><a href="../../analyse-des-pratiques/index.html">Analyse des pratiques</a></li>
+          <li><a href="../../nos-vae/index.html">Accompagnement VAE</a></li>
+          <li><a href="../../preparer-son-entree/index.html">Préparer son entrée en formation</a></li>
+          <li><a href="../../relecture-ecrits/index.html">Étudiants : guides et relecture</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/2aformation/" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 2aFormation · Déclaration d'activité enregistrée sous le n° 76110202311 auprès du préfet de région Occitanie. Cet enregistrement ne vaut pas agrément de l'État.</span>
+      <span><a href="../../mention/index.html">Mentions légales</a> · <a href="../../politique-de-confidentialite/index.html">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/site.js?v=202610021500"></script>
+<script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
