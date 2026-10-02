@@ -117,21 +117,35 @@ def main():
     jm = site["produits"]["guide_memoire"]["jeton"]
     ecrire(f"guide-memoire/merci-{jm}/index.html", "merci_memoire.html", rubrique="etudiants", jeton=jm,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack mémoire.")
-    ecrire("preparer-son-entree/index.html", "guide_entree.html", rubrique="etudiants",
-           titre_page="Réussir son entrée en formation sociale : projet motivé et entretien (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
-           description="Guide PDF et 8 trames Word pour préparer son projet de formation motivé Parcoursup et son entretien d'admission en école du travail social. À jour de la réforme 2026.")
-    je = site["produits"]["guide_entree"]["jeton"]
-    ecrire(f"preparer-son-entree/merci-{je}/index.html", "merci_entree.html", rubrique="etudiants", jeton=je,
-           titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack entrée en formation.")
-    js = site["produits"]["selection"]["jeton"]
-    ecrire(f"preparer-son-entree/envoi-{js}/index.html", "merci_selection.html", rubrique="etudiants",
-           titre_page="Merci pour votre commande · 2aFormation", description="Démarrer votre accompagnement.")
     ecrire("relecture-ecrits/index.html", "relecture.html", rubrique="etudiants",
            titre_page="Relecture de mémoire et d'écrits de certification · travail social · 2aFormation",
            description="Relecture de votre mémoire ou de votre dossier de certification (DEES, DEASS, DEME, DEEJE…) par des professionnels formateurs : retour écrit détaillé et entretien en visio.")
     jr = site["produits"]["relecture"]["jeton"]
     ecrire(f"relecture-ecrits/merci-{jr}/index.html", "merci_relecture.html", rubrique="etudiants",
            titre_page="Merci pour votre commande · 2aFormation", description="Envoi de votre écrit pour relecture.")
+    # Carte « Nos interventions »
+    carte = json.load(open(os.path.join(ICI, "contenu/carte_france.json"), encoding="utf-8"))
+    par_slug = {f["slug"]: f for f in formations}
+    mois = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
+    sessions = []
+    for x in lire_yaml("contenu/interventions.yml")["sessions"]:
+        a, m = str(x["date"]).split("-")[:2]
+        f = par_slug.get(x.get("formation") or "")
+        sessions.append({"dep": str(x["departement"]), "annee": int(a), "mois": f"{mois[int(m) - 1]} {a}", "cle": f"{a}-{m}",
+                         "titre": x["titre"], "theme": x.get("theme") or (f["theme"] if f else ""),
+                         "lien": f"formations/{f['slug']}/index.html" if f else "", "stagiaires": x.get("stagiaires"), "estime": bool(x.get("estime"))})
+    sessions.sort(key=lambda s: s["cle"], reverse=True)
+    deps_actifs = sorted({s["dep"] for s in sessions})
+    carte_stats = {"sessions": len(sessions), "departements": len(deps_actifs),
+                   "stagiaires": sum(s["stagiaires"] or 0 for s in sessions),
+                   "debut": min(s["annee"] for s in sessions), "themes": len({s["theme"] for s in sessions if s["theme"]})}
+    ecrire("nos-interventions/index.html", "interventions.html", rubrique="interventions", carte=carte,
+           sessions=sessions, deps_actifs=deps_actifs, carte_stats=carte_stats,
+           annees=sorted({s["annee"] for s in sessions}), themes_carte=[t for t in THEMES if any(s["theme"] == t for s in sessions)],
+           sessions_json=json.dumps(sessions, ensure_ascii=False),
+           noms_json=json.dumps({k: v["nom"] for k, v in carte["departements"].items()}, ensure_ascii=False),
+           titre_page="Nos interventions en France · formations réalisées · 2aFormation",
+           description="La carte des formations réalisées par 2aFormation auprès des établissements du social, du médico-social et de la protection de l'enfance, département par département.")
     ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
            titre_page="Contact et devis · 2aFormation",
@@ -169,7 +183,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c:
+            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c:
                 fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:

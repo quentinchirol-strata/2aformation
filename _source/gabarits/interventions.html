@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% from "macros.html" import cta %}
+{% block head_extra %}
+<style>
+.carte-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.carte-stats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.carte-stats b{display:block;font-family:var(--display);font-size:2rem;line-height:1.1;color:var(--green)}
+.carte-stats span{font-size:.92rem;color:var(--muted)}
+.filtres{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.filtres .lbl{font-size:.85rem;color:var(--muted);margin-right:4px}
+.filtres button{font:600 .88rem var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.filtres button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.carte-zone{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;align-items:start}
+.carte-svg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px}
+.carte-svg svg{width:100%;height:auto;display:block}
+.carte-svg path{fill:#EEF1EE;stroke:#fff;stroke-width:1.2;transition:fill .2s}
+.carte-svg path.n1{fill:#B9D3C7}.carte-svg path.n2{fill:#7FAE99}.carte-svg path.n3{fill:#4A8270}.carte-svg path.n4{fill:#2E5B4E}
+.carte-svg path.actif{cursor:pointer}
+.carte-svg path.actif:hover,.carte-svg path.actif:focus,.carte-svg path.sel{stroke:var(--ochre);stroke-width:2.6;outline:none}
+.carte-svg text{font:700 15px var(--body);fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:rgba(29,40,43,.35);stroke-width:2px}
+.carte-svg text.clair{fill:var(--ink);stroke:none}
+.legende{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin:10px 4px 2px}
+.legende i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+.fiche-dep{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;position:sticky;top:90px}
+.fiche-dep h3{font-size:1.35rem}
+.fiche-dep .resume{color:var(--muted);font-size:.92rem;margin:4px 0 12px}
+.fiche-dep ul{list-style:none;margin:0;padding:0}
+.fiche-dep li{padding:9px 0;border-top:1px solid var(--line);font-size:.95rem}
+.fiche-dep li small{display:block;color:var(--muted);font-size:.82rem}
+.liste-deps{columns:2;column-gap:28px;margin-top:10px}
+.liste-deps div{break-inside:avoid;margin-bottom:16px}
+.liste-deps h3{font-size:1.02rem;margin-bottom:4px}
+.liste-deps p{font-size:.9rem;color:var(--muted)}
+@media (max-width:860px){.carte-zone{grid-template-columns:1fr}.fiche-dep{position:static}.liste-deps{columns:1}.carte-stats{grid-template-columns:1fr 1fr 1fr}.carte-stats b{font-size:1.5rem}}
+@media (max-width:520px){.carte-stats{grid-template-columns:1fr}}
+</style>
+{% endblock %}
+{% block contenu %}
+<div class="wrap fiche-head">
+  <div class="eyebrow">Nos interventions</div>
+  <h1>Là où nous sommes intervenus</h1>
+  <p class="lead">Depuis {{ carte_stats.debut }}, nous formons les équipes du social, du médico-social et de la protection de l'enfance, sur place, dans leurs établissements. Survolez ou touchez un département pour voir les formations réalisées.</p>
+  <div class="carte-stats">
+    <div><b>{{ carte_stats.sessions }}</b><span>sessions de formation réalisées</span></div>
+    <div><b>{{ carte_stats.departements }}</b><span>départements où nous sommes intervenus</span></div>
+    <div><b>{{ carte_stats.stagiaires }}</b><span>professionnels formés, au minimum<sup>*</sup></span></div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="filtres" role="group" aria-label="Filtrer par thème">
+      <span class="lbl">Thème :</span>
+      <button type="button" data-theme="" aria-pressed="true">Tous</button>
+      {% for t in themes_carte %}<button type="button" data-theme="{{ t }}" aria-pressed="false">{{ t }}</button>{% endfor %}
+    </div>
+    <div class="filtres" role="group" aria-label="Filtrer par année">
+      <span class="lbl">Année :</span>
+      <button type="button" data-annee="" aria-pressed="true">Toutes</button>
+      {% for a in annees %}<button type="button" data-annee="{{ a }}" aria-pressed="false">{{ a }}</button>{% endfor %}
+    </div>
+    <div class="carte-zone">
+      <div class="carte-svg">
+        <svg viewBox="-10 -10 {{ carte.largeur + 20 }} {{ carte.hauteur + 20 }}" role="img" aria-label="Carte de France des départements où 2aFormation est intervenu">
+          {% for code, dep in carte.departements|dictsort %}<path d="{{ dep.d }}" data-dep="{{ code }}"{% if code in deps_actifs %} class="actif" tabindex="0" role="button" aria-label="{{ dep.nom }}"{% endif %}></path>{% endfor %}
+          {% for code in deps_actifs %}{% set dep = carte.departements[code] %}<text x="{{ dep.cx }}" y="{{ dep.cy }}" data-lbl="{{ code }}">{{ code }}</text>{% endfor %}
+        </svg>
+        <div class="legende" aria-hidden="true">
+          <span><i style="background:#B9D3C7"></i>1 session</span><span><i style="background:#7FAE99"></i>2 ou 3</span><span><i style="background:#4A8270"></i>4 ou 5</span><span><i style="background:#2E5B4E"></i>6 et plus</span>
+        </div>
+      </div>
+      <aside class="fiche-dep" id="fiche" aria-live="polite">
+        <h3>Choisissez un département</h3>
+        <p class="resume">Les départements en couleur sont ceux où nous avons animé au moins une formation. Plus la couleur est foncée, plus il y a eu de sessions.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>Toutes nos interventions, par département</h2></div>
+    <div class="liste-deps">
+      {% for code in deps_actifs %}{% set liste = sessions|selectattr('dep','equalto',code)|list %}
+      <div><h3>{{ carte.departements[code].nom }} ({{ code }})</h3>
+        <p>{% for s in liste %}{% if s.lien %}<a href="{{ R }}{{ s.lien }}">{{ s.titre }}</a>{% else %}{{ s.titre }}{% endif %} ({{ s.mois }}){% if not loop.last %} · {% endif %}{% endfor %}</p></div>
+      {% endfor %}
+    </div>
+    <p class="muted" style="font-size:.85rem;margin-top:18px"><sup>*</sup> Nombre de participants relevé sur les listes de présence archivées ; lorsqu'il n'est pas connu, la session est comptée pour 10 participants, le minimum de nos groupes. Les établissements ne sont pas nommés, par respect de la confidentialité de nos clients.</p>
+  </div>
+</section>
+
+<section><div class="wrap">{{ cta(R, "Et si la prochaine session était chez vous ?", "Toutes nos formations se déroulent sur site, partout en France. Parlons de votre projet.") }}</div></section>
+
+<script>
+(function(){
+  var S = {{ sessions_json|safe }}, NOMS = {{ noms_json|safe }}, R = "{{ R }}";
+  var theme = "", annee = "", sel = null;
+  var paths = document.querySelectorAll('.carte-svg path.actif'), fiche = document.getElementById('fiche');
+  function filtre(){ return S.filter(function(s){ return (!theme || s.theme === theme) && (!annee || String(s.annee) === annee); }); }
+  function niveau(n){ return n >= 6 ? 4 : n >= 4 ? 3 : n >= 2 ? 2 : n >= 1 ? 1 : 0; }
+  function esc(t){ var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+  function peindre(){
+    var f = filtre(), c = {};
+    f.forEach(function(s){ c[s.dep] = (c[s.dep] || 0) + 1; });
+    paths.forEach(function(p){
+      var d = p.getAttribute('data-dep'), n = c[d] || 0;
+      p.classList.remove('n1','n2','n3','n4'); if (n) p.classList.add('n' + niveau(n));
+      p.style.opacity = n ? 1 : .35;
+      var t = document.querySelector('text[data-lbl="' + d + '"]');
+      if (t){ t.style.display = n ? '' : 'none'; t.classList.toggle('clair', niveau(n) === 1); }
+    });
+    if (sel) montrer(sel);
+  }
+  function montrer(d){
+    var f = filtre().filter(function(s){ return s.dep === d; });
+    var st = f.reduce(function(a, s){ return a + (s.stagiaires || 0); }, 0);
+    var h = '<h3>' + esc(NOMS[d]) + ' (' + d + ')</h3><p class="resume">' + f.length + ' session' + (f.length > 1 ? 's' : '') +
+      (st ? ' · au moins ' + st + ' professionnels formés' : '') + '</p>';
+    if (!f.length) h += '<p class="resume">Aucune session pour ce filtre.</p>';
+    h += '<ul>' + f.map(function(s){
+      var t = s.lien ? '<a href="' + R + s.lien + '">' + esc(s.titre) + '</a>' : esc(s.titre);
+      return '<li>' + t + '<small>' + esc(s.mois) + (s.stagiaires ? ' · ' + (s.estime ? 'au moins ' : '') + s.stagiaires + ' participants' : '') + '</small></li>';
+    }).join('') + '</ul>';
+    fiche.innerHTML = h;
+  }
+  function choisir(p){
+    paths.forEach(function(x){ x.classList.remove('sel'); }); p.classList.add('sel');
+    sel = p.getAttribute('data-dep'); montrer(sel);
+  }
+  paths.forEach(function(p){
+    p.addEventListener('mouseenter', function(){ montrer(p.getAttribute('data-dep')); });
+    p.addEventListener('mouseleave', function(){ if (sel) montrer(sel); });
+    p.addEventListener('click', function(){ choisir(p); });
+    p.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); choisir(p); } });
+    p.addEventListener('focus', function(){ montrer(p.getAttribute('data-dep')); });
+  });
+  document.querySelectorAll('.filtres button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var g = b.parentNode.querySelectorAll('button');
+      g.forEach(function(x){ x.setAttribute('aria-pressed', 'false'); }); b.setAttribute('aria-pressed', 'true');
+      if (b.hasAttribute('data-theme')) theme = b.getAttribute('data-theme'); else annee = b.getAttribute('data-annee');
+      peindre();
+    });
+  });
+  peindre();
+})();
+</script>
+{% endblock %}
