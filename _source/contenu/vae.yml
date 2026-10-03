@@ -2,7 +2,7 @@ intro: Architectes accompagnateurs de parcours pour la filière sociale, nous vo
 prerequis: Avoir une expérience (salariée, bénévole, indépendante, stages…) en lien direct avec le diplôme visé ; depuis la réforme, il n'y a plus de durée minimale. Nous vous accompagnons dès le dossier de faisabilité, puis pour le dossier de validation et le jury.
 certificateurs: Ministère de l'Enseignement supérieur et de la Recherche, et ministère chargé des Solidarités.
 avertissement: La VAE n'est pas une transformation automatique de l'expérience en diplôme. Seul le jury de certification décide d'attribuer ou non le diplôme.
-financement: CPF, employeur, OPCO, France Travail ou financement personnel.
+financement: CPF, Transitions Pro (salariés du privé, jusqu'à 2 000 €), employeur, OPCO, France Travail ou financement personnel.
 
 diplomes:
   - sigle: DEES
@@ -49,7 +49,7 @@ formules:
     titre: Parcours complet
     sous_titre: De la prise en main du livret 2 jusqu'à l'entretien après le jury
     duree: 24 h
-    prix: 2 800 €
+    prix: 2 200 €
     modalites: 24 heures réparties sur 3 à 10 mois selon le calendrier de dépôt et vos besoins. Rencontres de 1 à 2 heures en présentiel ou à distance, plus échanges par e-mail. Le temps de lecture de vos écrits par l'accompagnateur est compris.
     etapes:
       - titre: Les étapes et outils de la VAE
