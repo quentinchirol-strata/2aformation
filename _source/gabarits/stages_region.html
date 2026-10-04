@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{# Page d'accueil « Trouver son stage » (région). Données : contenu/stages/occitanie.json (FINESS). Assemblée par build.py. #}
+{% block head_extra %}<style>
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px}
+.pts div{border-top:3px solid var(--green);padding-top:12px;font-size:.93rem;color:var(--muted)}
+.pts b{display:block;color:var(--ink);font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › Trouver son stage</p>
+<div class="hero" style="padding-top:22px"><div class="hero-grid"><div>
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Trouver son stage en {{ st.region }}</h1>
+<p class="lead">Futurs éducateurs, moniteurs-éducateurs, assistants de service social, ETS et CESF : choisissez votre département. Vous y trouverez notre méthode, nos conseils de terrain et la liste des structures sociales et médico-sociales, avec un tableau Excel gratuit pour suivre vos candidatures.</p>
+</div>
+<aside class="proof" aria-label="En chiffres"><p class="eyebrow">{{ st.region }}</p>
+<dl><div><dt>{{ total }}</dt><dd>structures référencées</dd></div><div><dt>{{ st.departements|length }}</dt><dd>départements</dd></div><div><dt>{{ st.secteurs|length }}</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
+<p class="qualiopi">Source : répertoire officiel FINESS (données publiques), extraction du 4 mai 2026.</p></aside>
+</div></div></div>
+<section class="alt"><div class="wrap">
+<div class="head"><p class="eyebrow">Choisissez votre département</p><h2>{{ st.departements|length }} départements</h2></div>
+<div class="cards">
+{% for x in st.departements %}<a class="card" href="{{ R }}trouver-son-stage/{{ x.slug }}/index.html"><span class="theme">{{ x.code }}</span><h3>{{ x.nom }}</h3><p>{{ x.n }} structures · {{ x.nv }} communes</p><span class="meta"><b>Voir les structures →</b></span></a>
+{% endfor %}
+</div>
+</div></section>
+<section><div class="wrap">
+<div class="head"><p class="eyebrow">Sur chaque page</p><h2>Ce que vous y trouverez</h2></div>
+<div class="pts"><div><b>La méthode en 5 étapes</b>Du projet de stage à la relance, ce qui marche vraiment.</div><div><b>Nos conseils de terrain</b>La gratification, les structures hors liste, l'usage de l'IA sans se piéger.</div><div><b>Les structures du département</b>Par secteur et par commune, avec téléphone et carte.</div><div><b>Votre tableau de suivi</b>Sélectionnez des structures, téléchargez un tableau Excel prêt à remplir.</div></div>
+<p class="muted" style="font-size:.84rem;margin-top:26px;max-width:none">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur <a href="https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/">data.gouv.fr</a> sous Licence Ouverte (extraction du 04/05/2026). 2A Formation n'est pas lié à ces structures.</p>
+</div></section>
+{% endblock %}
