@@ -20,7 +20,7 @@
   <div class="wrap">
     <div class="head"><h2>Les diplômes que nous accompagnons</h2><p class="muted">Diplômes d'État du travail social. Certificateurs : {{ vae.certificateurs }}</p></div>
     <div class="diplomes">
-      {% for d in vae.diplomes %}<div class="dip"><span class="lvl">Niveau {{ d.niveau }} · {{ d.rncp }}</span><h3>{{ d.nom }}</h3><p>{{ d.sigle }}</p></div>
+      {% for d in vae.diplomes %}<div class="dip"><span class="lvl">Niveau {{ d.niveau }} · {{ d.rncp }}</span><h3>{{ d.nom }}</h3><p>{{ d.sigle }}</p>{% if d.enregistrement %}<p class="muted" style="font-size:.85rem">Enregistré au RNCP {{ d.enregistrement }}</p>{% endif %}{% if d.debouches %}<p style="font-size:.85rem">{{ d.debouches }}</p>{% endif %}{% if d.fiche %}<p style="font-size:.85rem"><a href="{{ d.fiche }}" target="_blank" rel="noopener">Fiche France compétences : blocs, équivalences, débouchés</a></p>{% endif %}</div>
       {% endfor %}
     </div>
     <ol class="steps" aria-label="Les étapes de la VAE">
@@ -52,6 +52,9 @@
       <h2 style="font-size:1.4rem;margin-bottom:12px">Bon à savoir</h2>
       <ul class="ticks">
         <li><strong>Prérequis :</strong> {{ vae.prerequis }}</li>
+        {% if vae.delais_acces %}<li><strong>Délais d'accès :</strong> {{ vae.delais_acces }}</li>{% endif %}
+        {% if vae.passerelles %}<li><strong>Validation par blocs, équivalences et passerelles :</strong> {{ vae.passerelles }}</li>{% endif %}
+        {% if vae.suites %}<li><strong>Suites de parcours et débouchés :</strong> {{ vae.suites }}</li>{% endif %}
         <li>Une attestation d'accompagnement VAE vous est remise.</li>
         <li>{{ vae.avertissement }}</li>
         <li>Accessibilité handicap : contactez {{ site.legal.referent_handicap }} au {{ site.legal.referent_handicap_tel }}.</li>
