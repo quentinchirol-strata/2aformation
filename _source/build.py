@@ -182,18 +182,23 @@ def main():
         page = lire_md(p)
         ecrire(page["chemin"], "page.html", rubrique="", corps=page["corps"],
                titre_page=f"{page['titre']} · 2aFormation", description=page["description"])
-    # Trouver son stage : ressource gratuite pour les étudiants (données FINESS, contenu/stages/*.json)
-    st = json.load(open(os.path.join(ICI, "contenu/stages/occitanie.json"), encoding="utf-8"))
-    for d in st["departements"]:
-        donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
-        ecrire(f"trouver-son-stage/{d['slug']}/index.html", "stages_departement.html", rubrique="etudiants", st=st, d=d,
-               data_json=donnees,
-               titre_page=f"Trouver son stage {d['en']} · travail social · 2aFormation",
-               description=f"{d['n']} structures sociales et médico-sociales {d['de']} où chercher un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social, avec la méthode et un tableau de suivi gratuit.")
-    ecrire("trouver-son-stage/index.html", "stages_region.html", rubrique="etudiants", st=st,
-           total=sum(d["n"] for d in st["departements"]),
-           titre_page=f"Trouver son stage en {st['region']} · travail social · 2aFormation",
-           description=f"Méthode et structures sociales et médico-sociales des {len(st['departements'])} départements d'{st['region']} pour trouver un stage en travail social. Gratuit, par des éducateurs spécialisés.")
+    # Trouver son stage : ressource gratuite pour les étudiants (données FINESS, un fichier par région dans contenu/stages/)
+    import unicodedata
+    regions = [json.load(open(p, encoding="utf-8")) for p in glob.glob(os.path.join(ICI, "contenu/stages/*.json"))]
+    regions.sort(key=lambda r: (r["slug"] == "outre-mer", unicodedata.normalize("NFD", r["region"]).encode("ascii", "ignore").decode()))
+    for st in regions:
+        for d in st["departements"]:
+            donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
+            ecrire(f"trouver-son-stage/{d['slug']}/index.html", "stages_departement.html", rubrique="etudiants", st=st, d=d,
+                   data_json=donnees,
+                   titre_page=f"Trouver son stage {d['en']} · travail social · 2aFormation",
+                   description=f"{d['n']} structures sociales et médico-sociales {d['de']} où chercher un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social, avec la méthode et un tableau de suivi gratuit.")
+    nb_dep = sum(len(r["departements"]) for r in regions)
+    ecrire("trouver-son-stage/index.html", "stages_region.html", rubrique="etudiants", regions=regions,
+           total=sum(d["n"] for r in regions for d in r["departements"]), nb_dep=nb_dep,
+           secteurs=regions[0]["secteurs"] if regions else [],
+           titre_page="Trouver son stage dans le social, partout en France · 2aFormation",
+           description=f"Méthode, conseils de terrain et structures sociales et médico-sociales de {nb_dep} départements pour trouver un stage en travail social. Gratuit, par des éducateurs spécialisés.")
     ecrire("404.html", "page.html", rubrique="", titre_page="Page introuvable · 2aFormation",
            description="Cette page n'existe pas.",
            corps='<h1>Page introuvable</h1><p>Cette page n\'existe pas ou a été déplacée.</p>'

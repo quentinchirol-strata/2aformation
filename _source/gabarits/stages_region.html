@@ -1,28 +1,42 @@
 {% extends "base.html" %}
-{# Page d'accueil « Trouver son stage » (région). Données : contenu/stages/occitanie.json (FINESS). Assemblée par build.py. #}
+{# Page d'accueil « Trouver son stage » (toute la France). Données : contenu/stages/<région>.json (FINESS). Assemblée par build.py. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage dans le social, partout en France","inLanguage":"fr","url":"{{ site.url }}/{{ chemin }}","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","publisher":{"@type":"Organization","name":"2aFormation","url":"{{ site.url }}"}}</script>{% endblock %}
 {% block head_extra %}<style>
 .pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px}
 .pts div{border-top:3px solid var(--green);padding-top:12px;font-size:.93rem;color:var(--muted)}
 .pts b{display:block;color:var(--ink);font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+.aller{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:26px;max-width:520px}
+.aller label{flex:1;min-width:220px}
+.reg{margin-top:34px}
+.reg:first-of-type{margin-top:0}
+.reg h3{font-size:1.15rem;margin-bottom:12px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.reg h3 span{font:400 .88rem var(--body);color:var(--muted)}
+.mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.mini a{display:flex;justify-content:space-between;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:11px 14px;text-decoration:none;color:var(--ink);font-size:.95rem}
+.mini a:hover{border-color:var(--green);color:var(--green)}
+.mini small{color:var(--muted);font-size:.8rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
 <p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › Trouver son stage</p>
 <div class="hero" style="padding-top:22px"><div class="hero-grid"><div>
 <p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
-<h1 style="margin-top:10px">Trouver son stage en {{ st.region }}</h1>
+<h1 style="margin-top:10px">Trouver son stage dans le social, partout en France</h1>
 <p class="lead">Futurs éducateurs, moniteurs-éducateurs, assistants de service social, ETS et CESF : choisissez votre département. Vous y trouverez notre méthode, nos conseils de terrain et la liste des structures sociales et médico-sociales, avec un tableau Excel gratuit pour suivre vos candidatures.</p>
+<form class="aller" onsubmit="event.preventDefault();var v=document.getElementById('dep').value;if(v)location.href=v;">
+<label>Mon département<select id="dep" onchange="if(this.value)location.href=this.value"><option value="">Choisir…</option>{% for r in regions %}<optgroup label="{{ r.region }}">{% for x in r.departements %}<option value="{{ R }}trouver-son-stage/{{ x.slug }}/index.html">{{ x.code }} · {{ x.nom }}</option>{% endfor %}</optgroup>{% endfor %}</select></label>
+<button class="btn primary" type="submit">Voir</button>
+</form>
 </div>
-<aside class="proof" aria-label="En chiffres"><p class="eyebrow">{{ st.region }}</p>
-<dl><div><dt>{{ total }}</dt><dd>structures référencées</dd></div><div><dt>{{ st.departements|length }}</dt><dd>départements</dd></div><div><dt>{{ st.secteurs|length }}</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
+<aside class="proof" aria-label="En chiffres"><p class="eyebrow">France entière</p>
+<dl><div><dt>{{ "{:,}".format(total).replace(",", " ") }}</dt><dd>structures référencées</dd></div><div><dt>{{ nb_dep }}</dt><dd>départements et territoires</dd></div><div><dt>{{ secteurs|length }}</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
 <p class="qualiopi">Source : répertoire officiel FINESS (données publiques), extraction du 4 mai 2026.</p></aside>
 </div></div></div>
 <section class="alt"><div class="wrap">
-<div class="head"><p class="eyebrow">Choisissez votre département</p><h2>{{ st.departements|length }} départements</h2></div>
-<div class="cards">
-{% for x in st.departements %}<a class="card" href="{{ R }}trouver-son-stage/{{ x.slug }}/index.html"><span class="theme">{{ x.code }}</span><h3>{{ x.nom }}</h3><p>{{ x.n }} structures · {{ x.nv }} communes</p><span class="meta"><b>Voir les structures →</b></span></a>
+<div class="head"><p class="eyebrow">Choisissez votre département</p><h2>Par région</h2></div>
+{% for r in regions %}<div class="reg" id="{{ r.slug }}"><h3>{{ r.region }} <span>{{ "{:,}".format(r.departements|sum(attribute='n')).replace(",", " ") }} structures</span></h3>
+<div class="mini">{% for x in r.departements %}<a href="{{ R }}trouver-son-stage/{{ x.slug }}/index.html"><span>{{ x.nom }} ({{ x.code }})</span><small>{{ x.n }}</small></a>{% endfor %}</div></div>
 {% endfor %}
-</div>
 </div></section>
 <section><div class="wrap">
 <div class="head"><p class="eyebrow">Sur chaque page</p><h2>Ce que vous y trouverez</h2></div>
