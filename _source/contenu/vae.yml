@@ -3,32 +3,53 @@ prerequis: Avoir une expérience (salariée, bénévole, indépendante, stages�
 certificateurs: Ministère de l'Enseignement supérieur et de la Recherche, et ministère chargé des Solidarités.
 avertissement: La VAE n'est pas une transformation automatique de l'expérience en diplôme. Seul le jury de certification décide d'attribuer ou non le diplôme.
 financement: CPF, Transitions Pro (salariés du privé, jusqu'à 2 000 €), employeur, OPCO, France Travail ou financement personnel.
+delais_acces: "Premier échange téléphonique sous 7 jours après votre demande. L'accompagnement démarre dès la signature du contrat, en général dans le mois qui suit, au rythme du calendrier de dépôt de votre dossier."
+passerelles: "Chaque diplôme est découpé en blocs de compétences. Le jury peut valider tout le diplôme ou une partie des blocs ; les blocs validés vous restent acquis et vous pouvez compléter les autres par une nouvelle demande de VAE ou par la formation. Des équivalences partielles existent entre les diplômes du travail social : elles sont précisées sur la fiche France compétences de chaque diplôme."
+suites: "Après un diplôme de niveau 6, poursuite d'études possible (master, notamment en sciences de l'éducation ou en intervention sociale) ou évolution vers l'encadrement (CAFERUIS). Après le DEME ou le DEAES, accès aux diplômes de niveau supérieur par la formation ou par une nouvelle VAE. Les taux d'insertion, lorsqu'ils sont publiés par les certificateurs, figurent sur les fiches France compétences."
 
 diplomes:
   - sigle: DEES
     nom: Éducateur spécialisé
     niveau: 6
     rncp: RNCP41747
+    enregistrement: du 01/09/2026 au 31/08/2031
+    fiche: https://www.francecompetences.fr/recherche/rncp/41747/
+    debouches: "Éducateur spécialisé : protection de l'enfance, handicap, insertion, hébergement (code ROME K1207)."
   - sigle: DEASS
     nom: Assistant de service social
     niveau: 6
     rncp: RNCP41748
+    enregistrement: du 01/09/2026 au 31/08/2031
+    fiche: https://www.francecompetences.fr/recherche/rncp/41748/
+    debouches: "Assistant de service social : départements, hôpitaux, associations, établissements scolaires (code ROME K1201)."
   - sigle: DECESF
     nom: Conseiller en économie sociale et familiale
     niveau: 6
-    rncp: RNCP41744
+    rncp: RNCP42424
+    enregistrement: du 01/09/2026 au 31/08/2027 (remplacé par le RNCP41744 à partir du 01/09/2027)
+    fiche: https://www.francecompetences.fr/recherche/rncp/42424/
+    debouches: "Conseiller en économie sociale familiale : budget, logement, insertion, accompagnement des familles."
   - sigle: DEEJE
     nom: Éducateur de jeunes enfants
     niveau: 6
     rncp: RNCP41745
+    enregistrement: du 01/09/2026 au 31/08/2031
+    fiche: https://www.francecompetences.fr/recherche/rncp/41745/
+    debouches: "Éducateur de jeunes enfants : accueil collectif de la petite enfance, protection de l'enfance, soutien à la parentalité (enfants de 0 à 7 ans)."
   - sigle: DEME
     nom: Moniteur éducateur
     niveau: 4
     rncp: RNCP39643
+    enregistrement: du 01/09/2024 au 31/12/2028
+    fiche: https://www.francecompetences.fr/recherche/rncp/39643/
+    debouches: "Moniteur éducateur : établissements et services sociaux et médico-sociaux, protection de l'enfance, handicap (code ROME K1207)."
   - sigle: DEAES
     nom: Accompagnant éducatif et social
     niveau: 3
     rncp: RNCP42423
+    enregistrement: du 01/09/2026 au 31/08/2027
+    fiche: https://www.francecompetences.fr/recherche/rncp/42423/
+    debouches: "Accompagnant éducatif et social : accompagnement au quotidien de personnes en situation de handicap ou en perte d'autonomie, à domicile ou en établissement."
 
 etapes:
   - titre: Premier échange
