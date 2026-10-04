@@ -199,6 +199,12 @@ def main():
            secteurs=regions[0]["secteurs"] if regions else [],
            titre_page="Trouver son stage dans le social, partout en France · 2aFormation",
            description=f"Méthode, conseils de terrain et structures sociales et médico-sociales de {nb_dep} départements pour trouver un stage en travail social. Gratuit, par des éducateurs spécialisés.")
+    # Bibliographie commentée (contenu/bibliographie.yml)
+    biblio = lire_yaml("contenu/bibliographie.yml")
+    nb_refs = sum(len(t["references"]) for t in biblio["themes"])
+    ecrire("bibliographie/index.html", "bibliographie.html", rubrique="etudiants", b=biblio, nb_refs=nb_refs,
+           titre_page="Bibliographie commentée du travail social · 2aFormation",
+           description=f"{nb_refs} références vérifiées et commentées pour les écrits en travail social : protection de l'enfance, attachement, relation éducative, méthodologie du mémoire, textes officiels. Gratuit.")
     ecrire("404.html", "page.html", rubrique="", titre_page="Page introuvable · 2aFormation",
            description="Cette page n'existe pas.",
            corps='<h1>Page introuvable</h1><p>Cette page n\'existe pas ou a été déplacée.</p>'

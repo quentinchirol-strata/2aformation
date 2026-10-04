@@ -1,0 +1,311 @@
+# Bibliographie commentée (page /bibliographie/). Une entrée = une référence vérifiée.
+# Pour ajouter un ouvrage : copier un bloc « - auteurs: … » dans le bon thème. Ne publier qu'une référence vérifiée
+# (éditeur, BnF, Cairn ou site officiel). ecrits possibles : Mémoire, DC, Livret 2, Culture pro.
+verification: 04/10/2026
+themes:
+- id: officiel
+  titre: Textes officiels et rapports (gratuits en ligne)
+  intro: 'Le socle réglementaire et les références nationales. Tout est consultable gratuitement : à citer avec la date de consultation.'
+  references:
+  - auteurs: ''
+    titre: Loi n° 2007-293 du 5 mars 2007 réformant la protection de l'enfance
+    edition: Journal officiel, 2007
+    lien: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000823100
+    pourquoi: 'La réforme qui structure encore le dispositif : prévention, information préoccupante, diversification des accompagnements.'
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: ''
+    titre: Loi n° 2016-297 du 14 mars 2016 relative à la protection de l'enfant
+    edition: Journal officiel, 2016
+    lien: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000032205234
+    pourquoi: Recentre la protection de l'enfance sur les besoins de l'enfant et la stabilité de son parcours.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: ''
+    titre: Loi n° 2022-140 du 7 février 2022 relative à la protection des enfants
+    edition: Journal officiel, 2022
+    lien: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000045133771/
+    pourquoi: Conditions d'accueil des enfants confiés, accompagnement vers l'autonomie, contrôle des professionnels.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Marie-Paule Martin-Blachais
+    titre: Démarche de consensus sur les besoins fondamentaux de l'enfant en protection de l'enfance
+    edition: Rapport remis au ministère, février 2017
+    lien: https://solidarites.gouv.fr/demarche-de-consensus-sur-les-besoins-fondamentaux-de-lenfant-en-protection-de-lenfance
+    pourquoi: La référence pour parler des besoins fondamentaux, dont le « méta-besoin » de sécurité. Indispensable pour argumenter un projet.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: ''
+    titre: 'HAS, Évaluation globale de la situation des enfants en danger ou risque de danger : cadre national de référence'
+    edition: Haute Autorité de santé, 2021
+    lien: https://www.has-sante.fr/jcms/p_3120418/fr/evaluation-globale-de-la-situation-des-enfants-en-danger-ou-risque-de-danger-cadre-national-de-reference
+    pourquoi: Le référentiel national pour évaluer une information préoccupante. Utile dès que votre écrit parle d'évaluation.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: ''
+    titre: 'CIIVISE, Violences sexuelles faites aux enfants : « on vous croit »'
+    edition: Rapport public, novembre 2023
+    lien: https://www.ciivise.fr/le-rapport-public-de-2023
+    pourquoi: Trois ans de témoignages et 82 préconisations pour repérer, protéger et accompagner.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: ''
+    titre: 'ANESM, La bientraitance : définition et repères pour la mise en œuvre'
+    edition: Recommandation, 2008 (HAS)
+    lien: https://www.has-sante.fr/jcms/c_2835126/fr/la-bientraitance-definition-et-reperes-pour-la-mise-en-oeuvre
+    pourquoi: Une définition partagée de la bientraitance et quatre repères concrets pour les équipes.
+    ecrits:
+    - Mémoire
+    - Livret 2
+  - auteurs: ''
+    titre: Code pénal, articles 226-13 et 226-14 ; Code de l'action sociale et des familles, article L226-2-2
+    edition: Légifrance
+    lien: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006796908
+    pourquoi: Le secret professionnel, ses exceptions et le partage d'informations en protection de l'enfance. À relire dans la version en vigueur.
+    ecrits:
+    - DC
+    - Livret 2
+- id: enfance
+  titre: Protection de l'enfance
+  intro: Comprendre le dispositif, ses limites et le travail avec les familles.
+  references:
+  - auteurs: Maurice Berger
+    titre: L'échec de la protection de l'enfance
+    edition: Dunod, 1re éd. 2003 ; 3e éd. 2024
+    lien: https://shs.cairn.info/l-echec-de-la-protection-de-l-enfance--9782100807222
+    pourquoi: 'Un essai critique et argumenté : à lire pour nourrir un débat, en le confrontant à d''autres points de vue.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Michel Lemay
+    titre: J'ai mal à ma mère. Approche thérapeutique du carencé relationnel
+    edition: Fleurus, 1979
+    pourquoi: Un classique sur les enfants en carence relationnelle, toujours cité dans les écoles.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Stanislaw Tomkiewicz et Pascal Vivet (dir.)
+    titre: Aimer mal, châtier bien. Enquêtes sur les violences dans des institutions pour enfants et adolescents
+    edition: Seuil, 1991
+    lien: https://catalogue.bnf.fr/ark:/12148/cb36651680n
+    pourquoi: 'Les violences institutionnelles : un ouvrage fondateur pour réfléchir à sa pratique et à la bientraitance.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Guy Ausloos
+    titre: La compétence des familles. Temps, chaos, processus
+    edition: Érès, 1995 ; rééd. 2019
+    lien: https://www.editions-eres.com/ouvrage/292/la-competence-des-familles
+    pourquoi: 'Partir des ressources des familles plutôt que de leurs manques : une approche systémique précieuse en AEMO comme en placement.'
+    ecrits:
+    - Mémoire
+    - Livret 2
+  - auteurs: Karen Sadlier (dir.)
+    titre: L'enfant face à la violence dans le couple
+    edition: Dunod, 2e éd. 2021
+    lien: https://www.jac.cerdacc.uha.fr/lenfant-face-a-la-violence-dans-le-couple-k-sadlier-sous-la-dir-dunod-2eme-ed-2021/
+    pourquoi: Les effets de l'exposition aux violences conjugales sur l'enfant et les réponses possibles.
+    ecrits:
+    - Mémoire
+    - DC
+- id: attachement
+  titre: Attachement, développement, traumatisme
+  intro: Les repères théoriques les plus mobilisés dans les écrits en protection de l'enfance.
+  references:
+  - auteurs: John Bowlby
+    titre: 'Attachement et perte, vol. 1 : L''attachement'
+    edition: PUF, coll. « Le fil rouge » (rééd. 2002)
+    lien: https://www.puf.com/attachement-et-perte-volume-1
+    pourquoi: Le texte fondateur de la théorie de l'attachement. À citer de première main plutôt que par des résumés.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Nicole Guedeney, Antoine Guedeney et Susana Tereno
+    titre: 'L''attachement : approche théorique et évaluation. Du bébé à la personne âgée'
+    edition: Elsevier Masson, 5e éd. 2021
+    lien: https://www.elsevier-masson.fr/lattachement-approche-theorique-et-evaluation-9782294777318.html
+    pourquoi: La synthèse de référence en français, à jour des recherches et des outils d'évaluation.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Boris Cyrulnik
+    titre: Un merveilleux malheur
+    edition: Odile Jacob, 1999
+    lien: https://www.odilejacob.fr/catalogue/psychologie/developpement-personnel/un-merveilleux-malheur_9782738106810.php
+    pourquoi: L'ouvrage qui a fait connaître la notion de résilience. Accessible, utile pour une première approche.
+    ecrits:
+    - Culture pro
+    - Livret 2
+  - auteurs: Donald W. Winnicott
+    titre: Jeu et réalité. L'espace potentiel
+    edition: Gallimard, coll. « Folio essais »
+    lien: https://www.gallimard.fr/catalogue/jeu-et-realite/9782070419845
+    pourquoi: 'Objets transitionnels, aire du jeu, environnement « suffisamment bon » : des notions qui éclairent le quotidien éducatif.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Muriel Salmona
+    titre: Le livre noir des violences sexuelles
+    edition: Dunod, 3e éd. 2022
+    lien: https://shs.cairn.info/le-livre-noir-des-violences-sexuelles--9782100825837
+    pourquoi: Le psychotraumatisme expliqué (dissociation, mémoire traumatique) pour mieux accueillir la parole des victimes.
+    ecrits:
+    - Mémoire
+    - DC
+- id: relation
+  titre: Relation éducative et posture professionnelle
+  intro: Penser ce que l'on fait au quotidien, et pourquoi.
+  references:
+  - auteurs: Joseph Rouzel
+    titre: Le travail d'éducateur spécialisé. Éthique et pratique
+    edition: Dunod, 5e éd. 2024
+    lien: https://www.dunod.com/sciences-humaines-et-sociales/travail-d-educateur-specialise-ethique-et-pratique-2
+    pourquoi: Un manuel souvent recommandé en formation, centré sur la clinique de la relation éducative.
+    ecrits:
+    - Mémoire
+    - Livret 2
+    - Culture pro
+  - auteurs: Joseph Rouzel
+    titre: L'acte éducatif
+    edition: Érès, 1998
+    lien: https://shs.cairn.info/l-acte-educatif--9782749212593
+    pourquoi: Ce qui fait « acte » dans le travail éducatif quotidien, du passage à l'acte à « l'acte de passage ».
+    ecrits:
+    - Mémoire
+    - Livret 2
+  - auteurs: Philippe Gaberan
+    titre: La relation éducative. Un outil professionnel pour un projet humaniste
+    edition: Érès, 2003 ; nouvelle éd. 2023
+    pourquoi: Le sens de l'accompagnement éducatif, au-delà de la seule « normalisation ».
+    ecrits:
+    - Livret 2
+    - Culture pro
+  - auteurs: Paul Fustier
+    titre: Les corridors du quotidien. Clinique du quotidien et éducation spécialisée en institution
+    edition: Dunod, 2019
+    pourquoi: Les moments informels (couloirs, repas, coucher) comme lieux essentiels du travail éducatif.
+    ecrits:
+    - Mémoire
+    - Livret 2
+  - auteurs: Fernand Deligny
+    titre: Graine de crapule
+    edition: 1945 ; repris dans Œuvres, L'Arachnéen, 2007
+    lien: https://www.editions-arachneen.fr/catalogue/oeuvres/
+    pourquoi: De courts textes adressés aux éducateurs, toujours d'actualité. Une lecture de culture professionnelle.
+    ecrits:
+    - Culture pro
+  - auteurs: Philippe Meirieu
+    titre: Frankenstein pédagogue
+    edition: ESF éditeur, 1996
+    lien: http://meirieu.com/LIVRES/li_fp.htm
+    pourquoi: 'Pourquoi on ne « fabrique » pas l''autre : une réflexion sur l''éducation et la liberté.'
+    ecrits:
+    - Culture pro
+    - Mémoire
+- id: institution
+  titre: Institution, équipe et épuisement professionnel
+  intro: Le cadre de travail, ses tensions et ce qu'il fait aux professionnels.
+  references:
+  - auteurs: Paul Fustier
+    titre: Le travail d'équipe en institution. Clinique de l'institution médico-sociale et psychiatrique
+    edition: Dunod, 1999 ; rééd. 2021
+    pourquoi: Les liens et les tensions du travail pluridisciplinaire en institution.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Erving Goffman
+    titre: Asiles. Études sur la condition sociale des malades mentaux et autres reclus
+    edition: Éditions de Minuit, 1968
+    pourquoi: La notion d'« institution totale » et ses effets sur les personnes accueillies.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Christophe Dejours
+    titre: Souffrance en France. La banalisation de l'injustice sociale
+    edition: Seuil, 1998
+    pourquoi: 'La souffrance au travail et la façon dont elle s''installe : une base pour penser l''épuisement professionnel.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Michel Chauvière
+    titre: Trop de gestion tue le social. Essai sur une discrète chalandisation
+    edition: La Découverte, 2007
+    pourquoi: Une analyse critique de la logique gestionnaire dans le secteur social.
+    ecrits:
+    - Mémoire
+    - Culture pro
+- id: societe
+  titre: Comprendre le travail social et la société
+  intro: Prendre du recul sur le métier et sur les publics accompagnés.
+  references:
+  - auteurs: Saül Karsz
+    titre: Pourquoi le travail social ? Définition, figures, clinique
+    edition: Dunod, 2004 ; 2e éd. 2011
+    pourquoi: Trois figures de l'intervention sociale (charité, prise en charge, prise en compte) pour situer sa pratique.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Robert Castel
+    titre: Les métamorphoses de la question sociale. Une chronique du salariat
+    edition: Fayard, 1995
+    pourquoi: La notion de « désaffiliation », très utile pour analyser les situations de précarité.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Erving Goffman
+    titre: Stigmate. Les usages sociaux des handicaps
+    edition: Éditions de Minuit, 1975
+    pourquoi: 'Comment se construit et se gère une identité « discréditée » : un classique pour parler des représentations.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Didier Dubasque
+    titre: Comprendre et maîtriser les excès de la société numérique
+    edition: Presses de l'EHESP, 2019
+    lien: https://www.presses.ehesp.fr/produit/comprendre-maitriser-exces-de-societe-numerique/
+    pourquoi: Les effets du numérique sur les publics fragiles et sur les pratiques des travailleurs sociaux.
+    ecrits:
+    - Mémoire
+    - Culture pro
+- id: ecrits
+  titre: Écrits professionnels et méthodologie du mémoire
+  intro: Pour construire une question de départ, enquêter et écrire.
+  references:
+  - auteurs: Jacques Riffault
+    titre: Penser l'écrit professionnel en travail social. Contexte, pratiques, significations
+    edition: Dunod, 2e éd. 2006
+    lien: https://www.dunod.com/sciences-humaines-et-sociales/penser-ecrit-professionnel-en-travail-social-contexte-pratiques
+    pourquoi: Faire de l'écrit un véritable outil clinique, à partir d'une enquête dans plus d'une centaine d'établissements.
+    ecrits:
+    - DC
+    - Mémoire
+  - auteurs: Raymond Quivy, Luc Van Campenhoudt et Jacques Marquet
+    titre: Manuel de recherche en sciences sociales
+    edition: Armand Colin, 6e éd. 2022
+    pourquoi: 'Le guide pas à pas : question de départ, exploration, méthodes d''enquête, analyse.'
+    ecrits:
+    - Mémoire
+  - auteurs: Howard S. Becker
+    titre: Les ficelles du métier. Comment conduire sa recherche en sciences sociales
+    edition: La Découverte, 2002
+    lien: https://catalogue.bnf.fr/ark:/12148/cb388155897
+    pourquoi: Des astuces concrètes pour penser son terrain et éviter les raisonnements tout faits.
+    ecrits:
+    - Mémoire
+  - auteurs: Jean-Claude Kaufmann
+    titre: L'entretien compréhensif
+    edition: Armand Colin, coll. « 128 », 4e éd. 2016
+    lien: https://www.dunod.com/sciences-humaines-et-sociales/entretien-comprehensif
+    pourquoi: 'Mener et analyser des entretiens : la méthode la plus utilisée dans les mémoires.'
+    ecrits:
+    - Mémoire

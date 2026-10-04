@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{# Bibliographie commentée. Données : contenu/bibliographie.yml. Assemblée par build.py. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Bibliographie commentée du travail social","inLanguage":"fr","url":"{{ site.url }}/{{ chemin }}","audience":{"@type":"EducationalAudience","educationalRole":"student"},"publisher":{"@type":"Organization","name":"2aFormation","url":"{{ site.url }}"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.bib-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.bib-nav a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;text-decoration:none;color:var(--ink)}
+.bib-nav a:hover{border-color:var(--green);color:var(--green)}
+.bib section{padding-block:34px}
+.bib h2{font-size:1.45rem}
+.bib .intro{margin-top:6px;font-size:.95rem}
+.refs{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
+.refs li{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 18px}
+#officiel .refs li{border-left-color:var(--ochre)}
+.ref{font-size:.98rem;max-width:none}
+.ref cite{font-style:italic;font-weight:700}
+.ref .aut{font-weight:700}
+.ref .ed{color:var(--muted)}
+.ref a{font-size:.85rem;font-weight:700;margin-left:4px;white-space:nowrap}
+.why{color:var(--muted);font-size:.93rem;margin-top:4px;max-width:none}
+.tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:var(--green-soft);border-radius:999px;padding:2px 10px;font-size:.75rem;font-weight:700;color:var(--green-dark)}
+.bib{position:relative;overflow:hidden}
+.ink{position:absolute;pointer-events:none;z-index:0;color:var(--green)}
+.ink svg{display:block;width:100%;height:auto}
+.ink.a{top:40px;right:-60px;width:360px;opacity:.16;transform:rotate(12deg)}
+.ink.b{top:1500px;left:-110px;width:300px;opacity:.12;transform:rotate(-20deg)}
+.ink.c{top:3300px;right:-90px;width:280px;opacity:.13;transform:rotate(35deg)}
+.ink.d{top:5000px;left:-70px;width:240px;opacity:.11;transform:rotate(150deg)}
+.bib .wrap{position:relative;z-index:1}
+.bib h1{position:relative}
+.bib h1::after{content:"";display:block;width:120px;height:10px;margin-top:10px;background:var(--green);opacity:.85;border-radius:60% 40% 55% 45%/70% 30% 70% 30%;transform:rotate(-1.5deg)}
+@media (max-width:700px){.ink.a{width:200px;right:-60px;top:20px}.ink.b,.ink.c,.ink.d{display:none}}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px;font-size:.9rem}
+</style>{% endblock %}
+{% macro ref(r, officiel) %}<li><p class="ref">{% if r.get("auteurs") %}<span class="aut">{{ r.auteurs }}</span>, {% endif %}<cite>{{ r.titre }}</cite>. <span class="ed">{{ r.edition }}.</span>{% if r.get("lien") %} <a href="{{ r.lien }}" rel="noopener">{{ "Lire en ligne" if officiel else "Fiche" }}</a>{% endif %}</p><p class="why">{{ r.pourquoi }}</p><p class="tags">{% for e in r.get("ecrits", []) %}<span class="tag">{{ e }}</span>{% endfor %}</p></li>{% endmacro %}
+{% block contenu %}
+<div class="bib"><div class="ink a"><svg viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M104 22c18 2 22 22 38 26s34-6 40 10-12 26-10 42 22 26 12 42-30 6-42 18-8 34-26 36-22-18-38-22-36 12-44-4 10-30 4-46S2 98 10 82s30-8 40-22S86 20 104 22z"/><circle fill="currentColor" cx="176" cy="30" r="7"/><circle fill="currentColor" cx="190" cy="52" r="3.5"/><circle fill="currentColor" cx="22" cy="170" r="6"/><circle fill="currentColor" cx="8" cy="150" r="3"/><circle fill="currentColor" cx="160" cy="182" r="4"/><path fill="currentColor" d="M150 150c6 8 14 20 22 28 3 3-1 7-4 4-8-8-18-18-22-27z"/></svg></div><div class="ink b"><svg viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M96 30c14-10 34-4 40 12s24 14 30 30-8 24-2 40 12 36-4 44-26-6-40 2-24 30-42 22-8-30-22-40-34-10-34-28 22-20 26-36S82 40 96 30z"/><circle fill="currentColor" cx="30" cy="40" r="8"/><circle fill="currentColor" cx="48" cy="22" r="4"/><circle fill="currentColor" cx="180" cy="160" r="5"/><circle fill="currentColor" cx="168" cy="186" r="3"/></svg></div><div class="ink c"><svg viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M104 22c18 2 22 22 38 26s34-6 40 10-12 26-10 42 22 26 12 42-30 6-42 18-8 34-26 36-22-18-38-22-36 12-44-4 10-30 4-46S2 98 10 82s30-8 40-22S86 20 104 22z"/><circle fill="currentColor" cx="176" cy="30" r="7"/><circle fill="currentColor" cx="190" cy="52" r="3.5"/><circle fill="currentColor" cx="22" cy="170" r="6"/><circle fill="currentColor" cx="8" cy="150" r="3"/><circle fill="currentColor" cx="160" cy="182" r="4"/><path fill="currentColor" d="M150 150c6 8 14 20 22 28 3 3-1 7-4 4-8-8-18-18-22-27z"/></svg></div><div class="ink d"><svg viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M96 30c14-10 34-4 40 12s24 14 30 30-8 24-2 40 12 36-4 44-26-6-40 2-24 30-42 22-8-30-22-40-34-10-34-28 22-20 26-36S82 40 96 30z"/><circle fill="currentColor" cx="30" cy="40" r="8"/><circle fill="currentColor" cx="48" cy="22" r="4"/><circle fill="currentColor" cx="180" cy="160" r="5"/><circle fill="currentColor" cx="168" cy="186" r="3"/></svg></div><div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › Bibliographie</p>
+<div class="fiche-head">
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1>Bibliographie commentée du travail social</h1>
+<p class="lead">{{ nb_refs }} références choisies par l'équipe 2A Formation pour vos écrits de formation, votre mémoire ou votre livret 2 de VAE. Pour chacune : pourquoi la lire et pour quel écrit. Pas de liens d'achat : empruntez-les au centre de documentation de votre école ou en bibliothèque.</p>
+<div class="legend"><div class="info"><b>Comment l'utiliser</b><br>Lisez de première main plutôt que des résumés, notez la référence complète au moment de la lecture, et vérifiez l'édition que vous citez.</div><div class="info"><b>Étiquettes</b><br><span class="tag">Mémoire</span> mémoire de pratique professionnelle<br><span class="tag">DC</span> écrits de certification (domaines ou blocs de compétences)<br><span class="tag">Livret 2</span> dossier de validation VAE<br><span class="tag">Culture pro</span> culture professionnelle générale</div></div>
+<nav class="bib-nav" aria-label="Thèmes">{% for t in b.themes %}<a href="#{{ t.id }}">{{ t.titre }}</a>{% endfor %}</nav>
+</div>
+{% for t in b.themes %}<section id="{{ t.id }}"><h2>{{ t.titre }}</h2><p class="muted intro">{{ t.intro }}</p><ol class="refs">{% for r in t.references %}{{ ref(r, t.id == "officiel") }}{% endfor %}</ol></section>
+{% endfor %}
+<section><div class="cta"><div><h2>Un livre qui vous a marqué ?</h2><p>Proposez-le-nous : nous l'ajouterons après l'avoir lu et vérifié.</p></div><a class="btn" href="mailto:{{ site.contact.email }}?subject=Bibliographie">Proposer un livre</a></div>
+<p class="muted" style="font-size:.84rem;margin-top:20px;max-width:none">Références vérifiées le {{ b.verification }} auprès des éditeurs, de la BnF, de Cairn et des sites officiels. Les éditions évoluent : vérifiez celle que vous citez. 2A Formation n'a aucun lien commercial avec ces éditeurs. Vous cherchez aussi un terrain de stage ? <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage, partout en France</a>.</p></section>
+</div></div>
+{% endblock %}
