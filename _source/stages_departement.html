@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{# Page « Trouver son stage » d'un département. Données : contenu/stages/occitanie.json (FINESS). Assemblée par build.py. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage {{ d.en }}","inLanguage":"fr","description":"Méthode et liste de {{ d.n }} structures sociales et médico-sociales {{ d.de|safe }} pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.tips{list-style:none;counter-reset:t;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tips li{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.93rem}
+.tips li strong{display:block;font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+.tips li strong::before{content:counter(t) " · ";color:var(--green)}
+.tips li span{color:var(--muted)}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.side .info b{display:block;margin-bottom:4px}
+.tools{display:grid;grid-template-columns:1fr 240px;gap:12px;margin-bottom:12px}
+.count{font-size:.9rem;color:var(--muted);margin:6px 0 18px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.st{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.st .ty{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}
+.st h3{font-size:1.02rem;margin:2px 0 4px}
+.st .ad,.st .ge{color:var(--muted)}
+.st .ge{font-size:.84rem}
+.st .ln{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px;font-weight:700;font-size:.88rem}
+.more{margin-top:18px;text-align:center}
+.fil{font-size:.8rem;color:var(--muted);margin:-4px 0 14px}
+.src{font-size:.84rem;color:var(--muted);margin-top:26px;max-width:none}
+.add{align-self:flex-start;margin-top:8px;font:700 .85rem var(--body);background:var(--surface);color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:5px 12px;cursor:pointer}
+.add[aria-pressed="true"]{background:var(--green);color:var(--paper)}
+.st.sel{border-color:var(--green);box-shadow:inset 4px 0 0 var(--green)}
+.panier{position:sticky;bottom:0;z-index:9;background:var(--ink);color:var(--paper);border-top:3px solid var(--ochre)}
+.panier .wrap{display:flex;gap:12px 18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:12px}
+.panier b{font-family:var(--display);font-size:1.1rem}
+.panier .acts{display:flex;gap:10px;flex-wrap:wrap}
+.panier .btn.primary{background:var(--ochre);border-color:var(--ochre)}
+.panier .btn.ghost{color:var(--paper);border-color:#7d8b86}
+.panier .btn.ghost:hover{background:#34444A}
+.panier small{display:block;opacity:.75;font-size:.8rem}
+.addall{font:700 .88rem var(--body);background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:0}
+.ia{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:start;margin-top:16px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:22px 24px}
+.ia h3{font-size:1.2rem;margin-top:6px}
+.ia ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:.93rem}
+.deps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.deps a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;text-decoration:none;color:var(--ink)}
+.deps a:hover{border-color:var(--green);color:var(--green)}
+.deps a[aria-current]{background:var(--green);color:var(--paper);border-color:var(--green)}
+.excel{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;background:var(--ochre-soft);border-radius:12px;padding:24px;margin-bottom:28px}
+.excel h3{font-size:1.25rem;margin-bottom:6px}
+.excel ul{margin:0;padding-left:18px;font-size:.93rem}
+@media (max-width:700px){.tools,.side,.excel,.ia{grid-template-columns:1fr}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › {{ d.nom }}</p>
+<div class="hero" style="padding-top:22px">
+<div class="hero-grid">
+<div>
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Trouver son stage {{ d.en }}</h1>
+<p class="lead">Nous sommes éducateurs spécialisés en protection de l'enfance et nous savons ce que représente la recherche de stage. Voici notre méthode, nos conseils de terrain et les {{ d.n }} structures sociales et médico-sociales du département, pour les futurs éducateurs, moniteurs-éducateurs, assistants de service social, ETS et CESF.</p>
+<p style="margin-top:14px">{{ d.nom }} en bref : {% for lib, nb in par_secteur %}{{ nb }} {{ "structure" if nb == 1 else "structures" }} en « {{ lib }} »{% if not loop.last %}, {% endif %}{% endfor %}.{% if villes|length > 1 %} Les communes qui en comptent le plus : {% for v, nb in villes %}{{ v }} ({{ nb }}){% if loop.revindex == 2 %} et {% elif not loop.last %}, {% endif %}{% endfor %}.{% endif %}</p>
+<p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#annuaire">Voir les {{ d.n }} structures</a><a class="btn ghost" href="#methode">La méthode en 5 étapes</a></p>
+</div>
+<aside class="proof" aria-label="En chiffres">
+<p class="eyebrow">{{ d.nom }}</p>
+<dl><div><dt>{{ d.n }}</dt><dd>structures référencées</dd></div><div><dt>{{ d.nv }}</dt><dd>communes</dd></div><div><dt>6</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
+<p class="qualiopi">Source : répertoire officiel FINESS (données publiques), extraction du 4 mai 2026.</p>
+</aside>
+</div></div></div>
+
+<section id="methode" class="alt"><div class="wrap">
+<div class="head"><p class="eyebrow">Avant de chercher</p><h2>La méthode en 5 étapes</h2></div>
+<ol class="tips">
+<li><strong>Partir de votre projet</strong><span>Relisez ce que votre école attend de ce stage (public, compétences du référentiel). Un projet clair rend la candidature crédible.</span></li>
+<li><strong>Cibler large</strong><span>Choisissez deux ou trois secteurs et une zone que vous pouvez rejoindre. Les petites structures hors des grandes villes reçoivent moins de demandes.</span></li>
+<li><strong>Appeler avant d'écrire</strong><span>Un appel au secrétariat permet de savoir si la structure prend des stagiaires, à quelle période, et à qui adresser la demande.</span></li>
+<li><strong>Une lettre courte et personnalisée</strong><span>Une page : qui vous êtes, la formation et les dates, ce qui vous attire dans cette structure-là, vos disponibilités.</span></li>
+<li><strong>Relancer et suivre</strong><span>Relancez poliment au bout de 10 jours. Notez chaque contact dans un tableau : structure, date, réponse, prochaine étape.</span></li>
+</ol>
+<div class="side">
+<div class="info"><b>La question de la gratification</b>Au-delà de deux mois de stage dans la même structure au cours d'une même année d'enseignement, une gratification est obligatoire (<a href="https://entreprendre.service-public.gouv.fr/vosdroits/F32131">service-public.fr</a>). C'est souvent ce qui freine l'accueil. Abordez-la simplement et demandez à votre établissement de formation comment il vous accompagne sur ce point.</div>
+<div class="info"><b>Pas tout dans cette liste</b>Les crèches et lieux d'accueil du jeune enfant (EJE) se trouvent sur <a href="https://monenfant.fr/">monenfant.fr</a>. Les services du Conseil départemental, les CCAS, les hôpitaux et l'Éducation nationale accueillent aussi des stagiaires, en particulier en service social.</div>
+</div>
+<div class="ia"><div><p class="eyebrow" style="color:var(--ochre)">Bon réflexe</p><h3>Utiliser l'IA pour sa candidature, sans se faire piéger</h3><p style="font-size:.93rem;margin-top:6px">ChatGPT et les autres outils peuvent aider. Voici comment s'en servir sans perdre en crédibilité.</p></div>
+<ul>
+<li><b>Vérifiez chaque coordonnée.</b> Une IA invente parfois une adresse, un numéro ou cite une structure fermée. Recoupez avec cette liste ou le site de la structure.</li>
+<li><b>Ne lui faites pas écrire votre lettre.</b> Servez-vous-en pour trouver vos idées, relire l'orthographe ou préparer l'entretien. Les professionnels repèrent vite une lettre générique : c'est votre motivation qu'ils veulent lire.</li>
+<li><b>Personnalisez.</b> Une phrase juste sur le projet de la structure et son public vaut mieux qu'un paragraphe parfait.</li>
+<li><b>Ne confiez aucune situation réelle.</b> Ne collez jamais dans une IA une situation vécue en stage ou au travail qui permettrait de reconnaître une personne : la discrétion professionnelle commence là.</li>
+</ul></div>
+</div></section>
+
+<section id="annuaire"><div class="wrap">
+<div class="head"><p class="eyebrow">Annuaire</p><h2>Les structures du département</h2></div>
+<div class="excel"><div><p class="eyebrow" style="color:var(--ochre)">Nouveau · gratuit</p><h3>Composez votre liste, recevez votre tableau de suivi</h3><p style="font-size:.95rem">Cliquez sur « Ajouter à ma liste » sur les structures qui vous intéressent, puis téléchargez votre tableau Excel prêt à remplir.</p></div><ul><li>Coordonnées et lien vers la carte pour chaque structure</li><li>Colonnes à cocher : appel, candidature, relance, réponse</li><li>Un onglet bilan qui compte vos démarches</li><li>Votre liste reste sur votre appareil : rien ne nous est envoyé</li></ul></div>
+<div class="filters" id="secteurs" role="group" aria-label="Filtrer par secteur"></div>
+<p class="fil" id="fil"></p>
+<div class="tools">
+<label>Rechercher (nom, commune, gestionnaire)<input id="q" type="search" placeholder="Ex. {{ d.ex }}, IME, MECS…"></label>
+<label>Type de structure<select id="ty"><option value="">Tous les types</option></select></label>
+</div>
+<p class="count"><span id="count" aria-live="polite"></span> · <button class="addall" id="addall" type="button">Ajouter ces résultats à ma liste</button></p>
+<div class="list" id="list"></div>
+<div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
+<p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Les noms y sont enregistrés sans accents. Certaines coordonnées peuvent avoir changé : vérifiez avant d'appeler. 2A Formation n'est pas lié à ces structures et ne sait pas lesquelles accueillent des stagiaires. Une erreur, une fermeture ? Vous gérez une structure et souhaitez faire corriger ou retirer sa fiche ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%20{{ d.code }}">Écrivez-nous</a>, nous traitons la demande sous 15 jours. Source : <a href="https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/">FINESS, data.gouv.fr</a>.</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>{% if st.slug == 'outre-mer' %}Les autres territoires d'outre-mer{% else %}Les autres départements {{ st.region_de }}{% endif %}</h2><p>Même méthode, même tableau de suivi, partout en France.</p></div><a class="btn" href="{{ R }}trouver-son-stage/index.html">Voir toute la France</a></div>
+<nav class="deps" aria-label="Départements {{ st.region_de }}">{% for x in st.departements %}<a href="{{ R }}trouver-son-stage/{{ x.slug }}/index.html"{% if x.code == d.code %} aria-current="page"{% endif %}>{{ x.nom }} ({{ x.code }})</a>{% endfor %}</nav></div>
+</div></section>
+
+<div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="dl" type="button">Télécharger mon tableau Excel</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>
+<script>
+const D={{ data_json|safe }};
+const S=Object.fromEntries(D.sect.map(s=>[s[0],s]));
+let cur='', shown=24, lastRes=[];
+const KEY='2a-stages-{{ d.code }}'; let sel=new Set(); try{sel=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify([...sel]));}catch(e){} const n=sel.size; document.getElementById('panier').hidden=!n; document.getElementById('pn').textContent=n+(n>1?' structures':' structure');}
+const sec=document.getElementById('secteurs'), list=document.getElementById('list'), q=document.getElementById('q'), ty=document.getElementById('ty'), cnt=document.getElementById('count'), more=document.getElementById('more'), fil=document.getElementById('fil');
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function btn(k,l,c){const b=document.createElement('button');b.type='button';b.textContent=l+' ('+c+')';b.setAttribute('aria-pressed',k===cur);b.onclick=()=>{cur=k;shown=24;ty.value='';draw();};return b;}
+function draw(){
+  sec.innerHTML='';sec.append(btn('','Tous',D.data.length));
+  D.sect.forEach(s=>sec.append(btn(s[0],s[1],D.data.filter(d=>d.s===s[0]).length)));
+  fil.textContent=cur?'Formations concernées le plus souvent : '+S[cur][2]+'.':'';
+  const base=D.data.filter(d=>!cur||d.s===cur);
+  const types=[...new Set(base.map(d=>d.t))].sort((a,b)=>a.localeCompare(b,'fr'));
+  const keep=ty.value; ty.innerHTML='<option value="">Tous les types</option>'+types.map(t=>'<option'+(t===keep?' selected':'')+'>'+t+'</option>').join('');
+  const qq=norm(q.value.trim());
+  const res=base.filter(d=>(!ty.value||d.t===ty.value)&&(!qq||norm(d.n+' '+d.v+' '+d.cp+' '+d.g+' '+d.t).includes(qq)));
+  lastRes=res;
+  cnt.textContent=res.length+(res.length>1?' structures':' structure');
+  list.innerHTML=res.slice(0,shown).map(d=>{
+    const m='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v);
+    return '<article class="st'+(sel.has(d.f)?' sel':'')+'"><span class="ty">'+d.t+'</span><h3>'+d.n+'</h3><span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+'<span class="ln">'+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte et site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+sel.has(d.f)+'">'+(sel.has(d.f)?'✓ Dans ma liste':'+ Ajouter à ma liste')+'</button></article>';
+  }).join('');
+  more.parentElement.style.display=res.length>shown?'':'none';
+}
+q.oninput=()=>{shown=24;draw();}; ty.onchange=()=>{shown=24;draw();}; more.onclick=()=>{shown+=24;draw();};
+list.onclick=e=>{const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; sel.has(f)?sel.delete(f):sel.add(f); save(); draw();};
+document.getElementById('addall').onclick=()=>{lastRes.forEach(d=>sel.add(d.f)); save(); draw();};
+document.getElementById('clear').onclick=()=>{sel.clear(); save(); draw();};
+function loadLib(){return window.ExcelJS?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src='{{ R }}assets/js/exceljs.min.js';s.onload=ok;s.onerror=ko;document.head.append(s);});}
+document.getElementById('dl').onclick=async()=>{
+  const b=document.getElementById('dl'); b.textContent='Préparation…';
+  try{await loadLib();}catch(e){b.textContent='Télécharger mon tableau Excel';alert('Le téléchargement n\'a pas pu démarrer. Vérifiez votre connexion.');return;}
+  const SL=Object.fromEntries(D.sect.map(s=>[s[0],s[1]]));
+  const rows=D.data.filter(d=>sel.has(d.f));
+  const wb=new ExcelJS.Workbook(); wb.creator='2aFormation';
+  const G='FF2E5B4E', OC='FFB8572A';
+  const ws=wb.addWorksheet('Mes candidatures',{views:[{state:'frozen',ySplit:1,xSplit:1}]});
+  ws.columns=[['Structure',38],['Type',22],['Secteur',26],['Adresse',30],['CP',8],['Commune',20],['Téléphone',15],['Gestionnaire',34],['Carte et site',13],['Appel passé',12],['Date d\'appel',13],['Candidature envoyée',14],['Date d\'envoi',13],['Relance faite',12],['Date de relance',14],['Réponse',16],['Notes',40]].map(([h,w])=>({header:h,width:w}));
+  rows.forEach(d=>ws.addRow([d.n,d.t,SL[d.s],d.a,d.cp,d.v,d.p,d.g,{text:'Voir',hyperlink:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v)},'','','','','','','En attente','']));
+  const hr=ws.getRow(1); hr.height=32; hr.eachCell(c=>{c.font={bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:c.col>=10?OC:G}};c.alignment={vertical:'middle',wrapText:true};});
+  const last=rows.length+1;
+  ws.autoFilter={from:'A1',to:'Q1'};
+  for(let r=2;r<=last;r++){
+    ws.getCell('I'+r).font={color:{argb:G},underline:true};
+    ['J','L','N'].forEach(c=>{const x=ws.getCell(c+r);x.dataValidation={type:'list',allowBlank:true,formulae:['"Oui,Non"']};x.alignment={horizontal:'center'};});
+    ['K','M','O'].forEach(c=>{const x=ws.getCell(c+r);x.dataValidation={type:'date',operator:'greaterThan',allowBlank:true,formulae:[new Date(2020,0,1)]};x.numFmt='dd/mm/yyyy';});
+    ws.getCell('P'+r).dataValidation={type:'list',allowBlank:true,formulae:['"En attente,Entretien,Accepté,Refusé,Pas de réponse"']};
+  }
+  const rng='A2:Q'+last;
+  ws.addConditionalFormatting({ref:rng,rules:[
+    {type:'expression',formulae:['$P2="Accepté"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFDCE8E2'}}}},
+    {type:'expression',formulae:['$P2="Entretien"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFF6E4D9'}}}},
+    {type:'expression',formulae:['OR($P2="Refusé",$P2="Pas de réponse")'],style:{font:{color:{argb:'FF8A9590'}}}},
+    {type:'expression',formulae:['AND($L2="Oui",$N2<>"Oui",$M2<>"",TODAY()-$M2>=10,$P2="En attente")'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFFFF2CC'}}}}]});
+  const bi=wb.addWorksheet('Bilan');
+  bi.columns=[{width:44},{width:14}];
+  bi.addRow(['Mon bilan de recherche de stage']).font={bold:true,size:14,color:{argb:G}};
+  bi.addRow([]);
+  const R='\'Mes candidatures\'!';
+  [['Structures dans ma liste',{formula:'COUNTA('+R+'A2:A'+last+')'}],['Appels passés',{formula:'COUNTIF('+R+'J2:J'+last+',"Oui")'}],['Candidatures envoyées',{formula:'COUNTIF('+R+'L2:L'+last+',"Oui")'}],['Relances faites',{formula:'COUNTIF('+R+'N2:N'+last+',"Oui")'}],['Entretiens',{formula:'COUNTIF('+R+'P2:P'+last+',"Entretien")'}],['Réponses positives',{formula:'COUNTIF('+R+'P2:P'+last+',"Accepté")'}],['Refus',{formula:'COUNTIF('+R+'P2:P'+last+',"Refusé")'}]].forEach(([l,f])=>{const r=bi.addRow([l,f]);r.getCell(2).font={bold:true};});
+  bi.addRow([]);
+  bi.addRow(['Les lignes surlignées en jaune : candidature envoyée il y a 10 jours ou plus, sans relance. C\'est le moment de relancer.']).font={italic:true};
+  const me=wb.addWorksheet('Mode d\'emploi'); me.getColumn(1).width=110;
+  ['Mode d\'emploi','','1. Dans « Mes candidatures », choisissez Oui ou Non dans les colonnes orange, et notez les dates.','2. Colonne Réponse : En attente, Entretien, Accepté, Refusé ou Pas de réponse.','3. Relancez poliment au bout de 10 jours : la ligne passe en jaune pour vous le rappeler.','4. Vérifiez les coordonnées avant d\'appeler : certaines peuvent avoir changé.','','Source des coordonnées : FINESS (ministère chargé de la santé et des solidarités), data.gouv.fr, Licence Ouverte, extraction du 04/05/2026.','Tableau proposé gratuitement par 2aFormation, organisme de formation du travail social : https://2aformation.com','Bonne recherche !'].forEach((t,i)=>{const r=me.addRow([t]); if(i===0) r.font={bold:true,size:14,color:{argb:G}};});
+  const buf=await wb.xlsx.writeBuffer();
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})); a.download='mes-candidatures-stage-{{ d.slug }}.xlsx'; document.body.append(a); a.click(); a.remove();
+  b.textContent='Télécharger mon tableau Excel';
+  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'telechargement-tableau-stages-{{ d.code }}',title:'Tableau Excel stages {{ d.code }}',event:true});}catch(e){}
+};
+save(); draw();
+</script>
+{% endblock %}
