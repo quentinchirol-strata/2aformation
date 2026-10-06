@@ -22,6 +22,9 @@ categories:
 - id: numerique
   titre: Numérique, écrans et cyberviolences
   court: Numérique
+- id: sante-mentale
+  titre: Santé mentale, trauma et addictions
+  court: Santé mentale
 - id: besoins
   titre: Besoins et développement de l'enfant
   court: Besoins de l'enfant
@@ -31,6 +34,9 @@ categories:
 - id: parcours
   titre: Parcours et situations particulières
   court: Parcours
+- id: ecrits
+  titre: Écrits professionnels
+  court: Écrits
 - id: ethique
   titre: Éthique et posture
   court: Éthique
@@ -560,3 +566,139 @@ outils:
   quand: "Pour vérifier l'organisation du suivi de santé dans un service ou à l'arrivée d'un jeune."
   comment:
   - "S'en servir pour relire la procédure d'accueil et le suivi de santé du service."
+- id: cosmos-mental
+  cat: sante-mentale
+  titre: Le Cosmos mental – un kit pour parler de santé mentale
+  auteur: Psycom
+  type: Kit d'animation (vidéo, guide, affiches)
+  public: Groupes dès 11 ans, parents, professionnels
+  image: cosmos-mental.jpg
+  lien: https://www.psycom.org/agir/la-promotion-de-la-sante-mentale/kit-cosmos-mental/
+  lien_label: Page de Psycom
+  quoi: "Un kit gratuit pour animer un atelier sur la santé mentale : un clip vidéo, un mode d'emploi, des affiches et un livret pour les participants. Il aide à comprendre ce qui influence la santé mentale et à repérer ses propres ressources. Psycom propose aussi un jeu, « Voyage au cœur du Cosmos mental », pour des échanges plus courts."
+  quand: "Pour un atelier avec des jeunes ou des parents, ou pour ouvrir une réunion d'équipe sur la souffrance psychique."
+  comment:
+  - "Prévoir 2 h à 2 h 30 pour un groupe de 8 à 15 personnes, en suivant le mode d'emploi."
+  - "Projeter le clip, puis faire placer à chacun ce qui l'aide et ce qui le freine."
+- id: "3114"
+  cat: sante-mentale
+  titre: 3114 – le numéro national de prévention du suicide
+  auteur: Numéro national de prévention du suicide
+  type: Numéro d'aide et ressources
+  public: Personnes en souffrance, entourage, professionnels
+  lien: https://3114.fr/
+  lien_label: 3114.fr
+  quoi: "Un numéro gratuit et confidentiel, joignable 24 h/24 et 7 j/7, tenu par des soignants (infirmiers, psychologues, médecins). Il répond aux personnes en souffrance, à leur entourage et aux professionnels qui s'inquiètent pour quelqu'un."
+  quand: "Dès qu'un jeune ou un parent exprime des idées suicidaires, ou quand un professionnel a besoin d'un avis."
+  comment:
+  - "Appeler avec la personne si elle est d'accord, ou appeler soi-même pour être conseillé."
+  - "En cas de danger immédiat, appeler le 15."
+  - "Afficher le numéro dans les lieux d'accueil : le site propose des affiches."
+- id: cn2r
+  cat: sante-mentale
+  titre: CN2R – ressources sur le psychotraumatisme
+  auteur: Centre national de ressources et de résilience (CN2R)
+  type: Fiches pratiques, vidéos, annuaire
+  public: Professionnels, personnes concernées, enfants
+  lien: https://cn2r.fr/je-suis-professionnel/consulter-les-fiches-pratiques/
+  lien_label: Fiches pratiques du CN2R
+  quoi: "Des fiches pratiques pour les professionnels, des vidéos qui expliquent le trauma (y compris aux enfants) et un annuaire des lieux de soin spécialisés."
+  quand: "Face à un enfant ou un parent marqué par des violences, un deuil brutal, un parcours migratoire ou un événement grave."
+  comment:
+  - "Regarder une vidéo avec le jeune pour mettre des mots sur ce qu'il vit."
+  - "Utiliser l'annuaire pour trouver un lieu de soin près de chez lui."
+- id: cjc
+  cat: sante-mentale
+  titre: Consultations jeunes consommateurs (CJC)
+  auteur: Drogues Info Service (Santé publique France)
+  type: Annuaire de consultations
+  public: Jeunes de 12 à 25 ans et leurs parents
+  lien: https://www.drogues-info-service.fr/Tout-savoir-sur-les-drogues/Se-faire-aider/Les-Consultations-jeunes-consommateurs-CJC-une-aide-aux-jeunes-et-a-leur-entourage
+  lien_label: Page de Drogues Info Service
+  quoi: "Des consultations gratuites et confidentielles pour les jeunes qui consomment (alcool, cannabis, écrans, jeux…) : un premier bilan, puis un accompagnement. Les parents peuvent aussi être reçus, avec ou sans le jeune."
+  quand: "Quand une consommation inquiète, avant qu'elle ne s'installe."
+  comment:
+  - "Chercher la CJC la plus proche avec le jeune et proposer de l'accompagner au premier rendez-vous."
+  - "L'indiquer aux parents qui s'inquiètent : ils peuvent y aller seuls."
+- id: fil-sante-jeunes
+  cat: sante-mentale
+  titre: Fil Santé Jeunes
+  auteur: Fil Santé Jeunes (avec le soutien de Santé publique France)
+  type: Ligne d'écoute et tchat
+  public: Jeunes de 12 à 25 ans
+  lien: https://www.filsantejeunes.com/
+  lien_label: filsantejeunes.com
+  quoi: "Un service anonyme et gratuit pour les 12-25 ans, par téléphone (0800 235 236, tous les jours de 9 h à 23 h), par tchat et sur des forums : santé, sexualité, mal-être, relations."
+  quand: "Pour un jeune qui a besoin de parler à quelqu'un d'extérieur, en complément de l'accompagnement."
+  comment:
+  - "Donner le numéro et l'adresse du site, et les afficher dans les lieux de vie."
+- id: decret-ppe
+  cat: ecrits
+  titre: Le référentiel du projet pour l'enfant (PPE)
+  auteur: Décret n° 2016-1283 du 28 septembre 2016
+  annee: 2016
+  type: Texte officiel
+  public: Rédacteurs de PPE, équipes de protection de l'enfance
+  lien: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033166528
+  lien_label: Texte sur Légifrance
+  quoi: "Le décret qui fixe le contenu du projet pour l'enfant prévu à l'article L. 223-1-1 du code de l'action sociale et des familles."
+  quand: "Avant de rédiger ou de relire un PPE, pour vérifier qu'aucune rubrique attendue ne manque."
+  comment:
+  - "Faire du référentiel le plan du document et cocher chaque rubrique."
+  - "Associer l'enfant et ses parents à son élaboration."
+- id: decret-rapport
+  cat: ecrits
+  titre: Le référentiel du rapport de situation
+  auteur: Décret n° 2016-1557 du 17 novembre 2016
+  annee: 2016
+  type: Texte officiel
+  public: Rédacteurs de rapports, équipes de protection de l'enfance
+  lien: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033421351
+  lien_label: Texte sur Légifrance
+  quoi: "Le décret qui fixe le contenu du rapport de situation : développement et santé de l'enfant, relations familiales et sociales, scolarité et vie sociale, actions menées au regard du PPE, préconisations."
+  quand: "À chaque rapport d'échéance, pour structurer l'écrit et ne rien oublier."
+  comment:
+  - "Reprendre les domaines du référentiel comme titres du rapport."
+  - "Rappel : le contenu et les conclusions du rapport sont communiqués aux parents et à l'enfant, selon son âge et sa maturité."
+- id: has-violence-adolescents
+  cat: violences
+  titre: La prévention de la violence entre les mineurs adolescents au sein des établissements d'accueil
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2018
+  type: Recommandation et infographie
+  public: Établissements de protection de l'enfance et de la PJJ
+  image: has-violence-adolescents.jpg
+  lien: https://www.has-sante.fr/jcms/c_2903292/fr/la-prevention-de-la-violence-entre-les-mineurs-adolescents-au-sein-des-etablissements-d-accueil
+  lien_label: Page de la HAS
+  quoi: "Les repères pour garantir la sécurité de base des adolescents accueillis, prévenir les comportements violents et reprendre un incident de façon éducative, avec une infographie de synthèse."
+  quand: "Pour revoir l'organisation d'un lieu de vie, ou après un incident pour l'analyser en équipe."
+  comment:
+  - "Afficher l'infographie dans le bureau éducatif."
+  - "Analyser chaque incident en équipe à l'aide des repères du chapitre consacré à la gestion de la violence."
+- id: 3-6-9-12
+  cat: numerique
+  titre: Les repères 3-6-9-12 pour apprivoiser les écrans
+  auteur: Serge Tisseron, association 3-6-9-12+
+  type: Repères d'âge, affiches et quiz
+  public: Parents, professionnels de l'enfance
+  image: 3-6-9-12.jpg
+  lien: https://www.3-6-9-12.org/les-balises-3-6-9-12/
+  lien_label: Site 3-6-9-12
+  quoi: "Des repères simples par âge : pas d'écran avant 3 ans, des temps courts et partagés de 3 à 6 ans, apprendre à créer et à se protéger de 6 à 9 ans, à s'autoréguler de 9 à 12 ans, puis l'accompagnement des réseaux sociaux."
+  quand: "Quand un parent demande « combien de temps d'écran ? », ou pour fixer les règles d'un lieu de vie."
+  comment:
+  - "Afficher l'affiche ou remettre le dépliant aux parents."
+  - "Faire le quiz en famille ou en groupe d'enfants."
+- id: santebd
+  cat: droits
+  titre: SantéBD – expliquer les soins avec des images
+  auteur: Association CoActis Santé
+  type: Bandes dessinées, fiches FALC et banque d'images
+  public: Enfants, personnes en situation de handicap, professionnels
+  lien: https://santebd.org/
+  lien_label: santebd.org
+  quoi: "Des bandes dessinées et des fiches gratuites, en langage simple, pour préparer une consultation ou un soin (dentiste, vaccin, prise de sang…), et une banque de plus de 20 000 images. On y trouve aussi des fiches FALC, par exemple « Comprendre et arrêter la maltraitance »."
+  quand: "Avant un rendez-vous médical qui inquiète un enfant ou une personne accompagnée."
+  comment:
+  - "Lire la bande dessinée avec la personne quelques jours avant le soin."
+  - "Utiliser la banque d'images pour fabriquer ses propres supports (planning, règles de vie)."
