@@ -189,15 +189,19 @@ def main():
     for st in regions:
         for d in st["departements"]:
             donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
+            from collections import Counter
+            nb_sect = Counter(s["s"] for s in d["structures"])
+            par_secteur = [(lib, nb_sect[cle]) for cle, lib, _ in st["secteurs"] if nb_sect[cle]]
+            villes = Counter(s["v"] for s in d["structures"] if s.get("v")).most_common(3)
             ecrire(f"trouver-son-stage/{d['slug']}/index.html", "stages_departement.html", rubrique="etudiants", st=st, d=d,
-                   data_json=donnees,
-                   titre_page=f"Trouver son stage {d['en']} · travail social · 2aFormation",
+                   data_json=donnees, par_secteur=par_secteur, villes=villes,
+                   titre_page=f"Stage éducateur, ME, ASS {d['en']} : {d['n']} structures · 2aFormation",
                    description=f"{d['n']} structures sociales et médico-sociales {d['de']} où chercher un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social, avec la méthode et un tableau de suivi gratuit.")
     nb_dep = sum(len(r["departements"]) for r in regions)
     ecrire("trouver-son-stage/index.html", "stages_region.html", rubrique="etudiants", regions=regions,
            total=sum(d["n"] for r in regions for d in r["departements"]), nb_dep=nb_dep,
            secteurs=regions[0]["secteurs"] if regions else [],
-           titre_page="Trouver son stage dans le social, partout en France · 2aFormation",
+           titre_page="Stage éducateur, ME, ASS : " + f"{sum(d['n'] for r in regions for d in r['departements']):,}".replace(",", " ") + " lieux de stage en France · 2aFormation",
            description=f"Méthode, conseils de terrain et structures sociales et médico-sociales de {nb_dep} départements pour trouver un stage en travail social. Gratuit, par des éducateurs spécialisés.")
     # Bibliographie commentée (contenu/bibliographie.yml)
     biblio = lire_yaml("contenu/bibliographie.yml")
