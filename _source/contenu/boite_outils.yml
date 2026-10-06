@@ -31,6 +31,9 @@ categories:
 - id: droits
   titre: Droits et participation de l'enfant
   court: Droits et participation
+- id: acces-droits
+  titre: Accès aux droits et insertion
+  court: Accès aux droits
 - id: parcours
   titre: Parcours et situations particulières
   court: Parcours
@@ -702,3 +705,134 @@ outils:
   comment:
   - "Lire la bande dessinée avec la personne quelques jours avant le soin."
   - "Utiliser la banque d'images pour fabriquer ses propres supports (planning, règles de vie)."
+- id: mes-droits-sociaux
+  cat: acces-droits
+  titre: Mes droits sociaux – le simulateur des aides
+  auteur: Site public de la Sécurité sociale (mesdroitssociaux.gouv.fr)
+  type: Simulateur en ligne
+  public: Personnes et familles accompagnées, avec un professionnel
+  lien: https://www.mesdroitssociaux.gouv.fr/
+  lien_label: mesdroitssociaux.gouv.fr
+  quoi: "Un simulateur qui indique en quelques minutes les aides auxquelles une personne peut prétendre (RSA, aides au logement, prime d'activité…) et un espace pour retrouver ses droits en un seul endroit."
+  quand: "Au premier entretien avec une famille ou un jeune majeur, ou dès que la situation change (naissance, séparation, perte d'emploi)."
+  comment:
+  - "Faire la simulation avec la personne, écran partagé, puis lister ensemble les démarches à engager."
+  - "Rappel : c'est une estimation ; seul l'organisme payeur décide."
+- id: 1jeune1solution
+  cat: acces-droits
+  titre: 1 jeune 1 solution
+  auteur: Gouvernement
+  type: Plateforme (aides, emploi, accompagnement)
+  public: Jeunes de 15 à 30 ans
+  lien: https://www.1jeune1solution.gouv.fr/
+  lien_label: 1jeune1solution.gouv.fr
+  quoi: "Un simulateur d'aides (logement, santé, mobilité, emploi), le contrat d'engagement jeune, des offres d'emploi, de stage et d'apprentissage, du mentorat et une aide au permis de conduire."
+  quand: "Pour préparer la sortie de l'aide sociale à l'enfance ou accompagner un jeune sans solution."
+  comment:
+  - "Faire le simulateur d'aides avec le jeune, puis choisir avec lui une ou deux pistes concrètes."
+- id: mon-parcours-handicap
+  cat: acces-droits
+  titre: Mon parcours handicap
+  auteur: CNSA, avec la Caisse des dépôts
+  type: Site d'information et de démarches
+  public: Familles, personnes en situation de handicap, professionnels
+  lien: https://www.monparcourshandicap.gouv.fr/
+  lien_label: monparcourshandicap.gouv.fr
+  quoi: "Les démarches auprès de la MDPH, les principales aides (AAH, AEEH, PCH, CMI, RQTH), les formulaires à télécharger, des vidéos et des fiches en « Facile à lire et à comprendre »."
+  quand: "Pour constituer ou renouveler un dossier MDPH avec une famille, ou expliquer une aide."
+  comment:
+  - "Ouvrir la fiche de l'aide concernée avec la famille et préparer ensemble les pièces du dossier."
+- id: allo-119
+  cat: danger
+  titre: Le 119 – Allô enfance en danger
+  auteur: Service national d'accueil téléphonique de l'enfance en danger
+  type: Numéro d'urgence et tchat
+  public: Enfants, adolescents, adultes inquiets, professionnels
+  lien: https://www.allo119.gouv.fr/
+  lien_label: allo119.gouv.fr
+  quoi: "Un numéro gratuit, joignable 24 h/24 et 7 j/7, qui n'apparaît sur aucun relevé téléphonique détaillé. Un tchat est ouvert aux jeunes jusqu'à 21 ans, et un accès est prévu pour les personnes sourdes ou malentendantes."
+  quand: "Pour qu'un enfant ou un adulte puisse parler d'une situation de danger, et pour le faire connaître dans tous les lieux d'accueil."
+  comment:
+  - "Afficher le 119 à hauteur d'enfant dans les lieux de vie."
+  - "Le présenter aux enfants accueillis comme une ressource à laquelle ils ont droit."
+- id: cnil-protection-enfance
+  cat: ecrits
+  titre: Le référentiel « Protection de l'enfance » de la CNIL
+  auteur: CNIL
+  annee: 2022
+  type: Référentiel
+  public: Services et établissements de protection de l'enfance
+  lien: https://cnil.fr/fr/protection-de-lenfance-et-des-majeurs-de-moins-de-21-ans-la-cnil-publie-un-referentiel
+  lien_label: Page de la CNIL
+  quoi: "Ce qu'un service a le droit d'enregistrer sur un enfant et sa famille, pour quelles raisons, combien de temps, et les droits des personnes (accès, rectification)."
+  quand: "Avant d'écrire dans un dossier ou un logiciel : pour se demander si l'information est utile et légitime."
+  comment:
+  - "Relire en équipe la liste des données autorisées et la comparer aux habitudes d'écriture du service."
+  - "Écrire chaque note en se disant que la famille peut demander à la lire."
+- id: cnil-durees
+  cat: ecrits
+  titre: Les durées de conservation dans le secteur social et médico-social
+  auteur: CNIL
+  annee: 2023
+  type: Référentiel (tableaux)
+  public: Directions, secrétariats, équipes
+  image: cnil-durees.jpg
+  lien: https://www.cnil.fr/sites/cnil/files/2023-11/referentiel_durees_de_conservation_social_et_medico-social.pdf
+  lien_label: Référentiel sur cnil.fr
+  quoi: "Des tableaux qui indiquent, activité par activité (accompagnement social, protection de l'enfance, handicap…), combien de temps garder un dossier, et quand l'archiver, avec les textes de référence."
+  quand: "Pour organiser l'archivage des dossiers ou répondre à la question « on garde ça combien de temps ? »."
+  comment:
+  - "Chercher la ligne qui correspond à l'activité du service et l'inscrire dans la procédure d'archivage."
+- id: has-interpretariat
+  cat: parcours
+  titre: Interprétariat linguistique dans le domaine de la santé
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2017
+  type: Référentiel
+  public: Professionnels du soin et du social
+  lien: https://has-sante.fr/jcms/c_2746031/fr/interpretariat-linguistique-dans-le-domaine-de-la-sante
+  lien_label: Page de la HAS
+  quoi: "Le référentiel qui explique pourquoi recourir à un interprète professionnel, et pourquoi ne pas faire traduire par un enfant ou un proche (charge trop lourde, atteinte au secret)."
+  quand: "Avec une famille ou un mineur qui ne parle pas français, avant un entretien important."
+  comment:
+  - "Prévoir un interprète professionnel, sur place ou par téléphone, pour les entretiens qui comptent."
+  - "Ne jamais faire traduire un enfant pour ses parents."
+- id: onsexprime
+  cat: sexualite
+  titre: OnSEXprime
+  auteur: Santé publique France
+  type: Site pour les adolescents
+  public: Adolescents, et professionnels qui animent des séances
+  lien: https://www.onsexprime.fr/
+  lien_label: onsexprime.fr
+  quoi: "Le site de référence sur la sexualité pour les ados : articles, vidéos et podcasts. Les professionnels y trouvent aussi des ressources pour construire des séances."
+  quand: "Pour orienter un ado qui se pose des questions, ou préparer une séance."
+  comment:
+  - "Donner l'adresse au jeune : il peut s'informer seul, de façon fiable."
+  - "Utiliser un podcast comme point de départ d'une discussion en groupe."
+- id: questionsexualite
+  cat: sexualite
+  titre: QuestionSexualité
+  auteur: Santé publique France
+  type: Site d'information
+  public: Adultes, parents, jeunes majeurs
+  lien: https://www.questionsexualite.fr/
+  lien_label: questionsexualite.fr
+  quoi: "Des informations fiables sur les IST et le dépistage, la contraception, l'IVG, le corps, le consentement, les violences et les discriminations, avec vidéos et quiz."
+  quand: "Pour répondre à la question d'un parent ou d'un jeune majeur, ou trouver un lieu de dépistage."
+  comment:
+  - "Ouvrir la fiche concernée avec la personne pendant l'entretien."
+- id: laicite-structures-educatives
+  cat: ethique
+  titre: Laïcité et gestion du fait religieux dans les structures socio-éducatives
+  auteur: Observatoire de la laïcité (supprimé en 2021)
+  type: Guide pratique
+  public: Équipes éducatives et socio-éducatives
+  image: laicite-structures-educatives.jpg
+  lien: "https://www.gironde.gouv.fr/contenu/telechargement/33436/237122/file/PREMIER%20MINISTRE%20LAICITE%20et%20FAIT%20RELIGIEUX%20DANS%20LES%20STRUCTURES%20EDUCATIVES.pdf"
+  lien_label: Guide (copie sur gironde.gouv.fr)
+  source_note: "L'Observatoire de la laïcité a été supprimé en 2021 : le guide reste en ligne sur le site de la préfecture de la Gironde."
+  quoi: "Des repères et des cas pratiques sur l'expression religieuse des jeunes et des professionnels dans les structures socio-éducatives : ce que la loi permet, ce qu'elle interdit."
+  quand: "Face à une question d'alimentation, de prière, de tenue ou de fêtes religieuses dans un lieu de vie."
+  comment:
+  - "Chercher le cas pratique le plus proche et le discuter en équipe avant de répondre au jeune ou à la famille."
