@@ -1,7 +1,7 @@
 # Bibliographie commentée (page /bibliographie/). Une entrée = une référence vérifiée.
 # Pour ajouter un ouvrage : copier un bloc « - auteurs: … » dans le bon thème. Ne publier qu'une référence vérifiée
 # (éditeur, BnF, Cairn ou site officiel). ecrits possibles : Mémoire, DC, Livret 2, Culture pro.
-verification: 04/10/2026
+verification: 06/10/2026
 themes:
 - id: officiel
   titre: Textes officiels et rapports (gratuits en ligne)
@@ -118,6 +118,152 @@ themes:
     ecrits:
     - Mémoire
     - DC
+- id: adolescence
+  titre: Adolescence, conduites à risque et prostitution des mineurs
+  intro: 'Fugues, prises de risque, consommations, prostitution : comprendre pour mieux accompagner.'
+  references:
+  - auteurs: PEP 66 (dir.)
+    titre: Quand l'ado nous questionne. Approches historique, clinique et sociologique
+    edition: Champ social, coll. « Enfance/adolescence », 2020
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-2
+    pourquoi: 'Un ouvrage collectif qui croise histoire, clinique et sociologie : une bonne porte d''entrée sur l''adolescence en difficulté.'
+    ecrits:
+    - Mémoire
+    - DC
+    - Culture pro
+  - auteurs: Jean-Jacques Yvorel
+    titre: « Jeunes délinquants, vieux débats ». Regards historiques sur la délinquance juvénile
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 15-25
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-15
+    pourquoi: Mettre en perspective les discours actuels sur la jeunesse « de plus en plus violente ».
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Daphné Bibard et Laurent Mucchielli
+    titre: 'La délinquance à l''adolescence : un cumul de ruptures de liens sociaux'
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 27-39
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-27
+    pourquoi: Lire la délinquance comme l'effet de ruptures successives (famille, école, emploi) plutôt que comme un trait individuel.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Philippe Jeammet
+    titre: 'Entre créativité et destructivité : la place des émotions chez l''adolescent'
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 41-53
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-41
+    pourquoi: Comprendre ce que les passages à l'acte disent des émotions débordantes de l'adolescence.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Michel Botbol, Nicolas Campelo, Catherine Lacour Gonay et al.
+    titre: 'Radicalisation et psychiatrie : une géométrie très variable'
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 55-66
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-55
+    pourquoi: Un éclairage nuancé sur la radicalisation des adolescents, loin des explications toutes faites.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Josiane Bigot
+    titre: Quels droits pour les mineurs migrants non accompagnés ?
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 67-75
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-67
+    pourquoi: Les repères juridiques pour accompagner les mineurs non accompagnés.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Carine Saint-Martin
+    titre: 'Jeunes « incasables », conduites à risques, séjours de rupture : quels « liens d''attachement » ?'
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 77-84
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-77
+    pourquoi: Relier conduites à risque, parcours chaotiques et théorie de l'attachement.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: David Le Breton
+    titre: Les conduites à risque des jeunes depuis quarante ans
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 85-99
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-85
+    pourquoi: 'La lecture anthropologique de référence : le risque comme façon de chercher sa place et ses limites.'
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Christophe Faget
+    titre: 'La médiation : un nouveau type de réponse sociale aux conflits concernant les adolescents difficiles ?'
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 101-114
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-101
+    pourquoi: Pour réfléchir aux alternatives à la sanction dans la gestion des conflits.
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Bernard Ollivier
+    titre: Marches éducatives. Brève histoire de l'association Seuil
+    edition: in PEP 66 (dir.), Quand l'ado nous questionne, Champ social, 2020, p. 115-121
+    lien: https://shs.cairn.info/quand-l-ado-nous-questionne--9791034605491-page-115
+    pourquoi: Un exemple de dispositif de rupture par la marche, raconté par son fondateur.
+    ecrits:
+    - Culture pro
+    - Mémoire
+  - auteurs: Simha Bitton
+    titre: La « fugue » dans le parcours institutionnel des mineurs confiés. Entre contrainte de placement et quête de lien social
+    edition: Revue des politiques sociales et familiales, 2025/2 n° 154, p. 101-118
+    lien: https://shs.cairn.info/revue-des-politiques-sociales-et-familiales-2025-2-page-101
+    pourquoi: Une recherche récente qui lit la fugue comme une recherche de lien, pas seulement comme un incident.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Grégoire Zimmermann et al.
+    titre: 'Conduites à risque à l''adolescence : manifestations typiques de construction de l''identité ?'
+    edition: Enfance, 2017/2, p. 239-261
+    lien: https://shs.cairn.info/revue-enfance2-2017-2-page-239
+    pourquoi: Articuler prise de risque et construction identitaire, avec des données de recherche.
+    ecrits:
+    - Mémoire
+  - auteurs: Sophie Fierdepied, Aurélien Ribadier et Hélène Romano
+    titre: Les auto-blessures à l'adolescence au risque d'une lecture addictologique
+    edition: Psychotropes, 2023/1 vol. 29, p. 25-51
+    lien: https://shs.cairn.info/revue-psychotropes-2023-1-page-25
+    pourquoi: Comprendre les scarifications et les autres auto-blessures sans les réduire à une « addiction ».
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Sahed Imaine
+    titre: 'Exploration des parcours de consommation de cannabis à l''adolescence : entre expérimentation et maintien de la consommation'
+    edition: Psychotropes, 2024/1 vol. 30, p. 67-97
+    lien: https://shs.cairn.info/revue-psychotropes-2024-1-page-67
+    pourquoi: Distinguer l'expérimentation de l'installation d'une consommation régulière.
+    ecrits:
+    - Mémoire
+  - auteurs: Olivier Phan
+    titre: La prise en charge des consommations de cannabis à l'adolescence
+    edition: Psychotropes, 2005/3-4 vol. 11, p. 53-63
+    lien: https://shs.cairn.info/revue-psychotropes-2005-3-page-53
+    pourquoi: Les principes d'accompagnement des jeunes consommateurs, par un spécialiste de la question.
+    ecrits:
+    - DC
+    - Livret 2
+  - auteurs: Philippe Calestroupat
+    titre: La prostitution des adolescentes, miroir de notre temps ?
+    edition: Empan, 2023/1 n° 129, p. 112-121
+    lien: https://shs.cairn.info/revue-empan-2023-1-page-112
+    pourquoi: Repérer et comprendre la prostitution des mineures, une réalité de plus en plus présente en protection de l'enfance.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Perrine Cheval et Bernard Guzniczak
+    titre: La prostitution des mineur·e·s. Un sujet encore tabou ?
+    edition: Les Cahiers Dynamiques, 2019/4 n° 77, p. 64-74
+    lien: https://shs.cairn.info/revue-les-cahiers-dynamiques-2019-4-page-64
+    pourquoi: Les mécanismes d'entrée dans la prostitution et les pistes d'action des professionnels.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
 - id: attachement
   titre: Attachement, développement, traumatisme
   intro: Les repères théoriques les plus mobilisés dans les écrits en protection de l'enfance.
@@ -162,6 +308,29 @@ themes:
     ecrits:
     - Mémoire
     - DC
+  - auteurs: Romain Dugravier et Anne-Sophie Barbey-Mintz
+    titre: Origines et concepts de la théorie de l'attachement
+    edition: Enfances & Psy, 2015/2 n° 66, p. 14-22
+    lien: https://shs.cairn.info/revue-enfances-et-psy-2015-2-page-14
+    pourquoi: 'Une synthèse claire des notions de base (figure d''attachement, base de sécurité, styles) : idéale pour débuter.'
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Bernard Golse
+    titre: La pulsion d'attachement
+    edition: La psychiatrie de l'enfant, 2004/1 vol. 47, p. 5-25
+    lien: https://shs.cairn.info/revue-la-psychiatrie-de-l-enfant-2004-1-page-5
+    pourquoi: 'Pour aller plus loin : comment la psychanalyse et la théorie de l''attachement peuvent dialoguer.'
+    ecrits:
+    - Mémoire
+  - auteurs: Didier Robin
+    titre: Pour une théorie psychanalytique de l'attachement. Ce que l'observation des singes apprend au psychanalyste
+    edition: Le Coq-héron, 2013/4 n° 215, p. 50-68
+    lien: https://shs.cairn.info/revue-le-coq-heron-2013-4-page-50
+    pourquoi: Revenir aux observations de primates à l'origine de la théorie, avec un regard psychanalytique.
+    ecrits:
+    - Mémoire
 - id: relation
   titre: Relation éducative et posture professionnelle
   intro: Penser ce que l'on fait au quotidien, et pourquoi.
@@ -212,6 +381,33 @@ themes:
     ecrits:
     - Culture pro
     - Mémoire
+  - auteurs: Dominique Lepage
+    titre: De l'émergence de la fonction éducative au métier d'éducateur spécialisé, un regard historique
+    edition: Empan, 2017/2 n° 106
+    lien: https://shs.cairn.info/revue-empan-2017-2-page-18
+    pourquoi: 'L''histoire du métier en quelques pages : utile pour situer son identité professionnelle.'
+    ecrits:
+    - Mémoire
+    - Livret 2
+    - Culture pro
+  - auteurs: Laurent Puech
+    titre: L'aide contrainte dans le champ administratif
+    edition: Empan, 2013/1 n° 89, p. 38-47
+    lien: https://shs.cairn.info/revue-empan-2013-1-page-38
+    pourquoi: 'Accompagner des personnes qui n''ont pas demandé d''aide : enjeux et marges de manœuvre.'
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
+  - auteurs: Bernard Jolibert
+    titre: Éthique, morale et déontologie. Trois approches du « devoir être »
+    edition: L'Enseignement philosophique, 2020/1, p. 45-55
+    lien: https://shs.cairn.info/revue-l-enseignement-philosophique-2020-1-page-45
+    pourquoi: Distinguer enfin éthique, morale et déontologie, trois mots souvent confondus dans les écrits.
+    ecrits:
+    - Mémoire
+    - DC
+    - Livret 2
 - id: institution
   titre: Institution, équipe et épuisement professionnel
   intro: Le cadre de travail, ses tensions et ce qu'il fait aux professionnels.
@@ -244,6 +440,30 @@ themes:
     ecrits:
     - Mémoire
     - Culture pro
+  - auteurs: Michel Boutanquoi
+    titre: 'Les déterminants des pratiques professionnelles dans le champ des interventions socio-éducatives : au-delà des représentations sociales'
+    edition: Les Sciences de l'éducation – Pour l'Ère nouvelle, 2014/4 vol. 47, p. 11-27
+    lien: https://shs.cairn.info/revue-les-sciences-de-l-education-pour-l-ere-nouvelle-2014-4-page-11
+    pourquoi: 'Ce qui oriente réellement les pratiques des professionnels : cadre, équipe, valeurs et représentations.'
+    ecrits:
+    - Mémoire
+    - DC
+  - auteurs: Patrick Scharnitzky
+    titre: La fonction sociale de la rumeur
+    edition: Migrations Société, 2007/1 n° 109, p. 35-48
+    lien: https://shs.cairn.info/revue-migrations-societe-2007-1-page-35
+    pourquoi: Comprendre comment naissent et circulent les rumeurs, y compris dans les équipes et les institutions.
+    ecrits:
+    - Culture pro
+    - Mémoire
+  - auteurs: Solange de Fréminville
+    titre: 'Départs : les travailleurs sociaux racontent pourquoi ils quittent la territoriale'
+    edition: La Gazette des communes, novembre 2023
+    lien: https://www.lagazettedescommunes.com/858476/departs-les-travailleurs-sociaux-racontent-pourquoi-ils-quittent-la-territoriale/
+    pourquoi: Des témoignages sur la perte de sens et la charge de travail (article réservé aux abonnés).
+    ecrits:
+    - Culture pro
+    - Mémoire
 - id: societe
   titre: Comprendre le travail social et la société
   intro: Prendre du recul sur le métier et sur les publics accompagnés.
@@ -274,6 +494,53 @@ themes:
     edition: Presses de l'EHESP, 2019
     lien: https://www.presses.ehesp.fr/produit/comprendre-maitriser-exces-de-societe-numerique/
     pourquoi: Les effets du numérique sur les publics fragiles et sur les pratiques des travailleurs sociaux.
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Cyprien Avenel
+    titre: Le travail social au défi du développement social
+    edition: Vie sociale, 2016/1 n° 13, p. 115-137
+    lien: https://shs.cairn.info/revue-vie-sociale-2016-1-page-115
+    pourquoi: 'Passer de l''aide individuelle au développement social local : un enjeu des réformes récentes.'
+    ecrits:
+    - Mémoire
+    - Culture pro
+  - auteurs: Éliane Leplay
+    titre: Recherche et « performance » en travail social
+    edition: Empan, 2012/3 n° 87, p. 84-89
+    lien: https://shs.cairn.info/revue-empan-2012-3-page-84
+    pourquoi: Réfléchir à la place de la recherche et des méthodes qualitatives en travail social.
+    ecrits:
+    - Mémoire
+  - auteurs: Daniel Verba (propos recueillis par Brigitte Bègue)
+    titre: « Le travail social, c'est d'abord de la présence »
+    edition: ASH, 30 janvier 2024
+    lien: https://www.ash.tm.fr/metiers-formations/le-travail-social-cest-dabord-de-la-presence-888334.php
+    pourquoi: 'Un entretien court sur le cœur du métier : être là, dans la durée.'
+    ecrits:
+    - Culture pro
+    - Livret 2
+  - auteurs: ANAS
+    titre: La polyvalence entre passé, présent et avenir
+    edition: Revue française de service social, n° 291, 2023
+    lien: https://www.anas.fr/RFSS-N-291-La-polyvalence-entre-passe-present-et-avenir_a2064.html
+    pourquoi: Le numéro de référence sur le service social polyvalent de secteur, utile aux futurs assistants de service social.
+    ecrits:
+    - Mémoire
+    - DC
+    - Culture pro
+  - auteurs: Gilles Nezosi
+    titre: La protection sociale
+    edition: La Documentation française, coll. « Découverte de la vie publique », 7e éd. 2016
+    pourquoi: Les bases du système français de protection sociale, en format court et accessible.
+    ecrits:
+    - DC
+    - Culture pro
+  - auteurs: Suzanne Rameix
+    titre: Le droit de mourir
+    edition: Gérontologie et société, 2004/1 n° 108, p. 97-111
+    lien: https://shs.cairn.info/revue-gerontologie-et-societe1-2004-1-page-97
+    pourquoi: Les repères éthiques sur la fin de vie, utiles notamment auprès des personnes âgées.
     ecrits:
     - Mémoire
     - Culture pro
