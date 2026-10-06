@@ -55,7 +55,7 @@
 <h1 style="margin-top:10px">Trouver son stage {{ d.en }}</h1>
 <p class="lead">Nous sommes éducateurs spécialisés en protection de l'enfance et nous savons ce que représente la recherche de stage. Voici notre méthode, nos conseils de terrain et les {{ d.n }} structures sociales et médico-sociales du département, pour les futurs éducateurs, moniteurs-éducateurs, assistants de service social, ETS et CESF.</p>
 <p style="margin-top:14px">{{ d.nom }} en bref : {% for lib, nb in par_secteur %}{{ nb }} {{ "structure" if nb == 1 else "structures" }} en « {{ lib }} »{% if not loop.last %}, {% endif %}{% endfor %}.{% if villes|length > 1 %} Les communes qui en comptent le plus : {% for v, nb in villes %}{{ v }} ({{ nb }}){% if loop.revindex == 2 %} et {% elif not loop.last %}, {% endif %}{% endfor %}.{% endif %}</p>
-<p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#annuaire">Voir les {{ d.n }} structures</a><a class="btn ghost" href="#methode">La méthode en 5 étapes</a></p>
+<p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#annuaire">Voir les {{ d.n }} structures</a><a class="btn ghost" href="#methode">La méthode en 5 étapes</a><a class="btn ghost" href="{{ R }}documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage">Checklist PDF gratuite</a></p>
 </div>
 <aside class="proof" aria-label="En chiffres">
 <p class="eyebrow">{{ d.nom }}</p>

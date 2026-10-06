@@ -27,6 +27,7 @@
 <label>Mon département<select id="dep" onchange="if(this.value)location.href=this.value"><option value="">Choisir…</option>{% for r in regions %}<optgroup label="{{ r.region }}">{% for x in r.departements %}<option value="{{ R }}trouver-son-stage/{{ x.slug }}/index.html">{{ x.code }} · {{ x.nom }}</option>{% endfor %}</optgroup>{% endfor %}</select></label>
 <button class="btn primary" type="submit">Voir</button>
 </form>
+<p style="margin-top:16px"><a class="btn ghost" href="{{ R }}documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage">Télécharger la checklist (PDF gratuit)</a></p>
 </div>
 <aside class="proof" aria-label="En chiffres"><p class="eyebrow">France entière</p>
 <dl><div><dt>{{ "{:,}".format(total).replace(",", " ") }}</dt><dd>structures référencées</dd></div><div><dt>{{ nb_dep }}</dt><dd>départements et territoires</dd></div><div><dt>{{ secteurs|length }}</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
