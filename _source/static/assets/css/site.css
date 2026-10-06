@@ -35,6 +35,7 @@ nav.menu{display:flex;gap:22px;align-items:center;font-size:.95rem}
 nav.menu a{color:var(--ink);text-decoration:none;padding-block:6px;border-bottom:2px solid transparent}
 nav.menu a:hover,nav.menu a[aria-current="page"]{color:var(--green);border-bottom-color:var(--green)}
 nav.menu a.btn{border-bottom:2px solid var(--green);color:var(--paper)}
+@media (min-width:861px) and (max-width:1180px){nav.menu{gap:12px}}
 .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 12px;font:700 .9rem var(--body);color:var(--ink);cursor:pointer}
 @media (max-width:860px){
   .menu-toggle{display:inline-block}
