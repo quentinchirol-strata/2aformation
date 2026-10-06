@@ -2,7 +2,7 @@
 # Règle : le lien renvoie vers la page ou le fichier publié par l'auteur de l'outil (jamais une copie hébergée chez nous).
 # Si l'auteur ne publie pas l'outil lui-même, on le signale dans « source » (champ source_note).
 # image : vignette de couverture dans static/assets/img/outils/ (sinon une vignette dessinée est affichée).
-verification: 06/10/2026
+verification: 07/10/2026
 categories:
 - id: prostitution
   titre: Prostitution des mineurs
@@ -16,9 +16,18 @@ categories:
 - id: violences
   titre: Prévenir les violences sexuelles
   court: Violences sexuelles
+- id: conjugales
+  titre: Violences conjugales et intrafamiliales
+  court: Violences conjugales
+- id: numerique
+  titre: Numérique, écrans et cyberviolences
+  court: Numérique
 - id: besoins
   titre: Besoins et développement de l'enfant
   court: Besoins de l'enfant
+- id: droits
+  titre: Droits et participation de l'enfant
+  court: Droits et participation
 - id: parcours
   titre: Parcours et situations particulières
   court: Parcours
@@ -260,6 +269,7 @@ outils:
   annee: 2025
   type: Court métrage et livret de formation
   public: Animateurs, équipes éducatives
+  image: selma.jpg
   lien: https://arretonslesviolences.gouv.fr/sites/default/files/2025-07/Guide-formation-SELMA-lutte-contre-violences-sexistes-sexuelles-ACM_0.pdf
   lien_label: Livret sur arretonslesviolences.gouv.fr
   quoi: "Un court métrage de fiction de 18 minutes (une jeune animatrice repère le comportement inquiétant d'un collègue envers un enfant) et un livret pour prévenir, repérer et réagir."
@@ -367,3 +377,186 @@ outils:
   quand: "Pour appuyer une réflexion éthique en équipe ou un écrit sur la posture professionnelle."
   comment:
   - "Choisir un article et le confronter à une situation vécue en analyse des pratiques."
+- id: violentometre
+  cat: conjugales
+  titre: Le Violentomètre
+  auteur: Centre Hubertine Auclert et partenaires
+  annee: 2018
+  type: Outil de prévention (règle graduée)
+  public: Adolescents et jeunes adultes
+  lien: https://www.centre-hubertine-auclert.fr/egalitheque/publication/le-violentometre
+  lien_label: Page du Centre Hubertine Auclert
+  quoi: "Une règle graduée en trois couleurs (« Profite », « Vigilance, dis stop ! », « Protège-toi, demande de l'aide ») qui permet de mesurer si une relation amoureuse repose sur le consentement et ne comporte pas de violences. Il renvoie vers le 3919 et le tchat d'En Avant Toute(s)."
+  quand: "Quand un ou une jeune parle de sa relation amoureuse, ou pour une séance de prévention sur les relations."
+  comment:
+  - "Le parcourir avec le jeune, situation par situation, en le laissant se positionner."
+  - "L'afficher ou le laisser à disposition : il existe en version imprimable, en gros caractères, en braille et en plusieurs langues."
+- id: tom-et-lena
+  cat: conjugales
+  titre: Kit « Tom et Léna » – les enfants exposés aux violences conjugales
+  auteur: MIPROF, avec plusieurs ministères
+  type: Court métrage et livret de formation
+  public: Professionnels de l'enfance, du social, de la santé et de la justice
+  image: tom-et-lena.jpg
+  lien: https://www.arretonslesviolences.gouv.fr/sites/default/files/2020-04/fiche_presentation_kit_tom_et_lena.pdf
+  lien_label: Présentation sur arretonslesviolences.gouv.fr
+  quoi: "Un court métrage de 15 minutes et un livret de formation sur les conséquences des violences conjugales pour les enfants, le repérage et l'accompagnement des mères et des enfants victimes."
+  quand: "Pour une formation d'équipe ou une réunion sur les enfants co-victimes de violences conjugales."
+  comment:
+  - "Projeter le film en équipe, puis s'appuyer sur le livret pour travailler le repérage et l'entretien."
+  - "L'utilisation en formation est libre ; la MIPROF demande d'être prévenue."
+- id: memo-de-vie
+  cat: conjugales
+  titre: Mémo de Vie
+  auteur: France Victimes
+  type: Plateforme en ligne sécurisée
+  public: Personnes victimes de violences, accompagnées par un professionnel
+  lien: https://www.france-victimes.fr/index.php/nos-engagements/memo-de-vie
+  lien_label: Page de France Victimes
+  quoi: "Un espace en ligne sécurisé où une personne victime de violences peut noter ce qu'elle vit et conserver des documents, pour garder des traces au fil du temps."
+  quand: "Quand une personne accompagnée subit des violences et a besoin d'un lieu sûr pour garder la mémoire des faits."
+  comment:
+  - "Présenter l'outil en entretien et vérifier avec la personne qu'elle peut s'en servir en sécurité."
+  - "L'articuler avec l'orientation vers une association d'aide aux victimes."
+- id: kit-anna
+  cat: conjugales
+  titre: Kit « Anna » – les violences au sein du couple
+  auteur: MIPROF
+  type: Court métrage et livret de formation
+  public: Professionnels qui accueillent des femmes victimes
+  lien: https://arretonslesviolences.gouv.fr/je-suis-professionnel/outils-violences-au-sein-du-couple
+  lien_label: Outils de formation de la MIPROF
+  quoi: "Un court métrage et un livret sur les mécanismes des violences au sein du couple et l'accueil d'une femme victime."
+  quand: "Pour former une équipe qui accompagne des familles où des violences conjugales sont repérées."
+  comment:
+  - "Projeter le film, puis reprendre en équipe les repères du livret sur le repérage et l'orientation."
+- id: kit-elisa
+  cat: violences
+  titre: Kit « Elisa » – les violences sexuelles faites aux femmes
+  auteur: MIPROF
+  type: Court métrage et livret de formation
+  public: Professionnels qui accueillent des femmes victimes
+  image: kit-elisa.jpg
+  lien: https://www.arretonslesviolences.gouv.fr/sites/default/files/2020-04/fiche_presentation_kit_elisa_vf.pdf
+  lien_label: Présentation sur arretonslesviolences.gouv.fr
+  quoi: "Un court métrage et un livret pour repérer les violences sexuelles subies par une femme et savoir l'accueillir et l'orienter."
+  quand: "Pour une formation d'équipe, notamment auprès de jeunes majeures ou de mères accompagnées."
+  comment:
+  - "Projeter le film, puis travailler en équipe la manière de poser la question et d'orienter."
+- id: ciivise-melissa
+  cat: violences
+  titre: "Livret de formation « Mélissa et les autres »"
+  auteur: CIIVISE (commission indépendante sur l'inceste et les violences sexuelles faites aux enfants)
+  annee: 2023
+  type: Livret de formation et court métrage
+  public: Tous professionnels au contact d'enfants
+  image: ciivise-melissa.jpg
+  lien: https://ciivise.fr/sites/ciivise/files/2024-10/Livret-de-formation-CIIVISE-juin%202023.pdf
+  lien_label: Livret sur ciivise.fr
+  quoi: "Un livret de formation, accompagné d'un court métrage, en quatre temps : comprendre les violences sexuelles, connaître leurs conséquences, repérer en posant systématiquement la question à l'enfant, agir dans la chaîne de protection (avec des modèles d'écrits)."
+  quand: "Pour former une équipe au repérage, ou avant de rédiger un signalement pour violences sexuelles."
+  comment:
+  - "Travailler en équipe la partie sur le questionnement systématique : comment poser la question, sans suggérer la réponse."
+  - "Garder sous la main les modèles d'écrits pour transmettre."
+- id: je-protege-mon-enfant
+  cat: numerique
+  titre: Je protège mon enfant
+  auteur: Gouvernement (partenariat public-privé)
+  type: Site ressource pour les parents
+  public: Parents, et professionnels qui les accompagnent
+  lien: https://jeprotegemonenfant.gouv.fr/
+  lien_label: jeprotegemonenfant.gouv.fr
+  quoi: "Des outils et des conseils pour encadrer les écrans et protéger les enfants de la pornographie en ligne, notamment le contrôle parental."
+  quand: "Quand un parent s'inquiète des écrans ou de ce que son enfant voit en ligne."
+  comment:
+  - "Ouvrir le site avec le parent pendant l'entretien et l'aider à mettre en place le contrôle parental."
+- id: e-enfance-3018
+  cat: numerique
+  titre: 3018 – le numéro contre les violences numériques
+  auteur: Association e-Enfance
+  type: Numéro d'aide et ressources
+  public: Jeunes, parents, professionnels
+  lien: https://e-enfance.org/
+  lien_label: Site d'e-Enfance
+  quoi: "Le numéro national pour les victimes de violences numériques : cyberharcèlement, cybersexisme, diffusion d'images intimes… L'association propose aussi des formations et des interventions."
+  quand: "Dès qu'un jeune est harcelé ou que des images de lui circulent en ligne."
+  comment:
+  - "Donner le numéro au jeune et, si besoin, appeler avec lui."
+  - "L'afficher dans les lieux de vie."
+- id: educadroit
+  cat: droits
+  titre: Éducadroit – expliquer leurs droits aux enfants
+  auteur: Défenseur des droits
+  type: Manuel et ressources pédagogiques
+  public: Professionnels qui animent des ateliers avec des enfants et des ados
+  lien: https://www.defenseurdesdroits.fr/educadroit-495
+  lien_label: Page du Défenseur des droits
+  quoi: "Un programme d'éducation au droit et aux droits : un manuel pour les professionnels et des ressources (fiches, brochures) pour aborder le droit avec les jeunes."
+  quand: "Pour un atelier sur les droits de l'enfant, la citoyenneté ou la vie en collectivité."
+  comment:
+  - "Choisir une question (« Moins de 18 ans, quels droits ? », « Le droit, c'est quoi ? ») et la travailler avec le groupe à partir des fiches."
+- id: anesm-participation
+  cat: droits
+  titre: "L'expression et la participation du mineur, de ses parents et du jeune majeur dans le champ de la protection de l'enfance"
+  auteur: ANESM (aujourd'hui HAS)
+  annee: 2014
+  type: Recommandation de bonnes pratiques
+  public: Équipes de protection de l'enfance
+  image: anesm-participation.jpg
+  lien: https://www.has-sante.fr/upload/docs/application/pdf/2018-03/anesm-rbpp-protection_de_l_enfance-decembre_2014-interactif.pdf
+  lien_label: Recommandation sur has-sante.fr
+  quoi: "Les repères pour associer l'enfant, ses parents et le jeune majeur aux décisions qui les concernent : information, recueil de leur avis, participation au projet."
+  quand: "Pour construire ou évaluer la place des familles et des jeunes dans un service."
+  comment:
+  - "S'en servir comme grille pour relire un projet de service ou préparer une évaluation de la qualité."
+- id: falc
+  cat: droits
+  titre: "L'information pour tous : les règles du « Facile à lire et à comprendre » (FALC)"
+  auteur: 'Inclusion Europe (version française : Unapei et Nous Aussi)'
+  type: Guide de rédaction
+  public: Professionnels qui écrivent pour les personnes accompagnées
+  image: falc.jpg
+  lien: https://www.inclusion-europe.eu/wp-content/uploads/2017/06/FR_Information_for_all.pdf
+  lien_label: Guide sur le site d'Inclusion Europe
+  quoi: "Les règles européennes pour écrire une information facile à lire et à comprendre : phrases courtes, mots simples, mise en page claire, relecture par les personnes concernées."
+  quand: "Pour rédiger un livret d'accueil, un règlement de fonctionnement ou un courrier aux familles."
+  comment:
+  - "Réécrire un document existant avec les règles, puis le faire relire par des personnes accompagnées."
+- id: has-autonomie
+  cat: parcours
+  titre: "Améliorer les sorties de dispositifs de protection de l'enfance par un accompagnement vers l'autonomie"
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2024
+  type: Recommandation
+  public: Équipes accompagnant des jeunes vers la majorité
+  lien: https://www.has-sante.fr/jcms/p_3493321/fr/ameliorer-les-sorties-de-dispositifs-de-protection-de-l-enfance-par-un-accompagnement-vers-l-autonomie
+  lien_label: Page de la HAS
+  quoi: "Les repères pour préparer avec le jeune sa sortie de la protection de l'enfance : logement, ressources, santé, réseau, démarches."
+  quand: "Dès que la majorité approche, pour anticiper la sortie plutôt que la subir."
+  comment:
+  - "S'appuyer sur la recommandation pour construire avec le jeune un calendrier de préparation à l'autonomie."
+- id: has-pedopsy
+  cat: parcours
+  titre: Coordination entre protection de l'enfance et psychiatrie de l'enfant et de l'adolescent
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2021
+  type: Recommandation
+  public: Équipes éducatives et de soin
+  lien: https://has-sante.fr/jcms/p_3261731/fr/coordination-entre-protection-de-l-enfance-et-psychiatrie-de-l-enfant-et-de-l-adolescent
+  lien_label: Page de la HAS
+  quoi: "Les repères pour mieux coordonner les services de protection de l'enfance et la pédopsychiatrie autour d'un enfant qui relève des deux."
+  quand: "Quand un enfant accueilli a besoin de soins, ou pour formaliser un partenariat avec un service de soin."
+  comment:
+  - "Lire la recommandation à deux équipes (éducative et soignante) pour fixer des règles communes."
+- id: has-sante-mineurs
+  cat: parcours
+  titre: Prendre en compte la santé des mineurs et jeunes majeurs en protection de l'enfance
+  auteur: ANESM (aujourd'hui HAS)
+  type: Recommandation
+  public: Établissements et services de protection de l'enfance
+  lien: https://www.has-sante.fr/jcms/c_2835427/fr/prendre-en-compte-la-sante-des-mineurs/jeunes-majeurs-dans-le-cadre-des-etablissements/services-de-la-protection-de-l-enfance-et/ou-mettant-en-oeuvre-des-mesures-educatives
+  lien_label: Page de la HAS
+  quoi: "Les repères pour que la santé physique et psychique des jeunes accueillis soit suivie : bilan, suivi, coordination avec les soignants."
+  quand: "Pour vérifier l'organisation du suivi de santé dans un service ou à l'arrivée d'un jeune."
+  comment:
+  - "S'en servir pour relire la procédure d'accueil et le suivi de santé du service."
