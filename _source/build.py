@@ -239,7 +239,7 @@ def main():
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
             if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c and not c.startswith("evaluation/"):
-                fh.write(f"  <url><loc>{site['url']}/{c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
+                fh.write(f"  <url><loc>{site['url']}/{c[:-len('index.html')] if c.endswith('index.html') else c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
