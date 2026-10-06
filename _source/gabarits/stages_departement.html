@@ -44,6 +44,11 @@
 .excel h3{font-size:1.25rem;margin-bottom:6px}
 .excel ul{margin:0;padding-left:18px;font-size:.93rem}
 @media (max-width:700px){.tools,.side,.excel,.ia{grid-template-columns:1fr}}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;font-size:.88rem}
+.share>span{color:var(--muted);font-weight:600}
+.share a,.share button{font:600 .85rem var(--body);background:var(--surface);color:var(--green);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;cursor:pointer}
+.share a:hover,.share button:hover{border-color:var(--green)}
+.share .sh-ok{color:var(--green);font-weight:700}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -56,6 +61,8 @@
 <p class="lead">Nous sommes éducateurs spécialisés en protection de l'enfance et nous savons ce que représente la recherche de stage. Voici notre méthode, nos conseils de terrain et les {{ d.n }} structures sociales et médico-sociales du département, pour les futurs éducateurs, moniteurs-éducateurs, assistants de service social, ETS et CESF.</p>
 <p style="margin-top:14px">{{ d.nom }} en bref : {% for lib, nb in par_secteur %}{{ nb }} {{ "structure" if nb == 1 else "structures" }} en « {{ lib }} »{% if not loop.last %}, {% endif %}{% endfor %}.{% if villes|length > 1 %} Les communes qui en comptent le plus : {% for v, nb in villes %}{{ v }} ({{ nb }}){% if loop.revindex == 2 %} et {% elif not loop.last %}, {% endif %}{% endfor %}.{% endif %}</p>
 <p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="#annuaire">Voir les {{ d.n }} structures</a><a class="btn ghost" href="#methode">La méthode en 5 étapes</a><a class="btn ghost" href="{{ R }}documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage">Checklist PDF gratuite</a></p>
+{% set sh_url = site.url ~ "/" ~ chemin %}{% set sh_txt = "Trouver son stage " ~ d.en ~ " : " ~ d.n ~ " structures sociales et médico-sociales, la méthode et un tableau de suivi gratuits" %}<div class="share"><span>Partager à ma promo :</span><button type="button" class="sh-native" hidden data-goatcounter-click="partage-stage-natif">Partager…</button><a href="https://wa.me/?text={{ (sh_txt ~ " " ~ sh_url)|urlencode }}" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-whatsapp">WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u={{ sh_url|urlencode }}" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-facebook">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ sh_url|urlencode }}" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-linkedin">LinkedIn</a><a href="mailto:?subject={{ sh_txt|urlencode }}&amp;body={{ (sh_txt ~ " : " ~ sh_url)|urlencode }}" data-goatcounter-click="partage-stage-email">E-mail</a><button type="button" class="sh-copy" data-goatcounter-click="partage-stage-copie">Copier le lien</button><span class="sh-ok" hidden>Lien copié !</span></div>
+<script>(function(){var s=document.currentScript.previousElementSibling,u={{ sh_url|tojson }},t={{ sh_txt|tojson }};var n=s.querySelector(".sh-native");if(navigator.share){n.hidden=false;n.onclick=function(){navigator.share({title:t,text:t,url:u}).catch(function(){});};}s.querySelector(".sh-copy").onclick=function(){var ok=s.querySelector(".sh-ok");(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){ok.hidden=false;setTimeout(function(){ok.hidden=true},2500);}).catch(function(){window.prompt("Copiez ce lien :",u);});};})();</script>
 </div>
 <aside class="proof" aria-label="En chiffres">
 <p class="eyebrow">{{ d.nom }}</p>
