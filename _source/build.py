@@ -209,6 +209,11 @@ def main():
     ecrire("bibliographie/index.html", "bibliographie.html", rubrique="etudiants", b=biblio, nb_refs=nb_refs,
            titre_page="Bibliographie commentée du travail social · 2aFormation",
            description=f"{nb_refs} références vérifiées et commentées pour les écrits en travail social : protection de l'enfance, attachement, relation éducative, méthodologie du mémoire, textes officiels. Gratuit.")
+    # Boîte à outils des professionnels (contenu/boite_outils.yml)
+    outils = lire_yaml("contenu/boite_outils.yml")
+    ecrire("boite-a-outils/index.html", "boite_outils.html", rubrique="", o=outils,
+           titre_page="Boîte à outils des professionnels du travail social · 2aFormation",
+           description=f"{len(outils['outils'])} outils gratuits expliqués pour le terrain : Michetomètre, trame d'information préoccupante, consentement, besoins de l'enfant. Liens vers les sources officielles.")
     ecrire("404.html", "page.html", rubrique="", titre_page="Page introuvable · 2aFormation",
            description="Cette page n'existe pas.",
            corps='<h1>Page introuvable</h1><p>Cette page n\'existe pas ou a été déplacée.</p>'

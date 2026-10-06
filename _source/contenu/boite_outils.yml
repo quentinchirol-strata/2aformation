@@ -1,0 +1,369 @@
+# Boîte à outils des professionnels (page /boite-a-outils/). Une entrée = un outil vérifié.
+# Règle : le lien renvoie vers la page ou le fichier publié par l'auteur de l'outil (jamais une copie hébergée chez nous).
+# Si l'auteur ne publie pas l'outil lui-même, on le signale dans « source » (champ source_note).
+# image : vignette de couverture dans static/assets/img/outils/ (sinon une vignette dessinée est affichée).
+verification: 06/10/2026
+categories:
+- id: prostitution
+  titre: Prostitution des mineurs
+  court: Prostitution
+- id: danger
+  titre: Repérer le danger, information préoccupante et signalement
+  court: Danger et IP
+- id: sexualite
+  titre: Vie affective, sexualité et consentement
+  court: Sexualité
+- id: violences
+  titre: Prévenir les violences sexuelles
+  court: Violences sexuelles
+- id: besoins
+  titre: Besoins et développement de l'enfant
+  court: Besoins de l'enfant
+- id: parcours
+  titre: Parcours et situations particulières
+  court: Parcours
+- id: ethique
+  titre: Éthique et posture
+  court: Éthique
+outils:
+- id: michetometre
+  cat: prostitution
+  titre: Le Michetomètre
+  auteur: ACPE (Agir contre la prostitution des enfants)
+  annee: 2025
+  type: Support de discussion
+  public: Adolescents, avec un professionnel
+  image: michetometre.jpg
+  lien: https://www.acpe-asso.org/outils-p%C3%A9dagogiques
+  lien_label: Page de l'ACPE
+  quoi: "Un dépliant qui gradue les situations, des conduites à risque (nudes contre de l'argent, cadeaux en échange de « relations ») à la prostitution et au proxénétisme, avec un petit dictionnaire (michetonnage, loverboy, sugar daddy…) et les numéros utiles."
+  quand: "Quand un jeune banalise des échanges « contre » de l'argent, des cadeaux ou un hébergement, ou pour une séance de prévention en petit groupe."
+  comment:
+  - "Le parcourir avec le jeune, jamais le lui remettre seul : l'ACPE précise qu'il est conçu pour un accompagnement avec un professionnel."
+  - "Partir de ses mots : « où te situes-tu ? », « et tes amis ? »."
+  - "Rappeler que le mineur en situation de prostitution est une victime, puis orienter (119, dispositif AdoSexo de l'ACPE)."
+- id: acpe-vademecum
+  cat: prostitution
+  titre: "Prostitution des mineurs et fugues : vadémécum à destination des professionnels"
+  auteur: ACPE, avec 116 000 Enfants disparus
+  type: Guide
+  public: Équipes éducatives, police, justice
+  image: acpe-vademecum.jpg
+  lien: https://www.acpe-asso.org/outils-p%C3%A9dagogiques
+  lien_label: Page de l'ACPE
+  quoi: "Un guide technique en cinq parties : comprendre et repérer, dispositions légales, rôle de chaque institution, tableau des peines encourues, glossaire."
+  quand: "Pour préparer une réunion d'équipe ou un projet de service sur les fugues à répétition, ou pour savoir qui saisir face à une suspicion."
+  comment:
+  - "Lire la partie « repérer » en équipe et la confronter aux situations rencontrées."
+  - "Garder le tableau des infractions à portée de main pour rédiger une information préoccupante ou un signalement."
+- id: acpe-parents
+  cat: prostitution
+  titre: Guide pour les parents
+  auteur: ACPE
+  type: Guide
+  public: Parents
+  lien: https://www.acpe-asso.org/outils-p%C3%A9dagogiques
+  lien_label: Page de l'ACPE
+  quoi: "Un guide pratique pour aider les parents à reconnaître les signaux d'alerte et à se repérer face à la police, à la justice et à la protection de l'enfance."
+  quand: "Quand une famille découvre ou soupçonne une exploitation sexuelle de son enfant."
+  comment:
+  - "Le remettre aux parents lors d'un entretien, en reprenant avec eux les démarches qui les concernent."
+- id: has-cnr
+  cat: danger
+  titre: "Cadre national de référence : la boîte à outils"
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2021
+  type: Fiches et trames
+  public: Équipes, cellules de recueil (CRIP), services d'évaluation
+  image: has-cnr.jpg
+  lien: https://www.has-sante.fr/jcms/p_3120418/fr/evaluation-globale-de-la-situation-des-enfants-en-danger-ou-risque-de-danger-cadre-national-de-reference
+  lien_label: Page de la HAS
+  quoi: "Huit fiches prêtes à l'emploi : trame de recueil d'une information préoccupante, informations à donner aux parents, modèle de journal de bord, conseils pour les entretiens avec les parents et avec l'enfant, trame de rapport d'évaluation, présentation des acteurs."
+  quand: "Au moment de rédiger une information préoccupante, de préparer un entretien d'évaluation ou de structurer un rapport."
+  comment:
+  - "Utiliser la trame n° 1 comme plan pour toute information préoccupante : elle évite les oublis et les jugements."
+  - "Relire la fiche « entretien avec l'enfant » avant de rencontrer un enfant."
+  - "Vérifier d'abord la trame en usage dans votre département."
+- id: has-maltraitance
+  cat: danger
+  titre: "Maltraitance chez l'enfant : repérage et conduite à tenir"
+  auteur: Haute Autorité de santé (HAS)
+  type: Fiche mémo
+  public: Tous professionnels
+  image: has-maltraitance.jpg
+  lien: https://www.has-sante.fr/jcms/c_1760393/fr/maltraitance-chez-l-enfant-reperage-et-conduite-a-tenir
+  lien_label: Page de la HAS
+  quoi: "Une fiche mémo : les signes qui doivent faire penser à une maltraitance et la conduite à tenir pour protéger l'enfant."
+  quand: "Quand un doute s'installe et qu'il faut savoir quoi observer et à qui transmettre."
+  comment:
+  - "L'afficher ou la glisser dans le classeur de l'équipe."
+  - "S'en servir pour objectiver des observations avant d'en parler en réunion."
+- id: cnvif
+  cat: danger
+  titre: Guide des bonnes pratiques du recueil de la parole de l'enfant
+  auteur: Comité national des violences intrafamiliales (CNVIF)
+  annee: 2022
+  type: Guide
+  public: Tout adulte qui reçoit une révélation
+  image: cnvif.jpg
+  lien: https://www.cnvif.fr/sites/default/files/documents/guide_des_bonnes_pratiques_du_recueil_de_la_parole_de_lenfant_0.pdf
+  lien_label: Guide sur le site du CNVIF
+  quoi: "Un guide de 16 pages sur l'attitude à adopter quand un enfant révèle des violences : écouter sans questionner de façon suggestive, noter ses mots exacts, transmettre."
+  quand: "Avant d'avoir à recueillir une révélation, ou juste après pour vérifier ce qu'il faut consigner."
+  comment:
+  - "Retenir l'essentiel : croire, ne pas enquêter, noter les mots de l'enfant entre guillemets, transmettre sans délai."
+  - "S'en servir comme support d'un temps de formation interne."
+- id: gironde-ip
+  cat: danger
+  titre: "Guide de l'information préoccupante et du signalement (exemple de la Gironde)"
+  auteur: Département de la Gironde
+  annee: 2025
+  type: Guide
+  public: Tous professionnels
+  image: gironde-ip.jpg
+  lien: https://www.gironde.fr/sites/default/files/2025-01/A5-Plaquette-GuideIP-13012025-1.pdf
+  lien_label: Guide sur gironde.fr
+  quoi: "Un guide clair qui distingue information préoccupante et signalement au procureur, avec le circuit de transmission."
+  quand: "Pour vérifier à qui adresser un écrit et dans quels délais."
+  comment:
+  - "C'est un exemple : chaque département a sa cellule de recueil (CRIP) et souvent son propre guide. Cherchez celui de votre département."
+- id: cnom
+  cat: danger
+  titre: "Signalement et information préoccupante"
+  auteur: Conseil national de l'Ordre des médecins
+  annee: 2016
+  type: Rapport court
+  public: Équipes travaillant avec des médecins
+  image: cnom.jpg
+  lien: https://www.conseil-national.medecin.fr/publications/rapports/signalement-information-preoccupante
+  lien_label: Page de l'Ordre des médecins
+  quoi: "Neuf pages qui clarifient, du point de vue médical, la différence entre information préoccupante et signalement et le cadre du secret."
+  quand: "Pour travailler l'articulation avec un médecin ou un service de santé autour d'une situation."
+  comment:
+  - "Utile pour comprendre ce qu'un médecin peut ou ne peut pas transmettre."
+- id: steinhauer
+  cat: danger
+  titre: "Guide d'évaluation des capacités parentales (0 à 5 ans)"
+  auteur: Centre jeunesse de Montréal – Institut universitaire, d'après Steinhauer
+  annee: 2014
+  type: Grilles d'évaluation
+  public: Professionnels de l'évaluation
+  image: steinhauer.jpg
+  lien: https://educationspecialisee.ca/wp-content/uploads/2018/02/Guide-d%C3%A9valuation-des-capacit%C3%A9s-parentales_25-09-2014.pdf
+  lien_label: Guide (copie en ligne)
+  source_note: "Guide québécois. Nous n'avons pas trouvé de version en ligne publiée par son éditeur : le lien mène à une copie mise en ligne par un site québécois d'éducation spécialisée."
+  quoi: "Des grilles d'évaluation des capacités parentales pour les enfants de 0 à 5 ans, issues des travaux de l'équipe de Steinhauer à Toronto et adaptées par le Centre jeunesse de Montréal (4e édition)."
+  quand: "Dans une évaluation de situation d'un jeune enfant, pour structurer les observations."
+  comment:
+  - "S'en inspirer pour organiser un rapport ; en France, le cadre de référence reste celui de la HAS."
+- id: info-intox
+  cat: sexualite
+  titre: Info Intox – vie affective et sexuelle
+  auteur: Crips Île-de-France
+  annee: 2021
+  type: Jeu d'animation
+  public: Adolescents en groupe
+  image: info-intox.jpg
+  lien: https://lecrips-idf.net/ressources/documents/2/9344,Info-Intox-VAS-Jeune-Fiche-outil.pdf
+  lien_label: Fiche outil du Crips
+  quoi: "Des cartes-affirmations (contraception, IST, consentement, puberté…) : les jeunes décident si c'est une info ou une intox, puis l'animateur rectifie."
+  quand: "Pour ouvrir une première séance sur la sexualité sans mettre personne en difficulté."
+  comment:
+  - "Choisir 10 à 15 cartes adaptées à l'âge du groupe."
+  - "Faire voter tout le groupe, puis débattre avant de donner la réponse."
+  - "Poser un cadre au départ : on ne parle pas de sa vie privée, on ne se moque pas."
+- id: paroles-pros
+  cat: sexualite
+  titre: "Paroles de pros : concevoir et animer des actions d'éducation à la sexualité"
+  auteur: Crips Île-de-France
+  type: Guide méthodologique
+  public: Professionnels qui animent des séances
+  image: paroles-pros.jpg
+  lien: https://www.lecrips-idf.net/sites/default/files/2021-04/Crips_Guide_Paroles_de_pros_VAS_202.pdf
+  lien_label: Guide sur le site du Crips
+  quoi: "Un guide pour concevoir et animer soi-même des actions d'éducation à la sexualité, tiré de l'expérience des animateurs du Crips : interactivité, outils ludiques, débat."
+  quand: "Avant de lancer des ateliers sur la vie affective dans un service ou un établissement."
+  comment:
+  - "S'en servir pour construire pas à pas une séance avant de la proposer à un groupe."
+- id: spf-consentement
+  cat: sexualite
+  titre: Aider à exprimer et à entendre le consentement
+  auteur: Santé publique France, avec le réseau des CRIAVS
+  type: Séances clés en main
+  public: Adolescents
+  image: spf-consentement.jpg
+  lien: https://www.santepubliquefrance.fr/sante-sexuelle/brochure/aider-a-exprimer-et-a-entendre-le-consentement
+  lien_label: Page de Santé publique France
+  quoi: "Un guide pour préparer et animer des séances sur le consentement, à partir des podcasts « OnSexprime » : cinq séances autour de personnages (désir, zone grise, premières fois…)."
+  quand: "Pour travailler le consentement avec un groupe de collégiens ou de lycéens."
+  comment:
+  - "Lire d'abord la partie « préparer les séances », puis écouter un épisode avec le groupe et utiliser les questions proposées."
+- id: unicef
+  cat: sexualite
+  titre: "Éducation à la vie affective et sexuelle : comment répondre aux idées reçues"
+  auteur: UNICEF France (campagne #MonConsentement)
+  type: Livret
+  public: Équipes, parents
+  image: unicef.jpg
+  lien: https://unicef.fr/article/monconsentement-une-campagne-sur-l-education-au-consentement-concue-par-le-conseil-unicef
+  lien_label: Page de l'UNICEF
+  quoi: "Un livret qui reprend les objections fréquentes à l'éducation à la sexualité et y répond, à partir d'une consultation de jeunes."
+  quand: "Quand un collègue ou un parent s'inquiète qu'on « parle de ça » avec les jeunes."
+  comment:
+  - "S'en servir pour préparer une réunion d'équipe ou un échange avec les familles."
+- id: sports-vras
+  cat: sexualite
+  titre: "Accompagnement à la vie relationnelle, affective et sexuelle : les clés pour mieux agir"
+  auteur: Ministère des Sports, de la Jeunesse et de la Vie associative
+  annee: 2024
+  type: Guide
+  public: Animateurs, éducateurs
+  image: sports-vras.jpg
+  lien: https://www.sports.gouv.fr/sites/default/files/2025-06/guide-vie-affective-sexuelle-2024-2251.pdf
+  lien_label: Guide sur sports.gouv.fr
+  quoi: "Un guide de 144 pages (4e édition, décembre 2024), rédigé avec de nombreux partenaires (119, Santé publique France, justice…), sur l'éducation à la sexualité et la prévention des violences sexuelles."
+  quand: "Comme base de référence pour une équipe qui accueille des enfants ou des adolescents."
+  comment:
+  - "En faire la référence commune de l'équipe : chacun lit la partie qui concerne son public, puis on en discute en réunion."
+- id: evars
+  cat: sexualite
+  titre: "Le programme d'éducation à la vie affective et relationnelle, et à la sexualité"
+  auteur: Ministère de l'Éducation nationale
+  annee: 2025
+  type: Programme officiel
+  public: Équipes en lien avec l'école
+  image: evars.jpg
+  lien: https://www.education.gouv.fr/education-la-vie-affective-relationnelle-et-la-sexualite-le-programme-de-l-education-nationale-est-462573
+  lien_label: Page du ministère
+  quoi: "Ce que l'école aborde à chaque âge, de la maternelle au lycée."
+  quand: "Pour caler vos actions sur ce que les jeunes travaillent déjà en classe."
+  comment:
+  - "Repérer les thèmes de l'année scolaire de l'enfant et faire le lien dans l'accompagnement."
+- id: arcom
+  cat: sexualite
+  titre: La fréquentation des sites « adultes » par les mineurs
+  auteur: Arcom
+  annee: 2023
+  type: Étude chiffrée
+  public: Équipes
+  image: arcom.jpg
+  lien: https://www.arcom.fr/sites/default/files/2023-05/La_frequentation_des_sites_adultes_par_les_mineurs%20-%20Etude_Arcom_0.pdf
+  lien_label: Étude sur arcom.fr
+  quoi: "Les chiffres de l'exposition des mineurs à la pornographie en ligne, selon l'âge et le genre."
+  quand: "Pour objectiver le sujet en réunion d'équipe ou justifier un projet de prévention."
+  comment:
+  - "Extraire deux ou trois chiffres pour ouvrir la discussion, sans en faire un sujet d'alarme."
+- id: selma
+  cat: violences
+  titre: Kit SELMA – prévenir les violences sexistes et sexuelles en accueil de mineurs
+  auteur: "MIPROF, avec la direction de la jeunesse (DJEPVA)"
+  annee: 2025
+  type: Court métrage et livret de formation
+  public: Animateurs, équipes éducatives
+  lien: https://arretonslesviolences.gouv.fr/sites/default/files/2025-07/Guide-formation-SELMA-lutte-contre-violences-sexistes-sexuelles-ACM_0.pdf
+  lien_label: Livret sur arretonslesviolences.gouv.fr
+  quoi: "Un court métrage de fiction de 18 minutes (une jeune animatrice repère le comportement inquiétant d'un collègue envers un enfant) et un livret pour prévenir, repérer et réagir."
+  quand: "Pour une formation d'équipe ou un temps d'accueil des nouveaux professionnels."
+  comment:
+  - "Projeter le film, puis faire réagir le groupe : qu'avez-vous repéré ? qu'auriez-vous fait ?"
+  - "Reprendre les repères du livret pour construire la procédure de l'équipe."
+- id: comportements-sexuels
+  cat: violences
+  titre: "Les comportements sexuels des enfants et des adolescents : quels comportements sont problématiques ? Que faire ?"
+  auteur: Réseau des CRIAVS (violences-sexuelles.info)
+  type: Guide
+  public: Parents, professionnels
+  image: comportements-sexuels.jpg
+  lien: https://savoie-educ.web.ac-grenoble.fr/sites/default/files/Media/document/VSI-COMPORTEMENT-SEXUELS-ENFANTS.pdf
+  lien_label: Guide (copie sur un site académique)
+  source_note: "Le guide est relayé par l'Éducation nationale (académie de Grenoble) ; nous n'avons pas retrouvé la page d'origine."
+  quoi: "Par âge (maternelle, élémentaire, collège), ce qui relève du développement normal et ce qui doit inquiéter, puis comment réagir."
+  quand: "Face à un comportement sexuel entre enfants qui interroge l'équipe."
+  comment:
+  - "Situer le comportement dans le tableau de l'âge, en équipe, avant de réagir."
+  - "Ne pas rester seul : en parler à l'encadrement et, si besoin, à un CRIAVS."
+- id: marvin
+  cat: violences
+  titre: "Les cahiers Marvin : parler de sexualité aux jeunes enfants pour mieux les protéger"
+  auteur: Fondation Marie-Vincent (Québec)
+  type: Cahiers d'activités
+  public: Jeunes enfants, parents
+  image: marvin.jpg
+  lien: https://marie-vincent.org/prevenir/enfants-0-12-ans/
+  lien_label: Page « Prévenir » de la Fondation
+  source_note: "Outil québécois : quelques termes et numéros d'aide sont propres au Québec."
+  quoi: "« Dis-moi tout, Marvin » (cahier-causerie) et « Parle-moi plus, Marvin » (cahier parent-enfant) : deux cahiers illustrés, avec la mascotte Marvin, pour parler de sexualité de façon adaptée aux jeunes enfants et les aider à se protéger."
+  quand: "En accueil petite enfance, en visite médiatisée ou en accompagnement de la parentalité."
+  comment:
+  - "Lire une page avec l'enfant, puis reprendre ses questions avec ses mots."
+  - "Proposer le cahier parent-enfant aux parents pour qu'ils prolongent à la maison."
+- id: besoins-fondamentaux
+  cat: besoins
+  titre: Démarche de consensus sur les besoins fondamentaux de l'enfant en protection de l'enfance
+  auteur: "Rapport de Marie-Paule Martin-Blachais remis au ministère"
+  annee: 2017
+  type: Rapport et synthèse
+  public: Équipes de protection de l'enfance
+  image: besoins-fondamentaux.jpg
+  lien: https://sante.gouv.fr/IMG/pdf/synthese_du_rapport_besoins_fondamentaux_de_l_enfant.pdf
+  lien_label: Synthèse sur sante.gouv.fr
+  quoi: "Le texte qui pose le « méta-besoin » de sécurité et la carte des besoins fondamentaux de l'enfant, devenue la référence des projets pour l'enfant."
+  quand: "Pour rédiger un projet pour l'enfant (PPE), un rapport ou argumenter une orientation."
+  comment:
+  - "Partir de la carte des besoins pour organiser un écrit : ce qui est couvert, ce qui ne l'est pas, ce qu'on propose."
+- id: 1000-jours
+  cat: besoins
+  titre: "Les 1000 premiers jours : là où tout commence"
+  auteur: Commission présidée par Boris Cyrulnik
+  annee: 2020
+  type: Rapport
+  public: Petite enfance, parentalité
+  image: 1000-jours.jpg
+  lien: https://solidarites.gouv.fr/la-politique-publique-des-1000-premiers-jours-de-lenfant
+  lien_label: Page du ministère
+  quoi: "Les connaissances sur le développement du tout-petit, de la grossesse à 2 ans, et les recommandations pour accompagner les parents."
+  quand: "Pour fonder un projet de soutien à la parentalité ou un écrit sur un très jeune enfant."
+  comment:
+  - "Lire la synthèse et les recommandations ; le site du ministère propose aussi des outils pour les parents."
+- id: has-retour-famille
+  cat: parcours
+  titre: "Améliorer l'accompagnement des enfants à la sortie des dispositifs : le retour en famille"
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2021
+  type: Recommandation
+  public: Équipes de placement et de milieu ouvert
+  image: has-retour-famille.jpg
+  lien: https://www.has-sante.fr/jcms/p_3082358/fr/ameliorer-l-accompagnement-des-enfants-a-la-sortie-des-dispositifs-de-protection-de-l-enfance-le-retour-en-famille
+  lien_label: Page de la HAS
+  quoi: "Les repères pour préparer, accompagner et suivre un retour en famille après un placement."
+  quand: "Dès qu'un retour est envisagé, pour en construire les étapes avec l'enfant et ses parents."
+  comment:
+  - "S'appuyer sur la synthèse pour construire un calendrier de retour progressif et les points d'étape."
+- id: mna-sante
+  cat: parcours
+  titre: Première évaluation des besoins en santé des mineurs non accompagnés
+  auteur: Ministères de la Santé et de la Justice
+  type: Guide de bonnes pratiques
+  public: Équipes d'accueil et de mise à l'abri
+  image: mna-sante.jpg
+  lien: https://www.justice.gouv.fr/sites/default/files/2023-07/guide_premiere_evaluation_besoins_sante.pdf
+  lien_label: Guide sur justice.gouv.fr
+  quoi: "Ce qu'il faut évaluer en santé (physique, psychique, vaccinations) pendant l'accueil provisoire d'urgence d'un jeune se déclarant mineur."
+  quand: "À l'arrivée d'un jeune non accompagné, pour organiser le premier bilan."
+  comment:
+  - "Utiliser les recommandations comme liste de vérification du premier mois."
+- id: ones
+  cat: ethique
+  titre: Charte d'éthique professionnelle des éducateurs spécialisés
+  auteur: Organisation nationale des éducateurs spécialisés (ONES)
+  annee: 2014
+  type: Charte
+  public: Éducateurs, étudiants
+  image: ones.jpg
+  lien: https://www.cnape.fr/documents/charte-dethique-professionnelle-des-educateurs-specialises
+  lien_label: Texte sur le site de la CNAPE
+  source_note: "Texte reproduit par la CNAPE, fédération du secteur ; nous n'avons pas trouvé de page de l'ONES."
+  quoi: "Les 24 articles qui fixent les principes du métier : respect de la personne, non-jugement, secret professionnel, formation continue."
+  quand: "Pour appuyer une réflexion éthique en équipe ou un écrit sur la posture professionnelle."
+  comment:
+  - "Choisir un article et le confronter à une situation vécue en analyse des pratiques."

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{# Boîte à outils des professionnels. Données : contenu/boite_outils.yml. Assemblée par build.py. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Boîte à outils des professionnels du travail social","inLanguage":"fr","url":"{{ site.url }}/{{ chemin }}","audience":{"@type":"Audience","audienceType":"Professionnels du travail social et de la protection de l'enfance"},"publisher":{"@type":"Organization","name":"2aFormation","url":"{{ site.url }}"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.bao .fiche-head{padding-bottom:6px}
+.bao-bar{padding:14px 0 12px;border-bottom:1px solid var(--line);margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.88rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink)}
+.chip b{font-weight:400;color:var(--muted);margin-left:4px}
+.chip:hover{border-color:var(--green);color:var(--green)}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.chip[aria-pressed="true"] b{color:#DCE8E2}
+.bao-search{margin-top:10px;display:flex;align-items:center;gap:10px}
+.bao-search input{font:inherit;font-size:.95rem;width:min(420px,100%);padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.bao-search .muted{font-size:.85rem}
+.grid-outils{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin:26px 0 10px}
+.carte{all:unset;box-sizing:border-box;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.carte[hidden]{display:none}
+.carte:hover,.carte:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(29,40,43,.10);border-color:var(--green)}
+.carte:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.vign{aspect-ratio:4/3;background:var(--mist);display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.vign img{width:100%;height:100%;object-fit:contain;padding:10px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}
+.vign.dessin{background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;padding:18px;text-align:left;align-items:flex-end;justify-content:flex-start}
+.vign.dessin span{font-family:var(--display);font-weight:700;font-size:1.15rem;line-height:1.15}
+.vign.dessin small{display:block;font-family:var(--body);font-weight:400;font-size:.75rem;opacity:.85;margin-top:6px}
+.carte-corps{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.carte .type{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--ochre)}
+.carte h3{font-size:1.02rem;line-height:1.25}
+.carte .aut{font-size:.85rem;color:var(--muted)}
+.carte .ouvrir{margin-top:auto;padding-top:8px;font-size:.85rem;font-weight:700;color:var(--green)}
+.vide{display:none;padding:30px 0;color:var(--muted)}
+dialog.outil{border:0;padding:0;border-radius:16px;width:min(860px,calc(100% - 24px));max-height:calc(100% - 24px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog.outil::backdrop{background:rgba(29,40,43,.55)}
+.dlg{display:grid;grid-template-columns:240px 1fr;position:relative}
+.dlg-vign{background:var(--mist);padding:22px;display:flex;align-items:flex-start;justify-content:center}
+.dlg-vign img{width:100%;height:auto;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.dlg-vign .vign{width:100%;border-radius:10px;border:0}
+.dlg-corps{padding:26px 28px 24px;position:relative}
+.dlg-corps h2{font-size:1.5rem;padding-right:36px}
+.dlg-corps .aut{color:var(--muted);margin-top:6px;font-size:.95rem}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.badge{background:var(--green-soft);color:var(--green-dark);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:700}
+.badge.o{background:var(--ochre-soft);color:var(--ochre)}
+.dlg-corps h4{font-family:var(--display);font-size:1rem;margin:18px 0 4px}
+.dlg-corps p,.dlg-corps li{font-size:.97rem}
+.dlg-corps ul{margin:4px 0 0;padding-left:20px}
+.dlg-corps li+li{margin-top:4px}
+.note{margin-top:14px;font-size:.86rem;color:var(--muted);border-left:3px solid var(--ochre);padding-left:10px}
+.dlg-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+.fermer{position:absolute;top:14px;right:14px;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink)}
+.fermer:hover{border-color:var(--green);color:var(--green)}
+.partage{font:inherit;font-size:.85rem;background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:0}
+@media (max-width:700px){.dlg-vign:has(.dessin){display:none}.dlg{grid-template-columns:1fr}.dlg-vign{padding:16px 16px 0}.dlg-vign img{max-height:220px;width:auto}.dlg-corps{padding:20px}}
+@media (prefers-reduced-motion:reduce){.carte{transition:none}.carte:hover{transform:none}}
+</style>{% endblock %}
+{% macro vignette(o) %}{% if o.get("image") %}<div class="vign"><img src="{{ R }}assets/img/outils/{{ o.image }}" alt="" loading="lazy" width="360" height="480"></div>{% else %}<div class="vign dessin"><span>{{ o.titre }}<small>{{ o.auteur }}</small></span></div>{% endif %}{% endmacro %}
+{% block contenu %}
+<div class="bao"><div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › Boîte à outils</p>
+<div class="fiche-head">
+<p class="eyebrow">Choisis par des éducateurs spécialisés en poste · Gratuit</p>
+<h1>La boîte à outils des pros</h1>
+<p class="lead">{{ o.outils|length }} outils prêts à utiliser sur le terrain : repérer un danger, parler de sexualité avec un ado, prévenir la prostitution des mineurs… Cliquez sur un outil pour savoir ce que c'est, quand s'en servir et comment. Chaque lien mène au site de l'organisme qui l'a créé.</p>
+</div>
+<div class="bao-bar">
+<div class="chips" role="group" aria-label="Filtrer par thème">
+<button class="chip" type="button" data-cat="tous" aria-pressed="true">Tous<b>{{ o.outils|length }}</b></button>
+{% for c in o.categories %}<button class="chip" type="button" data-cat="{{ c.id }}" aria-pressed="false" title="{{ c.titre }}">{{ c.court }}<b>{{ o.outils|selectattr("cat","equalto",c.id)|list|length }}</b></button>
+{% endfor %}</div>
+<div class="bao-search"><input type="search" id="bao-q" placeholder="Rechercher un outil (consentement, fugue, IP…)" aria-label="Rechercher un outil"><span class="muted" id="bao-n" aria-live="polite"></span></div>
+</div>
+<div class="grid-outils" id="bao-grid">
+{% for t in o.outils %}<button class="carte" type="button" id="carte-{{ t.id }}" data-id="{{ t.id }}" data-cat="{{ t.cat }}" data-q="{{ (t.titre ~ ' ' ~ t.auteur ~ ' ' ~ t.quoi ~ ' ' ~ t.type)|lower|e }}" aria-haspopup="dialog">{{ vignette(t) }}<span class="carte-corps"><span class="type">{{ t.type }}</span><h3>{{ t.titre }}</h3><span class="aut">{{ t.auteur }}{% if t.get("annee") %}, {{ t.annee }}{% endif %}</span><span class="ouvrir">Comprendre l'outil →</span></span></button>
+{% endfor %}</div>
+<p class="vide" id="bao-vide">Aucun outil ne correspond. Essayez un autre mot.</p>
+{% for t in o.outils %}<template id="tpl-{{ t.id }}"><div class="dlg"><button class="fermer" type="button" aria-label="Fermer">×</button><div class="dlg-vign">{% if t.get("image") %}<img src="{{ R }}assets/img/outils/{{ t.image }}" alt="Couverture : {{ t.titre }}">{% else %}{{ vignette(t) }}{% endif %}</div><div class="dlg-corps"><h2>{{ t.titre }}</h2><p class="aut">{{ t.auteur }}{% if t.get("annee") %}, {{ t.annee }}{% endif %}</p><div class="badges"><span class="badge o">{{ t.type }}</span><span class="badge">Pour : {{ t.public }}</span></div><h4>C'est quoi ?</h4><p>{{ t.quoi }}</p><h4>Quand l'utiliser ?</h4><p>{{ t.quand }}</p><h4>Comment s'en servir</h4><ul>{% for c in t.comment %}<li>{{ c }}</li>{% endfor %}</ul>{% if t.get("source_note") %}<p class="note">{{ t.source_note }}</p>{% endif %}<div class="dlg-actions"><a class="btn primary" href="{{ t.lien }}" target="_blank" rel="noopener">{{ t.lien_label }} ↗</a><button class="partage" type="button" data-id="{{ t.id }}">Copier le lien de cet outil</button></div></div></div></template>
+{% endfor %}
+<dialog class="outil" id="bao-dlg" aria-label="Présentation de l'outil"></dialog>
+<section style="padding-block:34px"><div class="cta"><div><h2>Un outil qui vous rend service ?</h2><p>Proposez-le-nous : nous l'ajouterons après l'avoir testé et vérifié sa source.</p></div><a class="btn" href="mailto:{{ site.contact.email }}?subject=Bo%C3%AEte%20%C3%A0%20outils">Proposer un outil</a></div>
+<p class="muted" style="font-size:.84rem;margin-top:20px;max-width:none">Liens vérifiés le {{ o.verification }}. Les outils restent la propriété de leurs auteurs : nous ne les hébergeons pas, les vignettes reproduisent leur couverture pour les identifier. 2A Formation n'a aucun lien avec ces organismes. Un lien ne fonctionne plus ? <a href="mailto:{{ site.contact.email }}?subject=Lien%20bo%C3%AEte%20%C3%A0%20outils">Signalez-le-nous</a>.</p></section>
+</div></div>
+<script>
+(function(){
+  var grid=document.getElementById('bao-grid'),cartes=[].slice.call(grid.querySelectorAll('.carte')),
+      chips=[].slice.call(document.querySelectorAll('.chip')),q=document.getElementById('bao-q'),
+      n=document.getElementById('bao-n'),vide=document.getElementById('bao-vide'),dlg=document.getElementById('bao-dlg'),
+      cat='tous',dernier=null;
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+  function filtrer(){
+    var t=norm(q.value.trim()),vus=0;
+    cartes.forEach(function(c){var ok=(cat==='tous'||c.dataset.cat===cat)&&(!t||norm(c.dataset.q).indexOf(t)>-1);c.hidden=!ok;if(ok)vus++;});
+    n.textContent=vus+(vus>1?' outils':' outil');vide.style.display=vus?'none':'block';
+  }
+  chips.forEach(function(b){b.addEventListener('click',function(){cat=b.dataset.cat;chips.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});filtrer();});});
+  q.addEventListener('input',filtrer);
+  function ouvrir(id,depuis){
+    var tpl=document.getElementById('tpl-'+id);if(!tpl)return;
+    dernier=depuis||document.getElementById('carte-'+id);
+    dlg.replaceChildren(tpl.content.cloneNode(true));
+    if(typeof dlg.showModal==='function'){dlg.showModal();}else{dlg.setAttribute('open','');}
+    if(location.hash!=='#'+id)history.replaceState(null,'','#'+id);
+    dlg.querySelector('.fermer').addEventListener('click',fermer);
+    var p=dlg.querySelector('.partage');p.addEventListener('click',function(){var u=location.href.split('#')[0]+'#'+id;
+      if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){p.textContent='Lien copié ✓';});}else{p.textContent=u;}});
+  }
+  function fermer(){if(dlg.open)dlg.close();}
+  dlg.addEventListener('close',function(){history.replaceState(null,'',location.pathname+location.search);if(dernier)dernier.focus();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)fermer();});
+  cartes.forEach(function(c){c.addEventListener('click',function(){ouvrir(c.dataset.id,c);});});
+  filtrer();
+  var h=location.hash.slice(1);if(h)ouvrir(h);
+})();
+</script>
+{% endblock %}
