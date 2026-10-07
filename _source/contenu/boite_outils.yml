@@ -2,7 +2,7 @@
 # Règle : le lien renvoie vers la page ou le fichier publié par l'auteur de l'outil (jamais une copie hébergée chez nous).
 # Si l'auteur ne publie pas l'outil lui-même, on le signale dans « source » (champ source_note).
 # image : vignette de couverture dans static/assets/img/outils/ (sinon une vignette dessinée est affichée).
-verification: 07/10/2026
+verification: 08/10/2026
 categories:
 - id: prostitution
   titre: Prostitution des mineurs
@@ -10,6 +10,9 @@ categories:
 - id: danger
   titre: Repérer le danger, information préoccupante et signalement
   court: Danger et IP
+- id: evaluation
+  titre: Grilles d'évaluation et de repérage
+  court: Grilles d'évaluation
 - id: sexualite
   titre: Vie affective, sexualité et consentement
   court: Sexualité
@@ -145,6 +148,34 @@ outils:
   quand: "Pour vérifier à qui adresser un écrit et dans quels délais."
   comment:
   - "C'est un exemple : chaque département a sa cellule de recueil (CRIP) et souvent son propre guide. Cherchez celui de votre département."
+- id: cd35-ip
+  cat: danger
+  titre: "Enfance en danger ou en risque de danger : information préoccupante et signalement"
+  auteur: Département d'Ille-et-Vilaine
+  annee: 2024
+  type: Guide pratique interactif
+  public: Professionnels, élus et bénévoles
+  image: cd35-ip.jpg
+  lien: https://www.ille-et-vilaine.fr/sites/iev/files/2024-04/Guide%20informations%20pr%C3%A9occupantes%202023%20interactif%20CD35.pdf
+  lien_label: Guide sur ille-et-vilaine.fr
+  quoi: "Un guide interactif de 61 pages en deux parties. « Comprendre » : besoins de l'enfant, signaux d'alerte, information préoccupante et signalement, ce qui se passe après l'envoi, accueil de la parole d'un mineur. « Savoir quoi faire » : une démarche en trois étapes (identifier ses inquiétudes et les compétences parentales, peser le danger, agir et orienter)."
+  quand: "Quand la situation d'un enfant inquiète et qu'on hésite sur ce qu'il faut faire."
+  comment:
+  - "Suivre les trois étapes de « Savoir quoi faire » : elles aident à passer de l'inquiétude à une décision argumentée."
+  - "Les contacts sont ceux de l'Ille-et-Vilaine : chercher le guide de son propre département pour les coordonnées."
+- id: bdr-ip
+  cat: danger
+  titre: Guide de l'information préoccupante et du signalement (Bouches-du-Rhône)
+  auteur: Département des Bouches-du-Rhône, direction Enfance-Famille
+  annee: 2020
+  type: Guide
+  public: Professionnels médico-sociaux et partenaires de la protection de l'enfance
+  lien: https://departement13.fr/sites/default/files/media/downloads/guide-protection-enfance_2021.pdf
+  lien_label: Guide sur departement13.fr
+  quoi: "Un guide d'une quarantaine de pages : définition et évaluation de l'information préoccupante, rédaction et transmission à la cellule de recueil, saisine du parquet et cas de péril imminent, indicateurs de risque et de maltraitance, rappel sur le devoir d'alerter et le secret professionnel."
+  quand: "Pour relire les indicateurs de danger ou vérifier la différence entre information préoccupante et signalement."
+  comment:
+  - "Utiliser les indicateurs de risque comme support de discussion en équipe, jamais comme une liste à cocher qui déciderait seule."
 - id: cnom
   cat: danger
   titre: "Signalement et information préoccupante"
@@ -358,6 +389,19 @@ outils:
   quand: "Dès qu'un retour est envisagé, pour en construire les étapes avec l'enfant et ses parents."
   comment:
   - "S'appuyer sur la synthèse pour construire un calendrier de retour progressif et les points d'étape."
+- id: bdr-accueil-familial
+  cat: parcours
+  titre: Guide professionnel et partenaires médico-sociaux de l'accueil familial
+  auteur: Département des Bouches-du-Rhône
+  type: Guide
+  public: Assistants familiaux, référents et travailleurs sociaux
+  lien: https://www.departement13.fr/uploads/publications/Guide_pro_accueil_familial_2020.pdf
+  lien_label: Guide sur departement13.fr
+  quoi: "Un guide d'une quarantaine de pages sur l'accueil familial : rôle de chacun, statut de l'assistant familial, répartition des décisions (autorité parentale, juge des enfants, aide sociale à l'enfance), vie quotidienne de l'enfant (scolarité, santé, sorties, liens familiaux), départ de l'enfant."
+  quand: "Pour clarifier « qui décide quoi » autour d'un enfant accueilli, ou accompagner un nouvel assistant familial."
+  comment:
+  - "Reprendre avec l'assistant familial la répartition des décisions avant une situation concrète (voyage, soins, inscription à une activité)."
+  - "Les règles précises varient d'un département à l'autre : vérifier le guide ou le règlement de son département."
 - id: mna-sante
   cat: parcours
   titre: Première évaluation des besoins en santé des mineurs non accompagnés
@@ -439,6 +483,19 @@ outils:
   quand: "Pour former une équipe qui accompagne des familles où des violences conjugales sont repérées."
   comment:
   - "Projeter le film, puis reprendre en équipe les repères du livret sur le repérage et l'orientation."
+- id: has-violences-couple
+  cat: conjugales
+  titre: Repérage des femmes victimes de violences au sein du couple
+  auteur: Haute Autorité de santé (HAS)
+  type: Recommandation et fiches pratiques
+  public: Professionnels de santé, et professionnels du social qui accompagnent des femmes
+  lien: https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+  lien_label: Page de la HAS
+  quoi: "Une recommandation accompagnée de fiches pratiques : « Comment repérer – évaluer », « Comment agir » et un outil d'aide au repérage destiné aux médecins généralistes."
+  quand: "Pour savoir comment poser la question des violences, évaluer le danger et orienter une femme accompagnée."
+  comment:
+  - "S'inspirer des fiches pour aborder systématiquement le sujet, sans attendre que la personne en parle."
+  - "Penser aux enfants : quand une mère est victime, ils sont aussi exposés."
 - id: kit-elisa
   cat: violences
   titre: Kit « Elisa » – les violences sexuelles faites aux femmes
@@ -836,3 +893,99 @@ outils:
   quand: "Face à une question d'alimentation, de prière, de tenue ou de fêtes religieuses dans un lieu de vie."
   comment:
   - "Chercher le cas pratique le plus proche et le discuter en équipe avant de répondre au jeune ou à la famille."
+- id: ssd-evaluation-ip
+  cat: evaluation
+  titre: Guide de l'évaluation des informations préoccupantes
+  auteur: Département de la Seine-Saint-Denis
+  annee: 2023
+  type: Guide, trame et exemples de rapports
+  public: Professionnels chargés d'évaluer une information préoccupante
+  image: ssd-evaluation-ip.jpg
+  lien: https://ressources.seinesaintdenis.fr/IMG/pdf/guideevaluationip_crip_ase_def_2023.pdf
+  lien_label: Guide sur seinesaintdenis.fr
+  quoi: "Un guide de 44 pages : cadre législatif, principes d'une évaluation en protection de l'enfance, évaluation partagée, contenu attendu des rapports. En annexe, la trame du rapport d'évaluation, sa notice d'utilisation et deux exemples de rapports (une famille qui ne s'est pas présentée, une famille en situation complexe)."
+  quand: "Avant de mener ou de rédiger une évaluation d'information préoccupante, ou pour former une équipe à cet exercice."
+  comment:
+  - "S'appuyer sur la trame et sa notice pour structurer son rapport, puis comparer avec les deux exemples."
+  - "C'est le guide d'un département : vérifier la trame en vigueur dans le vôtre, chaque cellule de recueil (CRIP) a ses propres modèles."
+- id: reperage-tnd
+  cat: evaluation
+  titre: "Détecter les signes d'un développement inhabituel chez les enfants de moins de 7 ans"
+  auteur: Délégation interministérielle à la stratégie nationale pour l'autisme au sein des troubles du neuro-développement
+  annee: 2020
+  type: Grille de repérage et formulaire d'adressage
+  public: Médecins, et professionnels de la petite enfance qui les alertent
+  image: reperage-tnd.jpg
+  lien: https://handicap.gouv.fr/sites/handicap/files/2023-02/brochure_reperage_tnd_2020_formulaire.pdf
+  lien_label: Brochure sur handicap.gouv.fr
+  quoi: "Une grille de signes d'alerte par âge (6, 12, 18, 24 et 36 mois, puis 4, 5 et 6 ans) en motricité globale, motricité fine, langage, socialisation et, à partir de 4 ans, cognition. Elle se termine par un formulaire d'adressage vers une plateforme de coordination et d'orientation (PCO)."
+  quand: "Quand le développement d'un jeune enfant interroge l'équipe (crèche, pouponnière, assistant familial, service d'accompagnement des familles)."
+  comment:
+  - "La grille est à remplir par le médecin. Elle aide l'équipe à structurer ses observations avant d'en parler avec les parents et le médecin."
+  - "Un repérage n'est pas un diagnostic : l'objectif est d'orienter tôt vers un bilan."
+- id: adbb
+  cat: evaluation
+  titre: Échelle Alarme détresse bébé (ADBB)
+  auteur: Antoine Guedeney
+  annee: 2012
+  type: Échelle d'observation
+  public: Professionnels de la petite enfance et du soin formés à l'observation
+  lien: https://afpa.org/content/uploads/2017/08/adbb_2012_francais.pdf
+  lien_label: Grille sur le site de l'AFPA
+  source_note: "L'auteur ne publie pas l'échelle lui-même : le lien renvoie vers la version française mise en ligne par l'Association française de pédiatrie ambulatoire (AFPA)."
+  quoi: "Une échelle de 8 items pour repérer le retrait relationnel du bébé : expression du visage, contact visuel, activité corporelle, gestes d'auto-stimulation, vocalisations, vivacité de la réaction, relation, attractivité. Chaque item est coté de 0 (pas de comportement de retrait) à 4 (comportement massivement anormal)."
+  quand: "Quand un bébé paraît « trop sage », peu réactif ou en retrait, par exemple en pouponnière ou en visite à domicile."
+  comment:
+  - "La remplir juste après un temps d'observation, comme le prévoient les consignes ; en cas de doute, retenir la cotation la plus basse."
+  - "Se former à la cotation avant de l'utiliser, et en parler avec le médecin ou le psychologue de l'équipe."
+- id: aggir
+  cat: evaluation
+  titre: La grille nationale AGGIR
+  auteur: Code de l'action sociale et des familles (annexe 2-1)
+  type: Grille d'évaluation de l'autonomie
+  public: Professionnels du soutien à domicile et des établissements pour personnes âgées
+  lien: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034696537/2017-05-11
+  lien_label: Grille et guide de remplissage sur Légifrance
+  quoi: "La grille officielle qui mesure la perte d'autonomie d'une personne âgée. Dix variables (cohérence, orientation, toilette, habillage, alimentation, élimination, transferts, déplacements, communication à distance) sont cotées A, B ou C et donnent le GIR, de 1 (le plus dépendant) à 6. Seuls les GIR 1 à 4 ouvrent droit à l'allocation personnalisée d'autonomie (APA)."
+  quand: "Pour comprendre une évaluation APA, préparer une demande ou expliquer son GIR à une personne et à sa famille."
+  comment:
+  - "Lire le guide de remplissage : chaque activité est cotée selon qu'elle est faite seule, totalement, correctement et habituellement."
+  - "Pour l'expliquer aux familles, le site pour-les-personnes-agees.gouv.fr propose une fiche « Comment fonctionne la grille AGGIR ? »."
+- id: has-perte-autonomie
+  cat: evaluation
+  titre: Outil de repérage des risques de perte d'autonomie ou de son aggravation
+  auteur: Anesm (aujourd'hui HAS)
+  type: Fiche de repérage à cocher
+  public: Intervenants et responsables des services à domicile
+  lien: https://has-sante.fr/upload/docs/application/pdf/2019-03/fiche-outil_reperage_perte_autonomie.pdf
+  lien_label: Fiche sur has-sante.fr
+  quoi: "Une fiche à cocher pour signaler les changements observés chez la personne âgée et chez son proche aidant : difficultés dans la vie quotidienne, chutes, alimentation, hygiène, douleurs, fatigue, tristesse, isolement, refus d'intervention. Une partie est réservée au responsable pour noter les actions proposées."
+  quand: "Hors situation d'urgence, dès qu'un intervenant à domicile remarque que « quelque chose change »."
+  comment:
+  - "L'intervenant coche ce qu'il observe, le responsable de secteur en fait la synthèse et propose des actions à la personne."
+  - "S'en servir aussi pour repérer l'épuisement du proche aidant."
+- id: geva
+  cat: evaluation
+  titre: "Le GEVA – guide d'évaluation des besoins de compensation des personnes handicapées"
+  auteur: CNSA (Caisse nationale de solidarité pour l'autonomie)
+  type: Cahier pédagogique
+  public: Professionnels qui accompagnent une demande à la MDPH
+  lien: https://www.cnsa.fr/sites/default/files/2024-03/PUB_cahierpedagogique_geva_interieur-mai-2015-complet.pdf
+  lien_label: Cahier pédagogique sur cnsa.fr
+  quoi: "Le cahier qui présente l'outil national d'évaluation des MDPH et ses volets : situation familiale, sociale et budgétaire ; habitat ; parcours de formation et professionnel ; volets médical et psychologique ; activités et capacités fonctionnelles ; aides en place ; synthèse des besoins de compensation."
+  quand: "Pour préparer un dossier MDPH ou un écrit qui sera lu par l'équipe pluridisciplinaire de la MDPH."
+  comment:
+  - "Organiser ses observations selon les volets du GEVA : l'équipe de la MDPH retrouve plus facilement ce dont elle a besoin."
+- id: has-essms
+  cat: evaluation
+  titre: Référentiel d'évaluation de la qualité des établissements et services sociaux et médico-sociaux
+  auteur: Haute Autorité de santé (HAS)
+  annee: 2022
+  type: Référentiel et manuel d'évaluation
+  public: Équipes et cadres des établissements et services sociaux et médico-sociaux
+  lien: https://has-sante.fr/jcms/p_3323069/fr/mettre-en-oeuvre-l-evaluation-des-essms
+  lien_label: Page de la HAS
+  quoi: "Le référentiel commun à tous les établissements et services sociaux et médico-sociaux : 3 chapitres, 9 thématiques, 42 objectifs et 157 critères, évalués par trois méthodes (accompagné traceur, traceur ciblé, audit système)."
+  quand: "Pour préparer l'évaluation de la qualité de son établissement ou faire le point sur ses pratiques en équipe."
+  comment:
+  - "Choisir une thématique (par exemple la bientraitance ou le projet personnalisé) et vérifier en équipe comment chaque critère est mis en œuvre."
