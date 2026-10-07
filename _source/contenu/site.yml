@@ -102,6 +102,13 @@ produits:
     lien_paiement: "https://buy.stripe.com/00w6oAgZs4ic9Nx6tA0gw03"
     jeton: "23c2ab94e25d"
     livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+  kit_premiers_pas:
+    # Kit « Premiers pas en protection de l'enfance » (page kit-premiers-pas), achat unique par établissement + 12 mois de suivi
+    prix: "290 € (au lieu de 390 €)"
+    mention_prix: "Offre de lancement réservée aux 10 premiers établissements · achat unique, sans abonnement · TVA non applicable · carte bancaire ou facture"
+    # Coller ici le lien de paiement Stripe (290 €) quand il sera créé ; vide = le bouton ouvre le formulaire de contact
+    lien_paiement: ""
+    livraison: "Le kit (PDF et module 0 modifiable) vous est envoyé par e-mail sous 2 jours ouvrés après le paiement ou la réception du bon de commande, avec la facture et la confirmation de commande."
   guide_entree:
     # Pack « Réussir son entrée en formation sociale » (page preparer-son-entree)
     prix: "35 €"
