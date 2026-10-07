@@ -1,0 +1,54 @@
+slug: intelligence-artificielle-et-ecrits-professionnels
+ordre: 10
+theme: Posture et pratiques
+titre: 'L’intelligence artificielle et les écrits professionnels : gagner du temps sans trahir le secret'
+titre_court: L’IA et les écrits professionnels
+nouveau: true
+jours: 2
+heures: 12
+intro: 'Les outils d’intelligence artificielle générative entrent dans les services : ils reformulent, structurent, corrigent. Mais un écrit en travail social contient des informations couvertes par le secret et engage son auteur. Cette formation apprend à se servir de ces outils avec discernement : ce qu’on peut leur confier, ce qu’on ne leur confie jamais, et comment relire un texte produit avec l’IA pour qu’il reste le sien.'
+public: 'Professionnels du social et du médico-social qui rédigent des écrits : éducateurs, moniteurs-éducateurs, assistants de service social, CESF, TISF, cadres, secrétaires.'
+prerequis: Aucune connaissance technique. Savoir utiliser un ordinateur ou un smartphone.
+objectifs:
+- Expliquer le fonctionnement d’une IA générative, ses limites et ses risques (erreurs, inventions, biais)
+- 'Situer le cadre : secret professionnel, partage d’informations, données personnelles, règles de l’employeur'
+- Distinguer ce qui peut être confié à un outil d’IA de ce qui ne doit jamais l’être, et anonymiser un contenu
+- Formuler des consignes efficaces pour structurer, reformuler ou corriger un écrit à partir d’éléments fictifs
+- Relire de façon critique un texte produit avec l’IA et contribuer aux règles d’usage de son équipe
+programme:
+- titre: Comprendre l’IA générative et ce qu’elle change à l’écrit
+  points:
+  - 'Fonctionnement simplifié d’un modèle de langage : il produit un texte probable, il ne vérifie pas'
+  - Repérer erreurs, inventions, biais et uniformisation des écrits
+  - Distinguer outils grand public et outils fournis par l’employeur
+- titre: 'Situer le cadre : secret, données et responsabilité'
+  points:
+  - Secret professionnel et partage d’informations (Code pénal, art. 226-13 ; CASF, art. L. 226-2-2)
+  - 'Données personnelles et sensibles (RGPD) : où vont les données saisies ?'
+  - Anonymiser un écrit et repérer les détails qui permettent de reconnaître une personne
+  - 'Règlement européen sur l’IA et règles internes : ce que l’employeur autorise'
+- titre: Écrire avec l’IA sans lui confier l’analyse
+  points:
+  - 'Construire une consigne : rôle, contexte, tâche, format, limites'
+  - 'Usages utiles : plan, reformulation, correction, courrier plus lisible pour une famille'
+  - 'Ce qui reste au professionnel : observation, évaluation, analyse, préconisation et parole de la personne'
+- titre: Relire, assumer et poser des règles d’équipe
+  points:
+  - Relire avec une grille (exactitude, faits et analyse, vocabulaire stigmatisant, place de la personne)
+  - S’appuyer sur les repères de la HAS et de la CNIL
+  - Élaborer une proposition de charte d’usage de l’IA pour son service
+horaires:
+- 9h00 – 12h00
+- 13h00 – 16h00
+pedagogie:
+- Supports pédagogiques imprimés et/ou numériques
+- Apports conceptuels et démonstrations projetées
+- Ateliers sur des situations fictives (aucune donnée réelle saisie dans un outil)
+- Partage d’expériences
+evaluation:
+- Évaluations individuelles à chaud et à froid
+- Tour de table en fin de formation
+- Retour du formateur
+- Analyse des questionnaires
+- Vérification de l’atteinte des objectifs par des exercices de mise en pratique
+effectif: 8 à 12 personnes
