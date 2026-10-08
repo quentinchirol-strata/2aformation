@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{# Recherche « autour de chez moi ». Données : _site/trouver-son-stage/donnees/ (générées par build.py à partir de contenu/stages et contenu/stages_geo). #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver un stage autour de chez moi","inLanguage":"fr","description":"Recherche par distance parmi les structures sociales et médico-sociales de France pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.finder{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:20px 22px;margin-top:22px}
+.finder .row{display:grid;grid-template-columns:1fr 150px auto;gap:12px;align-items:end}
+.finder .loc{margin-top:10px;font:700 .88rem var(--body);background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:0}
+.finder small{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
+.ac{position:relative}
+.sug{position:absolute;left:0;right:0;top:100%;z-index:20;background:var(--surface);border:1px solid var(--line);border-radius:0 0 10px 10px;box-shadow:0 10px 24px rgba(0,0,0,.12);margin:0;padding:4px 0;list-style:none;max-height:300px;overflow:auto}
+.sug li{padding:8px 14px;cursor:pointer;font-size:.93rem}
+.sug li small{color:var(--muted);display:inline;margin:0 0 0 6px}
+.sug li[aria-selected="true"],.sug li:hover{background:var(--ochre-soft)}
+.count{font-size:.9rem;color:var(--muted);margin:6px 0 18px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.st{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.st .top2{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.st .ty{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}
+.st .km{font:700 .82rem var(--body);color:var(--paper);background:var(--green);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.st h3{font-size:1.02rem;margin:2px 0 4px}
+.st .ad,.st .ge{color:var(--muted)}
+.st .ge{font-size:.84rem}
+.st .ln{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px;font-weight:700;font-size:.88rem}
+.add{align-self:flex-start;margin-top:8px;font:700 .85rem var(--body);background:var(--surface);color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:5px 12px;cursor:pointer}
+.add[aria-pressed="true"]{background:var(--green);color:var(--paper)}
+.st.sel{border-color:var(--green);box-shadow:inset 4px 0 0 var(--green)}
+.more{margin-top:18px;text-align:center}
+.fil{font-size:.8rem;color:var(--muted);margin:-4px 0 14px}
+.src{font-size:.84rem;color:var(--muted);margin-top:26px;max-width:none}
+.tools{display:grid;grid-template-columns:1fr 240px;gap:12px;margin-bottom:12px}
+.addall{font:700 .88rem var(--body);background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:0}
+.vide{background:var(--ochre-soft);border-radius:12px;padding:22px 24px}
+.panier{position:sticky;bottom:0;z-index:9;background:var(--ink);color:var(--paper);border-top:3px solid var(--ochre)}
+.panier .wrap{display:flex;gap:12px 18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:12px}
+.panier b{font-family:var(--display);font-size:1.1rem}
+.panier .acts{display:flex;gap:10px;flex-wrap:wrap}
+.panier .btn.primary{background:var(--ochre);border-color:var(--ochre)}
+.panier .btn.ghost{color:var(--paper);border-color:#7d8b86}
+.panier .btn.ghost:hover{background:#34444A}
+.panier small{display:block;opacity:.75;font-size:.8rem}
+@media (max-width:700px){.finder .row,.tools{grid-template-columns:1fr}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Autour de chez moi</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Nouveau · Gratuit, sans inscription</p>
+<h1 style="margin-top:10px">Trouver un stage autour de chez moi</h1>
+<p class="lead">Entrez votre commune, choisissez la distance que vous pouvez faire : vous voyez les structures sociales et médico-sociales les plus proches, de la plus près à la plus loin, même de l'autre côté de la limite du département.</p>
+<form class="finder" id="finder" autocomplete="off">
+<div class="row">
+<label class="ac">Ma commune ou mon code postal<input id="ville" type="text" placeholder="Ex. Narbonne, 33000…" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sug"><ul class="sug" id="sug" role="listbox" hidden></ul></label>
+<label>Distance<select id="rayon"><option value="10">10 km</option><option value="20" selected>20 km</option><option value="30">30 km</option><option value="50">50 km</option><option value="80">80 km</option></select></label>
+<button class="btn primary" type="submit">Chercher</button>
+</div>
+<button class="loc" id="loc" type="button">📍 Utiliser ma position</button>
+<small>Votre position est calculée sur votre appareil : elle ne nous est jamais envoyée. Les distances sont à vol d'oiseau.</small>
+</form>
+</div></div></div>
+
+<section id="resultats"><div class="wrap">
+<div id="avant" class="vide"><b>Comment ça marche ?</b><p style="margin-top:6px;font-size:.95rem">Tapez les premières lettres de votre commune (ou votre code postal), choisissez-la dans la liste, puis « Chercher ». Vous pourrez ensuite filtrer par secteur, ajouter des structures à votre liste et télécharger votre tableau de suivi Excel. {{ nb_geo }} structures sont cartographiées en France, outre-mer compris.</p></div>
+<div id="apres" hidden>
+<div class="head"><p class="eyebrow">Résultats</p><h2 id="titre">Autour de…</h2></div>
+<div class="filters" id="secteurs" role="group" aria-label="Filtrer par secteur"></div>
+<p class="fil" id="fil"></p>
+<div class="tools">
+<label>Affiner (nom, type, commune, gestionnaire)<input id="q" type="search" placeholder="Ex. MECS, IME, foyer…"></label>
+<label>Type de structure<select id="ty"><option value="">Tous les types</option></select></label>
+</div>
+<p class="count"><span id="count" aria-live="polite"></span> · <button class="addall" id="addall" type="button">Ajouter ces résultats à ma liste</button></p>
+<div class="list" id="list"></div>
+<div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
+</div>
+<p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Position approximative de chaque structure calculée à partir de sa commune (données ouvertes Etalab et base officielle des codes postaux de La Poste) : comptez la distance comme un ordre de grandeur. Vérifiez les coordonnées avant d'appeler. 2A Formation n'est pas lié à ces structures et ne sait pas lesquelles accueillent des stagiaires. Une erreur ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%20(autour%20de%20moi)">Écrivez-nous</a>.</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>Avant d'appeler : la méthode</h2><p>Nos 5 étapes de terrain, la question de la gratification et la checklist PDF.</p></div><a class="btn" href="{{ R }}trouver-son-stage/index.html#methode">Voir la méthode</a></div>
+</div></section>
+
+<div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="dl" type="button">Télécharger mon tableau Excel</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>
+<script>
+const DEPS={{ index_dep|safe }}, SECT={{ secteurs|safe }}, BASE='{{ R }}trouver-son-stage/donnees/';
+const S=Object.fromEntries(SECT.map(s=>[s[0],s]));
+const $=id=>document.getElementById(id);
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[-']/g,' ').replace(/\bst\b/g,'saint').replace(/\s+/g,' ').trim();
+const km=(a,b,c,d)=>{const r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 12742*Math.asin(Math.sqrt(x));};
+let COM=null, comP=null, cache={}, here=null, all=[], cur='', shown=24, lastRes=[];
+const KEY='2a-stages-autour'; let sel={}; try{sel=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(sel));}catch(e){} const n=Object.keys(sel).length; $('panier').hidden=!n; $('pn').textContent=n+(n>1?' structures':' structure');}
+function loadCom(){if(!comP) comP=fetch(BASE+'communes.json').then(r=>r.json()).then(j=>{COM=j.map(c=>({n:c[0],cp:c[1],la:c[2],lo:c[3],k:norm(c[0])}));return COM;});return comP;}
+const ville=$('ville'), sug=$('sug'); let opts=[], act=-1, pick=null;
+ville.addEventListener('focus',loadCom,{once:true});
+function showSug(){const v=ville.value.trim(); pick=null; if(!COM||v.length<2){sug.hidden=true;ville.setAttribute('aria-expanded','false');return;}
+  const k=norm(v), num=/^\d/.test(v);
+  opts=(num?COM.filter(c=>c.cp.startsWith(v)):COM.filter(c=>c.k.startsWith(k)).concat(COM.filter(c=>!c.k.startsWith(k)&&c.k.includes(' '+k)))).slice(0,8);
+  act=opts.length?0:-1;
+  sug.innerHTML=opts.map((c,i)=>'<li role="option" id="o'+i+'" aria-selected="'+(i===act)+'" data-i="'+i+'">'+c.n+'<small>'+c.cp+'</small></li>').join('');
+  sug.hidden=!opts.length; ville.setAttribute('aria-expanded',String(!!opts.length));}
+ville.oninput=()=>{loadCom().then(showSug);};
+ville.onkeydown=e=>{if(sug.hidden)return; if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();act=(act+(e.key==='ArrowDown'?1:-1)+opts.length)%opts.length;[...sug.children].forEach((li,i)=>li.setAttribute('aria-selected',i===act));} else if(e.key==='Enter'&&act>=0){e.preventDefault();choose(opts[act],true);} else if(e.key==='Escape'){sug.hidden=true;}};
+sug.onmousedown=e=>{const li=e.target.closest('li'); if(li){e.preventDefault();choose(opts[+li.dataset.i],true);}};
+ville.onblur=()=>setTimeout(()=>{sug.hidden=true;},150);
+function choose(c,go){pick=c; ville.value=c.n+' ('+c.cp+')'; sug.hidden=true; ville.setAttribute('aria-expanded','false'); if(go) run({la:c.la,lo:c.lo,nom:c.n});}
+$('finder').onsubmit=async e=>{e.preventDefault(); if(pick) return run({la:pick.la,lo:pick.lo,nom:pick.n}); await loadCom(); const v=ville.value.trim(); if(!v) return ville.focus();
+  const k=norm(v.replace(/\(.*\)/,'')), num=/^\d{5}$/.test(v); const c=num?COM.find(c=>c.cp===v):(COM.find(c=>c.k===k)||COM.find(c=>c.k.startsWith(k)));
+  if(c) choose(c,true); else {$('avant').hidden=false;$('apres').hidden=true;$('avant').innerHTML='<b>Commune introuvable.</b> Vérifiez l\'orthographe, ou essayez avec le code postal.';}};
+$('rayon').onchange=()=>{if(here) run(Object.assign({},here,{go:false}));};
+$('loc').onclick=()=>{const b=$('loc'); if(!navigator.geolocation){b.textContent='Localisation indisponible sur cet appareil';return;} b.textContent='Localisation en cours…';
+  navigator.geolocation.getCurrentPosition(p=>{b.textContent='📍 Utiliser ma position';ville.value='Ma position';pick=null;run({la:p.coords.latitude,lo:p.coords.longitude,nom:'votre position'});},()=>{b.textContent='📍 Position refusée : tapez votre commune';},{enableHighAccuracy:false,timeout:10000,maximumAge:600000});};
+async function run(h){here=h; const r=+$('rayon').value;
+  const need=DEPS.filter(d=>km(h.la,h.lo,d[3],d[4])<=r+d[5]);
+  $('avant').hidden=true; $('apres').hidden=false; $('titre').textContent='Chargement…';
+  try{await Promise.all(need.filter(d=>!cache[d[0]]).map(d=>fetch(BASE+d[0]+'.json').then(x=>x.json()).then(j=>{cache[d[0]]=j;})));}catch(e){$('titre').textContent='Le chargement a échoué. Vérifiez votre connexion et réessayez.';return;}
+  all=[]; need.forEach(d=>cache[d[0]].forEach(s=>{const k=km(h.la,h.lo,s.la,s.lo); if(k<=r) all.push(Object.assign({}, s, {km:k, dep:d[0]}));}));
+  all.sort((a,b)=>a.km-b.km||a.n.localeCompare(b.n,'fr'));
+  $('titre').textContent=all.length+(all.length>1?' structures':' structure')+' à moins de '+r+' km de '+(h.nom==='votre position'?'votre position':h.nom);
+  cur=''; shown=24; $('q').value=''; $('ty').value=''; draw();
+  if(h.go!==false&&window.innerWidth<900) setTimeout(()=>$('apres').scrollIntoView({behavior:'smooth',block:'start'}),50);
+  try{if(location.hash!=='#'+h.la.toFixed(3)+','+h.lo.toFixed(3)+','+r) history.replaceState(null,'','#'+(h.nom==='votre position'?'':encodeURIComponent(h.nom)+'@')+h.la.toFixed(3)+','+h.lo.toFixed(3)+','+r);}catch(e){}
+  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'recherche-stage-autour-'+r+'km',title:'Recherche autour de moi',event:true});}catch(e){}
+}
+const fmt=k=>k<1?'< 1 km':(k<10?k.toFixed(1).replace('.',','):Math.round(k))+' km';
+function btn(k,l,c){const b=document.createElement('button');b.type='button';b.textContent=l+' ('+c+')';b.setAttribute('aria-pressed',k===cur);b.onclick=()=>{cur=k;shown=24;$('ty').value='';draw();};return b;}
+function draw(){const sec=$('secteurs'), ty=$('ty');
+  sec.innerHTML=''; sec.append(btn('','Tous',all.length));
+  SECT.forEach(s=>{const c=all.filter(d=>d.s===s[0]).length; if(c) sec.append(btn(s[0],s[1],c));});
+  $('fil').textContent=cur?'Formations concernées le plus souvent : '+S[cur][2]+'.':'';
+  const base=all.filter(d=>!cur||d.s===cur);
+  const types=[...new Set(base.map(d=>d.t))].sort((a,b)=>a.localeCompare(b,'fr'));
+  const keep=ty.value; ty.innerHTML='<option value="">Tous les types</option>'+types.map(t=>'<option'+(t===keep?' selected':'')+'>'+t+'</option>').join('');
+  const qq=norm($('q').value);
+  const res=base.filter(d=>(!ty.value||d.t===ty.value)&&(!qq||norm(d.n+' '+d.v+' '+d.cp+' '+d.g+' '+d.t).includes(qq)));
+  lastRes=res;
+  $('count').textContent=res.length+(res.length>1?' structures':' structure');
+  $('list').innerHTML=res.length?res.slice(0,shown).map(d=>{const m='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v), on=!!sel[d.f];
+    return '<article class="st'+(on?' sel':'')+'"><span class="top2"><span class="ty">'+d.t+'</span><span class="km">'+fmt(d.km)+'</span></span><h3>'+d.n+'</h3><span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+'<span class="ln">'+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte et site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+on+'">'+(on?'✓ Dans ma liste':'+ Ajouter à ma liste')+'</button></article>';}).join('')
+    :'<div class="vide" style="grid-column:1/-1"><b>Aucune structure dans ce rayon.</b> Essayez une distance plus grande ou un autre secteur.</div>';
+  $('more').parentElement.style.display=res.length>shown?'':'none';
+}
+const keepRow=d=>{const o=Object.assign({},d); o.km=Math.round(d.km*10)/10; delete o.la; delete o.lo; return o;};
+$('q').oninput=()=>{shown=24;draw();}; $('ty').onchange=()=>{shown=24;draw();}; $('more').onclick=()=>{shown+=24;draw();};
+$('list').onclick=e=>{const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; if(sel[f]) delete sel[f]; else {const d=all.find(x=>x.f===f); if(d) sel[f]=keepRow(d);} save(); draw();};
+$('addall').onclick=()=>{lastRes.forEach(d=>{sel[d.f]=keepRow(d);}); save(); draw();};
+$('clear').onclick=()=>{sel={}; save(); draw();};
+function loadLib(){return window.ExcelJS?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src='{{ R }}assets/js/exceljs.min.js';s.onload=ok;s.onerror=ko;document.head.append(s);});}
+$('dl').onclick=async()=>{
+  const b=$('dl'); b.textContent='Préparation…';
+  try{await loadLib();}catch(e){b.textContent='Télécharger mon tableau Excel';alert('Le téléchargement n\'a pas pu démarrer. Vérifiez votre connexion.');return;}
+  const SL=Object.fromEntries(SECT.map(s=>[s[0],s[1]]));
+  const rows=Object.values(sel).sort((a,b)=>(a.km||0)-(b.km||0));
+  const wb=new ExcelJS.Workbook(); wb.creator='2aFormation';
+  const G='FF2E5B4E', OC='FFB8572A';
+  const ws=wb.addWorksheet('Mes candidatures',{views:[{state:'frozen',ySplit:1,xSplit:1}]});
+  ws.columns=[['Structure',38],['Distance (km)',10],['Type',22],['Secteur',26],['Adresse',30],['CP',8],['Commune',20],['Téléphone',15],['Gestionnaire',34],['Carte et site',13],['Appel passé',12],['Date d\'appel',13],['Candidature envoyée',14],['Date d\'envoi',13],['Relance faite',12],['Date de relance',14],['Réponse',16],['Notes',40]].map(([h,w])=>({header:h,width:w}));
+  rows.forEach(d=>ws.addRow([d.n,d.km,d.t,SL[d.s],d.a,d.cp,d.v,d.p,d.g,{text:'Voir',hyperlink:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v)},'','','','','','','En attente','']));
+  const hr=ws.getRow(1); hr.height=32; hr.eachCell(c=>{c.font={bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:c.col>=11?OC:G}};c.alignment={vertical:'middle',wrapText:true};});
+  const last=rows.length+1;
+  ws.autoFilter={from:'A1',to:'R1'};
+  for(let r=2;r<=last;r++){
+    ws.getCell('J'+r).font={color:{argb:G},underline:true};
+    ['K','M','O'].forEach(c=>{const x=ws.getCell(c+r);x.dataValidation={type:'list',allowBlank:true,formulae:['"Oui,Non"']};x.alignment={horizontal:'center'};});
+    ['L','N','P'].forEach(c=>{const x=ws.getCell(c+r);x.dataValidation={type:'date',operator:'greaterThan',allowBlank:true,formulae:[new Date(2020,0,1)]};x.numFmt='dd/mm/yyyy';});
+    ws.getCell('Q'+r).dataValidation={type:'list',allowBlank:true,formulae:['"En attente,Entretien,Accepté,Refusé,Pas de réponse"']};
+  }
+  const rng='A2:R'+last;
+  ws.addConditionalFormatting({ref:rng,rules:[
+    {type:'expression',formulae:['$Q2="Accepté"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFDCE8E2'}}}},
+    {type:'expression',formulae:['$Q2="Entretien"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFF6E4D9'}}}},
+    {type:'expression',formulae:['OR($Q2="Refusé",$Q2="Pas de réponse")'],style:{font:{color:{argb:'FF8A9590'}}}},
+    {type:'expression',formulae:['AND($M2="Oui",$O2<>"Oui",$N2<>"",TODAY()-$N2>=10,$Q2="En attente")'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:'FFFFF2CC'}}}}]});
+  const bi=wb.addWorksheet('Bilan');
+  bi.columns=[{width:44},{width:14}];
+  bi.addRow(['Mon bilan de recherche de stage']).font={bold:true,size:14,color:{argb:G}};
+  bi.addRow([]);
+  const R='\'Mes candidatures\'!';
+  [['Structures dans ma liste',{formula:'COUNTA('+R+'A2:A'+last+')'}],['Appels passés',{formula:'COUNTIF('+R+'K2:K'+last+',"Oui")'}],['Candidatures envoyées',{formula:'COUNTIF('+R+'M2:M'+last+',"Oui")'}],['Relances faites',{formula:'COUNTIF('+R+'O2:O'+last+',"Oui")'}],['Entretiens',{formula:'COUNTIF('+R+'Q2:Q'+last+',"Entretien")'}],['Réponses positives',{formula:'COUNTIF('+R+'Q2:Q'+last+',"Accepté")'}],['Refus',{formula:'COUNTIF('+R+'Q2:Q'+last+',"Refusé")'}]].forEach(([l,f])=>{const r=bi.addRow([l,f]);r.getCell(2).font={bold:true};});
+  bi.addRow([]);
+  bi.addRow(['Les lignes surlignées en jaune : candidature envoyée il y a 10 jours ou plus, sans relance. C\'est le moment de relancer.']).font={italic:true};
+  const me=wb.addWorksheet('Mode d\'emploi'); me.getColumn(1).width=110;
+  ['Mode d\'emploi','','1. Dans « Mes candidatures », choisissez Oui ou Non dans les colonnes orange, et notez les dates.','2. Colonne Réponse : En attente, Entretien, Accepté, Refusé ou Pas de réponse.','3. Relancez poliment au bout de 10 jours : la ligne passe en jaune pour vous le rappeler.','4. Les distances sont à vol d\'oiseau, à partir du centre des communes : vérifiez le trajet réel.','5. Vérifiez les coordonnées avant d\'appeler : certaines peuvent avoir changé.','','Source des coordonnées : FINESS (ministère chargé de la santé et des solidarités), data.gouv.fr, Licence Ouverte, extraction du 04/05/2026.','Tableau proposé gratuitement par 2aFormation, organisme de formation du travail social : https://2aformation.com','Bonne recherche !'].forEach((t,i)=>{const r=me.addRow([t]); if(i===0) r.font={bold:true,size:14,color:{argb:G}};});
+  const buf=await wb.xlsx.writeBuffer();
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})); a.download='mes-candidatures-stage-autour-de-moi.xlsx'; document.body.append(a); a.click(); a.remove();
+  b.textContent='Télécharger mon tableau Excel';
+  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'telechargement-tableau-stages-autour',title:'Tableau Excel stages autour de moi',event:true});}catch(e){}
+};
+save();
+(function(){const h=decodeURIComponent(location.hash.slice(1)); const m=h.match(/^(?:(.+)@)?(-?[\d.]+),(-?[\d.]+),(\d+)$/); if(!m) return;
+  const r=$('rayon'); if([...r.options].some(o=>o.value===m[4])) r.value=m[4]; if(m[1]) ville.value=m[1]; run({la:+m[2],lo:+m[3],nom:m[1]||'votre position',go:false});})();
+</script>
+{% endblock %}

@@ -122,9 +122,6 @@ def main():
     jm = site["produits"]["guide_memoire"]["jeton"]
     ecrire(f"guide-memoire/merci-{jm}/index.html", "merci_memoire.html", rubrique="etudiants", jeton=jm,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack mémoire.")
-    ecrire("kit-premiers-pas/index.html", "kit_premiers_pas.html", rubrique="formations",
-           titre_page="Kit d'accueil Premiers pas en protection de l'enfance · nouveaux arrivants · 2aFormation",
-           description="Kit d'accueil des nouveaux arrivants en protection de l'enfance : livret de 9 modules, quiz corrigés, module 0 modifiable et guide du chef de service. Achat unique, 12 mois de suivi inclus.")
     ecrire("preparer-son-entree/index.html", "guide_entree.html", rubrique="etudiants",
            titre_page="Réussir son entrée en formation sociale : projet motivé et entretien (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
            description="Guide PDF et 8 trames Word pour préparer son projet de formation motivé Parcoursup et son entretien d'admission en école du travail social. À jour de la réforme 2026.")
@@ -200,6 +197,37 @@ def main():
                    data_json=donnees, par_secteur=par_secteur, villes=villes,
                    titre_page=f"Stage éducateur, ME, ASS {d['en']} : {d['n']} structures · 2aFormation",
                    description=f"{d['n']} structures sociales et médico-sociales {d['de']} où chercher un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social, avec la méthode et un tableau de suivi gratuit.")
+    # Recherche « autour de chez moi » : coordonnées pré-calculées (contenu/stages_geo/, données Etalab / La Poste)
+    geo_s = json.load(open(os.path.join(ICI, "contenu/stages_geo/structures.json"), encoding="utf-8"))
+    geo_c = json.load(open(os.path.join(ICI, "contenu/stages_geo/communes.json"), encoding="utf-8"))
+    dos = os.path.join(SORTIE, "trouver-son-stage/donnees")
+    os.makedirs(dos, exist_ok=True)
+    index_dep, nb_geo = [], 0
+    from math import radians, sin, cos, asin, sqrt
+    def km(a, b, c, d):
+        return 12742 * asin(sqrt(sin(radians(c - a) / 2) ** 2 + cos(radians(a)) * cos(radians(c)) * sin(radians(d - b) / 2) ** 2))
+    for st in regions:
+        for d in st["departements"]:
+            lst = []
+            for s in d["structures"]:
+                g = geo_s.get(s["f"])
+                if g:
+                    lst.append(dict(s, la=g[0], lo=g[1]))
+            if not lst:
+                continue
+            nb_geo += len(lst)
+            la = sum(s["la"] for s in lst) / len(lst); lo = sum(s["lo"] for s in lst) / len(lst)
+            rmax = max(km(la, lo, s["la"], s["lo"]) for s in lst)
+            index_dep.append([d["code"], d["slug"], d["nom"], round(la, 3), round(lo, 3), round(rmax + 1)])
+            with open(os.path.join(dos, f"{d['code']}.json"), "w", encoding="utf-8") as fh:
+                json.dump(lst, fh, ensure_ascii=False, separators=(",", ":"))
+    with open(os.path.join(dos, "communes.json"), "w", encoding="utf-8") as fh:
+        json.dump([[c[0], c[2], round(c[3], 2), round(c[4], 2)] for c in sorted(geo_c, key=lambda c: -(c[5] or 0))], fh, ensure_ascii=False, separators=(",", ":"))
+    ecrire("trouver-son-stage/autour-de-moi/index.html", "stages_autour.html", rubrique="etudiants",
+           index_dep=json.dumps(index_dep, ensure_ascii=False), secteurs=json.dumps(regions[0]["secteurs"], ensure_ascii=False),
+           nb_geo=f"{nb_geo:,}".replace(",", " "),
+           titre_page="Stage dans le social autour de chez moi : recherche par distance · 2aFormation",
+           description="Entrez votre commune et trouvez les structures sociales et médico-sociales les plus proches pour votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social. Gratuit, sans inscription.")
     nb_dep = sum(len(r["departements"]) for r in regions)
     ecrire("trouver-son-stage/index.html", "stages_region.html", rubrique="etudiants", regions=regions,
            total=sum(d["n"] for r in regions for d in r["departements"]), nb_dep=nb_dep,
