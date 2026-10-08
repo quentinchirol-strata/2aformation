@@ -228,6 +228,9 @@ def main():
            nb_geo=f"{nb_geo:,}".replace(",", " "),
            titre_page="Stage dans le social autour de chez moi : recherche par distance · 2aFormation",
            description="Entrez votre commune et trouvez les structures sociales et médico-sociales les plus proches pour votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social. Gratuit, sans inscription.")
+    ecrire("trouver-son-stage/kit-candidature/index.html", "stages_kit.html", rubrique="etudiants",
+           titre_page="Kit candidature de stage : script d'appel, trame de lettre, mails · 2aFormation",
+           description="Gratuit : script d'appel, trame de lettre de motivation, mails de candidature, de relance et de remerciement pour trouver un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social.")
     nb_dep = sum(len(r["departements"]) for r in regions)
     ecrire("trouver-son-stage/index.html", "stages_region.html", rubrique="etudiants", regions=regions,
            total=sum(d["n"] for r in regions for d in r["departements"]), nb_dep=nb_dep,

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{# Kit candidature gratuit pour la recherche de stage. Trames à compléter : jamais de lettre toute faite. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kit candidature de stage en travail social","inLanguage":"fr","description":"Script d'appel, trame de lettre de motivation, mails de candidature, de relance et de remerciement pour trouver un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.som{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.som a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;text-decoration:none;color:var(--ink);font-weight:600}
+.som a:hover{border-color:var(--green);color:var(--green)}
+.outil{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start;padding:30px 0;border-top:1px solid var(--line)}
+.outil:first-of-type{border-top:0}
+.outil .num{font:700 .78rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ochre)}
+.outil h2{font-size:1.45rem;margin:6px 0 10px}
+.outil .quand{font-size:.93rem;color:var(--muted)}
+.outil ul{padding-left:18px;font-size:.93rem;display:grid;gap:6px;margin-top:10px}
+.trame{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:18px 20px;position:relative}
+.trame pre{white-space:pre-wrap;font:400 .93rem/1.6 var(--body);margin:0;color:var(--ink)}
+.trame pre i{font-style:normal;background:var(--ochre-soft);color:#7a3417;border-radius:4px;padding:0 4px}
+.trame .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.copy{font:700 .85rem var(--body);background:var(--green);color:var(--paper);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.copy.ok{background:var(--ochre)}
+.att{background:var(--ochre-soft);border-radius:12px;padding:20px 24px;margin-top:8px;font-size:.95rem}
+.att b{font-family:var(--display)}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.qs div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:.92rem}
+.qs b{display:block;margin-bottom:4px}
+@media (max-width:760px){.outil{grid-template-columns:1fr;gap:14px}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Kit candidature</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Kit candidature de stage</h1>
+<p class="lead">Le script pour appeler une structure, la trame de votre lettre et les mails qui vont avec : candidature, relance, remerciement. Ce sont des trames : les passages <span style="background:var(--ochre-soft);color:#7a3417;border-radius:4px;padding:0 4px">en couleur</span> sont à remplir avec vos mots. Une candidature recopiée se repère vite, la vôtre fera la différence.</p>
+<nav class="som" aria-label="Sommaire du kit"><a href="#appel">1 · Script d'appel</a><a href="#lettre">2 · Trame de lettre</a><a href="#envoi">3 · Mail d'envoi</a><a href="#relance">4 · Mail de relance</a><a href="#merci">5 · Après la réponse</a><a href="#entretien">6 · Préparer l'entretien</a></nav>
+</div></div></div>
+
+<section><div class="wrap">
+
+<div class="outil" id="appel"><div><p class="num">Outil 1 · Avant d'écrire</p><h2>Le script d'appel au secrétariat</h2><p class="quand">Un appel de deux minutes vous dit si la structure prend des stagiaires, à quelle période et à qui écrire. Appelez plutôt en milieu de matinée, jamais à l'heure du repas.</p>
+<ul><li>Ayez sous les yeux vos dates de stage et le nom de votre établissement de formation.</li><li>Notez tout de suite le nom de la personne à qui adresser la demande, et la date de l'appel (le tableau Excel de l'annuaire a une colonne pour ça).</li><li>Si on vous répond « on ne prend personne cette année », demandez simplement si une autre structure de l'association pourrait accueillir un stagiaire.</li></ul></div>
+<div class="trame"><pre id="t-appel">Bonjour, je m'appelle <i>prénom nom</i>. Je suis étudiant(e) en <i>1re / 2e / 3e</i> année de formation <i>d'éducateur spécialisé / de moniteur-éducateur / d'assistant de service social…</i> à <i>nom de votre établissement de formation</i>.
+
+Je recherche un stage <i>de X semaines</i>, du <i>date</i> au <i>date</i>. Est-ce que votre structure accueille des stagiaires ?
+
+[Si oui]
+– À qui dois-je adresser ma candidature ? (nom, fonction, adresse mail)
+– Préférez-vous un envoi par mail ou par courrier ?
+– Y a-t-il une période où il vaut mieux envoyer la demande ?
+
+[Si non ou « pas pour l'instant »]
+– Une autre structure de votre association pourrait-elle accueillir un stagiaire ?
+– Puis-je vous rappeler pour une période ultérieure ?
+
+Merci beaucoup pour votre temps, bonne journée.</pre><div class="acts"><button class="copy" type="button" data-t="t-appel" data-goatcounter-click="kit-copie-appel">Copier le script</button></div></div></div>
+
+<div class="outil" id="lettre"><div><p class="num">Outil 2 · Le cœur de la candidature</p><h2>La trame de lettre de motivation</h2><p class="quand">Une page maximum, quatre paragraphes. Ce n'est pas une lettre à recopier : chaque paragraphe pose une question à laquelle vous seul(e) pouvez répondre.</p>
+<ul><li>Renseignez-vous sur la structure (site, projet d'établissement, public accueilli) avant d'écrire le 2e paragraphe.</li><li>Une phrase précise vaut mieux qu'un paragraphe général : « votre travail avec les familles en visite médiatisée » plutôt que « votre structure m'intéresse ».</li><li>Faites relire l'orthographe par quelqu'un de votre entourage.</li></ul></div>
+<div class="trame"><pre id="t-lettre"><i>Prénom Nom</i>
+<i>Adresse · téléphone · mail</i>
+
+<i>Nom de la personne indiquée au téléphone</i>
+<i>Fonction · nom et adresse de la structure</i>
+
+<i>Ville</i>, le <i>date</i>
+
+Objet : demande de stage <i>de formation d'éducateur spécialisé…</i> du <i>date</i> au <i>date</i>
+
+<i>Madame / Monsieur</i>,
+
+1. Qui je suis et ce que je demande
+Je suis en <i>année</i> de formation <i>diplôme</i> à <i>établissement de formation</i>. Je recherche un stage <i>de X semaines</i>, du <i>date</i> au <i>date</i>.
+→ Si vous avez appelé : rappelez-le (« Suite à mon échange avec <i>nom</i> le <i>date</i>… »).
+
+2. Pourquoi votre structure
+→ Qu'est-ce qui vous attire dans CETTE structure : son public, son projet, sa façon de travailler ? Une ou deux phrases précises, avec vos mots.
+
+3. Ce que j'apporte et ce que je viens apprendre
+→ Une expérience (stage, emploi, bénévolat, vie personnelle) qui vous a fait avancer, sans situation qui permette de reconnaître une personne.
+→ Ce que vous voulez apprendre pendant ce stage, en lien avec les attendus de votre formation.
+
+4. La suite
+Je reste disponible pour un entretien à votre convenance et je me permettrai de vous recontacter dans une dizaine de jours. Vous trouverez ci-joint mon CV <i>et la note de stage de mon établissement de formation, s'il y en a une</i>.
+
+Je vous prie d'agréer, <i>Madame / Monsieur</i>, l'expression de mes salutations distinguées.
+
+<i>Signature</i></pre><div class="acts"><button class="copy" type="button" data-t="t-lettre" data-goatcounter-click="kit-copie-lettre">Copier la trame</button></div></div></div>
+
+<div class="outil" id="envoi"><div><p class="num">Outil 3 · L'envoi</p><h2>Le mail d'envoi de la candidature</h2><p class="quand">Court : la lettre et le CV sont en pièces jointes, en PDF, nommés clairement (« Lettre-stage-Nom-Prenom.pdf »).</p>
+<ul><li>Utilisez une adresse mail sobre, à votre nom.</li><li>Relisez l'objet : c'est la première chose lue.</li><li>Notez la date d'envoi dans votre tableau de suivi.</li></ul></div>
+<div class="trame"><pre id="t-envoi">Objet : Demande de stage <i>diplôme</i> – <i>dates</i> – <i>Prénom Nom</i>
+
+<i>Madame / Monsieur</i>,
+
+<i>Suite à mon appel du date</i>, je vous adresse ma candidature pour un stage <i>de X semaines</i> du <i>date</i> au <i>date</i>, dans le cadre de ma formation <i>diplôme</i> à <i>établissement de formation</i>.
+
+Vous trouverez en pièces jointes ma lettre de motivation et mon CV.
+
+Je reste à votre disposition pour un entretien et vous remercie de l'attention portée à ma demande.
+
+Bien cordialement,
+<i>Prénom Nom</i>
+<i>Téléphone</i></pre><div class="acts"><button class="copy" type="button" data-t="t-envoi" data-goatcounter-click="kit-copie-envoi">Copier le mail</button></div></div></div>
+
+<div class="outil" id="relance"><div><p class="num">Outil 4 · Dix jours plus tard</p><h2>Le mail de relance</h2><p class="quand">Sans réponse au bout de dix jours, une relance polie est normale : les structures reçoivent beaucoup de demandes et la vôtre a pu passer sous la pile. Une seule relance par mail, puis un appel si besoin.</p>
+<ul><li>Répondez au mail d'origine (pour garder les pièces jointes dans la conversation).</li><li>Aucun reproche, aucune insistance : vous rappelez simplement votre demande.</li></ul></div>
+<div class="trame"><pre id="t-relance">Objet : Re : Demande de stage <i>diplôme</i> – <i>dates</i> – <i>Prénom Nom</i>
+
+<i>Madame / Monsieur</i>,
+
+Je me permets de revenir vers vous au sujet de ma demande de stage du <i>date d'envoi</i>, pour la période du <i>date</i> au <i>date</i>.
+
+Je reste très intéressé(e) par <i>ce qui vous attire dans la structure, en quelques mots</i> et disponible pour un échange, par téléphone ou lors d'un entretien.
+
+Je vous remercie par avance pour votre réponse, quelle qu'elle soit.
+
+Bien cordialement,
+<i>Prénom Nom</i>
+<i>Téléphone</i></pre><div class="acts"><button class="copy" type="button" data-t="t-relance" data-goatcounter-click="kit-copie-relance">Copier le mail</button></div></div></div>
+
+<div class="outil" id="merci"><div><p class="num">Outil 5 · Après la réponse</p><h2>Remercier, même après un refus</h2><p class="quand">Le travail social est un petit milieu : une réponse courte et aimable laisse une bonne image et garde la porte ouverte pour un prochain stage, voire un premier poste.</p></div>
+<div><div class="trame"><pre id="t-oui">Objet : Merci – stage du <i>date</i> au <i>date</i>
+
+<i>Madame / Monsieur</i>,
+
+Je vous remercie vivement d'accepter de m'accueillir en stage du <i>date</i> au <i>date</i>. Je transmets dès aujourd'hui votre réponse à <i>mon établissement de formation</i> pour la préparation de la convention de stage.
+
+<i>Si besoin : Pourriez-vous m'indiquer le nom de la personne qui sera mon référent(e) de stage ?</i>
+
+Au plaisir de vous rencontrer,
+<i>Prénom Nom</i></pre><div class="acts"><button class="copy" type="button" data-t="t-oui" data-goatcounter-click="kit-copie-oui">Copier : réponse positive</button></div></div>
+<div class="trame" style="margin-top:14px"><pre id="t-non">Objet : Re : Demande de stage <i>diplôme</i> – <i>Prénom Nom</i>
+
+<i>Madame / Monsieur</i>,
+
+Merci d'avoir pris le temps de me répondre. Je comprends tout à fait. Si une possibilité se présentait pour un stage ultérieur, je serais heureux(se) de vous adresser à nouveau ma candidature.
+
+Bien cordialement,
+<i>Prénom Nom</i></pre><div class="acts"><button class="copy" type="button" data-t="t-non" data-goatcounter-click="kit-copie-non">Copier : après un refus</button></div></div></div></div>
+
+<div class="outil" id="entretien"><div><p class="num">Outil 6 · Le rendez-vous</p><h2>Préparer l'entretien de stage</h2><p class="quand">L'entretien est un échange, pas un examen. On attend surtout de vous de la curiosité, de la sincérité et une idée de ce que vous venez apprendre.</p>
+<ul><li>Relisez votre lettre et le projet de la structure juste avant.</li><li>Apportez votre CV, vos dates, et les documents de votre établissement de formation sur le stage.</li><li>Préparez deux ou trois questions à poser : elles montrent votre intérêt.</li></ul></div>
+<div><div class="qs">
+<div><b>« Pourquoi notre structure ? »</b>Reprenez ce qui vous a attiré, en une phrase précise.</div>
+<div><b>« Qu'attendez-vous de ce stage ? »</b>Deux ou trois apprentissages concrets, en lien avec votre formation.</div>
+<div><b>« Que savez-vous de notre public ? »</b>Ce que vous avez lu ou compris, et ce que vous avez envie de découvrir.</div>
+<div><b>« Une situation qui vous a marqué ? »</b>Racontez ce que vous en avez appris, sans détail qui permette de reconnaître quelqu'un.</div>
+<div><b>« Vos points à travailler ? »</b>Un point réel, et ce que vous faites déjà pour progresser.</div>
+<div><b>Vos questions à poser</b>Comment se passe l'accueil d'un stagiaire ? Qui sera mon référent ? Quelles réunions pourrai-je suivre ?</div>
+</div></div></div>
+
+<div class="att"><b>À savoir.</b> Au-delà de deux mois de stage dans la même structure au cours d'une même année d'enseignement, une gratification est obligatoire (<a href="https://entreprendre.service-public.gouv.fr/vosdroits/F32131">service-public.fr</a>). Le stage fait l'objet d'une convention entre vous, la structure et votre établissement de formation : renseignez-vous auprès de lui avant de vous engager. Et si vous utilisez une IA pour vous aider, gardez la main sur l'écriture : servez-vous-en pour trouver vos idées ou relire l'orthographe, pas pour écrire la lettre à votre place.</div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>Où envoyer votre candidature ?</h2><p>Les structures sociales et médico-sociales les plus proches de chez vous, triées par distance, avec un tableau de suivi gratuit.</p></div><a class="btn" href="{{ R }}trouver-son-stage/autour-de-moi/index.html">Chercher autour de chez moi</a></div>
+</div></section>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.t).innerText.trim(), l=b.textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='✓ Copié';b.classList.add('ok');setTimeout(()=>{b.textContent=l;b.classList.remove('ok');},2200);}).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.t));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Texte sélectionné : Ctrl+C';});});
+</script>
+{% endblock %}
