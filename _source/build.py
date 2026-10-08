@@ -186,6 +186,20 @@ def main():
     import unicodedata
     regions = [json.load(open(p, encoding="utf-8")) for p in glob.glob(os.path.join(ICI, "contenu/stages/*.json"))]
     regions.sort(key=lambda r: (r["slug"] == "outre-mer", unicodedata.normalize("NFD", r["region"]).encode("ascii", "ignore").decode()))
+    # Guide des structures (contenu/stages_structures.yml) : une fiche par type de l'annuaire
+    guide = lire_yaml("contenu/stages_structures.yml")
+    from collections import Counter as _C
+    nb_type = _C(x["t"] for r in regions for d in r["departements"] for x in d["structures"])
+    for f in guide["fiches"]:
+        f["n"] = sum(nb_type[t] for t in f["types"])
+    guide_map = json.dumps({t: f["id"] for f in guide["fiches"] for t in f["types"]}, ensure_ascii=False)
+    par_sect = {}
+    for f in guide["fiches"]:
+        par_sect.setdefault(f["secteur"], []).append(f)
+    ecrire("trouver-son-stage/structures/index.html", "stages_guide.html", rubrique="etudiants", g=guide, par=par_sect,
+           secteurs=regions[0]["secteurs"],
+           titre_page="MECS, IME, ITEP, CHRS… : quelle structure pour mon stage ? Guide des structures · 2aFormation",
+           description=f"{len(guide['fiches'])} types de structures sociales et médico-sociales expliqués aux étudiants : public, missions, métiers et conseils de stage. MECS, IME, ITEP, ESAT, CHRS, AEMO… Gratuit.")
     for st in regions:
         for d in st["departements"]:
             donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
@@ -194,7 +208,7 @@ def main():
             par_secteur = [(lib, nb_sect[cle]) for cle, lib, _ in st["secteurs"] if nb_sect[cle]]
             villes = Counter(s["v"] for s in d["structures"] if s.get("v")).most_common(3)
             ecrire(f"trouver-son-stage/{d['slug']}/index.html", "stages_departement.html", rubrique="etudiants", st=st, d=d,
-                   data_json=donnees, par_secteur=par_secteur, villes=villes,
+                   data_json=donnees, par_secteur=par_secteur, villes=villes, guide_map=guide_map,
                    titre_page=f"Stage éducateur, ME, ASS {d['en']} : {d['n']} structures · 2aFormation",
                    description=f"{d['n']} structures sociales et médico-sociales {d['de']} où chercher un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social, avec la méthode et un tableau de suivi gratuit.")
     # Recherche « autour de chez moi » : coordonnées pré-calculées (contenu/stages_geo/, données Etalab / La Poste)
@@ -224,10 +238,18 @@ def main():
     with open(os.path.join(dos, "communes.json"), "w", encoding="utf-8") as fh:
         json.dump([[c[0], c[2], round(c[3], 2), round(c[4], 2)] for c in sorted(geo_c, key=lambda c: -(c[5] or 0))], fh, ensure_ascii=False, separators=(",", ":"))
     ecrire("trouver-son-stage/autour-de-moi/index.html", "stages_autour.html", rubrique="etudiants",
-           index_dep=json.dumps(index_dep, ensure_ascii=False), secteurs=json.dumps(regions[0]["secteurs"], ensure_ascii=False),
+           index_dep=json.dumps(index_dep, ensure_ascii=False), secteurs=json.dumps(regions[0]["secteurs"], ensure_ascii=False), guide_map=guide_map,
            nb_geo=f"{nb_geo:,}".replace(",", " "),
            titre_page="Stage dans le social autour de chez moi : recherche par distance · 2aFormation",
            description="Entrez votre commune et trouvez les structures sociales et médico-sociales les plus proches pour votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social. Gratuit, sans inscription.")
+    faq = lire_yaml("contenu/stages_faq.yml")
+    import re as _re, html as _html
+    faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "fr",
+                         "mainEntity": [{"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": _html.unescape(_re.sub(r"<[^>]+>", "", x["r"]))}}
+                                        for b in faq["blocs"] for x in b["questions"]]}, ensure_ascii=False).replace("</", "<\\/")
+    ecrire("trouver-son-stage/faq/index.html", "stages_faq.html", rubrique="etudiants", f=faq, faq_ld=faq_ld,
+           titre_page="Stage en travail social : gratification, convention, droits… vos questions · 2aFormation",
+           description="Quand chercher son stage, appeler ou écrire, gratification (4,50 € de l'heure en 2026), convention, droits du stagiaire : les réponses vérifiées pour les étudiants éducateurs, ME, ASS, CESF.")
     ecrire("trouver-son-stage/kit-candidature/index.html", "stages_kit.html", rubrique="etudiants",
            titre_page="Kit candidature de stage : script d'appel, trame de lettre, mails · 2aFormation",
            description="Gratuit : script d'appel, trame de lettre de motivation, mails de candidature, de relance et de remerciement pour trouver un stage d'éducateur, de moniteur-éducateur ou d'assistant de service social.")

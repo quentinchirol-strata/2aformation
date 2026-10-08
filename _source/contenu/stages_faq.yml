@@ -1,0 +1,43 @@
+# FAQ du stage (page trouver-son-stage/faq/). Réponses vérifiées le 08/10/2026 sur service-public.gouv.fr.
+# « r » accepte du HTML simple. Les montants changent chaque 1er janvier : revérifier en janvier.
+verification: 08/10/2026
+sources:
+  - ["Stage d'un étudiant en milieu professionnel (service-public.gouv.fr, vérifié le 1er janvier 2026)", "https://www.service-public.gouv.fr/particuliers/vosdroits/F16734"]
+  - ["Gratification minimale d'un stagiaire (entreprendre.service-public.gouv.fr, vérifié le 1er janvier 2026)", "https://entreprendre.service-public.gouv.fr/vosdroits/F32131"]
+blocs:
+- titre: Chercher
+  questions:
+  - q: Quand faut-il commencer à chercher son stage ?
+    r: "Le plus tôt possible : trois à six mois avant le début du stage est un bon repère, davantage pour un stage long ou une structure très demandée. Beaucoup de structures organisent l'accueil des stagiaires plusieurs mois à l'avance, et certaines ne prennent qu'un ou deux stagiaires par an. Calez-vous aussi sur le calendrier de votre établissement de formation (dates, validation du terrain de stage)."
+  - q: Combien de structures faut-il contacter ?
+    r: "Il n'y a pas de chiffre magique, mais une liste de 20 à 30 structures n'a rien d'excessif, surtout dans un secteur recherché. Ce qui compte, c'est d'être organisé : notez chaque appel, chaque envoi et chaque relance. Le tableau Excel gratuit de nos pages départements le fait pour vous."
+  - q: Faut-il appeler ou envoyer un mail ?
+    r: "Appelez d'abord. Un appel de deux minutes au secrétariat vous dit si la structure prend des stagiaires, à quelle période et à qui écrire. Votre candidature arrive ensuite à la bonne personne, avec son nom. C'est aussi pour cela que notre annuaire donne le téléphone : le répertoire public FINESS ne contient pas les adresses mail. Le <a href=\"../kit-candidature/index.html\">kit candidature</a> propose un script d'appel."
+  - q: Et si je n'ai aucune réponse ?
+    r: "Relancez une fois, poliment, au bout d'une dizaine de jours. Si rien ne vient, élargissez : une zone un peu plus large (essayez la <a href=\"../autour-de-moi/index.html\">recherche autour de chez moi</a> à 30 ou 50 km), un autre secteur, des structures plus petites. Et parlez-en tôt à votre établissement de formation, qui connaît souvent des terrains habitués à accueillir."
+- titre: La convention et la gratification
+  questions:
+  - q: La convention de stage est-elle obligatoire ?
+    r: "Oui. Le stage se déroule obligatoirement dans le cadre d'une convention signée par le stagiaire, la structure d'accueil, l'établissement de formation, l'enseignant référent et le tuteur de stage. Elle précise notamment les compétences à acquérir, les activités confiées, les dates, la durée de présence, les conditions d'absence, la gratification s'il y en a une et l'encadrement. C'est en général votre établissement de formation qui la prépare."
+  - q: Le stage est-il payé ?
+    r: "Une gratification est obligatoire quand le stage dure plus de deux mois consécutifs (l'équivalent de 44 jours à 7 heures) ou, pour un stage discontinu, à partir de la 309<sup>e</sup> heure, au cours d'une même année d'enseignement. En 2026, elle est d'au moins <strong>4,50 € par heure de présence</strong> (15 % du plafond horaire de la sécurité sociale). Elle est due dès le premier jour et versée chaque mois. Les organismes publics ne peuvent pas verser plus que ce minimum. En dessous de deux mois, la structure n'a pas d'obligation de vous gratifier."
+  - q: Pourquoi la gratification peut-elle freiner l'accueil ?
+    r: "Parce qu'elle représente un coût pour des structures aux budgets serrés. Abordez-la simplement, sans en faire un sujet de négociation, et demandez à votre établissement de formation comment il vous accompagne sur ce point."
+  - q: Combien de temps peut durer un stage ?
+    r: "En règle générale, un stage ne peut pas dépasser six mois (924 heures de présence) par structure d'accueil et par année d'enseignement. En pratique, c'est votre formation qui fixe la durée et le nombre de vos stages : vérifiez-le avec votre établissement, car certaines formations ont des règles particulières."
+- titre: Pendant le stage
+  questions:
+  - q: Quels sont mes droits pendant le stage ?
+    r: "Vous n'êtes pas salarié, mais vous avez un tuteur qui vous accompagne tout au long du stage, et les mêmes droits que les salariés sur le temps de travail (durées maximales, repos, jours fériés, travail de nuit), l'accès au restaurant d'entreprise ou aux titres-restaurant, le remboursement d'une partie des frais de transport public et la protection contre le harcèlement. Pour un stage de plus de deux mois, la convention doit prévoir des congés et des autorisations d'absence. À la fin, la structure vous remet une attestation de stage."
+  - q: La structure peut-elle me faire occuper un poste ?
+    r: "Non. Un stagiaire ne peut pas remplacer un salarié absent, occuper un poste permanent, faire face à un surcroît d'activité ou tenir un emploi saisonnier. Vos missions doivent correspondre au projet pédagogique de votre formation. Il est aussi interdit de vous confier des tâches dangereuses pour votre santé ou votre sécurité. Si vous avez un doute, parlez-en à votre référent de formation."
+  - q: Puis-je parler de ce que je vois en stage ?
+    r: "Avec beaucoup de prudence. Vous êtes tenu à la discrétion professionnelle et, dans de nombreux services (protection de l'enfance notamment), au secret professionnel. Dans vos écrits de formation, anonymisez tout ce qui permettrait de reconnaître une personne ou une structure. Et ne confiez jamais une situation réelle à une IA."
+  - q: Et si le stage s'interrompt ?
+    r: "Un stage interrompu pour maladie, accident, maternité, paternité ou adoption, pour non-respect de la convention ou parce que la structure y met fin peut être validé par votre établissement de formation. La fin du stage peut aussi être reportée si tous les signataires de la convention sont d'accord."
+- titre: Cas particuliers
+  questions:
+  - q: Je travaille déjà dans le social. Puis-je faire mon stage chez mon employeur ?
+    r: "Cela dépend des règles de votre formation et de votre statut (formation initiale, en situation d'emploi, apprentissage, formation continue). Les règles du stage étudiant décrites ici concernent surtout la formation initiale. Posez la question à votre établissement de formation avant de démarcher."
+  - q: Puis-je faire un stage à l'étranger ?
+    r: "C'est possible si votre formation le permet. La convention de stage doit alors comporter en annexe une fiche sur la réglementation du pays d'accueil (droits et devoirs du stagiaire). Anticipez : les démarches et la recherche prennent plus de temps."

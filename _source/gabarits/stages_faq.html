@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{# FAQ du stage (contenu/stages_faq.yml). Balisage FAQPage pour les résultats enrichis. #}
+{% block jsonld %}<script type="application/ld+json">{{ faq_ld|safe }}</script>{% endblock %}
+{% block head_extra %}<style>
+.fq{max-width:860px}
+.fq h2{margin:36px 0 12px}
+.fq details{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.fq summary{cursor:pointer;padding:16px 20px;font-weight:700;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:14px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary::after{content:"+";color:var(--ochre);font-size:1.4rem;line-height:1}
+.fq details[open] summary::after{content:"–"}
+.fq details[open]{border-color:var(--green)}
+.fq .rep{padding:0 20px 18px;font-size:.95rem}
+.fq .rep a{font-weight:700}
+.srcs{font-size:.84rem;color:var(--muted);margin-top:28px}
+.srcs a{color:var(--muted)}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Questions fréquentes</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Stage en travail social : vos questions, nos réponses</h1>
+<p class="lead">Quand chercher, faut-il appeler ou écrire, le stage est-il payé, que dit la convention, quels sont vos droits… Les réponses courtes, avec les règles officielles vérifiées.</p>
+</div></div></div>
+<section style="padding-top:0"><div class="wrap fq">
+{% for b in f.blocs %}<h2>{{ b.titre }}</h2>
+{% for x in b.questions %}<details{% if loop.first and loop.index0 == 0 and b == f.blocs[0] %} open{% endif %}><summary>{{ x.q }}</summary><div class="rep">{{ x.r|safe }}</div></details>
+{% endfor %}{% endfor %}
+<p class="srcs">Règles vérifiées le {{ f.verification }} : {% for l, u in f.sources %}<a href="{{ u }}" target="_blank" rel="noopener">{{ l }}</a>{% if not loop.last %} · {% endif %}{% endfor %}. Les conseils sont ceux de 2A Formation, éducateurs spécialisés en poste ; ils ne remplacent pas les règles de votre établissement de formation.</p>
+</div></section>
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>Prêt à chercher ?</h2><p>Les structures les plus proches de chez vous, le guide des structures et le kit candidature.</p></div><a class="btn" href="{{ R }}trouver-son-stage/autour-de-moi/index.html">Chercher autour de chez moi</a></div>
+</div></section>
+{% endblock %}

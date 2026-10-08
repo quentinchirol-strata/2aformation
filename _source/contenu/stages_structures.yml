@@ -1,0 +1,494 @@
+# Guide des structures pour la recherche de stage (page trouver-son-stage/structures/).
+# « types » : libellés exacts du champ « t » des données FINESS (contenu/stages/*.json) qui pointent vers la fiche.
+# Rédaction : 2A Formation, sources officielles vérifiées le 08/10/2026.
+verification: 08/10/2026
+sources:
+  ase: [solidarites.gouv.fr, "L'aide sociale à l'enfance, acteur majeur de la protection de l'enfance", "https://solidarites.gouv.fr/laide-sociale-lenfance-acteur-majeur-de-la-protection-de-lenfance"]
+  ems: [monparcourshandicap.gouv.fr, "La scolarisation en établissement médico-social", "https://www.monparcourshandicap.gouv.fr/scolarite/comment-seffectue-la-scolarisation-en-etablissement-medico-social-ems"]
+  pjj: [justice.gouv.fr, "Les services territoriaux éducatifs de milieu ouvert (PJJ)", "https://www.justice.gouv.fr/annuaire/etablissements-services-protection-judiciaire-jeunesse/stemo"]
+  chrs: [logement.gouv.fr, "Fiche pratique : les CHRS", "https://www.financement-logement-social.logement.gouv.fr/IMG/pdf/03_fiche_pratique_les-centres-d-hebergement-et-de-reinsertion-sociale-_chrs__mai_2021_cle2bb6b1.pdf"]
+  fjt: [logement.gouv.fr, "Fiche pratique : les foyers de jeunes travailleurs", "https://www.financement-logement-social.logement.gouv.fr/IMG/pdf/13_fiche_pratique-les_foyers_de_jeunes_travailleurs__fjt_-mai_2021_cle1eda16.pdf"]
+  pf: [ecologie.gouv.fr, "Les pensions de famille (dossier de presse de la Dihal)", "https://www.ecologie.gouv.fr/sites/default/files/documents/DP_Pensions%20de%20famille_VDEF.pdf"]
+  add: [drogues.gouv.fr, "Le dispositif de soins en addictologie (MILDECA)", "https://www.drogues.gouv.fr/le-dispositif-de-soins-en-addictologie-0"]
+  prec: [solidarites.gouv.fr, "Guide des établissements et services pour l'accès aux soins des personnes précaires (2024)", "https://solidarites.gouv.fr/sites/solidarite/files/2024-12/Guide-ESMS-acces-aux-soins-personnes-precaires-decembre-2024.pdf"]
+  asile: [etrangers-en-france.interieur.gouv.fr, "Les aides proposées aux demandeurs d'asile", "https://etrangers-en-france.interieur.gouv.fr/demander-l-asile/quelles-sont-les-aides-proposees-aux-demandeurs-d-asile"]
+  mjpm: [justice.fr, "La tutelle d'un majeur", "https://www.justice.fr/fiche/tutelle-personne-majeure"]
+  camsp: [monparcourshandicap.gouv.fr, "CAMSP : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/camsp"]
+  cmpp: [monparcourshandicap.gouv.fr, "CMPP : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/cmpp"]
+  esat: [monparcourshandicap.gouv.fr, "Esat : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/esat"]
+  espo: [monparcourshandicap.gouv.fr, "ESPO : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/espo"]
+  esrp: [monparcourshandicap.gouv.fr, "ESRP : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/esrp"]
+  fam: [monparcourshandicap.gouv.fr, "FAM : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/fam"]
+  mas: [monparcourshandicap.gouv.fr, "MAS : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/mas"]
+  mdph: [monparcourshandicap.gouv.fr, "MDPH : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/mdph"]
+  samsah: [monparcourshandicap.gouv.fr, "SAMSAH : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/samsah"]
+  savs: [monparcourshandicap.gouv.fr, "SAVS : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/savs"]
+  fdv: [monparcourshandicap.gouv.fr, "Foyer de vie : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/foyer-de-vie-occupationnel"]
+
+fiches:
+# ---------- Protection de l'enfance et familles ----------
+- id: mecs
+  secteur: enfance
+  sigle: "MECS"
+  nom: "Maison d'enfants à caractère social"
+  types: [MECS]
+  public: "Enfants et adolescents, parfois jeunes majeurs jusqu'à 21 ans, confiés à l'aide sociale à l'enfance par décision administrative ou par le juge des enfants."
+  missions: "Accueillir l'enfant au quotidien (internat, petits groupes, appartements pour les plus grands), l'accompagner dans sa scolarité, sa santé et ses projets, et travailler les liens avec sa famille."
+  metiers: "L'éducateur spécialisé et le moniteur-éducateur sont au cœur de l'équipe, souvent en horaires d'internat (soirées, week-ends). Il y a parfois un poste d'ASS ou de CESF."
+  stage: "Le lieu de stage le plus classique en protection de l'enfance. Attendez-vous à des horaires décalés et préparez votre réflexion sur la place des parents."
+  source: ase
+- id: foyer-enfance
+  secteur: enfance
+  sigle: "Foyer de l'enfance"
+  nom: "Foyer départemental de l'enfance"
+  types: ["Foyer de l'enfance"]
+  public: "Enfants et adolescents accueillis en urgence ou pour une courte durée, le temps d'évaluer leur situation."
+  missions: "Mettre l'enfant à l'abri, évaluer sa situation avec les services du département et préparer une orientation (retour en famille, MECS, famille d'accueil)."
+  metiers: "Éducateurs spécialisés et moniteurs-éducateurs en internat, travail d'observation et d'écrits d'évaluation."
+  stage: "Un stage intense et formateur sur l'urgence, l'accueil et l'évaluation. Souvent rattaché au département : la demande passe en général par la direction de l'établissement."
+  source: ase
+- id: lva
+  secteur: enfance
+  sigle: "LVA"
+  nom: "Lieu de vie et d'accueil"
+  types: ["Lieu de vie et d'accueil"]
+  public: "Quelques enfants, adolescents ou adultes (souvent moins de dix) qui ont besoin d'un cadre de vie très resserré."
+  missions: "Partager le quotidien avec les personnes accueillies, souvent à la campagne, autour d'un projet de vie et d'activités."
+  metiers: "Les permanents vivent souvent sur place. Des éducateurs, des moniteurs-éducateurs ou des personnes venues d'autres horizons y travaillent."
+  stage: "Une expérience de « vie partagée » très particulière. Demandez comment se passent l'hébergement et le tutorat : il n'y a pas toujours un éducateur diplômé pour vous accompagner."
+  source: ase
+- id: placement-familial
+  secteur: enfance
+  sigle: "Placement familial"
+  nom: "Service de placement familial"
+  types: [Placement familial]
+  public: "Enfants confiés à l'ASE et accueillis chez des assistants familiaux."
+  missions: "Recruter et accompagner les assistants familiaux, suivre chaque enfant et organiser les liens avec ses parents (visites, rencontres)."
+  metiers: "Éducateurs spécialisés et ASS référents, qui travaillent en lien étroit avec les familles d'accueil et les psychologues."
+  stage: "Un bon terrain pour découvrir la référence éducative, les visites médiatisées et les écrits pour le juge."
+  source: ase
+- id: aemo
+  secteur: enfance
+  sigle: "AEMO / AED"
+  nom: "Action éducative en milieu ouvert ou à domicile"
+  types: [AEMO / AED]
+  public: "Enfants qui vivent chez leurs parents et familles en difficulté éducative. L'AED est décidée avec l'accord des parents, l'AEMO par le juge des enfants."
+  missions: "Accompagner la famille à domicile pour que l'enfant puisse rester chez lui en sécurité, et rendre compte au juge ou au département."
+  metiers: "Surtout des éducateurs spécialisés et des ASS, en visites à domicile, entretiens et rapports."
+  stage: "Idéal pour travailler l'entretien, la relation avec les parents et les écrits. Plutôt en fin de formation, car on travaille seul en visite après un temps d'observation."
+  source: ase
+- id: tisf
+  secteur: enfance
+  sigle: "TISF"
+  nom: "Service d'aide à domicile aux familles"
+  types: ["Aide à domicile aux familles (TISF)"]
+  public: "Familles qui ont besoin d'un soutien à domicile dans la vie quotidienne et l'éducation des enfants."
+  missions: "Intervenir au domicile (repas, hygiène, organisation, scolarité, loisirs) pour soutenir les parents dans leur rôle."
+  metiers: "Des techniciens de l'intervention sociale et familiale (TISF), avec un encadrement souvent assuré par une CESF ou un travailleur social."
+  stage: "Surtout pour les futurs TISF et CESF. Pour un éducateur, utile pour comprendre le travail au domicile."
+  source: ase
+- id: agbf
+  secteur: enfance
+  sigle: "MJAGBF"
+  nom: "Aide à la gestion du budget familial"
+  types: [Aide à la gestion du budget familial]
+  public: "Familles dont les difficultés à gérer les prestations familiales ont des conséquences sur les enfants."
+  missions: "Gérer avec la famille tout ou partie des prestations familiales et l'aider à retrouver une gestion autonome (mesure administrative ou décidée par le juge)."
+  metiers: "Des délégués aux prestations familiales, souvent CESF ou ASS de formation."
+  stage: "Un terrain recherché par les futurs CESF et ASS : budget, droits, accompagnement des familles."
+  source: ase
+- id: centre-parental
+  secteur: enfance
+  sigle: "Centre parental"
+  nom: "Centre parental"
+  types: [Centre parental]
+  public: "Futurs parents et parents avec un enfant de moins de 3 ans, qui ont besoin d'un soutien pour s'occuper de leur bébé."
+  missions: "Héberger et accompagner les deux parents ensemble autour de la naissance et des premiers mois, pour protéger l'enfant et soutenir le lien."
+  metiers: "Éducateurs spécialisés, EJE, psychologues, parfois puéricultrices et TISF."
+  stage: "Un terrain précieux sur la parentalité et la petite enfance, recherché par les EJE."
+  source: ase
+- id: prevention-specialisee
+  secteur: enfance
+  sigle: "Prévention spécialisée"
+  nom: "Service de prévention spécialisée"
+  types: [Prévention spécialisée]
+  public: "Jeunes de 11 à 25 ans environ, dans les quartiers, souvent en rupture avec les institutions."
+  missions: "Aller vers les jeunes (travail de rue), créer une relation de confiance, sans mandat, et les accompagner vers l'école, l'emploi, la santé ou les droits."
+  metiers: "Essentiellement des éducateurs spécialisés, souvent en binôme, avec des horaires de fin de journée."
+  stage: "Un stage qui apprend l'« aller vers » et la libre adhésion. Prévoyez du temps pour vous faire connaître dans le quartier."
+  source: ase
+- id: experimental
+  secteur: enfance
+  sigle: "Structure expérimentale"
+  nom: "Structure ou service expérimental"
+  types: [Structure expérimentale]
+  public: "Variable selon le projet : enfants, adolescents, adultes handicapés, publics aux besoins mal couverts."
+  missions: "Tester une réponse nouvelle pendant une durée limitée (dispositif innovant, accueil séquentiel, équipe mobile…)."
+  metiers: "Selon le projet, souvent des équipes pluridisciplinaires."
+  stage: "Lisez bien le projet avant d'appeler : chaque structure est différente."
+  source: ase
+# ---------- Justice des mineurs ----------
+- id: pjj-milieu-ouvert
+  secteur: pjj
+  sigle: "PJJ milieu ouvert"
+  nom: "Service éducatif de milieu ouvert (PJJ)"
+  types: ["Milieu ouvert (PJJ)"]
+  public: "Mineurs et jeunes majeurs suivis par la justice, surtout au pénal, et leurs familles."
+  missions: "Mettre en œuvre les mesures éducatives décidées par le juge, accompagner le jeune dans sa vie quotidienne et rendre compte à la justice."
+  metiers: "Des éducateurs de la PJJ et des ASS, ainsi que des psychologues."
+  stage: "La PJJ accueille des stagiaires de toutes les formations sociales. Les services publics de la PJJ ont souvent leur propre circuit de demande de stage : renseignez-vous auprès de la direction territoriale."
+  source: pjj
+- id: pjj-placement
+  secteur: pjj
+  sigle: "PJJ placement"
+  nom: "Hébergement éducatif (PJJ)"
+  types: ["Placement (PJJ)"]
+  public: "Mineurs placés sur décision du juge des enfants, au pénal ou parfois au civil."
+  missions: "Héberger, encadrer et préparer la suite du parcours (famille, insertion), en foyer, en famille d'accueil ou en centre éducatif fermé."
+  metiers: "Éducateurs (PJJ ou associatif habilité), moniteurs-éducateurs, en internat."
+  stage: "Un terrain exigeant sur le cadre et la gestion des tensions, plutôt pour un stage long."
+  source: pjj
+- id: pjj-investigation
+  secteur: pjj
+  sigle: "MJIE"
+  nom: "Service d'investigation éducative"
+  types: [Investigation éducative]
+  public: "Mineurs et familles pour lesquels le juge des enfants demande une évaluation."
+  missions: "Réaliser une mesure judiciaire d'investigation éducative (MJIE) : entretiens, visites, puis rapport au juge avec des propositions."
+  metiers: "Éducateurs, ASS et psychologues en équipe pluridisciplinaire."
+  stage: "Excellent pour les écrits professionnels et l'évaluation, en fin de formation."
+  source: pjj
+- id: pjj-activites
+  secteur: pjj
+  sigle: "Activités de jour"
+  nom: "Unité éducative d'activités de jour (PJJ)"
+  types: ["Activités de jour (PJJ)"]
+  public: "Jeunes suivis par la PJJ, souvent sortis du système scolaire."
+  missions: "Proposer des activités (ateliers techniques, culturels, sportifs) pour remobiliser les jeunes et construire un projet d'insertion."
+  metiers: "Éducateurs et professeurs techniques de la PJJ."
+  stage: "Un bon terrain pour qui aime le support d'activité et l'insertion."
+  source: pjj
+# ---------- Handicap : enfants et adolescents ----------
+- id: ime
+  secteur: handienf
+  sigle: "IME"
+  nom: "Institut médico-éducatif"
+  types: [IME]
+  public: "Enfants et adolescents de 3 à 20 ans en situation de handicap, le plus souvent avec une déficience intellectuelle, orientés par la MDPH."
+  missions: "Proposer soins, éducation adaptée et scolarité (dans l'IME ou dans une école proche). Les plus grands préparent leur insertion professionnelle (section SIPFP, ex-IMPro)."
+  metiers: "Éducateurs spécialisés, moniteurs-éducateurs, AES, éducateurs techniques, avec une équipe de soin."
+  stage: "Un terrain très fréquent pour les ES et les ME. Renseignez-vous sur les publics accueillis (autisme, polyhandicap…) selon l'agrément."
+  source: ems
+- id: itep
+  secteur: handienf
+  sigle: "ITEP / DITEP"
+  nom: "Institut thérapeutique, éducatif et pédagogique"
+  types: [ITEP / DITEP]
+  public: "Enfants et adolescents dont les troubles du comportement perturbent gravement la socialisation et les apprentissages, orientés par la MDPH."
+  missions: "Associer soin, éducation et scolarité, en internat, en accueil de jour ou sur les lieux de vie de l'enfant. Beaucoup fonctionnent désormais en « dispositif » (DITEP), qui permet de passer d'une modalité à l'autre."
+  metiers: "Éducateurs spécialisés et moniteurs-éducateurs, enseignants spécialisés, psychologues, thérapeutes."
+  stage: "Un stage formateur sur la relation et la gestion des crises. Préparez-vous à réfléchir sur la contenance et le travail en équipe."
+  source: ems
+- id: sessad
+  secteur: handienf
+  sigle: "SESSAD"
+  nom: "Service d'éducation spéciale et de soins à domicile"
+  types: [SESSAD]
+  public: "Enfants et jeunes en situation de handicap qui vivent en famille et sont scolarisés en milieu ordinaire."
+  missions: "Intervenir là où vit l'enfant (école, domicile, lieux de loisirs) pour soutenir son autonomie, ses apprentissages et sa famille."
+  metiers: "Éducateurs spécialisés, psychomotriciens, orthophonistes, psychologues, souvent rattachés à un IME ou un ITEP."
+  stage: "Un bon terrain pour travailler l'inclusion et le partenariat avec l'école. Beaucoup de déplacements : demandez si un véhicule est nécessaire."
+  source: ems
+- id: camsp
+  secteur: handienf
+  sigle: "CAMSP"
+  nom: "Centre d'action médico-sociale précoce"
+  types: [CAMSP]
+  public: "Enfants de 0 à 6 ans qui présentent des difficultés ou des retards de développement, et leurs parents."
+  missions: "Dépister, diagnostiquer et accompagner tôt, avec des séances de soin et un soutien aux parents."
+  metiers: "Équipe surtout médicale et paramédicale, avec des éducateurs (souvent EJE) et des ASS."
+  stage: "Recherché par les EJE et les ASS. Les places de stage sont rares : appelez tôt."
+  source: camsp
+- id: cmpp
+  secteur: handienf
+  sigle: "CMPP"
+  nom: "Centre médico-psycho-pédagogique"
+  types: [CMPP]
+  public: "Enfants et adolescents de 0 à 20 ans avec des difficultés d'apprentissage, de langage, psychomotrices ou de comportement."
+  missions: "Proposer des consultations et des suivis (psychothérapie, orthophonie, psychomotricité), en lien avec la famille et l'école."
+  metiers: "Surtout des soignants et des thérapeutes, avec parfois un ASS."
+  stage: "Plutôt pour les ASS. Peu de postes éducatifs : vérifiez avant de candidater."
+  source: cmpp
+- id: iem
+  secteur: handienf
+  sigle: "IEM"
+  nom: "Institut d'éducation motrice"
+  types: ["Institut d'éducation motrice"]
+  public: "Enfants et adolescents dont la déficience motrice restreint fortement l'autonomie."
+  missions: "Assurer le suivi médical, l'éducation, la scolarité et la formation, pour favoriser l'intégration familiale, sociale et professionnelle."
+  metiers: "Éducateurs, AES, kinésithérapeutes, ergothérapeutes, enseignants."
+  stage: "Un terrain où l'on travaille beaucoup avec les rééducateurs et les aides techniques."
+  source: ems
+- id: polyhandicap
+  secteur: handienf
+  sigle: "Polyhandicap"
+  nom: "Établissement pour enfants polyhandicapés"
+  types: [Établissement polyhandicap]
+  public: "Enfants et adolescents avec un handicap grave associant déficience motrice et déficience intellectuelle sévère, très dépendants."
+  missions: "Prendre soin, éveiller, communiquer autrement (gestes, objets, pictogrammes) et accompagner les familles."
+  metiers: "Éducateurs, AES, aides-soignants, équipe paramédicale."
+  stage: "Un stage qui transforme le regard sur la communication non verbale et le soin du quotidien."
+  source: ems
+- id: ies
+  secteur: handienf
+  sigle: "IES"
+  nom: "Institut d'éducation sensorielle"
+  types: [Institut déficience visuelle, Institut déficience sensorielle]
+  public: "Enfants et adolescents de 3 à 18 ans (20 ans selon l'agrément) avec une déficience visuelle ou auditive."
+  missions: "Proposer soins, enseignement adapté et accompagnement de la famille, dans l'établissement ou sur les lieux de vie."
+  metiers: "Éducateurs, enseignants spécialisés, orthoptistes, orthophonistes, interprètes ou codeurs selon les cas."
+  stage: "Un terrain très spécifique : la langue des signes ou le braille peuvent être demandés ou encouragés."
+  source: ems
+- id: accueil-familial-specialise
+  secteur: handienf
+  sigle: "Accueil familial spécialisé"
+  nom: "Service d'accueil familial spécialisé"
+  types: [Accueil familial spécialisé]
+  public: "Enfants en situation de handicap accueillis chez des familles d'accueil rattachées à un établissement médico-social."
+  missions: "Accompagner les familles d'accueil et suivre chaque enfant, en lien avec l'établissement."
+  metiers: "Éducateurs et ASS référents."
+  stage: "Peu nombreux : à combiner avec une demande à l'établissement de rattachement."
+  source: ems
+# ---------- Handicap : adultes ----------
+- id: esat
+  secteur: handiad
+  sigle: "Esat"
+  nom: "Établissement et service d'accompagnement par le travail"
+  types: [ESAT]
+  public: "Adultes en situation de handicap, orientés par la MDPH, qui travaillent en milieu protégé."
+  missions: "Proposer une activité professionnelle (espaces verts, restauration, conditionnement…) avec un soutien médico-social et éducatif, et accompagner vers le milieu ordinaire quand c'est possible."
+  metiers: "Moniteurs d'atelier, éducateurs spécialisés, chargés d'insertion, parfois un ASS."
+  stage: "Pour découvrir le travail comme support d'accompagnement. Les ES y ont souvent un rôle de coordination des projets."
+  source: esat
+- id: eanm
+  secteur: handiad
+  sigle: "EANM"
+  nom: "Établissement d'accueil non médicalisé"
+  types: [Foyer non médicalisé]
+  public: "Adultes en situation de handicap qui ont besoin d'un lieu de vie accompagné sans soins médicaux constants."
+  missions: "Héberger et accompagner au quotidien. Dans le répertoire FINESS, cette catégorie récente rassemble des structures qui s'appelaient souvent foyer de vie ou foyer d'hébergement."
+  metiers: "Éducateurs spécialisés, moniteurs-éducateurs, AES."
+  stage: "Regardez le projet de la structure : travailleurs d'Esat le soir, ou résidents présents toute la journée."
+  source: fdv
+- id: foyer-de-vie
+  secteur: handiad
+  sigle: "Foyer de vie"
+  nom: "Foyer de vie (ou foyer occupationnel)"
+  types: [Foyer de vie]
+  public: "Adultes en situation de handicap qui ont une certaine autonomie mais ne peuvent pas travailler, même en Esat."
+  missions: "Proposer un lieu de vie et des activités (créatives, sportives, sociales) adaptées à chacun."
+  metiers: "Éducateurs spécialisés, moniteurs-éducateurs, AES, animateurs."
+  stage: "Un terrain idéal pour les ME et pour travailler l'activité comme support de relation."
+  source: fdv
+- id: foyer-hebergement
+  secteur: handiad
+  sigle: "Foyer d'hébergement"
+  nom: "Foyer d'hébergement pour travailleurs handicapés"
+  types: ["Foyer d'hébergement"]
+  public: "Adultes qui travaillent en Esat (ou parfois en milieu ordinaire) et ont besoin d'un logement accompagné."
+  missions: "Héberger et accompagner le soir et le week-end : vie quotidienne, budget, loisirs, vie affective, autonomie."
+  metiers: "Éducateurs spécialisés, moniteurs-éducateurs, AES, en horaires de soirée et de week-end."
+  stage: "Horaires décalés à prévoir. Un bon terrain pour travailler l'autonomie et le projet de vie."
+  source: fdv
+- id: fam
+  secteur: handiad
+  sigle: "FAM / EAM"
+  nom: "Foyer d'accueil médicalisé (établissement d'accueil médicalisé)"
+  types: [Accueil médicalisé, FAM]
+  public: "Adultes en situation de handicap qui ont besoin d'une aide pour la plupart des actes de la vie courante et d'une surveillance médicale."
+  missions: "Héberger, soigner et accompagner au quotidien, avec des activités adaptées. Dans le répertoire FINESS, beaucoup de FAM apparaissent désormais comme « établissement d'accueil médicalisé »."
+  metiers: "Éducateurs, AES, aides-soignants, infirmiers."
+  stage: "Le travail éducatif y est très lié au soin et au quotidien."
+  source: fam
+- id: mas
+  secteur: handiad
+  sigle: "MAS"
+  nom: "Maison d'accueil spécialisée"
+  types: [MAS]
+  public: "Adultes lourdement handicapés, très dépendants pour les actes de la vie courante."
+  missions: "Héberger de façon permanente, soigner et proposer des activités d'éveil et de bien-être."
+  metiers: "AES, aides-soignants, infirmiers, éducateurs spécialisés (souvent coordinateurs de projets)."
+  stage: "Pour les AES et les ME surtout. Pour un ES, un terrain sur la coordination et la communication non verbale."
+  source: mas
+- id: savs
+  secteur: handiad
+  sigle: "SAVS"
+  nom: "Service d'accompagnement à la vie sociale"
+  types: [SAVS]
+  public: "Adultes en situation de handicap qui vivent chez eux."
+  missions: "Accompagner dans le logement, le budget, les démarches, la vie sociale et le travail, pour maintenir ou développer l'autonomie."
+  metiers: "Éducateurs spécialisés, CESF, ASS, en rendez-vous et visites à domicile."
+  stage: "Un terrain recherché par les CESF et les ES, proche de l'accompagnement social."
+  source: savs
+- id: samsah
+  secteur: handiad
+  sigle: "SAMSAH"
+  nom: "Service d'accompagnement médico-social pour adultes handicapés"
+  types: [SAMSAH]
+  public: "Adultes en situation de handicap vivant à domicile qui ont aussi besoin d'un suivi de soins."
+  missions: "Comme un SAVS, avec en plus la coordination des soins."
+  metiers: "Éducateurs, CESF, infirmiers, psychologues."
+  stage: "Bon terrain pour le travail en réseau et la santé."
+  source: samsah
+- id: esrp
+  secteur: handiad
+  sigle: "ESRP"
+  nom: "Établissement de réadaptation professionnelle"
+  types: [Réadaptation professionnelle]
+  public: "Personnes reconnues travailleurs handicapés qui doivent se former ou se reconvertir."
+  missions: "Évaluer, orienter, former et accompagner vers l'emploi à un rythme adapté."
+  metiers: "Formateurs, chargés d'insertion, psychologues du travail, ASS."
+  stage: "Plutôt pour les profils insertion et les ASS."
+  source: esrp
+- id: espo
+  secteur: handiad
+  sigle: "ESPO"
+  nom: "Établissement de préorientation"
+  types: [Préorientation]
+  public: "Travailleurs handicapés qui ont des difficultés à s'insérer ou se réinsérer dans l'emploi."
+  missions: "Aider à construire un projet professionnel en quelques semaines (bilan, stages en entreprise)."
+  metiers: "Chargés d'insertion, psychologues, formateurs."
+  stage: "Court et centré sur l'orientation professionnelle."
+  source: espo
+- id: mdph
+  secteur: handiad
+  sigle: "MDPH"
+  nom: "Maison départementale des personnes handicapées"
+  types: [MDPH]
+  public: "Enfants et adultes en situation de handicap et leurs familles, dans chaque département."
+  missions: "Informer, évaluer les besoins et attribuer droits et orientations (prestations, établissements, scolarité)."
+  metiers: "ASS, conseillers, évaluateurs, médecins."
+  stage: "Surtout pour les ASS : un regard sur l'évaluation et l'accès aux droits."
+  source: mdph
+# ---------- Hébergement, insertion, précarité ----------
+- id: chrs
+  secteur: insertion
+  sigle: "CHRS"
+  nom: "Centre d'hébergement et de réinsertion sociale"
+  types: [CHRS]
+  public: "Personnes et familles sans logement ou en grande difficulté sociale."
+  missions: "Héberger et accompagner vers l'autonomie : accès aux droits, santé, emploi, logement."
+  metiers: "Éducateurs spécialisés, ASS, CESF, moniteurs-éducateurs."
+  stage: "Un terrain très formateur sur l'accompagnement global et le partenariat. Il accueille des stagiaires de toutes les filières."
+  source: chrs
+- id: veille-sociale
+  secteur: insertion
+  sigle: "Accueil, veille sociale"
+  nom: "Accueil, hébergement d'urgence et veille sociale"
+  types: ["Accueil, veille sociale"]
+  public: "Personnes sans abri ou en grande précarité."
+  missions: "Accueillir sans condition (accueil de jour, hébergement d'urgence, maraudes, orientation par le SIAO) et orienter vers des solutions durables."
+  metiers: "Travailleurs sociaux de toutes formations, souvent avec des bénévoles et des intervenants sociaux."
+  stage: "Un premier stage possible pour découvrir l'urgence sociale et l'« aller vers »."
+  source: chrs
+- id: pension-famille
+  secteur: insertion
+  sigle: "Pension de famille"
+  nom: "Pension de famille (maison relais)"
+  types: [Pension de famille]
+  public: "Personnes isolées, souvent après un long parcours de rue, qui ont du mal à vivre seules dans un logement ordinaire."
+  missions: "Proposer un logement durable dans une petite résidence avec des espaces collectifs, animée par des « hôtes »."
+  metiers: "Des hôtes de pension de famille, souvent CESF, ME ou travailleurs sociaux."
+  stage: "Petite équipe : demandez qui sera votre référent de stage."
+  source: pf
+- id: fjt
+  secteur: insertion
+  sigle: "FJT"
+  nom: "Foyer de jeunes travailleurs"
+  types: [Foyer de jeunes travailleurs]
+  public: "Jeunes de 16 à 30 ans en formation, en emploi ou en recherche d'emploi."
+  missions: "Loger et accompagner vers l'autonomie (logement, budget, santé, emploi), avec une vie collective."
+  metiers: "Animateurs socio-éducatifs, CESF, éducateurs."
+  stage: "Un terrain apprécié par les CESF et pour travailler l'insertion des jeunes."
+  source: fjt
+- id: cada
+  secteur: insertion
+  sigle: "CADA"
+  nom: "Centre d'accueil pour demandeurs d'asile"
+  types: [CADA]
+  public: "Personnes qui ont déposé une demande d'asile, pendant l'examen de leur demande."
+  missions: "Héberger et accompagner dans la procédure d'asile, l'accès aux soins, la scolarité des enfants et la vie quotidienne."
+  metiers: "Intervenants sociaux, ASS, CESF, éducateurs."
+  stage: "Prévoyez de vous former un peu au droit d'asile. La maîtrise d'une langue étrangère est un plus."
+  source: asile
+- id: cph
+  secteur: insertion
+  sigle: "CPH"
+  nom: "Centre provisoire d'hébergement"
+  types: [CPH (réfugiés)]
+  public: "Personnes qui viennent d'obtenir le statut de réfugié ou la protection subsidiaire."
+  missions: "Héberger quelques mois et accompagner vers le logement, l'emploi, la langue et les droits."
+  metiers: "Intervenants sociaux, ASS, CESF, conseillers en insertion."
+  stage: "Un terrain centré sur l'intégration et l'accès au logement."
+  source: asile
+- id: csapa
+  secteur: insertion
+  sigle: "CSAPA"
+  nom: "Centre de soins, d'accompagnement et de prévention en addictologie"
+  types: [CSAPA (addictologie)]
+  public: "Personnes ayant une addiction (alcool, drogues, jeux…) et leur entourage."
+  missions: "Accueillir, soigner et accompagner, de façon anonyme et gratuite si besoin, et mener des actions de prévention."
+  metiers: "Équipe médicale et psychologique, avec des éducateurs spécialisés et des ASS."
+  stage: "Un stage qui apprend la réduction des risques et la posture non jugeante."
+  source: add
+- id: caarud
+  secteur: insertion
+  sigle: "CAARUD"
+  nom: "Centre d'accueil et d'accompagnement à la réduction des risques pour usagers de drogues"
+  types: [CAARUD]
+  public: "Personnes qui consomment des drogues, souvent en grande précarité."
+  missions: "Réduire les risques (matériel, dépistage), accueillir sans condition et orienter vers le soin et les droits."
+  metiers: "Éducateurs spécialisés, infirmiers, intervenants, souvent en accueil et en maraude."
+  stage: "Un terrain très formateur sur l'accueil inconditionnel."
+  source: add
+- id: act
+  secteur: insertion
+  sigle: "ACT"
+  nom: "Appartements de coordination thérapeutique"
+  types: [Appartements de coordination thérapeutique]
+  public: "Personnes atteintes d'une maladie chronique, en situation de précarité."
+  missions: "Héberger temporairement et coordonner soins et accompagnement social."
+  metiers: "Infirmiers, médecins coordinateurs, ASS, CESF, éducateurs."
+  stage: "Pour qui s'intéresse à la santé et à la précarité."
+  source: prec
+- id: lhss
+  secteur: insertion
+  sigle: "LHSS"
+  nom: "Lits halte soins santé"
+  types: [Lits halte soins santé]
+  public: "Personnes sans domicile dont l'état de santé demande des soins mais pas une hospitalisation."
+  missions: "Héberger le temps des soins et préparer la suite avec un accompagnement social."
+  metiers: "Infirmiers, aides-soignants, travailleurs sociaux."
+  stage: "Un terrain court et intense, à la frontière du soin et du social."
+  source: prec
+- id: equipe-mobile
+  secteur: insertion
+  sigle: "Équipe mobile"
+  nom: "Équipe mobile précarité"
+  types: [Équipe mobile précarité]
+  public: "Personnes en grande précarité qui ne vont pas vers les services."
+  missions: "Aller à la rencontre des personnes (rue, squats, accueils), évaluer leurs besoins et les orienter."
+  metiers: "Infirmiers, travailleurs sociaux, parfois psychologues."
+  stage: "Beaucoup de déplacements et un travail en binôme."
+  source: prec
+# ---------- Protection juridique des majeurs ----------
+- id: mjpm
+  secteur: majeurs
+  sigle: "MJPM"
+  nom: "Service mandataire judiciaire à la protection des majeurs"
+  types: [Mandataire judiciaire (MJPM)]
+  public: "Adultes placés sous sauvegarde de justice, curatelle ou tutelle par le juge."
+  missions: "Exercer la mesure décidée par le juge : protéger la personne et ses biens, gérer son budget avec elle et l'accompagner dans ses démarches."
+  metiers: "Des mandataires judiciaires, souvent ASS ou CESF de formation, titulaires d'un certificat national."
+  stage: "Un terrain recherché par les ASS et les CESF : budget, droits, lien avec le juge."
+  source: mjpm

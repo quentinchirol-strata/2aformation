@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{# Guide des structures (contenu/stages_structures.yml). Une fiche par type de structure de l'annuaire. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Guide des structures du social et du médico-social pour choisir son stage","inLanguage":"fr","description":"MECS, IME, ITEP, ESAT, CHRS, AEMO… {{ g.fiches|length }} types de structures expliqués : public, missions, métiers et conseils de stage.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.gfil{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;margin-top:22px;max-width:760px}
+.som{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.som a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;text-decoration:none;color:var(--ink);font-weight:600}
+.som a:hover{border-color:var(--green);color:var(--green)}
+.sect{padding-top:10px}
+.sect>h2{margin:34px 0 4px}
+.sect>.qui{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+.fi{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.fc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:90px}
+.fc:target{border-color:var(--ochre);box-shadow:0 0 0 3px var(--ochre-soft)}
+.fc h3{font-size:1.25rem;margin:0}
+.fc .nom{color:var(--muted);font-size:.9rem;margin-top:-4px}
+.fc dl{margin:0;display:grid;gap:8px;font-size:.92rem}
+.fc dt{font:700 .72rem var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--green)}
+.fc dd{margin:2px 0 0}
+.fc .cs{background:var(--ochre-soft);border-radius:8px;padding:10px 12px;font-size:.9rem}
+.fc .cs b{color:#7a3417}
+.fc .bas{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:6px;font-size:.85rem}
+.fc .bas a{font-weight:700}
+.fc .src{color:var(--muted)}
+.nb{font:700 .78rem var(--body);background:var(--green-soft);color:var(--green);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.fh{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+@media (max-width:700px){.gfil{grid-template-columns:1fr}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Guide des structures</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">MECS, IME, ITEP, CHRS… : quelle structure pour mon stage ?</h1>
+<p class="lead">{{ g.fiches|length }} types de structures expliqués simplement : qui elles accueillent, ce qu'on y fait, qui y travaille et nos conseils pour y faire un stage. De quoi choisir en connaissance de cause et parler juste lors de votre appel.</p>
+<div class="gfil"><label>Chercher un sigle ou un mot<input id="gq" type="search" placeholder="Ex. ITEP, addiction, petite enfance…"></label><a class="btn ghost" href="{{ R }}trouver-son-stage/autour-de-moi/index.html">Chercher autour de chez moi</a></div>
+<nav class="som" aria-label="Secteurs">{% for k, lib, qui in secteurs %}{% if par[k] %}<a href="#s-{{ k }}">{{ lib }}</a>{% endif %}{% endfor %}</nav>
+</div></div></div>
+
+<section style="padding-top:0"><div class="wrap">
+<p id="gvide" hidden class="count">Aucune fiche ne correspond. Essayez un autre mot.</p>
+{% for k, lib, qui in secteurs %}{% if par[k] %}
+<div class="sect" id="s-{{ k }}"><h2>{{ lib }}</h2><p class="qui">Formations concernées le plus souvent : {{ qui }}.</p>
+<div class="fi">{% for f in par[k] %}
+<article class="fc" id="{{ f.id }}" data-k="{{ (f.sigle ~ ' ' ~ f.nom ~ ' ' ~ f.public ~ ' ' ~ f.missions ~ ' ' ~ f.metiers)|lower }}">
+<div class="fh"><h3>{{ f.sigle }}</h3>{% if f.n %}<span class="nb">{{ "{:,}".format(f.n).replace(",", " ") }} en France</span>{% endif %}</div>
+{% if f.nom != f.sigle %}<p class="nom">{{ f.nom }}</p>{% endif %}
+<dl><div><dt>Pour qui ?</dt><dd>{{ f.public }}</dd></div><div><dt>Ce qu'on y fait</dt><dd>{{ f.missions }}</dd></div><div><dt>Qui y travaille ?</dt><dd>{{ f.metiers }}</dd></div></dl>
+<p class="cs"><b>Notre conseil de stage :</b> {{ f.stage }}</p>
+<div class="bas">{% if f.n %}<a href="{{ R }}trouver-son-stage/autour-de-moi/index.html?type={{ f.types|join('|')|urlencode }}" data-goatcounter-click="guide-autour-{{ f.id }}">Trouver des {{ f.sigle }} près de chez moi →</a>{% endif %}<a class="src" href="{{ g.sources[f.source][2] }}" target="_blank" rel="noopener">Source : {{ g.sources[f.source][0] }}</a></div>
+</article>{% endfor %}</div></div>
+{% endif %}{% endfor %}
+<p class="src" style="font-size:.84rem;color:var(--muted);margin-top:30px">Fiches rédigées par 2A Formation à partir des sources officielles citées (vérifiées le {{ g.verification }}) et de notre expérience d'éducateurs spécialisés. Elles décrivent le cas général : chaque structure a son propre projet, à lire avant de candidater. Les effectifs viennent du répertoire FINESS (extraction du 04/05/2026). Une erreur ? <a href="mailto:2aa.formation@gmail.com?subject=Guide%20des%20structures">Écrivez-nous</a>.</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>Vous avez choisi ? Préparez votre candidature</h2><p>Script d'appel, trame de lettre, mails d'envoi et de relance : notre kit gratuit.</p></div><a class="btn" href="{{ R }}trouver-son-stage/kit-candidature/index.html">Ouvrir le kit candidature</a></div>
+</div></section>
+<script>
+(function(){const n=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(), q=document.getElementById('gq');
+q.oninput=()=>{const v=n(q.value.trim()); let tot=0; document.querySelectorAll('.sect').forEach(s=>{let c=0; s.querySelectorAll('.fc').forEach(f=>{const ok=!v||n(f.dataset.k).includes(v); f.hidden=!ok; c+=ok;}); s.hidden=!c; tot+=c;}); document.getElementById('gvide').hidden=!!tot;};})();
+</script>
+{% endblock %}
