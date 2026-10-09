@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{# Rétroplanning de recherche de stage : calcul dans le navigateur, export .ics. Rien n'est envoyé. #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Rétroplanning de recherche de stage en travail social","inLanguage":"fr","description":"Entrez la date de début de votre stage : votre calendrier de recherche (chercher, appeler, relancer, convention) à ajouter à votre agenda.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.rp-form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:20px 22px;margin-top:22px;max-width:760px}
+.tl{list-style:none;margin:20px 0 0;padding:0 0 0 26px;border-left:3px solid var(--green-soft);max-width:860px}
+.tl li{position:relative;margin:0 0 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.tl li::before{content:"";position:absolute;left:-36px;top:18px;width:16px;height:16px;border-radius:50%;background:var(--green);border:3px solid var(--paper)}
+.tl li.past{opacity:.55}.tl li.now{border-color:var(--ochre);box-shadow:0 0 0 3px var(--ochre-soft)}.tl li.now::before{background:var(--ochre)}
+.tl .d{font:700 .78rem var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--green)}
+.tl li.now .d{color:var(--ochre)}
+.tl b{display:block;font-family:var(--display);font-size:1.05rem;margin:2px 0 4px}
+.tl span{font-size:.93rem;color:var(--muted)}
+.tl a{font-weight:700}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.warn{background:var(--ochre-soft);border-radius:12px;padding:14px 18px;margin-top:16px;max-width:860px;font-size:.93rem}
+@media (max-width:700px){.rp-form{grid-template-columns:1fr}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Rétroplanning</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Nouveau · Gratuit, sans inscription</p>
+<h1 style="margin-top:10px">Mon rétroplanning de stage</h1>
+<p class="lead">Entrez la date de début de votre stage : vous obtenez, à rebours, quand faire votre liste, appeler, envoyer, relancer et préparer la convention. Ajoutez-le à votre agenda en un clic pour ne rien oublier.</p>
+<form class="rp-form" id="rp" autocomplete="off">
+<label>Début du stage<input id="deb" type="date" required></label>
+<label>Durée du stage (semaines)<input id="dur" type="number" min="1" max="60" value="12"></label>
+<button class="btn primary" type="submit">Calculer</button>
+</form>
+<p style="font-size:.82rem;color:var(--muted);margin-top:8px">Le calcul se fait sur votre appareil : rien ne nous est envoyé.</p>
+</div></div></div>
+<section style="padding-top:0"><div class="wrap">
+<div id="res" hidden>
+<div class="head"><p class="eyebrow">Votre calendrier</p><h2 id="rtitre"></h2></div>
+<p id="rwarn" class="warn" hidden></p>
+<ol class="tl" id="tl"></ol>
+<div class="acts"><button class="btn primary" id="ics" type="button" data-goatcounter-click="retroplanning-ics">Ajouter à mon agenda (.ics)</button><button class="btn ghost" id="print" type="button">Imprimer</button></div>
+<p style="font-size:.82rem;color:var(--muted);margin-top:10px">Le fichier .ics s'ouvre avec Google Agenda, Outlook, l'agenda de l'iPhone ou d'Android. Les dates sont des repères : votre établissement de formation fixe le calendrier officiel et peut avoir ses propres échéances.</p>
+</div>
+</div></section>
+<section class="alt"><div class="wrap">
+<div class="cta"><div><h2>Prêt à démarrer ?</h2><p>Les structures autour de chez vous, triées par distance, et le kit candidature.</p></div><a class="btn" href="{{ R }}trouver-son-stage/autour-de-moi/index.html">Chercher autour de chez moi</a></div>
+</div></section>
+<script>
+(function(){
+const R='{{ R }}', $=id=>document.getElementById(id);
+const add=(d,n)=>{const x=new Date(d); x.setDate(x.getDate()+n); return x;};
+const fmt=d=>d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const ymd=d=>d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+let steps=[];
+function plan(deb,sem){const fin=add(deb,sem*7-3);
+ return [
+  [add(deb,-182),'Définir mon projet et ma liste','Relire les attendus de ce stage, choisir 2 ou 3 secteurs et une zone, composer une liste de 20 à 30 structures.',R+'trouver-son-stage/autour-de-moi/index.html','Chercher autour de chez moi'],
+  [add(deb,-168),'Appeler les secrétariats','Savoir qui prend des stagiaires, à quelle période et à qui écrire. Noter chaque appel dans le tableau de suivi.',R+'trouver-son-stage/kit-candidature/index.html#appel','Le script d\'appel'],
+  [add(deb,-154),'Envoyer les candidatures','Une lettre courte et personnalisée par structure, avec le CV, au nom de la bonne personne.',R+'trouver-son-stage/kit-candidature/index.html#lettre','La trame de lettre'],
+  [add(deb,-144),'Relancer','Une relance polie aux structures sans réponse depuis 10 jours.',R+'trouver-son-stage/kit-candidature/index.html#relance','Le mail de relance'],
+  [add(deb,-130),'Préparer les entretiens','Relire le projet de chaque structure, préparer deux ou trois questions.',R+'trouver-son-stage/kit-candidature/index.html#entretien','Les questions fréquentes'],
+  [add(deb,-91),'Faire le point','Toujours rien ? Élargissez la zone ou les secteurs, et parlez-en à votre établissement de formation sans attendre.',R+'trouver-son-stage/faq/index.html','La FAQ du stage'],
+  [add(deb,-60),'Lancer la convention','Transmettre l\'accord de la structure à votre établissement pour la convention de stage tripartite, et demander le nom de votre référent.',R+'trouver-son-stage/faq/index.html','Convention : ce qu\'il faut savoir'],
+  [add(deb,-14),'Préparer le premier jour','Horaires, trajet, tenue, documents. Relire le projet d\'établissement et ce que vous venez apprendre.',null,null],
+  [deb,'Premier jour de stage','Bon stage !',null,null],
+  [add(deb,Math.round(sem*7/2)),'Mi-stage : faire un bilan','Un point avec votre référent sur vos objectifs. La convention prévoit souvent une visite de votre établissement.',null,null],
+  [fin,'Fin du stage','Demander votre attestation de stage et remercier l\'équipe.',R+'trouver-son-stage/kit-candidature/index.html#merci','Le mail de remerciement']
+ ];}
+$('rp').onsubmit=e=>{e.preventDefault(); const v=$('deb').value; if(!v) return; const deb=new Date(v+'T09:00:00'); const sem=Math.max(1,Math.min(60,+$('dur').value||12));
+ steps=plan(deb,sem); const today=new Date(); today.setHours(0,0,0,0);
+ $('res').hidden=false; $('rtitre').textContent='Stage à partir du '+deb.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+' ('+sem+' semaine'+(sem>1?'s':'')+')';
+ const late=steps.filter(s=>s[0]<today && s[0]<deb).length; const w=$('rwarn');
+ if(deb<today){w.hidden=false;w.textContent='Cette date est déjà passée : vérifiez la date saisie.';}
+ else if(late>2){w.hidden=false;w.textContent='Vous démarrez tard : plusieurs étapes sont déjà passées. Pas de panique, faites-les toutes cette semaine en commençant par les appels, et prévenez votre établissement de formation.';}
+ else w.hidden=true;
+ let nowSet=false;
+ $('tl').innerHTML=steps.map(s=>{const past=s[0]<today; let cls=past?'past':''; if(!past&&!nowSet){cls='now';nowSet=true;}
+  return '<li class="'+cls+'"><span class="d">'+fmt(s[0])+(cls==='now'?' · prochaine étape':'')+'</span><b>'+s[1]+'</b><span>'+s[2]+'</span>'+(s[3]?' <a href="'+s[3]+'">'+s[4]+' →</a>':'')+'</li>';}).join('');
+ $('res').scrollIntoView({behavior:'smooth',block:'start'});
+ try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'retroplanning-calcul',title:'Rétroplanning calculé',event:true});}catch(x){}
+};
+$('ics').onclick=()=>{const esc=t=>t.replace(/[\\,;]/g,m=>'\\'+m); const now=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+ let c='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//2aFormation//Retroplanning stage//FR\r\nCALSCALE:GREGORIAN\r\n';
+ const today=new Date(); today.setHours(0,0,0,0); steps.forEach((s,i)=>{if(s[0]<today) return; const d=s[0], e=add(d,1); c+='BEGIN:VEVENT\r\nUID:stage-'+ymd(steps[8][0])+'-'+i+'@2aformation.com\r\nDTSTAMP:'+now+'\r\nDTSTART;VALUE=DATE:'+ymd(d)+'\r\nDTEND;VALUE=DATE:'+ymd(e)+'\r\nSUMMARY:'+esc('Stage : '+s[1])+'\r\nDESCRIPTION:'+esc(s[2]+(s[3]?' '+new URL(s[3],location.href).href:''))+'\r\nBEGIN:VALARM\r\nTRIGGER:-PT15H\r\nACTION:DISPLAY\r\nDESCRIPTION:'+esc(s[1])+'\r\nEND:VALARM\r\nEND:VEVENT\r\n';});
+ c+='END:VCALENDAR\r\n'; c=c.split('\r\n').map(l=>{let o='';while(l.length>70){o+=l.slice(0,70)+'\r\n ';l=l.slice(70);}return o+l;}).join('\r\n'); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([c],{type:'text/calendar'})); a.download='retroplanning-stage.ics'; document.body.append(a); a.click(); a.remove();};
+$('print').onclick=()=>window.print();
+const t=new Date(); t.setMonth(t.getMonth()+6); $('deb').value=t.toISOString().slice(0,10);
+})();
+</script>
+{% endblock %}

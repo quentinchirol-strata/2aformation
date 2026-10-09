@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{# Page « Trouver son stage de … » pour une formation (contenu/stages_formations.yml). #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage {{ f.de }}","inLanguage":"fr","description":"Règles de stage du {{ f.sigle }}, structures où chercher et conseils d'éducateurs spécialisés.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script>{% endblock %}
+{% block head_extra %}<style>
+.regle{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:22px 24px;margin-top:8px}
+.regle h3{font-size:1.15rem;margin-bottom:8px}
+.regle p{font-size:.96rem;margin-top:8px}
+.regle .anc{color:var(--muted);font-size:.9rem}
+.regle .src{font-size:.82rem;color:var(--muted);margin-top:12px}
+.ref{background:var(--ochre-soft);border-radius:12px;padding:16px 20px;margin-top:14px;font-size:.95rem}
+.types{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.types a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;text-decoration:none;color:var(--ink);font-weight:600}
+.types a:hover{border-color:var(--green);color:var(--green)}
+.cons{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
+.cons li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:.95rem}
+.autres{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.autres a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;text-decoration:none;color:var(--ink)}
+.autres a[aria-current]{background:var(--green);color:var(--paper);border-color:var(--green)}
+.outils{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.outils a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink)}
+.outils a b{display:block;color:var(--green);font-family:var(--display);margin-bottom:4px}
+.outils a span{font-size:.88rem;color:var(--muted)}
+.outils a:hover{border-color:var(--green)}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › {{ f.sigle }}</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">{{ f.sigle }} · Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Trouver son stage {{ f.de }}</h1>
+<p class="lead">{{ f.intro }}</p>
+<p style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?type={{ f.types|join('|')|urlencode }}" data-goatcounter-click="formation-autour-{{ f.slug }}">Les structures adaptées autour de chez moi</a><a class="btn ghost" href="{{ R }}trouver-son-stage/kit-candidature/index.html">Kit candidature</a></p>
+</div></div></div>
+
+<section style="padding-top:0"><div class="wrap" style="max-width:900px">
+<div class="head"><p class="eyebrow">Ce que dit la formation</p><h2>Les stages du {{ f.sigle }}</h2></div>
+<div class="regle"><h3>La durée et l'organisation</h3><p>{{ f.nouveau }}</p>{% if f.ancien %}<p class="anc">{{ f.ancien }}</p>{% endif %}
+<p class="src">Sources : <a href="{{ f.source_nouveau[1] }}" target="_blank" rel="noopener">{{ f.source_nouveau[0] }}</a>{% if f.source_ancien %} · <a href="{{ f.source_ancien[1] }}" target="_blank" rel="noopener">{{ f.source_ancien[0] }}</a>{% endif %} (vérifié le {{ v }}). Votre établissement de formation précise le calendrier et les attendus de chaque stage : c'est lui qui fait foi.</p></div>
+<p class="ref"><b>À vérifier dès l'appel.</b> {{ f.referent }}</p>
+
+<div class="head" style="margin-top:34px"><p class="eyebrow">Où chercher</p><h2>Les structures où chercher</h2></div>
+<p style="font-size:.95rem">Les types de structures de notre annuaire les plus adaptés à votre formation. Cliquez sur un type pour savoir ce qu'on y fait.</p>
+<div class="types">{% for t in f.types %}{% if gm.get(t) %}<a href="{{ R }}trouver-son-stage/structures/index.html#{{ gm[t] }}">{{ t }}</a>{% endif %}{% endfor %}</div>
+<p style="margin-top:16px"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?type={{ f.types|join('|')|urlencode }}">Voir ces structures autour de chez moi</a></p>
+
+<div class="head" style="margin-top:34px"><p class="eyebrow">Nos conseils</p><h2>Ce qu'on dirait à un étudiant {{ f.sigle }}</h2></div>
+<ul class="cons">{% for c in f.conseils %}<li>{{ c }}</li>{% endfor %}</ul>
+
+<div class="head" style="margin-top:34px"><p class="eyebrow">Vos outils gratuits</p><h2>Pour aller plus loin</h2></div>
+<div class="outils">
+<a href="{{ R }}trouver-son-stage/retroplanning/index.html"><b>Mon rétroplanning</b><span>Quand chercher, appeler, relancer, à ajouter à votre agenda</span></a>
+<a href="{{ R }}trouver-son-stage/kit-candidature/index.html"><b>Kit candidature</b><span>Script d'appel, trame de lettre, mails</span></a>
+<a href="{{ R }}trouver-son-stage/faq/index.html"><b>FAQ du stage</b><span>Gratification, convention, vos droits</span></a>
+<a href="{{ R }}trouver-son-stage/structures/index.html"><b>Guide des structures</b><span>MECS, IME, ITEP… : savoir où vous postulez</span></a>
+</div>
+
+<div class="head" style="margin-top:34px"><p class="eyebrow">Autres formations</p></div>
+<nav class="autres">{% for x in toutes %}<a href="{{ R }}trouver-son-stage/formation/{{ x.slug }}/index.html"{% if x.slug == f.slug %} aria-current="page"{% endif %}>{{ x.sigle }} · {{ x.titre }}</a>{% endfor %}</nav>
+</div></section>
+{% endblock %}

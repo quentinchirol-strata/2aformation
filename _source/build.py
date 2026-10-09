@@ -200,6 +200,18 @@ def main():
            secteurs=regions[0]["secteurs"],
            titre_page="MECS, IME, ITEP, CHRS… : quelle structure pour mon stage ? Guide des structures · 2aFormation",
            description=f"{len(guide['fiches'])} types de structures sociales et médico-sociales expliqués aux étudiants : public, missions, métiers et conseils de stage. MECS, IME, ITEP, ESAT, CHRS, AEMO… Gratuit.")
+    ecrire("trouver-son-stage/retroplanning/index.html", "stages_retroplanning.html", rubrique="etudiants",
+           titre_page="Rétroplanning de stage en travail social : quand chercher, appeler, relancer · 2aFormation",
+           description="Entrez la date de début de votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social : votre calendrier de recherche, à ajouter à votre agenda. Gratuit.")
+    # Pages par formation (contenu/stages_formations.yml)
+    fo = lire_yaml("contenu/stages_formations.yml")
+    gm = {t: f["id"] for f in guide["fiches"] for t in f["types"]}
+    for f in fo["formations"]:
+        f["types"] = [t for t in f["types"] if t in gm]
+        ecrire(f"trouver-son-stage/formation/{f['slug']}/index.html", "stages_formation.html", rubrique="etudiants", f=f, gm=gm,
+               toutes=fo["formations"], v=fo["verification"],
+               titre_page=f"Trouver son stage {f['de']} ({f['sigle']}) : durée, structures, conseils · 2aFormation",
+               description=f"Stage {f['de']} : ce que dit la formation ({f['sigle']}), les structures où chercher, nos conseils d'éducateurs et la recherche autour de chez vous. Gratuit.")
     for st in regions:
         for d in st["departements"]:
             donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
