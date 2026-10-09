@@ -186,6 +186,16 @@ def main():
     import unicodedata
     regions = [json.load(open(p, encoding="utf-8")) for p in glob.glob(os.path.join(ICI, "contenu/stages/*.json"))]
     regions.sort(key=lambda r: (r["slug"] == "outre-mer", unicodedata.normalize("NFD", r["region"]).encode("ascii", "ignore").decode()))
+    # Structures qui ont déclaré accueillir des stagiaires (contenu/stages_accueil.yml)
+    accueil = {str(x["finess"]): x for x in (lire_yaml("contenu/stages_accueil.yml") or {}).get("structures") or []}
+    for r in regions:
+        for d in r["departements"]:
+            for x in d["structures"]:
+                a_ = accueil.get(x["f"])
+                if a_:
+                    x["m"] = a_["mail"]
+                    if a_.get("formations"): x["fo"] = ", ".join(a_["formations"])
+                    if a_.get("periodes"): x["pe"] = a_["periodes"]
     # Guide des structures (contenu/stages_structures.yml) : une fiche par type de l'annuaire
     guide = lire_yaml("contenu/stages_structures.yml")
     from collections import Counter as _C
@@ -200,6 +210,9 @@ def main():
            secteurs=regions[0]["secteurs"],
            titre_page="MECS, IME, ITEP, CHRS… : quelle structure pour mon stage ? Guide des structures · 2aFormation",
            description=f"{len(guide['fiches'])} types de structures sociales et médico-sociales expliqués aux étudiants : public, missions, métiers et conseils de stage. MECS, IME, ITEP, ESAT, CHRS, AEMO… Gratuit.")
+    ecrire("trouver-son-stage/accueillir-des-stagiaires/index.html", "stages_accueil.html", rubrique="etudiants",
+           titre_page="Vous accueillez des stagiaires ? Indiquez votre adresse de candidature · 2aFormation",
+           description="Établissements sociaux et médico-sociaux : indiquez gratuitement l'adresse où recevoir les candidatures de stage, les formations et les périodes que vous accueillez. Visible dans l'annuaire Trouver son stage.")
     ecrire("trouver-son-stage/retroplanning/index.html", "stages_retroplanning.html", rubrique="etudiants",
            titre_page="Rétroplanning de stage en travail social : quand chercher, appeler, relancer · 2aFormation",
            description="Entrez la date de début de votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social : votre calendrier de recherche, à ajouter à votre agenda. Gratuit.")

@@ -1,0 +1,11 @@
+# Structures qui ont déclaré elles-mêmes accueillir des stagiaires (formulaire « Vous accueillez des stagiaires ? »).
+# Une entrée par structure, clé = numéro FINESS de l'annuaire. N'ajouter que des demandes reçues par le formulaire,
+# avec la case de consentement cochée. Adresse générique de préférence (jamais une adresse nominative sans accord écrit de la personne).
+# Retrait : supprimer l'entrée dès la demande (sous 15 jours au plus). Revoir chaque entrée au bout de 2 ans sans mise à jour.
+# Exemple (à ne pas décommenter) :
+# - finess: "110006244"
+#   mail: stages@exemple.fr
+#   formations: [ES, ME, ASS]
+#   periodes: "de septembre à juin, demandes 3 mois avant"
+#   recu: 2026-10-12
+structures: []

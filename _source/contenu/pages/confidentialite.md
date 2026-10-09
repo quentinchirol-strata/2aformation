@@ -36,13 +36,15 @@ Le traitement repose sur votre demande (mesures précontractuelles) et, en cas d
 
 Les pages « Trouver son stage » présentent les structures sociales et médico-sociales d'un département pour aider les étudiants du travail social à chercher un stage.
 
-**Origine des données.** Les informations affichées (nom, adresse, téléphone, type de structure, organisme gestionnaire) proviennent du Fichier national des établissements sanitaires et sociaux (FINESS), publié par le ministère chargé de la santé et des solidarités sur data.gouv.fr sous Licence Ouverte. Nous n'affichons ni adresse e-mail ni nom de personne. Lorsqu'une structure est exploitée par une personne seule, son téléphone peut constituer une donnée personnelle.
+**Origine des données.** Les informations affichées (nom, adresse, téléphone, type de structure, organisme gestionnaire) proviennent du Fichier national des établissements sanitaires et sociaux (FINESS), publié par le ministère chargé de la santé et des solidarités sur data.gouv.fr sous Licence Ouverte. Nous n'affichons aucun nom de personne, ni aucune adresse e-mail autre que celles que les structures nous transmettent elles-mêmes (voir ci-dessous). Lorsqu'une structure est exploitée par une personne seule, son téléphone peut constituer une donnée personnelle.
 
 **Finalité et base légale.** Ces informations sont reprises dans le seul but d'aider les étudiants à trouver un terrain de stage, sur la base de notre intérêt légitime à faciliter cette recherche. Elles ne sont ni vendues, ni cédées, ni utilisées pour de la prospection. L'annuaire est gratuit et sans inscription.
 
 **Mise à jour et durée.** Les informations sont mises à jour à partir de FINESS au moins une fois par an et sont retirées dès qu'une structure n'y figure plus.
 
 **Tableau de suivi Excel.** Le tableau téléchargeable est fabriqué directement sur votre appareil. Nous ne recevons ni votre sélection ni le contenu de votre tableau.
+
+**Adresses de candidature transmises par les structures.** Une structure peut nous indiquer, via le formulaire « Vous accueillez des stagiaires ? », l'adresse e-mail où elle souhaite recevoir les candidatures de stage, les formations et les périodes qu'elle accueille. Ces informations sont publiées sur sa fiche avec l'accord de la personne habilitée qui remplit le formulaire (base légale : consentement), uniquement pour aider les étudiants à candidater. Nous recommandons une adresse générique ; une adresse nominative n'est publiée qu'avec l'accord de la personne concernée. Le nom, la fonction et l'adresse e-mail de la personne qui remplit le formulaire servent seulement à vérifier la demande et à confirmer la publication : ils ne sont ni publiés ni utilisés pour de la prospection, et sont supprimés un an après la demande. Les informations publiées sont retirées sur simple demande (sous 15 jours) ou revues au bout de deux ans sans mise à jour. Le formulaire transite par le service Formspree mentionné plus haut.
 
 **Correction ou retrait d'une fiche.** Si vous gérez une structure présente dans l'annuaire, vous pouvez demander la correction ou le retrait de sa fiche, ou vous opposer à l'affichage d'un numéro personnel, en écrivant à 2aa.formation@gmail.com. Nous traitons la demande sous 15 jours.
 

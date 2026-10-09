@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{# Formulaire pour les structures : déclarer leur adresse de candidature de stage. Envoi via le service de formulaire du site (Formspree). #}
+{% block head_extra %}<style>
+.acc{max-width:820px}
+.acc form{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:24px;display:grid;gap:14px;margin-top:20px}
+.acc .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.acc fieldset{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.acc legend{font-weight:700;font-size:.92rem;padding:0 6px}
+.acc .chk{display:flex;flex-wrap:wrap;gap:8px 18px}
+.acc .chk label{display:flex;gap:6px;align-items:center;font-weight:400;font-size:.93rem}
+.acc .cons{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;font-weight:400}
+.acc .cons input{margin-top:4px}
+.acc .note{font-size:.84rem;color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+.why div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:.92rem}
+.why b{display:block;font-family:var(--display);color:var(--green);margin-bottom:4px}
+.hp{position:absolute;left:-9999px}
+@media (max-width:700px){.acc .row{grid-template-columns:1fr}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › Vous accueillez des stagiaires ?</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Pour les établissements et services · Gratuit</p>
+<h1 style="margin-top:10px">Vous accueillez des stagiaires&nbsp;? Dites-le aux étudiants.</h1>
+<p class="lead">Notre annuaire gratuit est consulté chaque jour par des étudiants en travail social de toute la France. Indiquez l'adresse où vous souhaitez recevoir les candidatures : votre fiche affichera « Accueille des stagiaires » et un lien pour candidater, et vous recevrez des demandes mieux adressées.</p>
+</div></div></div>
+<section style="padding-top:0"><div class="wrap acc">
+<div class="why">
+<div><b>Des candidatures au bon endroit</b>Fini les demandes envoyées au hasard au standard ou à la direction.</div>
+<div><b>Vos périodes et vos formations</b>Les étudiants savent quand écrire et si leur formation vous intéresse.</div>
+<div><b>Gratuit, modifiable, retirable</b>Aucun engagement, aucune prospection. Une simple demande suffit pour modifier ou retirer l'information.</div>
+</div>
+<form id="acc-form" novalidate data-endpoint="{{ site.contact.formulaire_endpoint }}" data-email="{{ site.contact.email }}">
+<input type="hidden" name="_subject" value="Annuaire stages : une structure accueille des stagiaires">
+<input type="hidden" name="profil" value="structure-accueil-stage">
+<div class="row">
+<label>Numéro FINESS de l'établissement<input name="finess" id="finess" inputmode="numeric" placeholder="9 caractères, ex. 110006244" required></label>
+<label>Nom de l'établissement<input name="structure" id="structure" required></label>
+</div>
+<div class="row">
+<label>Commune<input name="commune" id="commune"></label>
+<label>Adresse pour les candidatures de stage<input name="mail_stages" id="mail_stages" type="email" placeholder="ex. stages@… ou secretariat@…" required></label>
+</div>
+<p class="note">Préférez une adresse générique (secrétariat, stages, accueil). Si vous indiquez une adresse nominative, la personne concernée doit avoir donné son accord pour qu'elle soit publiée.</p>
+<fieldset><legend>Formations que vous accueillez</legend><div class="chk">
+{% for x in ["ES","ME","ASS","EJE","ETS","CESF","AES","TISF","Autres"] %}<label><input type="checkbox" name="formations" value="{{ x }}"> {{ x }}</label>{% endfor %}
+</div></fieldset>
+<label>Périodes d'accueil et conseils aux étudiants (facultatif, publié)<input name="periodes" maxlength="140" placeholder="ex. de septembre à juin, demandes 3 mois avant"></label>
+<div class="row">
+<label>Vos nom et fonction (non publiés)<input name="nom" required placeholder="ex. secrétaire de direction"></label>
+<label>Votre e-mail pour vous confirmer la publication (non publié)<input name="email" type="email" required></label>
+</div>
+<label class="hp" aria-hidden="true">Ne pas remplir<input name="site" tabindex="-1" autocomplete="off"></label>
+<label class="cons"><input type="checkbox" name="consentement" value="oui" required> <span>Je suis habilité(e) à représenter cet établissement et j'accepte que l'adresse de candidature, les formations et les périodes indiquées soient publiées sur la fiche de l'établissement dans l'annuaire « Trouver son stage » de 2aformation.com. Je peux les modifier ou les retirer à tout moment en écrivant à {{ site.contact.email }}.</span></label>
+<div><button class="btn primary" type="submit">Envoyer</button></div>
+<p id="acc-status" class="form-status" role="status"></p>
+<p class="note">Nous vérifions chaque demande avant publication (sous 15 jours). Vos nom, fonction et e-mail personnels servent uniquement à cette vérification et ne sont jamais publiés ni utilisés pour de la prospection. Détails dans notre <a href="{{ R }}politique-de-confidentialite/index.html">politique de confidentialité</a>.</p>
+</form>
+</div></section>
+<script>
+(function(){const f=document.getElementById('acc-form'), st=document.getElementById('acc-status');
+try{const p=new URLSearchParams(location.search); if(p.get('f')) f.finess.value=p.get('f'); if(p.get('n')) f.structure.value=p.get('n'); if(p.get('v')) f.commune.value=p.get('v');}catch(e){}
+f.addEventListener('submit',e=>{e.preventDefault(); if(f.site.value) return;
+ const req=['finess','structure','mail_stages','nom','email']; const miss=req.filter(n=>!f[n].value.trim());
+ if(miss.length||!f.consentement.checked||!/^[0-9AB]{9}$/i.test(f.finess.value.trim())){st.className='form-status error';st.textContent=!/^[0-9AB]{9}$/i.test(f.finess.value.trim())?'Le numéro FINESS compte 9 caractères (il figure sur la fiche de l\'établissement dans notre annuaire).':'Merci de remplir les champs obligatoires et de cocher la case d\'accord.';return;}
+ const fd=new FormData(f); fd.set('formations',[...f.querySelectorAll('input[name=formations]:checked')].map(x=>x.value).join(', '));
+ st.className='form-status'; st.textContent='Envoi en cours…';
+ fetch(f.dataset.endpoint,{method:'POST',headers:{'Accept':'application/json'},body:fd}).then(r=>{if(!r.ok) throw 0; f.reset(); st.textContent='Merci ! Nous vérifions la demande et vous confirmons la publication par e-mail sous 15 jours.';
+  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'structure-accueil-envoi',title:'Structure accueillante : formulaire envoyé',event:true});}catch(x){}})
+ .catch(()=>{st.className='form-status error'; st.textContent='L\'envoi n\'a pas abouti. Écrivez-nous à '+f.dataset.email+'.';});});})();
+</script>
+{% endblock %}
