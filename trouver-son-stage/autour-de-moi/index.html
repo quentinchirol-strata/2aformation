@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/css/site.css?v=202610091154">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610091233">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver un stage autour de chez moi","inLanguage":"fr","description":"Recherche par distance parmi les structures sociales et médico-sociales de France pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"https://2aformation.com/trouver-son-stage/autour-de-moi/","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script><style>
 .finder{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:20px 22px;margin-top:22px}
 .finder .row{display:grid;grid-template-columns:1fr 150px auto;gap:12px;align-items:end}
@@ -33,7 +33,7 @@
 .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .st{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;font-size:.92rem}
 .st .top2{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.st a.ty{text-decoration:none}.st .ty .q{display:inline-block;width:1.35em;height:1.35em;line-height:1.35em;text-align:center;border-radius:50%;background:var(--green-soft);font-size:.9em;margin-left:2px}.st .ty{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}
+.st .acc{align-self:flex-start;font:700 .78rem var(--body);color:#1f6b45;background:#DCEFE3;border-radius:999px;padding:3px 10px;margin:2px 0}.st .gere{font-size:.75rem;color:var(--muted);margin-top:6px}.st .gere a{color:var(--muted);font-weight:400}.st a.ty{text-decoration:none}.st .ty .q{display:inline-block;width:1.35em;height:1.35em;line-height:1.35em;text-align:center;border-radius:50%;background:var(--green-soft);font-size:.9em;margin-left:2px}.st .ty{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}
 .st .km{font:700 .82rem var(--body);color:var(--paper);background:var(--green);border-radius:999px;padding:2px 9px;white-space:nowrap}
 .st h3{font-size:1.02rem;margin:2px 0 4px}
 .st .ad,.st .ge{color:var(--muted)}
@@ -116,7 +116,7 @@
 <div class="list" id="list"></div>
 <div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
 </div>
-<p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Position approximative de chaque structure calculée à partir de sa commune (données ouvertes Etalab et base officielle des codes postaux de La Poste) : comptez la distance comme un ordre de grandeur. Vérifiez les coordonnées avant d'appeler. 2A Formation n'est pas lié à ces structures et ne sait pas lesquelles accueillent des stagiaires. Une erreur ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%20(autour%20de%20moi)">Écrivez-nous</a>.</p>
+<p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Position approximative de chaque structure calculée à partir de sa commune (données ouvertes Etalab et base officielle des codes postaux de La Poste) : comptez la distance comme un ordre de grandeur. Vérifiez les coordonnées avant d'appeler. 2A Formation n'est pas lié à ces structures. La mention « Accueille des stagiaires » et l'adresse de candidature sont indiquées par les structures elles-mêmes ; pour les autres, nous ne savons pas si elles accueillent des stagiaires. Une erreur ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%20(autour%20de%20moi)">Écrivez-nous</a>. Vous gérez une structure ? <a href="../../trouver-son-stage/accueillir-des-stagiaires/index.html">Indiquez l'adresse où recevoir les candidatures de stage</a>.</p>
 </div></section>
 
 <section class="alt"><div class="wrap">
@@ -183,7 +183,7 @@ function draw(){const sec=$('secteurs'), ty=$('ty');
   lastRes=res;
   $('count').textContent=res.length+(res.length>1?' structures':' structure');
   $('list').innerHTML=res.length?res.slice(0,shown).map(d=>{const m='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v), on=!!sel[d.f];
-    return '<article class="st'+(on?' sel':'')+'"><span class="top2"><a class="ty" href="../../trouver-son-stage/structures/index.html#'+(GM[d.t]||'')+'" title="C\'est quoi ?">'+d.t+' <span class="q" aria-hidden="true">?</span></a>'+(d.km!=null?'<span class="km">'+fmt(d.km)+'</span>':'')+'</span><h3>'+d.n+'</h3><span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+'<span class="ln">'+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte</a><a href="https://www.google.com/search?q='+encodeURIComponent(d.n+' '+d.v)+'" target="_blank" rel="noopener">Chercher le site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+on+'">'+(on?'✓ Dans ma liste':'+ Ajouter à ma liste')+'</button></article>';}).join('')
+    return '<article class="st'+(on?' sel':'')+'"><span class="top2"><a class="ty" href="../../trouver-son-stage/structures/index.html#'+(GM[d.t]||'')+'" title="C\'est quoi ?">'+d.t+' <span class="q" aria-hidden="true">?</span></a>'+(d.km!=null?'<span class="km">'+fmt(d.km)+'</span>':'')+'</span><h3>'+d.n+'</h3>'+(d.m?'<span class="acc">✓ Accueille des stagiaires'+(d.fo?' · '+d.fo:'')+'</span>':'')+'<span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+(d.pe?'<span class="ge">Périodes : '+d.pe+'</span>':'')+'<span class="ln">'+(d.m?'<a href="mailto:'+d.m+'?subject='+encodeURIComponent('Demande de stage')+'" data-goatcounter-click="stage-candidater-mail">Candidater par mail</a>':'')+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte</a><a href="https://www.google.com/search?q='+encodeURIComponent(d.n+' '+d.v)+'" target="_blank" rel="noopener">Chercher le site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+on+'">'+(on?'✓ Dans ma liste':'+ Ajouter à ma liste')+'</button><span class="gere">Vous gérez cette structure ? <a href="../../trouver-son-stage/accueillir-des-stagiaires/index.html?f='+d.f+'&n='+encodeURIComponent(d.n)+'&v='+encodeURIComponent(d.v)+'">Indiquez votre adresse stages</a></span></article>';}).join('')
     :'<div class="vide" style="grid-column:1/-1"><b>Aucune structure dans ce rayon.</b> Essayez une distance plus grande ou un autre secteur.</div>';
   $('more').parentElement.style.display=res.length>shown?'':'none';
   if(MAP&&!$('carte').hidden) drawMap();
@@ -306,7 +306,7 @@ save();
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js?v=202610091154"></script>
+<script src="../../assets/js/site.js?v=202610091233"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
