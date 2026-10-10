@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% set g = site.produits.guide_entree %}
 {% set sel = site.produits.selection %}
-{% set achat = g.lien_paiement if g.lien_paiement else R ~ 'contact/index.html?profil=admission&sujet=' ~ ('Commande : pack Réussir son entrée en formation sociale'|urlencode) %}
+{% set achat = R ~ 'preparer-son-entree/merci-' ~ g.jeton ~ '/index.html' %}
 {% block contenu %}
 <div class="wrap fiche-head">
-  <div class="eyebrow">Futurs étudiants en travail social · Rentrée 2027</div>
+  <div class="eyebrow">Pack gratuit · Futurs étudiants en travail social · Rentrée 2027</div>
   <div class="two" style="align-items:center;margin-top:10px">
     <div>
       <h1>Réussir son entrée en formation sociale</h1>
@@ -15,9 +15,10 @@
         <span class="chip">8 trames Word</span>
         <span class="chip">30 questions d'entretien à préparer</span>
         <span class="chip">Parcoursup et formation continue</span>
+        <span class="chip">Gratuit, sans inscription</span>
       </div>
       <p style="margin-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-        <a class="btn primary" href="{{ achat }}">Obtenir le pack · {{ g.prix }}</a>
+        <a class="btn primary" href="{{ achat }}" data-goatcounter-click="pack-entree-telecharger-haut">Télécharger le pack gratuit</a>
         <span class="muted" style="font-size:.9rem">{{ g.mention_prix }}</span>
       </p>
     </div>
@@ -76,7 +77,7 @@
       </article>
       {% endfor %}
     </div>
-    <p class="muted" style="font-size:.9rem;margin-top:14px">TVA non applicable · paiement sécurisé par carte. Le prix du pack vous est remboursé si vous commandez une simulation d'entretien dans les 3 mois suivant votre achat.</p>
+    <p class="muted" style="font-size:.9rem;margin-top:14px">Accompagnements payants, facultatifs : le pack gratuit suffit pour préparer votre candidature. TVA non applicable · paiement sécurisé par carte. Si vous êtes mineur, la commande se fait avec l'accord d'un parent, qui peut aussi la passer.</p>
   </div>
 </section>
 
@@ -93,7 +94,7 @@
       <p><strong>Est-ce que cela garantit mon admission ?</strong> Non. Seule la commission de chaque école décide. Le pack et nos accompagnements vous aident à présenter une candidature plus claire et plus solide.</p>
       <p><strong>Allez-vous écrire mon projet motivé ?</strong> Non. Le guide ne contient aucun texte à recopier, et notre commentaire porte sur votre texte : vous en restez l'auteur. C'est aussi ce qu'attendent les écoles.</p>
       <p><strong>Je suis en reconversion, est-ce pour moi ?</strong> Oui : un chapitre est consacré à la formation continue, à la lettre de motivation et au financement.</p>
-      <p><strong>Je suis mineur, puis-je commander ?</strong> Oui, avec l'accord d'un parent, qui peut aussi passer la commande.</p>
+      <p><strong>Pourquoi le pack est-il gratuit ?</strong> Parce que l'accès aux métiers du social ne doit pas dépendre du budget de chacun. Le pack donne toute la méthode ; nos accompagnements sont un plus, jamais une obligation.</p>
       <p><strong>Comment reçoit-on le pack ?</strong> {{ g.livraison }}</p>
     </div>
   </div>
@@ -101,9 +102,9 @@
 
 <section><div class="wrap">
   <div class="cta">
-    <div><h2>Préparez votre candidature dès aujourd'hui</h2><p>Guide + 8 trames Word · {{ g.prix }}. Seule l'école décide de l'admission : ce pack vous aide à arriver prêt.</p></div>
-    <a class="btn" href="{{ achat }}">Obtenir le pack</a>
+    <div><h2>Préparez votre candidature dès aujourd'hui</h2><p>Guide + 8 trames Word, gratuitement. Seule l'école décide de l'admission : ce pack vous aide à arriver prêt.</p></div>
+    <a class="btn" href="{{ achat }}" data-goatcounter-click="pack-entree-telecharger-bas">Télécharger le pack</a>
   </div>
-  <p class="muted" style="font-size:.85rem;margin-top:14px">Produit numérique à usage personnel. En téléchargeant le pack, vous demandez son accès immédiat et renoncez à votre droit de rétractation (article L221-28 du Code de la consommation). <a href="{{ R }}cgv-produits-numeriques/index.html">Conditions générales de vente</a>.</p>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Pack gratuit, à usage personnel. Merci de ne pas le revendre ni le diffuser sous votre nom ; vous pouvez partager le lien de cette page. Accompagnements : <a href="{{ R }}cgv-produits-numeriques/index.html">conditions générales de vente</a>.</p>
 </div></section>
 {% endblock %}

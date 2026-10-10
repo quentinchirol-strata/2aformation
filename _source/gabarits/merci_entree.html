@@ -2,11 +2,11 @@
 {% block head_extra %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block contenu %}
 <div class="wrap fiche-head">
-  <div class="eyebrow">Commande confirmée</div>
-  <h1>Merci, votre pack est prêt</h1>
-  <p class="lead">Votre paiement a bien été reçu. Téléchargez vos fichiers ci-dessous et enregistrez-les sur votre ordinateur. Nous vous envoyons aussi ce lien par e-mail sous 24 h ouvrées.</p>
+  <div class="eyebrow">Pack gratuit</div>
+  <h1>Votre pack est prêt</h1>
+  <p class="lead">Téléchargez vos fichiers ci-dessous et enregistrez-les sur votre ordinateur. C'est gratuit et sans inscription.</p>
   <p style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-    <a class="btn primary" href="{{ R }}dl/{{ jeton }}/Pack-entree-en-formation-2A-Formation.zip">Télécharger le pack complet (.zip)</a>
+    <a class="btn primary" href="{{ R }}dl/{{ jeton }}/Pack-entree-en-formation-2A-Formation.zip" data-goatcounter-click="pack-entree-zip">Télécharger le pack complet (.zip)</a>
   </p>
   <ul class="ticks" style="margin-top:22px">
     <li><a href="{{ R }}dl/{{ jeton }}/Guide-Reussir-son-entree-en-formation-sociale-2A-Formation.pdf">Le guide seul (PDF, 14 pages)</a></li>
@@ -24,7 +24,7 @@
   </div>
   <div>
     <h2 style="font-size:1.4rem;margin-bottom:12px">Besoin d'aide ?</h2>
-    <p>Un problème de téléchargement : écrivez à {{ site.contact.email }}. Si vous commandez une simulation d'entretien dans les 3 mois, nous vous remboursons les {{ site.produits.guide_entree.prix }} du pack : <a href="{{ R }}preparer-son-entree/index.html#accompagnements">voir les accompagnements</a>.</p>
+    <p>Un problème de téléchargement : écrivez à {{ site.contact.email }}. Envie d'un regard extérieur sur votre projet ou d'un entraînement à l'oral ? <a href="{{ R }}preparer-son-entree/index.html#accompagnements">Voir les accompagnements</a>.</p>
   </div>
 </div></section>
 {% endblock %}

@@ -123,8 +123,8 @@ def main():
     ecrire(f"guide-memoire/merci-{jm}/index.html", "merci_memoire.html", rubrique="etudiants", jeton=jm,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack mémoire.")
     ecrire("preparer-son-entree/index.html", "guide_entree.html", rubrique="etudiants",
-           titre_page="Réussir son entrée en formation sociale : projet motivé et entretien (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
-           description="Guide PDF et 8 trames Word pour préparer son projet de formation motivé Parcoursup et son entretien d'admission en école du travail social. À jour de la réforme 2026.")
+           titre_page="Pack gratuit Réussir son entrée en formation sociale : projet motivé et entretien (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
+           description="Gratuit : guide PDF et 8 trames Word pour préparer son projet de formation motivé Parcoursup et son entretien d'admission en école du travail social. À jour de la réforme 2026.")
     je = site["produits"]["guide_entree"]["jeton"]
     ecrire(f"preparer-son-entree/merci-{je}/index.html", "merci_entree.html", rubrique="etudiants", jeton=je,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack entrée en formation.")

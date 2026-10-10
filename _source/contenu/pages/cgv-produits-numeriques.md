@@ -13,7 +13,7 @@ description: Conditions générales de vente aux particuliers de 2aFormation, pa
 
 ## 2. Produits
 
-Les packs numériques vendus par 2aFormation (« Réussir son livret 2 de VAE » et « Réussir son entrée en formation sociale ») comprennent un guide au format PDF, des trames au format Word et une checklist. Il s'agit de contenus numériques téléchargeables, sans support matériel. Ils fournissent une méthode ; ils ne constituent pas un accompagnement individuel et ne garantissent ni l'obtention du diplôme, qui relève de la seule décision du jury, ni l'admission en formation, qui relève de la seule décision de l'établissement de formation.
+Le pack numérique vendu par 2aFormation (« Réussir son livret 2 de VAE ») comprend un guide au format PDF, des trames au format Word et une checklist. Il s'agit d'un contenu numérique téléchargeable, sans support matériel. Il fournit une méthode ; il ne constitue pas un accompagnement individuel et ne garantit pas l'obtention du diplôme, qui relève de la seule décision du jury. Les packs « Réussir son mémoire de pratique professionnelle » et « Réussir son entrée en formation sociale » sont gratuits depuis le 10 octobre 2026 et ne sont plus vendus.
 
 ## 3. Prix
 
@@ -41,7 +41,7 @@ Si l'acheteur du pack « Réussir son livret 2 de VAE » commande un accompagnem
 
 Le pack « Réussir son mémoire de pratique professionnelle » est gratuit depuis le 10 octobre 2026. Les personnes qui l'ont acheté avant cette date conservent leur droit : si elles commandent une relecture de mémoire auprès de 2aFormation dans les 3 mois suivant leur achat, le prix payé pour le pack leur est remboursé après leur commande de relecture, sur simple demande indiquant la date d'achat.
 
-Si l'acheteur du pack « Réussir son entrée en formation sociale » commande une simulation d'entretien d'admission auprès de 2aFormation dans les 3 mois suivant son achat, le prix payé pour le pack lui est remboursé après sa commande de simulation, sur simple demande indiquant la date d'achat.
+Le pack « Réussir son entrée en formation sociale » est gratuit depuis le 10 octobre 2026. Les personnes qui l'ont acheté avant cette date conservent leur droit : si elles commandent une simulation d'entretien d'admission auprès de 2aFormation dans les 3 mois suivant leur achat, le prix payé pour le pack leur est remboursé après leur commande, sur simple demande indiquant la date d'achat.
 
 ## 9. Données personnelles
 

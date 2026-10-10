@@ -112,13 +112,12 @@ produits:
     livraison: "Le kit (PDF et module 0 modifiable) vous est envoyé par e-mail sous 2 jours ouvrés après le paiement ou la réception du bon de commande, avec la facture et la confirmation de commande."
   guide_entree:
     # Pack « Réussir son entrée en formation sociale » (page preparer-son-entree)
-    prix: "35 €"
-    mention_prix: "TVA non applicable · paiement sécurisé par carte"
-    # Coller ici le lien de paiement Stripe quand il sera créé ; vide = le bouton ouvre le formulaire de contact
-    # Dans Stripe, page de confirmation : https://2aformation.com/preparer-son-entree/merci-7c8e99847a81/index.html
-    lien_paiement: "https://buy.stripe.com/eVqbIU10ug0UbVF9FM0gw04"
+    # Gratuit depuis le 10/10/2026 (décision d'Alexandre) : plus de lien de paiement, le bouton mène à la page de téléchargement
+    prix: "gratuit"
+    mention_prix: "Téléchargement libre, sans inscription ni paiement"
+    lien_paiement: ""
     jeton: "7c8e99847a81"
-    livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+    livraison: "Cliquez sur « Télécharger le pack » : vous arrivez directement sur la page de téléchargement (guide PDF et trames Word), sans inscription."
   selection:
     # Accompagnements à la sélection (même page). Page de confirmation Stripe pour les deux liens :
     # https://2aformation.com/preparer-son-entree/envoi-9908abea9823/index.html
