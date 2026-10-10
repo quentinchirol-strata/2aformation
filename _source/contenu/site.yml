@@ -97,11 +97,12 @@ produits:
     jeton: "b8803d8f96e9"
     livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
   guide_memoire:
-    prix: "39 €"
-    mention_prix: "TVA non applicable · paiement sécurisé par carte"
-    lien_paiement: "https://buy.stripe.com/00w6oAgZs4ic9Nx6tA0gw03"
+    # Gratuit depuis le 10/10/2026 (décision d'Alexandre) : plus de lien de paiement, le bouton mène à la page de téléchargement
+    prix: "gratuit"
+    mention_prix: "Téléchargement libre, sans inscription ni paiement"
+    lien_paiement: ""
     jeton: "23c2ab94e25d"
-    livraison: "Dès le paiement validé, vous arrivez sur une page de téléchargement. Le lien vous est aussi envoyé par e-mail sous 24 h ouvrées."
+    livraison: "Cliquez sur « Télécharger le pack » : vous arrivez directement sur la page de téléchargement (guide PDF et trames Word), sans inscription."
   kit_premiers_pas:
     # Kit « Premiers pas en protection de l'enfance » (page kit-premiers-pas), achat unique par établissement + 12 mois de suivi
     prix: "290 € (au lieu de 390 €)"

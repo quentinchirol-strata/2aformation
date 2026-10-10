@@ -2,11 +2,11 @@
 {% block head_extra %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block contenu %}
 <div class="wrap fiche-head">
-  <div class="eyebrow">Commande confirmée</div>
-  <h1>Merci, votre pack mémoire est prêt</h1>
-  <p class="lead">Votre paiement a bien été reçu. Téléchargez vos fichiers ci-dessous et enregistrez-les sur votre ordinateur. Nous vous envoyons aussi ce lien par e-mail sous 24 h ouvrées.</p>
+  <div class="eyebrow">Pack gratuit</div>
+  <h1>Votre pack mémoire est prêt</h1>
+  <p class="lead">Téléchargez vos fichiers ci-dessous et enregistrez-les sur votre ordinateur. C'est gratuit et sans inscription.</p>
   <p style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-    <a class="btn primary" href="{{ R }}dl/{{ jeton }}/Pack-memoire-2A-Formation.zip">Télécharger le pack complet (.zip)</a>
+    <a class="btn primary" href="{{ R }}dl/{{ jeton }}/Pack-memoire-2A-Formation.zip" data-goatcounter-click="pack-memoire-zip">Télécharger le pack complet (.zip)</a>
   </p>
   <ul class="ticks" style="margin-top:22px">
     <li><a href="{{ R }}dl/{{ jeton }}/Guide-Reussir-son-memoire-2A-Formation.pdf">Le guide seul (PDF, 15 pages)</a></li>
@@ -24,7 +24,7 @@
   </div>
   <div>
     <h2 style="font-size:1.4rem;margin-bottom:12px">Besoin d'aide ?</h2>
-    <p>Un problème de téléchargement : écrivez à {{ site.contact.email }}. Si vous commandez une relecture de mémoire dans les 3 mois, nous vous remboursons les {{ site.produits.guide_memoire.prix }} du pack : <a href="{{ R }}relecture-ecrits/index.html">voir la relecture</a>.</p>
+    <p>Un problème de téléchargement : écrivez à {{ site.contact.email }}. Besoin d'un regard extérieur avant le dépôt ? <a href="{{ R }}relecture-ecrits/index.html">Voir la relecture de mémoire</a>.</p>
   </div>
 </div></section>
 {% endblock %}

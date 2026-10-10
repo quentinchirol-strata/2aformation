@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% set g = site.produits.guide_memoire %}
-{% set achat = g.lien_paiement if g.lien_paiement else R ~ 'contact/index.html?profil=etudiant&sujet=' ~ ('Commande : pack Réussir son mémoire'|urlencode) %}
+{% set achat = R ~ 'guide-memoire/merci-' ~ g.jeton ~ '/index.html' %}
 {% block contenu %}
 <div class="wrap fiche-head">
-  <div class="eyebrow">Pack numérique · Étudiants en travail social · Sessions 2027 et 2028</div>
+  <div class="eyebrow">Pack gratuit · Étudiants en travail social · Sessions 2027 et 2028</div>
   <div class="two" style="align-items:center;margin-top:10px">
     <div>
       <h1>Réussir son mémoire de pratique professionnelle</h1>
@@ -13,10 +13,10 @@
         <span class="chip">8 trames Word</span>
         <span class="chip">Checklist avant dépôt</span>
         <span class="chip">Préparation de la soutenance</span>
-        <span class="chip">Remboursé si vous prenez une relecture dans les 3 mois</span>
+        <span class="chip">Gratuit, sans inscription</span>
       </div>
       <p style="margin-top:24px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-        <a class="btn primary" href="{{ achat }}">Obtenir le pack · {{ g.prix }}</a>
+        <a class="btn primary" href="{{ achat }}" data-goatcounter-click="pack-memoire-telecharger-haut">Télécharger le pack gratuit</a>
         <span class="muted" style="font-size:.9rem">{{ g.mention_prix }}</span>
       </p>
     </div>
@@ -70,7 +70,7 @@
       <h2 style="font-size:1.5rem;margin-bottom:14px">Questions fréquentes</h2>
       <p><strong>Le pack est-il à jour de la réforme des diplômes ?</strong> Oui. La réforme de 2025 supprime le mémoire pour les étudiants entrés en formation à partir de septembre 2026. Ceux entrés avant restent évalués avec le mémoire jusqu'en juillet 2028 au plus tard : ce pack est fait pour eux.</p>
       <p><strong>Remplace-t-il mon directeur de mémoire ?</strong> Non. Il vous donne une méthode et des outils ; les consignes de votre école passent toujours en premier.</p>
-      <p><strong>Et si je veux une relecture ?</strong> Si vous commandez notre <a href="{{ R }}relecture-ecrits/index.html">relecture de mémoire</a> dans les 3 mois suivant votre achat, nous vous remboursons le prix du pack.</p>
+      <p><strong>Pourquoi est-il gratuit ?</strong> Parce que nous voulons que chaque étudiant ait accès à une méthode solide, quel que soit son budget. Si vous souhaitez ensuite un regard extérieur sur votre écrit, nous proposons une <a href="{{ R }}relecture-ecrits/index.html">relecture de mémoire</a> : nous commentons, nous ne rédigeons jamais à votre place.</p>
       <p><strong>Comment le reçoit-on ?</strong> {{ g.livraison }}</p>
     </div>
   </div>
@@ -78,9 +78,9 @@
 
 <section><div class="wrap">
   <div class="cta">
-    <div><h2>Avancez sur votre mémoire dès aujourd'hui</h2><p>Guide + 8 trames + checklist · {{ g.prix }}. Seul le jury évalue votre mémoire : ce pack vous aide à le rendre plus solide.</p></div>
-    <a class="btn" href="{{ achat }}">Obtenir le pack</a>
+    <div><h2>Avancez sur votre mémoire dès aujourd'hui</h2><p>Guide + 8 trames + checklist, gratuitement. Seul le jury évalue votre mémoire : ce pack vous aide à le rendre plus solide.</p></div>
+    <a class="btn" href="{{ achat }}" data-goatcounter-click="pack-memoire-telecharger-bas">Télécharger le pack</a>
   </div>
-  <p class="muted" style="font-size:.85rem;margin-top:14px">Produit numérique à usage personnel. En téléchargeant le pack, vous demandez son accès immédiat et renoncez à votre droit de rétractation (article L221-28 du Code de la consommation). <a href="{{ R }}cgv-produits-numeriques/index.html">Conditions générales de vente</a>.</p>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Pack gratuit, à usage personnel. Merci de ne pas le revendre ni le diffuser sous votre nom ; vous pouvez partager le lien de cette page avec vos camarades.</p>
 </div></section>
 {% endblock %}

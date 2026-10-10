@@ -117,8 +117,8 @@ def main():
     ecrire(f"guide-livret-2/merci-{jeton}/index.html", "merci_livret2.html", rubrique="vae", jeton=jeton,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack livret 2.")
     ecrire("guide-memoire/index.html", "guide_memoire.html", rubrique="etudiants",
-           titre_page="Pack Réussir son mémoire de pratique professionnelle (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
-           description="Guide PDF, 8 trames Word et checklist pour réussir son mémoire de pratique professionnelle en travail social, de la question de départ à la soutenance.")
+           titre_page="Pack gratuit Réussir son mémoire de pratique professionnelle (DEES, DEASS, DEEJE, DEETS, DECESF) · 2aFormation",
+           description="Gratuit : guide PDF, 8 trames Word et checklist pour réussir son mémoire de pratique professionnelle en travail social, de la question de départ à la soutenance.")
     jm = site["produits"]["guide_memoire"]["jeton"]
     ecrire(f"guide-memoire/merci-{jm}/index.html", "merci_memoire.html", rubrique="etudiants", jeton=jm,
            titre_page="Merci pour votre commande · 2aFormation", description="Téléchargement du pack mémoire.")
